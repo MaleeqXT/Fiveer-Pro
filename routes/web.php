@@ -9,4 +9,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/dashboard', [FiveerController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin', [FiveerController::class, 'index'])->name('admin.dashboard');

@@ -176,7 +176,7 @@ style="
       <div class="d-flex justify-content-between">
         <!-- Small Card 1 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://media.istockphoto.com/id/589538028/photo/manali-town.jpg?s=2048x2048&w=is&k=20&c=16NUhEO0f1m0danaOsxRIU4x9iCHshjT2keQtxJ6zJ0=" alt="Small Card Image" class="card-img-top" style="height: 100px; object-fit: cover;">
+          <img src="https://media.istockphoto.com/id/589538028/photo/manali-town.jpg?s=2048x2048&w=is&k=20&c=16NUhEO0f1m0danaOsxRIU4x9iCHshjT2keQtxJ6zJ0=" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
           <div class="card-body text-center">
             <h6 class="mb-1">Laravel Expert With Responsive</h6>
             <p class="text-muted mb-1">$1500</p>
@@ -185,7 +185,7 @@ style="
         </div>
         <!-- Small Card 2 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://media.istockphoto.com/id/1284671318/photo/meadows-in-the-snow-peak-mountains-of-himalaya.jpg?s=2048x2048&w=is&k=20&c=zIibFUP3rnibsoKPWtD4y7ChHDaKfbsVNmQtd6ci9R0=" alt="Small Card Image" class="card-img-top" style="height: 100px; object-fit: cover;">
+          <img src="https://media.istockphoto.com/id/1284671318/photo/meadows-in-the-snow-peak-mountains-of-himalaya.jpg?s=2048x2048&w=is&k=20&c=zIibFUP3rnibsoKPWtD4y7ChHDaKfbsVNmQtd6ci9R0=" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
           <div class="card-body text-center">
             <h6 class="mb-1">Python Expert With Responsive</h6>
             <p class="text-muted mb-1">$1800</p>
@@ -194,7 +194,7 @@ style="
         </div>
         <!-- Small Card 3 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://media.istockphoto.com/id/844226534/photo/leaf-background.jpg?s=2048x2048&w=is&k=20&c=SuFwCpxv6ALde15whmnrtQ42SpuC09aLLwUI2pE5uMM=" alt="Small Card Image" class="card-img-top" style="height: 100px; object-fit: cover;">
+          <img src="https://media.istockphoto.com/id/844226534/photo/leaf-background.jpg?s=2048x2048&w=is&k=20&c=SuFwCpxv6ALde15whmnrtQ42SpuC09aLLwUI2pE5uMM=" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
           <div class="card-body text-center">
             <h6 class="mb-1">React And C++ Expert</h6>
             <p class="text-muted mb-1">$2000</p>
@@ -208,7 +208,7 @@ style="
       <div class="d-flex justify-content-between">
         <!-- Small Card 4 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Small Card Image" class="card-img-top" style="height: 100px; object-fit: cover;">
+          <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
           <div class="card-body text-center">
             <h6 class="mb-1">Web Design Specialist</h6>
             <p class="text-muted mb-1">$1200</p>
@@ -217,7 +217,7 @@ style="
         </div>
         <!-- Small Card 5 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Small Card Image" class="card-img-top" style="height: 100px; object-fit: cover;">
+          <img src="https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
           <div class="card-body text-center">
             <h6 class="mb-1">SEO Optimization Expert</h6>
             <p class="text-muted mb-1">$1000</p>
@@ -226,7 +226,7 @@ style="
         </div>
         <!-- Small Card 6 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Small Card Image" class="card-img-top" style="height: 100px; object-fit: cover;">
+          <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
           <div class="card-body text-center">
             <h6 class="mb-1">Mobile App Developer</h6>
             <p class="text-muted mb-1">$1700</p>

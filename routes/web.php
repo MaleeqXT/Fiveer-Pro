@@ -19,5 +19,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/selling', [SellerController::class, 'index']);
+Route::get('/selling', [SellerController::class, 'index'])->name('selling');
 Route::get('/profile', [ProfileController::class, 'index']);

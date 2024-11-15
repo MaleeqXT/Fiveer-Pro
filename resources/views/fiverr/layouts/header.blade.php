@@ -1,56 +1,99 @@
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container-fluid">
-      <!-- Brand/logo -->
-      <a class="navbar-brand" href="#" style="color: black; margin-left: 5%;">
-  
-        <h1 style="font-family: 'Poppins', sans-serif;">Fiverr <span style="color: green;">.<span></h1>
-            </a>
-      <!-- Toggle button for mobile view -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Navbar links -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Centered Search Form -->
-        <form class="d-flex mx-auto" style="width: 65%;">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <!-- Right-side icons and links -->
-        <ul class="navbar-nav ms-auto" style="margin-right: 10%;">
-          <!-- Notification -->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              <i class="fas fa-bell" style="color: black;"></i> 
-            </a>
-          </li>
-          <!-- Message -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-envelope" style="color: black;"></i> 
-            </a>
-          </li>
-          <!-- List -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fas fa-heart" style="color: black;"></i> 
-            </a>
-          </li>
-          <!-- Order -->
-          <li class="nav-item">
-            <a class="nav-link" href="#" style="color: black;">Order</a>
-          </li>
-          <!-- Switch to Selling -->
-          <li class="nav-item">
-            <a class="nav-link" href="#" style="color: green;">Switch to Selling</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#" style="color: black; margin-left: 5%;">
+      <h1 style="font-family: 'Poppins', sans-serif;">Fiverr <span style="color: green;">.</span></h1>
+    </a>
+    
+    <!-- Toggle button for mobile view -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Centered Search Form -->
+      <form class="d-flex mx-auto" style="width: 50%; max-width: 500px;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <!-- Right-side icons and links -->
+      <ul class="navbar-nav ms-auto" style="margin-right: 10%;">
+        <!-- Notification -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-bell" style="color: black;"></i>
+          </a>
+        </li>
+        
+        <!-- Message -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-envelope" style="color: black;"></i>
+          </a>
+        </li>
+        
+        <!-- List -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-heart" style="color: black;"></i>
+          </a>
+        </li>
+        
+        <!-- Order -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: black;">Order</a>
+        </li>
+        
+        <!-- Switch to Selling -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('selling')}}" style="color: green;">Switch to Selling</a>
+        </li>
+
+        <!-- Profile Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-comments"></i> Messages</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-box"></i> Orders</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
+            
+            <li><a class="dropdown-item" href="{{route('login')}}"><i class="fas fa-sign-out-alt"></i> Sign out</a></li>
+          </ul>
+        </li>
+
+        <!-- Show Login/Register if not logged in -->
+        <!-- This section is only visible if the user is not logged in -->
+      
+      </ul>
     </div>
-  </nav>
-  <hr>
-  
+  </div>
+</nav>
+<hr>
+
+<script>
+  // Example of how to conditionally hide login/register links
+  // Check if the user is logged in
+  var userLoggedIn = false; // Set this based on your authentication logic
+
+  if (userLoggedIn) {
+    document.getElementById('login-register').style.display = 'none'; // Hide Login/Register links if logged in
+  } else {
+    document.getElementById('login-register').style.display = 'block'; // Show Login/Register if not logged in
+  }
+</script>
+
+
+<!-- Bootstrap CSS (if not included yet) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Bundle (includes Popper.js for dropdown functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
   <!-- Navbar -->
   <nav class="nav ms-5 d-flex flex-wrap" style="color: #333; white-space: nowrap;">
   

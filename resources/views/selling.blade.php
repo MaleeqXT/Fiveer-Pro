@@ -93,7 +93,7 @@
             <div class="col-sm-6 col-md-4">
               <!-- First Card -->
               <div class="card" style="width: 100%; max-width: 18rem; margin: auto;">
-                <img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" style="width: 100%; border-radius: 8px;">
+                <img class="card-img-top" src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Card image" style="width: 100%; border-radius: 8px;">
                 <div class="card-body text-center">
                   <h5 class="card-title">Haseeb M</h5>
                   <p class="card-text">haseeb_mayana.</p>

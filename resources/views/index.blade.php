@@ -203,8 +203,10 @@
   <div class="container-fluid">
     <!-- Brand/logo -->
     <a class="navbar-brand" href="#" style="color: black; margin-left: 5%;">
-      <h1>fiverr .</h1>
-    </a>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+      <h1 style="font-family: 'Poppins', sans-serif;">Fiverr <span style="color: green;">.<span></h1>
+          </a>
     <!-- Toggle button for mobile view -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

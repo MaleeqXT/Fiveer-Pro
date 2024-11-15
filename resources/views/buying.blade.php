@@ -6,6 +6,7 @@
   <title>Fiveer Buying</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Bootstrap CSS & JS -->
@@ -203,7 +204,6 @@
   <div class="container-fluid">
     <!-- Brand/logo -->
     <a class="navbar-brand" href="#" style="color: black; margin-left: 5%;">
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
       <h1 style="font-family: 'Poppins', sans-serif;">Fiverr <span style="color: green;">.<span></h1>
           </a>

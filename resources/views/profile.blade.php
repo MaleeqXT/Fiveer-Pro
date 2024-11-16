@@ -81,7 +81,7 @@
 
         <!-- Reviews Card -->
         <div class="card border" style="margin-top: 15px; width: 90%;"> 
-            <div class="card-body " style="padding: 50px;">
+            <div class="card-body " style="padding: 90px;">
                 <h6 style="font-size: 1.25rem;">Reviews from freelancers</h6>
                 <p class="text-center" style="margin-top: 20px;">
                     <i class="fas fa-star" style="color: #ffcc00; font-size: 2rem; margin-right: 5px;"></i>

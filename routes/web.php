@@ -14,6 +14,7 @@ Route::get('/', function () {
 });
 
 Route::get('/fiverr/buying', [FiveerController::class, 'index'])->name('admin.dashboard');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

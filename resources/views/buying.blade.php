@@ -176,7 +176,7 @@ style="
       <div class="d-flex justify-content-between">
         <!-- Small Card 1 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://media.istockphoto.com/id/589538028/photo/manali-town.jpg?s=2048x2048&w=is&k=20&c=16NUhEO0f1m0danaOsxRIU4x9iCHshjT2keQtxJ6zJ0=" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
+          <img src="https://media.istockphoto.com/id/589538028/photo/manali-town.jpg?s=2048x2048&w=is&k=20&c=16NUhEO0f1m0danaOsxRIU4x9iCHshjT2keQtxJ6zJ0=" alt="Small Card Image" class="card-img-top" style="height: 10px; object-fit: cover;">
           <div class="card-body text-center">
             <h6 class="mb-1">Laravel Expert With Responsive</h6>
             <p class="text-muted mb-1">$1500</p>
@@ -249,6 +249,51 @@ style="
 </div>
 <br> <br>
 
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-header card-header-bordered">
+              <h3 class="card-title">Card groups</h3>
+          </div>
+          <div class="card-body" style="background-color: #f8f9fa;">
+              <p class="text-muted">Use card groups to render cards as a single, attached element with equal width and height columns. Card groups start off stacked and use <code>display: flex;</code> to become attached with uniform dimensions starting at the <code>sm</code> breakpoint.</p>
+              <div class="card-group">
+                  <div class="card portlet border mx-2 my-3" style="max-width: 18rem;">
+                      <img src="" class="card-img-top" alt="Card image">
+                      <div class="card-body">
+                          <h5 class="card-title portlet-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      </div>
+                      <div class="card-footer">
+                          <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
+                  </div>
+                  <div class="card portlet border mx-2 my-3" style="max-width: 18rem;">
+                      <img src="assets/images/small/img-5.jpg" class="card-img-top" alt="Card image">
+                      <div class="card-body">
+                          <h5 class="card-title portlet-title">Card title</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                      </div>
+                      <div class="card-footer">
+                          <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
+                  </div>
+                  <div class="card portlet border mx-2 my-3" style="max-width: 18rem;">
+                      <img src="assets/images/small/img-6.jpg" class="card-img-top" alt="Card image">
+                      <div class="card-body">
+                          <h5 class="card-title portlet-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                      </div>
+                      <div class="card-footer">
+                          <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- end card -->
+  </div>
+</div>
 
 @endsection
 

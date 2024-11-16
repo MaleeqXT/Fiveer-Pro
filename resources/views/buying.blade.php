@@ -250,48 +250,179 @@ style="
 <br> <br>
 
 <div class="row">
-  <div class="col-12">
-      <div class="card">
-          
-          <div class="card-body" style="background-color: #f8f9fa;">
-              <p class="text-muted">Use card groups to render cards as a single, attached element with equal width and height columns. Card groups start off stacked and use <code>display: flex;</code> to become attached with uniform dimensions starting at the <code>sm</code> breakpoint.</p>
-              <div class="card-group">
-                  <div class="card portlet border mx-2 my-3" style="max-width: 18rem;">
-                      <img src="" class="card-img-top" alt="Card image">
-                      <div class="card-body">
-                          <h5 class="card-title portlet-title">Card title</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                  </div>
-                  <div class="card portlet border mx-2 my-3" style="max-width: 18rem;">
-                      <img src="assets/images/small/img-5.jpg" class="card-img-top" alt="Card image">
-                      <div class="card-body">
-                          <h5 class="card-title portlet-title">Card title</h5>
-                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                  </div>
-                  <div class="card portlet border mx-2 my-3" style="max-width: 18rem;">
-                      <img src="assets/images/small/img-6.jpg" class="card-img-top" alt="Card image">
-                      <div class="card-body">
-                          <h5 class="card-title portlet-title">Card title</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                      </div>
-                      <div class="card-footer">
-                          <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                  </div>
-              </div>
+  <div class="card">
+    <div class="card-body" style="background-color: #f8f9fa;">
+      <h5 class="text-muted">Verified Pro services in Website Development</h5>
+      <div class="d-flex" style="gap: 10px; overflow-x: auto; white-space: nowrap; padding: 10px;">
+        <!-- Card 1 -->
+        <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+          <img src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349037_ukIvmE453JLLZtreKxg4LoH96WHemUpn.jpg" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h6 class="mb-1">SEO Optimization Expert</h6>
+            <p class="text-muted mb-1">$1000</p>
+            <button class="btn btn-sm btn-outline-dark">View</button>
           </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+          <img src="https://images4.alphacoders.com/715/71578.jpg" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h6 class="mb-1">SEO Optimization Expert</h6>
+            <p class="text-muted mb-1">$1000</p>
+            <button class="btn btn-sm btn-outline-dark">View</button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+          <img src="https://media.istockphoto.com/id/1696167872/photo/aerial-view-of-forest-at-sunset-on-the-background-of-mountains-in-dolomites.jpg?s=2048x2048&w=is&k=20&c=uLAmWeg4couEsq_U62PY4mfUnM7Zut1RxGYDHhqYCNs=" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h6 class="mb-1">SEO Optimization Expert</h6>
+            <p class="text-muted mb-1">$1000</p>
+            <button class="btn btn-sm btn-outline-dark">View</button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+          <img src="https://asset.gecdesigns.com/img/wallpapers/beautiful-fantasy-wallpaper-ultra-hd-wallpaper-4k-sr10012418-1706506236698-cover.webp" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h6 class="mb-1">SEO Optimization Expert</h6>
+            <p class="text-muted mb-1">$1000</p>
+            <button class="btn btn-sm btn-outline-dark">View</button>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+          <img src="https://play-lh.googleusercontent.com/61ReOB6_mNLrZ8aGGsrFQcxU0pPVfAxSOv4x3w_GZizO7D6LsyNpCz23iGXqoUwi9vQ=w3840-h2160-rw" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h6 class="mb-1">SEO Optimization Expert</h6>
+            <p class="text-muted mb-1">$1000</p>
+            <button class="btn btn-sm btn-outline-dark">View</button>
+          </div>
+        </div>
       </div>
-      <!-- end card -->
+    </div>
   </div>
 </div>
+
+<br> <br>
+
+<div class="container my-4">
+  <h4 style="margin-right: 70%;">Get inspired by work done on Fiverr</h4>
+  <div class="row gy-4">
+    <!-- Card Template -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
+        <!-- Image with click effect -->
+        <img 
+          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
+          class="card-img-top card-img-click" 
+          alt="Work Example" 
+          style="height: 300px; object-fit: cover; width: 100%;">
+        
+        <!-- Add to Favorites Icon -->
+        <div class="favorite-icon position-absolute top-0 end-0 m-2">
+          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title">Card Title</h5>
+          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
+        <!-- Image with click effect -->
+        <img 
+          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
+          class="card-img-top card-img-click" 
+          alt="Work Example" 
+          style="height: 300px; object-fit: cover; width: 100%;">
+        
+        <!-- Add to Favorites Icon -->
+        <div class="favorite-icon position-absolute top-0 end-0 m-2">
+          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title">Card Title</h5>
+          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
+        </div>
+      </div>
+    </div> <div class="col-md-12 col-lg-4">
+      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
+        <!-- Image with click effect -->
+        <img 
+          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
+          class="card-img-top card-img-click" 
+          alt="Work Example" 
+          style="height: 300px; object-fit: cover; width: 100%;">
+        
+        <!-- Add to Favorites Icon -->
+        <div class="favorite-icon position-absolute top-0 end-0 m-2">
+          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title">Card Title</h5>
+          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
+        </div>
+      </div>
+    </div> <div class="col-md-6 col">
+      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
+        <!-- Image with click effect -->
+        <img 
+          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
+          class="card-img-top card-img-click" 
+          alt="Work Example" 
+          style="height: 300px; object-fit: cover; width: 100%;">
+        
+        <!-- Add to Favorites Icon -->
+        <div class="favorite-icon position-absolute top-0 end-0 m-2">
+          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <h5 class="card-title">Card Title</h5>
+          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+/* Glow/Blow Effect */
+.card-img-click {
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.card-img-click:active {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+/* Favorite Icon */
+.favorite-icon {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  border-radius: 50%;
+}
+
+/* On Hover Card Shadow */
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  transition: all 0.3s;
+}
+
+  </style>
 
 @endsection
 

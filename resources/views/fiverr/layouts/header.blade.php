@@ -20,59 +20,79 @@
 
       <!-- Right-side icons and links -->
       <ul class="navbar-nav ms-auto" style="margin-right: 10%;">
-        <!-- Notification -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-bell" style="color: black;"></i>
-          </a>
-        </li>
-        
-        <!-- Message -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-envelope" style="color: black;"></i>
-          </a>
-        </li>
-        
-        <!-- List -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-heart" style="color: black;"></i>
-          </a>
-        </li>
-        
-        <!-- Order -->
-        <li class="nav-item">
-          <a class="nav-link" href="#" style="color: black;">Order</a>
-        </li>
-        
-        <!-- Switch to Selling -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('selling')}}" style="color: green;">Switch to Selling</a>
-        </li>
+        <!-- Authentication Links -->
+        @guest
+          <!-- Login -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}" style="color: black;">Login</a>
+          </li>
+          <!-- Register -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}" style="color: green;">Register</a>
+          </li>
+        @endguest
 
-        <!-- Profile Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{route('profile')}}"><i class="fas fa-user-circle"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-comments"></i> Messages</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-box"></i> Orders</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
-            
-            <li><a class="dropdown-item" href="{{route('login')}}"><i class="fas fa-sign-out-alt"></i> Sign out</a></li>
-          </ul>
-        </li>
+        @auth
+          <!-- Notification -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-bell" style="color: black;"></i>
+            </a>
+          </li>
+          
+          <!-- Message -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-envelope" style="color: black;"></i>
+            </a>
+          </li>
+          
+          <!-- List -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-heart" style="color: black;"></i>
+            </a>
+          </li>
+          
+          <!-- Order -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: black;">Order</a>
+          </li>
+          
+          <!-- Switch to Selling -->
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('selling') }}" style="color: green;">Switch to Selling</a>
+          </li>
 
-        <!-- Show Login/Register if not logged in -->
-        <!-- This section is only visible if the user is not logged in -->
-      
+          <!-- Profile Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user-circle"></i> Profile</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-comments"></i> Messages</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-box"></i> Orders</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
+              
+              <li>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                  <i class="fas fa-sign-out-alt"></i> Sign out
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+              </li>
+            </ul>
+          </li>
+        @endauth
       </ul>
     </div>
   </div>
 </nav>
+
 <hr>
 
 <script>

@@ -8,12 +8,12 @@ use App\Http\Controllers\ProfileController;
 
 
 
-Route::get('/', function () {
+// Route::get('/', function () {
    
-    return view('welcome');
-});
+//     return view('welcome');
+// });
 
-Route::get('/fiverr/buying', [FiveerController::class, 'index'])->name('admin.dashboard');
+Route::get('/', [FiveerController::class, 'index'])->name('admin.dashboard');
 
 Auth::routes();
 

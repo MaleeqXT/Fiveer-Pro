@@ -176,13 +176,13 @@ style="
       <div class="d-flex justify-content-between">
         <!-- Small Card 1 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
-          <img src="https://media.istockphoto.com/id/589538028/photo/manali-town.jpg?s=2048x2048&w=is&k=20&c=16NUhEO0f1m0danaOsxRIU4x9iCHshjT2keQtxJ6zJ0=" alt="Small Card Image" class="card-img-top" style="height: 10px; object-fit: cover;">
+          <img src="https://media.istockphoto.com/id/589538028/photo/manali-town.jpg?s=2048x2048&w=is&k=20&c=16NUhEO0f1m0danaOsxRIU4x9iCHshjT2keQtxJ6zJ0=" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
           <div class="card-body text-center">
-            <h6 class="mb-1">Laravel Expert With Responsive</h6>
+            <h6 class="mb-1">LaravelExpert With Responsive</h6>
             <p class="text-muted mb-1">$1500</p>
             <button class="btn btn-sm btn-outline-dark">View</button>
           </div>
-        </div>
+        </div> 
         <!-- Small Card 2 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden;">
           <img src="https://media.istockphoto.com/id/1284671318/photo/meadows-in-the-snow-peak-mountains-of-himalaya.jpg?s=2048x2048&w=is&k=20&c=zIibFUP3rnibsoKPWtD4y7ChHDaKfbsVNmQtd6ci9R0=" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
@@ -252,9 +252,7 @@ style="
 <div class="row">
   <div class="col-12">
       <div class="card">
-          <div class="card-header card-header-bordered">
-              <h3 class="card-title">Card groups</h3>
-          </div>
+          
           <div class="card-body" style="background-color: #f8f9fa;">
               <p class="text-muted">Use card groups to render cards as a single, attached element with equal width and height columns. Card groups start off stacked and use <code>display: flex;</code> to become attached with uniform dimensions starting at the <code>sm</code> breakpoint.</p>
               <div class="card-group">

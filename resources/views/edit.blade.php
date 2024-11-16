@@ -213,21 +213,22 @@
                
               <p style="margin-left: 320px">Please note:
                 Some categories require that sellers verify their skills.</p>
+           
+           
+           
+           
+              <div class="tab-pane fade" id="card7-profile">
+               <h1>hm</h1>
+            </div>
+            <div class="tab-pane fade" id="card7-contact">
+                <h1>hmmm</h1>
+            </div>
+            <div class="tab-pane fade" id="card7-requiriment">
+                <h1>hmm</h1>
+            </div>
 
         </div>
-
-        
     </div>
 </div>
-
-<div class="tab-pane fade" id="card7-profile">
-    <h1>hm</h1>
- </div>
- <div class="tab-pane fade" id="card7-contact">
-     <h1>hmmm</h1>
- </div>
- <div class="tab-pane fade" id="card7-requiriment">
-     <h1>hmm</h1>
- </div>
 
 @endsection

@@ -14,6 +14,13 @@ use App\Http\Controllers\EditController;
 //     return view('welcome');
 // });
 
+// routes/web.php
+
+Route::get('/edit', function () {
+    return view('edit');
+})->name('edit');
+
+
 Route::get('/', [FiveerController::class, 'index'])->name('admin.dashboard');
 
 Auth::routes();

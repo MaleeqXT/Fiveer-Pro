@@ -40,7 +40,8 @@
             <div class="card-body text-center">
                 <p style="margin-bottom: 10px;">
                     This is your profile when ordering services. 
-                    For your freelancer profile <a href="#" style="color: #3393fa; text-decoration: none;">click here</a>.
+                    For your freelancer profile <a href="{{ route('edit') }}" style="color: #3393fa; text-decoration: none;">Click here</a>
+                    
                     <a href="#" class="btn-sm" style="margin-top: 10px; margin-left: 70px;">Dismiss</a>
                 </p>
             </div>

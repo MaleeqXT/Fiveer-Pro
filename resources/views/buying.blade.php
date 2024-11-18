@@ -253,6 +253,12 @@ style="
   <div class="card">
     <div class="card-body" style="background-color: #f8f9fa;">
       <h5 class="text-muted">Verified Pro services in Website Development</h5>
+
+      <!-- Show All Link -->
+      <div class="d-flex justify-content-end">
+        <a href="{{route('websites.index')}}" class="show-all-link" style="text-decoration: none; color: #007bff; font-weight: bold; font-size: 1rem; margin-bottom:10px;">Show All</a>
+      </div>
+
       <div class="d-flex" style="gap: 10px; overflow-x: auto; white-space: nowrap; padding: 10px;">
         <!-- Card 1 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
@@ -303,99 +309,40 @@ style="
     </div>
   </div>
 </div>
+<style>
+  .show-all-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.show-all-link:hover {
+  color: #4798ef;  /* Darker blue on hover */
+  transform: scale(1.1);  /* Slightly scale up the text */
+}
+
+  </style>
 
 <br> <br>
-
 <div class="container my-4">
   <h4 style="margin-right: 70%;">Get inspired by work done on Fiverr</h4>
-  <div class="row gy-4">
-    <!-- Card Template -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
-        <!-- Image with click effect -->
-        <img 
-          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
-          class="card-img-top card-img-click" 
-          alt="Work Example" 
-          style="height: 300px; object-fit: cover; width: 100%;">
-        
-        <!-- Add to Favorites Icon -->
-        <div class="favorite-icon position-absolute top-0 end-0 m-2">
-          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
-        </div>
+  <div class="row gy-4" id="card-container">
+    <!-- Cards will be dynamically inserted here -->
+  </div>
+</div>
 
-        <!-- Card Body -->
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
-        </div>
+<!-- Modal for Enlarged Image -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Work Example</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    </div>
-
-    <div class="col-md-6 col-lg-4">
-      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
-        <!-- Image with click effect -->
-        <img 
-          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
-          class="card-img-top card-img-click" 
-          alt="Work Example" 
-          style="height: 300px; object-fit: cover; width: 100%;">
-        
-        <!-- Add to Favorites Icon -->
-        <div class="favorite-icon position-absolute top-0 end-0 m-2">
-          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
-        </div>
-
-        <!-- Card Body -->
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
-        </div>
-      </div>
-    </div> <div class="col-md-12 col-lg-4">
-      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
-        <!-- Image with click effect -->
-        <img 
-          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
-          class="card-img-top card-img-click" 
-          alt="Work Example" 
-          style="height: 300px; object-fit: cover; width: 100%;">
-        
-        <!-- Add to Favorites Icon -->
-        <div class="favorite-icon position-absolute top-0 end-0 m-2">
-          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
-        </div>
-
-        <!-- Card Body -->
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
-        </div>
-      </div>
-    </div> <div class="col-md-6 col">
-      <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
-        <!-- Image with click effect -->
-        <img 
-          src="https://as1.ftcdn.net/v2/jpg/05/50/34/90/1000_F_550349018_BjgQsFdrXFZQ36ybYEEafqyyWpuAc37Y.jpg" 
-          class="card-img-top card-img-click" 
-          alt="Work Example" 
-          style="height: 300px; object-fit: cover; width: 100%;">
-        
-        <!-- Add to Favorites Icon -->
-        <div class="favorite-icon position-absolute top-0 end-0 m-2">
-          <i class="bi bi-heart-fill text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
-        </div>
-
-        <!-- Card Body -->
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text text-muted">This is an inspiring example of work completed on Fiverr. Explore more to find your match!</p>
-        </div>
+      <div class="modal-body">
+        <img src="" alt="Enlarged Work Example" class="img-fluid" id="modal-image">
       </div>
     </div>
   </div>
 </div>
-
 
 <style>
 /* Glow/Blow Effect */
@@ -403,8 +350,8 @@ style="
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
-.card-img-click:active {
-  transform: scale(1.1);
+.card-img-click:hover {
+  transform: scale(1.05);
   box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
 }
 
@@ -413,6 +360,11 @@ style="
   background-color: rgba(0, 0, 0, 0.6);
   padding: 5px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
 }
 
 /* On Hover Card Shadow */
@@ -421,8 +373,93 @@ style="
   transform: scale(1.02);
   transition: all 0.3s;
 }
+</style>
 
-  </style>
+<script>
+  // Updated Card Data Array with Variety
+  const cardData = [
+    {
+      title: "Creative Design",
+      description: "A stunning example of innovative design on Fiverr.",
+      image: "https://as1.ftcdn.net/v2/jpg/03/17/21/94/1000_F_317219421_P8SmLPcqLYQERb3bcctIQD9grBU5wbYC.jpg",
+    },
+    {
+      title: "Elegant Artwork",
+      description: "This work showcases elegance and creativity.",
+      image: "https://as2.ftcdn.net/v2/jpg/05/21/18/03/1000_F_521180377_2iAVJqBQSo3cgKaVp8vMBR8asrC61DoU.jpg",
+    },
+    {
+      title: "Modern Aesthetic",
+      description: "A perfect blend of modern and aesthetic design.",
+      image: "https://as1.ftcdn.net/v2/jpg/08/16/84/86/1000_F_816848616_3UwkYUsC5ngoKyfwEeeI5jKbdKe1pMdW.jpg",
+    },
+    {
+      title: "Brand Identity",
+      description: "Crafting a complete visual identity for businesses.",
+      image: "https://as2.ftcdn.net/v2/jpg/02/35/12/45/1000_F_235124507_jn7ZqKaBrJn0LsRb4NoFbnpfHnjSxM3v.jpg",
+    },
+    {
+      title: "Typography Design",
+      description: "Creative typography for impactful communication.",
+      image: "https://as1.ftcdn.net/v2/jpg/05/62/45/19/1000_F_562451976_Kb3YP6SlPXXVRJ5zSyZeqokvWzWx5ruP.jpg",
+    },
+    {
+      title: "Digital Illustration",
+      description: "A vibrant and imaginative digital illustration.",
+      image: "https://as1.ftcdn.net/v2/jpg/03/72/87/44/1000_F_372874490_rdxUsRYACjeRwnhxwV2yfIV57NpPOuoX.jpg",
+    },
+  ];
+
+  // Generate Cards Dynamically
+  const cardContainer = document.getElementById("card-container");
+  cardContainer.innerHTML = ""; // Clear existing cards
+  cardData.forEach((card) => {
+    const cardElement = `
+      <div class="col-md-6 col-lg-4">
+        <div class="card border shadow-sm position-relative" style="border-radius: 10px; overflow: hidden;">
+          <img 
+            src="${card.image}" 
+            loading="lazy" 
+            class="card-img-top card-img-click" 
+            alt="${card.title}" 
+            style="height: 300px; object-fit: cover; width: 100%;" 
+            onclick="openImageModal('${card.image}')">
+          
+          <div class="favorite-icon position-absolute top-0 end-0 m-2">
+            <i class="bi bi-heart text-white fs-4" onclick="toggleFavorite(this)" style="cursor: pointer;"></i>
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">${card.title}</h5>
+            <p class="card-text text-muted">${card.description}</p>
+          </div>
+        </div>
+      </div>
+    `;
+    cardContainer.innerHTML += cardElement;
+  });
+
+  // Toggle Favorite State
+  function toggleFavorite(icon) {
+    icon.classList.toggle("bi-heart");
+    icon.classList.toggle("bi-heart-fill");
+    icon.classList.contains("bi-heart-fill")
+      ? alert("Added to Favorites!")
+      : alert("Removed from Favorites!");
+  }
+
+  // Open Modal with Enlarged Image
+  function openImageModal(imageSrc) {
+    const modalImage = document.getElementById("modal-image");
+    modalImage.src = imageSrc;
+    const imageModal = new bootstrap.Modal(document.getElementById("imageModal"));
+    imageModal.show();
+  }
+</script>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 @endsection
 

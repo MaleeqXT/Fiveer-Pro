@@ -22,6 +22,7 @@ Route::get('/edit', function () {
 
 
 Route::get('/', [FiveerController::class, 'index'])->name('admin.dashboard');
+Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.index');
 
 Auth::routes();
 

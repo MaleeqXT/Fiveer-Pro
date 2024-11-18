@@ -11,4 +11,7 @@ class FiveerController extends Controller
         return view('buying');
     }
 
+    public function showall(){
+        return view('websites.index');
+    }
 }

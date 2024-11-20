@@ -1,5 +1,6 @@
 @extends('fiverr.layouts.app')
 @section('content')
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="container">
     <div class="row">
@@ -201,5 +202,12 @@
     }
   </script>
   
+
+  <!-- jQuery -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <!-- Popper.js -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <!-- Bootstrap JS -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 @endsection

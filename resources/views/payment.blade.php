@@ -1,8 +1,11 @@
 @extends('fiverr.layouts.app')
 
 @section('content')
+<hr>
 
-<h1>hjcfgfgfgflggfgfjfkh</h1>
+<div class="container">
+<h1>Billing and payments</h1>
 
+</div>
 
 @endsection

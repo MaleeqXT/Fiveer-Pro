@@ -1,74 +1,89 @@
 @extends('fiverr.layouts.app')
 @section('content')
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <hr>
 <div class="card border mb-0" style="width: 90%; margin: auto;">
-  <div class="card-header card-header-bordered">
-    <h3 class="card-title">Programming Languages Slider</h3>
-  </div>
-  <div class="card-body">
-    <p class="text-muted">Scroll through the programming languages below.</p>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <!-- Slider items -->
-        <div class="swiper-slide">
-          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-            <div class="card-body">
-              <h4 class="card-title">Python</h4>
+    <div class="card-header card-header-bordered">
+      <h3 class="card-title">Programming Languages Slider</h3>
+    </div>
+    <div class="card-body">
+      <p class="text-muted">Scroll through the programming languages below.</p>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Slider items -->
+          <div class="swiper-slide">
+            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+              <div class="card-body">
+                <h4 class="card-title">Python</h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+              <div class="card-body">
+                <h4 class="card-title">JavaScript</h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+              <div class="card-body">
+                <h4 class="card-title">Java</h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+              <div class="card-body">
+                <h4 class="card-title">C++</h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+              <div class="card-body">
+                <h4 class="card-title">Ruby</h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+              <div class="card-body">
+                <h4 class="card-title">PHP</h4>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+              <div class="card-body">
+                <h4 class="card-title">Swift</h4>
+              </div>
             </div>
           </div>
         </div>
-        <div class="swiper-slide">
-          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-            <div class="card-body">
-              <h4 class="card-title">JavaScript</h4>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-            <div class="card-body">
-              <h4 class="card-title">Java</h4>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-            <div class="card-body">
-              <h4 class="card-title">C++</h4>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-            <div class="card-body">
-              <h4 class="card-title">Ruby</h4>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-            <div class="card-body">
-              <h4 class="card-title">PHP</h4>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-            <div class="card-body">
-              <h4 class="card-title">Swift</h4>
-            </div>
-          </div>
-        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
-      <!-- Navigation buttons -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
     </div>
   </div>
-</div>
-
+  
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',  // Shows multiple slides at once
+      spaceBetween: 20,  // Space between slides
+      loop: true,  // Infinite loop of slides
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+  
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <style>
   .swiper-container {

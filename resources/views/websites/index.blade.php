@@ -1,26 +1,69 @@
 @extends('fiverr.layouts.app')
 @section('content')
-
-<div class="col-xl-12">
-    
-        <div class="card-body">
-            <p class="text-muted">Add <code>.grid-nav-flush</code> to default grid navigation to appear like below</p>
-            <div class="grid-nav grid-nav-flush">
-                <div class="grid-nav-row">
-                    <div class="grid-nav-item">
-                        <div class="grid-nav-icon"><i class="far fa-address-card"></i></div><span class="grid-nav-content">Profile</span>
-                    </div>
-                    <div class="grid-nav-item">
-                        <div class="grid-nav-icon"><i class="far fa-comments"></i></div><span class="grid-nav-content">Messages</span>
-                    </div>
-                    <div class="grid-nav-item">
-                        <div class="grid-nav-icon"><i class="far fa-clone"></i></div><span class="grid-nav-content">Activities</span>
-                    </div>
-                </div>
-            </div>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<hr>
+<div class="container">
+    <div class="row">
+      <!-- Dropdown 1 -->
+      <div class="col">
+        <div class="dropdown" style="margin-top: 10px">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Service Option
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <button class="dropdown-item" type="button">Action 1</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button>
+          </div>
         </div>
+      </div>
+  
+      <!-- Dropdown 2 -->
+      <div class="col">
+        <div class="dropdown" style="margin-top: 10px">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Seller details
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">Action 2</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Dropdown 3 -->
+      <div class="col">
+        <div class="dropdown" style="margin-top: 10px">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Budget
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <button class="dropdown-item" type="button">Action 3</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Dropdown 4 -->
+      <div class="col">
+        <div class="dropdown" style="margin-top: 10px">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Delivery Time
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            <button class="dropdown-item" type="button">Action 4</button>
+            <button class="dropdown-item" type="button">Another action</button>
+            <button class="dropdown-item" type="button">Something else here</button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div><br><br>
+    
+
+
 
 <div class="col">
     <!-- Small Cards Section -->
@@ -98,4 +141,10 @@
     </div>
 </div>
 
+ <!-- jQuery -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <!-- Popper.js -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <!-- Bootstrap JS -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection

@@ -31,6 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/selling', [SellerController::class, 'index'])->name('selling');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::get('/payment', [ProfileController::class, 'pay'])->name('payment');
 Route::get('/edit', [EditController::class, 'index'])->name('edit');
 
 

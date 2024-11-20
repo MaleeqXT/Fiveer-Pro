@@ -14,4 +14,8 @@ class FiveerController extends Controller
     public function showall(){
         return view('websites.index');
     }
+
+    public function inspired(){
+        return view('websites.inspired');
+    }
 }

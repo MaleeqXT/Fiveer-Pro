@@ -296,6 +296,7 @@ style="
             <button class="btn btn-sm btn-outline-dark">View</button>
           </div>
         </div>
+        
         <!-- Card 5 -->
         <div class="card" style="width: 30%; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
           <img src="https://play-lh.googleusercontent.com/61ReOB6_mNLrZ8aGGsrFQcxU0pPVfAxSOv4x3w_GZizO7D6LsyNpCz23iGXqoUwi9vQ=w3840-h2160-rw" alt="Small Card Image" class="card-img-top" style="height: 150px; object-fit: cover;">
@@ -324,11 +325,14 @@ style="
 <br> <br>
 <div class="container my-4">
   <h4 style="margin-right: 70%;">Get inspired by work done on Fiverr</h4>
+  <!-- Show All Link -->
+<div class="d-flex justify-content-end">
+  <a href="{{ route('websites.inspired')}}" class="show-all-link" style="text-decoration: none; color: #1e9755; font-weight: bold; font-size: 1rem; margin-bottom:10px;">Show All</a>
+</div>
   <div class="row gy-4" id="card-container">
     <!-- Cards will be dynamically inserted here -->
   </div>
 </div>
-
 <!-- Modal for Enlarged Image -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -375,7 +379,9 @@ style="
 }
 </style>
 
+
 <script>
+
   // Updated Card Data Array with Variety
   const cardData = [
     {
@@ -409,6 +415,7 @@ style="
       image: "https://as1.ftcdn.net/v2/jpg/03/72/87/44/1000_F_372874490_rdxUsRYACjeRwnhxwV2yfIV57NpPOuoX.jpg",
     },
   ];
+  
 
   // Generate Cards Dynamically
   const cardContainer = document.getElementById("card-container");
@@ -456,6 +463,7 @@ style="
     imageModal.show();
   }
 </script>
+
 
 
 <!-- Bootstrap JS -->

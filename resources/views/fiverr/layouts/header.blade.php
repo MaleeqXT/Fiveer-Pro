@@ -81,6 +81,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user-circle"></i> Profile</a></li>
+              <li><a class="dropdown-item" href="{{ route('payment') }}"><i class="fas fa-credit-card"></i> Billing and Payment</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-comments"></i> Messages</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-box"></i> Orders</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-tasks"></i> Tasks</a></li>

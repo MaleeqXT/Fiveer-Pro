@@ -93,6 +93,150 @@
         .info-box i {
             margin-right: 10px;
         }
+
+        .custom-tab-pane {
+            border: 2px solid #ec98fd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: hsl(287, 100%, 91%);
+        }
+
+        .dropdown-center .dropdown-toggle {
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+
+        .gig-metadata {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gig-metadata input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .small-pink-button {
+    background-color: #ff69b4; /* Pink color */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px; /* Small size */
+    font-size: 14px; /* Small text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.small-pink-button:hover {
+    background-color: #ff85c1; /* Slightly lighter pink on hover */
+}
+
+.milestone-header {
+    display: flex;
+    align-items: center; /* Aligns the items vertically */
+    gap: 10px; /* Adds space between the <h2> and the button */
+}
+
+.small-pink-button {
+    background-color: #ff69b4; /* Pink color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.small-pink-button:hover {
+    background-color: #ff85c1;
+}
+
+.small-pink-button {
+    background-color: #ff69b4; /* Pink color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 6px; /* Smaller padding */
+    font-size: 12px; /* Smaller font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.small-pink-button:hover {
+    background-color: #ff85c1; /* Slightly lighter pink on hover */
+}
+
+.unstyled-button {
+        background: none;
+        border: none;
+        color: inherit;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+    }
+
+    .plain-button {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Optional rounded corners */
+    padding: 8px 16px; /* Button size */
+    font-size: 14px; /* Text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.btn-save:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+}
+
+.button-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Place buttons at opposite ends */
+    align-items: center; /* Align buttons vertically */
+    width: 100%; /* Ensure it spans the desired width */
+}
+
+.plain-button {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: #333;
+}
     
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -935,7 +1079,67 @@
                    
                    
                     <div class="tab-pane fade" id="card7-contact">
-                        <h1>Description & FAQ</h1>
+                        <hr>
+
+                        <p class="mt-5 text-muted"> Briefly Describe Your Gig</p>
+
+                        <div class="card text-center">
+                            <div class="card-header">
+                              <ul class="nav nav-pills card-header-pills">
+                               
+                                <i class="fas fa-bold icon"></i>
+                                <i class="fas fa-italic icon" style="margin-left: 10px;"></i>
+                                <i class="fas fa-lightbulb" style="margin-left: 10px;"></i>
+                                <i class="fas fa-book" style="margin-left: 10px;"></i>
+                                <i class="fas fa-book" style="margin-left: 10px;"></i> 
+
+
+
+                                
+
+                              </ul>
+                            </div>
+                            <div class="card-body">
+                             <p>My gig offers expert Laravel development services, specializing in creating custom features, responsive websites, and seamless integrations tailored to your unique needs. Whether you need a full website built from scratch, quick bug fixes, or personalized customizations, I bring years of experience and a commitment to delivering high-quality, reliable solutions. Lets bring your vision to life with professional, scalable web development! </p>
+                            </div>
+                          </div>
+
+                          <hr class="mt-5">
+
+                        <div class="milestone-header">
+                        <h2 class="text-muted mt-5">Milestone workflow</h2>
+                        <button class="small-pink-button mt-5">NEW</button>
+                    </div>
+
+                    <p class="text-muted mt-2">Attract buyers by turning your Gig into a series of milestones—they’ll know exactly what to expect and you’ll get paid when each milestone is completed</p>
+        
+                    <div class="d-flex justify-content-center">
+                        <h4 class="mt-4">Want to offer a Milestones workflow?</h4>
+                    </div>
+                    <p class="text-muted mt-1">Make sure your Gig is in an eligible category and your Basic package is priced at $100 or more. Learn</p>
+                    <p class="text-success d-flex justify-content-center">about Milestones</p>
+
+
+                    <hr class="mt-5">
+
+                    <div class="d-flex align-items-center mt-5">
+                        <h2 class="text-muted me-3">Frequently Asked Questions</h2>
+                        <p class="text-success mb-0">+Add FAQ</p>
+                    </div>
+                    <hr>
+                    
+                    <h6 class="mt-5">Add Questions & Answers for Your Buyers.</h6>
+
+                    <p class="text-success mt-3">+Add FAQ</p>
+
+                    <hr class="mt-4">
+
+                    <div class="button-container">
+                        <button class="plain-button">Cancel</button>
+                        <button class="btn-save">Save</button>
+                    </div>
+                    
+                    </div>
                     </div>
 
 

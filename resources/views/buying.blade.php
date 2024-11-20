@@ -256,7 +256,7 @@ style="
 
       <!-- Show All Link -->
       <div class="d-flex justify-content-end">
-        <a href="{{route('websites.index')}}" class="show-all-link" style="text-decoration: none; color: #007bff; font-weight: bold; font-size: 1rem; margin-bottom:10px;">Show All</a>
+        <a href="{{route('websites.index')}}" class="show-all-link" style="text-decoration: none; color: #1e9755; font-weight: bold; font-size: 1rem; margin-bottom:10px;">Show All</a>
       </div>
 
       <div class="d-flex" style="gap: 10px; overflow-x: auto; white-space: nowrap; padding: 10px;">

@@ -4,13 +4,70 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<style>
+  .swiper-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .swiper-slide {
+    flex-shrink: 0;
+    text-align: center;
+    width: auto; /* Allow slides to size themselves */
+    margin-right: 15px;
+  }
+  .card {
+    background-color: #f8f9fa;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 50px; /* Pill shape */
+    border: 1px solid #ddd;
+  }
+  .card-body {
+    padding: 15px;
+  }
+  /* Style the next and previous buttons */
+.swiper-button-next, .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid rgb(205, 204, 204);
+    color: rgb(32, 15, 15);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Style the arrow icons inside the buttons */
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 24px;
+    color: black; /* Arrow color */
+}
+
+/* Optional: Adjust size of the arrows */
+.swiper-button-next {
+    background-color: white;
+}
+
+.swiper-button-prev {
+    background-color: white;
+}
+
+</style>
+
 <hr>
+
 <div class="card border mb-0" style="width: 90%; margin: auto;">
     <div class="card-header card-header-bordered">
       <h3 class="card-title">Programming Languages Slider</h3>
     </div>
     <div class="card-body">
-      <p class="text-muted">Scroll through the programming languages below.</p>
+      <p class="text-muted">Scroll through the programming languages below.</p>         <!-- Navigation buttons -->
+      <div class="swiper-button-next" ></div>
+      <div class="swiper-button-prev"></div>
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <!-- Slider items -->
@@ -64,9 +121,8 @@
             </div>
           </div>
         </div>
-        <!-- Navigation buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+
+
       </div>
     </div>
   </div>
@@ -84,32 +140,6 @@
     });
   </script>
   
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<style>
-  .swiper-container {
-    width: 100%;
-    overflow: hidden;
-  }
-  .swiper-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  .swiper-slide {
-    flex-shrink: 0;
-    text-align: center;
-    width: auto; /* Allow slides to size themselves */
-    margin-right: 15px;
-  }
-  .card {
-    background-color: #f8f9fa;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border-radius: 50px; /* Pill shape */
-    border: 1px solid #ddd;
-  }
-  .card-body {
-    padding: 15px;
-  }
-</style>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
@@ -126,6 +156,7 @@
     });
   });
 </script>
+
 
 <div class="container">
     <div class="row">
@@ -188,7 +219,7 @@
   </div><br><br>
     <hr style="color: black;">
 
-
+</div>
 
 <div class="col">
     <!-- Small Cards Section -->

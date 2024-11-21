@@ -17,7 +17,7 @@ use App\Http\Controllers\EditController;
 // routes/web.php
 
 
-Route::get('/', [FiveerController::class, 'index'])->name('admin.dashboard');
+Route::get('/', [FiveerController::class, 'index']);
 Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.index');
 Route::get('/inspired', [FiveerController::class, 'inspired'])->name('websites.inspired');
 Route::get('/breifs', [FiveerController::class, 'breifs'])->name('websites.breifs');

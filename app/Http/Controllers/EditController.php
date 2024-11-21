@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class EditController extends Controller
 {
     public function index() {
-        return view('edit');
+        return view('websites.edit');
     }
 }
 

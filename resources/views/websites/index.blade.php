@@ -9,6 +9,7 @@
   .swiper-container {
     width: 100%;
     overflow: hidden;
+    position: relative; /* Required for navigation button positioning */
   }
   .swiper-wrapper {
     display: flex;
@@ -17,7 +18,7 @@
   .swiper-slide {
     flex-shrink: 0;
     text-align: center;
-    width: auto; /* Allow slides to size themselves */
+    width: auto;
     margin-right: 15px;
   }
   .card {
@@ -29,116 +30,127 @@
   .card-body {
     padding: 15px;
   }
-  /* Style the next and previous buttons */
-.swiper-button-next, .swiper-button-prev {
+
+  /* Style the navigation buttons */
+  .swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    top: 50%; /* Align buttons vertically */
+    transform: translateY(-50%);
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: white;
     border: 2px solid rgb(205, 204, 204);
-    color: rgb(32, 15, 15);
     font-size: 20px;
     cursor: pointer;
-}
+    z-index: 10; /* Ensure buttons are above slides */
+  }
 
-/* Style the arrow icons inside the buttons */
-.swiper-button-next::after, .swiper-button-prev::after {
+  .swiper-button-next {
+    right: 10px; /* Position to the right */
+  }
+  .swiper-button-prev {
+    left: 10px; /* Position to the left */
+  }
+
+  .swiper-button-next::after, .swiper-button-prev::after {
     font-size: 24px;
     color: black; /* Arrow color */
-}
+  }
 
-/* Optional: Adjust size of the arrows */
-.swiper-button-next {
-    background-color: white;
-}
-
-.swiper-button-prev {
-    background-color: white;
-}
-
+  @media (max-width: 768px) {
+    .swiper-button-next, .swiper-button-prev {
+      width: 35px;
+      height: 35px;
+    }
+  }
 </style>
-
-<hr>
-
+</head>
+<body>
 <div class="card border mb-0" style="width: 90%; margin: auto;">
-    <div class="card-header card-header-bordered">
-      <h3 class="card-title">Programming Languages Slider</h3>
-    </div>
-    <div class="card-body">
-      <p class="text-muted">Scroll through the programming languages below.</p>         <!-- Navigation buttons -->
-      <div class="swiper-button-next" ></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <!-- Slider items -->
-          <div class="swiper-slide">
-            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-              <div class="card-body">
-                <h4 class="card-title">Python</h4>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-              <div class="card-body">
-                <h4 class="card-title">JavaScript</h4>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-              <div class="card-body">
-                <h4 class="card-title">Java</h4>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-              <div class="card-body">
-                <h4 class="card-title">C++</h4>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-              <div class="card-body">
-                <h4 class="card-title">Ruby</h4>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-              <div class="card-body">
-                <h4 class="card-title">PHP</h4>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
-              <div class="card-body">
-                <h4 class="card-title">Swift</h4>
-              </div>
+  <div class="card-header card-header-bordered">
+    <h3 class="card-title">Programming Languages Slider</h3>
+  </div>
+  <div class="card-body">
+    <p class="text-muted">Scroll through the programming languages below.</p>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+            <div class="card-body">
+              <h4 class="card-title">Python</h4>
             </div>
           </div>
         </div>
-
-
+        <div class="swiper-slide">
+          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+            <div class="card-body">
+              <h4 class="card-title">JavaScript</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+            <div class="card-body">
+              <h4 class="card-title">Java</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+            <div class="card-body">
+              <h4 class="card-title">C++</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+            <div class="card-body">
+              <h4 class="card-title">Ruby</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+            <div class="card-body">
+              <h4 class="card-title">PHP</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="card text-center rounded-pill" style="width: 200px; padding: 10px;">
+            <div class="card-body">
+              <h4 class="card-title">Swift</h4>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </div>
-  
-  <!-- Initialize Swiper -->
-  <script>
+</div>
+
+<!-- Include Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Swiper
     var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 'auto',  // Shows multiple slides at once
-      spaceBetween: 20,  // Space between slides
-      loop: true,  // Infinite loop of slides
+      slidesPerView: 'auto', // Show multiple slides at once
+      spaceBetween: 20, // Space between slides
+      loop: true, // Infinite loop
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
     });
-  </script>
+  });
+</script>
   
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

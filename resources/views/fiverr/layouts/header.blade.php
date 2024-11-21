@@ -80,12 +80,17 @@
               <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user-circle"></i> Profile</a></li>
-              <li><a class="dropdown-item" href="{{ route('payment') }}"><i class="fas fa-credit-card"></i> Billing and Payment</a></li>
+              <li><a class="dropdown-item" href="{{ route('websites.profile') }}"><i class="fas fa-user-circle"></i> Profile</a></li>
+              <li><a class="dropdown-item" href="{{ route('websites.payment') }}"><i class="fas fa-credit-card"></i> Billing and Payment</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-comments"></i> Messages</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fas fa-box"></i> Orders</a></li>
+              <li><a class="dropdown-item" href="{{route('websites.order')}}"><i class="fas fa-box"></i> Orders</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
-              
+              <li>
+                <a class="dropdown-item" href="{{route('websites.earning')}}">
+                  <i class="fas fa-wallet"></i> Earnings
+                </a>
+              </li>
+                            
               <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();

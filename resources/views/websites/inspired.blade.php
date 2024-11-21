@@ -6,6 +6,7 @@
 
 
 <hr>
+
 <div class="card border mb-0" style="width: 90%; margin: auto;">
     <div class="card-header card-header-bordered">
       <h3 class="card-title">Programming Languages Slider</h3>

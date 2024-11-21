@@ -10,10 +10,10 @@ use App\Models\Profile;
 class ProfileController extends Controller
 {
     public function index() {
-        return view('profile');
+        return view('websites.profile');
     }
 
     public function pay() {
-        return view('payment');
+        return view('websites.payment');
     }
 }

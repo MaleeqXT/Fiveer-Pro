@@ -39,3 +39,9 @@ Route::get('/edit', [EditController::class, 'index'])->name('edit');
    
      return view('order');
  });
+
+ 
+ Route::get('/overview', function () {
+   
+    return view('overview');
+});

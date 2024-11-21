@@ -12,15 +12,15 @@
  <div class="row">
         <div class="card">
             <div class="card-header card-header-bordered">
-                <div class="card-addon">
+                 <div class="card-addon">
                     <div class="nav nav-lines card-nav" id="card1-tab">
-                        <a class="nav-item nav-link active" id="card1-home-tab" data-bs-toggle="tab" href="#card1-home">Billing history</a>
-                        <a class="nav-item nav-link" id="card1-profile-tab" data-bs-toggle="tab" href="#card1-profile">Billing info</a>
-                        <a class="nav-item nav-link" id="card1-contact-tab" data-bs-toggle="tab" href="#card1-contact">Balance</a>
-                        <a class="nav-item nav-link" id="card1-contact-tab" data-bs-toggle="tab" href="#card1-payment">Payment mthod</a>
+                        <a class="nav-item nav-link active text-dark" id="card1-home-tab" data-bs-toggle="tab" href="#card1-home">Billing history</a>
+                        <a class="nav-item nav-link text-dark" id="card1-profile-tab" data-bs-toggle="tab" href="#card1-profile">Billing info</a>
+                        <a class="nav-item nav-link text-dark" id="card1-contact-tab" data-bs-toggle="tab" href="#card1-contact">Balance</a>
+                        <a class="nav-item nav-link text-dark" id="card1-contact-tab" data-bs-toggle="tab" href="#card1-payment">Payment mthod</a>
 
                     </div>
-                </div>
+                 </div>
             </div>
             <div class="card-body">
                 <div class="tab-content">

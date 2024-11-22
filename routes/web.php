@@ -38,3 +38,9 @@ Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
    
      return view('websites.order');
     })->name('websites.order');
+
+
+    Route::get('/list', function () {
+   
+        return view('websites.list');
+       })->name('websites.list');

@@ -59,7 +59,7 @@
           
           <!-- List -->
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('websites.list')}}">
               <i class="fas fa-heart" style="color: black;"></i>
             </a>
           </li>

@@ -31,7 +31,7 @@
 /* Style for active chat */
 .chat-list .active a {
     background: #f8f9fa;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 /* Responsive adjustments */
@@ -46,6 +46,7 @@
 }
 
     </style>
+
 
 <div class="container-fluid">
 

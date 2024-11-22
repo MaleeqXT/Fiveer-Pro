@@ -25,7 +25,7 @@
                                Programming & Tech
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <button class="dropdown-item" type="button">Action 1</button>
+                                <button class="dropdown-item" type="button">Action 2</button>
                                 <button class="dropdown-item" type="button">Another action</button>
                                 <button class="dropdown-item" type="button">Something else here</button>
                               </div>

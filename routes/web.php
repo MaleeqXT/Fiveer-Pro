@@ -34,11 +34,20 @@ Route::get('/payment', [ProfileController::class, 'pay'])->name('websites.paymen
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 
 
+Route::get('/program', function () {
+    return view('messages.program');
+   })->name('messages.program');
+
+Route::get('/inbox', function () {
+    return view('messages.inbox');
+   })->name('messages.inbox');
+
+
  Route::get('/order', function () {
-   
      return view('websites.order');
     })->name('websites.order');
 
+<<<<<<< Updated upstream
 
     Route::get('/list', function () {
    
@@ -55,3 +64,5 @@ Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
    
         return view('overview');
     });
+=======
+>>>>>>> Stashed changes

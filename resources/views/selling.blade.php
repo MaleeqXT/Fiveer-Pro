@@ -41,8 +41,7 @@
                     Growth & Marketing
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <li><a class="dropdown-item" href="#">SELLER PLUS</a></li>
-                    <li><a class="dropdown-item" href="#">Program Benefits</a></li>
+                    <li><a class="dropdown-item" href="{{route('messages.program')}}">Program Benefits</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Laravel Overview</a></li>
                     <li><a class="dropdown-item" href="#">Scale your business</a></li>

@@ -49,3 +49,9 @@ Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
    
         return view('websites.complete');
        })->name('websites.complete');
+
+
+       Route::get('/overview', function () {
+   
+        return view('overview');
+    });

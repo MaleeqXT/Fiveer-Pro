@@ -68,8 +68,8 @@ style="
             <br>
             Tell us more About Your Bussniess 
           </p>
-          <!-- Button on the right -->
-          <button class="btn btn-outline-dark ">Get Started</button>
+         <!-- Button on the right -->
+         <a href="{{ route('websites.complete') }}" class="btn btn-outline-dark get-started-btn">Get Started</a>
         </div>
       </div>
     </div>

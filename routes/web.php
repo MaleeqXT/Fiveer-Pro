@@ -47,8 +47,6 @@ Route::get('/inbox', function () {
      return view('websites.order');
     })->name('websites.order');
 
-<<<<<<< Updated upstream
-
     Route::get('/list', function () {
    
         return view('websites.list');
@@ -59,10 +57,3 @@ Route::get('/inbox', function () {
         return view('websites.complete');
        })->name('websites.complete');
 
-
-       Route::get('/overview', function () {
-   
-        return view('overview');
-    });
-=======
->>>>>>> Stashed changes

@@ -123,7 +123,10 @@
                 </div>
             </div>
         </div>
-        <input type="radio">Other business type
+        <label>
+            <input type="radio" name="business_type" value="other"> Other business type
+          </label>
+          
         
     </div>
 </div>

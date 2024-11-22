@@ -1,10 +1,8 @@
 @extends('fiverr.layouts.app')
 @section('content')
-
-<div class="card">
-    <div class="card-header card-header-bordered">
-        <h3 class="card-title">Alignment</h3>
-    </div>
+<br> <br>
+<h2>Scale Your Business </h2>
+<div class="card col">
     <div class="card-body">
         <p class="text-muted">Create Your Badage<br> <strong>Boost the traffic to your Gigs by embedding this seller badge on your website or blog.</strong>.</p>
         <div class="d-grid gap-3">
@@ -13,7 +11,7 @@
             <!-- end col -->
 
             <div class="col-xl-6">
-                <div class="card">
+                <div class="card " style="margin-left:60px;">
                     <div class="card-header card-header-bordered">
                         <h3 class="card-title">Image</h3>
                     </div>
@@ -31,13 +29,18 @@
                               </div>
                             </div>
                           </div>
+                          <br><br><br>
+                          <div class="mb-3">
+                            <label for="contentTextarea" class="form-label">Copy to ClipBoard</label>
+                            <textarea class="form-control" id="contentTextarea" rows="4" placeholder="Type your text here...">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+                        </div>
+    
                       
                       
                           <!-- Dropdown 4 -->
                       
                         </div>
                       </div><br><br>
-                        <hr style="color: black;">
                     
                     </div>
                     

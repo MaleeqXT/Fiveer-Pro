@@ -63,3 +63,8 @@ Route::get('/inbox', function () {
    
      return view('overview');
  });
+
+  Route::get('/setting', function () {
+   
+     return view('setting');
+ });

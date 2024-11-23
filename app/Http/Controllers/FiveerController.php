@@ -20,7 +20,7 @@ class FiveerController extends Controller
     }
 
     public function breifs(){
-        return view('websites.breifs');
+        return view('messages.breifs');
     }
     
     public function earning(){

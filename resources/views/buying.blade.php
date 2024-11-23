@@ -42,7 +42,7 @@ style="
             Post a project brief Beta <br> Get Offer for your needs
           </p>
           <!-- Button on the right -->
-          <a href="{{ route('websites.breifs') }}" class="btn btn-outline-dark get-started-btn">Get Started</a>
+          <a href="{{ route('messages.breifs') }}" class="btn btn-outline-dark get-started-btn">Get Started</a>
         </div>
       </div>
     </div>

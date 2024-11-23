@@ -14,6 +14,6 @@ class ProfileController extends Controller
     }
 
     public function pay() {
-        return view('websites.payment');
+        return view('messages.payment');
     }
 }

@@ -13,4 +13,8 @@ class SellerController extends Controller
         return view('selling');
     }
 
+    public function analytics(){
+
+        return view('analytics.index');
+    }
 }

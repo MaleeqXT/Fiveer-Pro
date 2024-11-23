@@ -31,5 +31,6 @@ class FiveerController extends Controller
         return view('messages.contact');
     }
 
+    
    
 }

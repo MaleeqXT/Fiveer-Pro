@@ -45,7 +45,7 @@
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Laravel Overview</a></li>
                     <li><a class="dropdown-item" href="#">Scale your business</a></li>
-                    <li><a class="dropdown-item" href="#">Contact</a></li>
+                    <li><a class="dropdown-item" href="{{ route('messages.contact') }}">Contact</a></li>
                     <li><a class="dropdown-item" href="#">Fiverr Learn</a></li>
                   </ul>
                 </li>

@@ -27,5 +27,9 @@ class FiveerController extends Controller
         return view('websites.earning');
     }
 
+    public function contact(){
+        return view('messages.contact');
+    }
+
    
 }

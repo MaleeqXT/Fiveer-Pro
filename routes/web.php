@@ -22,6 +22,8 @@ Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.in
 Route::get('/inspired', [FiveerController::class, 'inspired'])->name('websites.inspired');
 Route::get('/breifs', [FiveerController::class, 'breifs'])->name('messages.breifs');
 Route::get('/earning', [FiveerController::class, 'earning'])->name('websites.earning');
+Route::get('/contact', [FiveerController::class, 'contact'])->name('messages.contact');
+
 
 Auth::routes();
 

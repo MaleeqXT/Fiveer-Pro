@@ -5,7 +5,7 @@ use App\Http\Controllers\FiveerController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EditController;
-
+use App\Http\Controllers\AdminController;
 
 
 
@@ -16,6 +16,7 @@ use App\Http\Controllers\EditController;
 
 // routes/web.php
 
+Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
 
 Route::get('/', [FiveerController::class, 'index']);
 Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.index');

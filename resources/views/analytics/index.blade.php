@@ -112,6 +112,7 @@
                                 <button class="btn btn-outline-dark dropdown-toggle" type="button" id="webDevDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     Websites & Development
                                 </button>
+                                
                                 <ul class="dropdown-menu" aria-labelledby="webDevDropdown">
                                     <li>
                                         <a class="dropdown-item" href="#">Web Design</a>
@@ -157,8 +158,93 @@
                             
                             <div class="card">
                                 <div class="card-body text-center no-data">
-                                    <p>No transactions found</p>
+                                    <h1>-</h1>
+                                    <p>There are not enough orders to calculate your score, yet.</p>
                                 </div>
+                            </div>
+                            <br> <br>
+                            <div class="row">
+                                <!-- First Card: Balance in Use -->
+                             
+        
+                                <!-- Second Card: Payments being Cleared -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card mt-3">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0">Repeat buyers</p>
+                                            <h2>_</h2>
+                                            <hr>
+                                            <br>
+                                            <p class="text-muted">Repeat buyers (%)</p>
+                                            <h2>_</h2>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Third Card: Earnings to Date -->
+                                <div class="col-md-4 mb-3">
+                                    <div class="card mt-3">
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0">Earnings from repeat buyers</p>
+                                            <h2>_</h2>
+                                            <hr>
+                                            <br>
+                                            <p class="text-muted mb-0">Earnings from repeat buyers (%)</p>
+                                            <h2>_</h2>
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+<br><br>
+<div class="card">
+    <div class="card-header card-header-bordered">
+        <h3 class="card-title">Responsive Display</h3>
+    </div>
+    <div class="card-body">
+        <p class="text-muted">Set slides to show for carousel by setting responsive property.</p>
+        <!-- Bootstrap Carousel -->
+        <div id="textCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Slide 1 Title</h4>
+                            <p class="card-text">This is the content for the first slide. You can customize the text as per your needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Slide 2 Title</h4>
+                            <p class="card-text">This is the content for the second slide. Add relevant details here.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <h4 class="card-title">Slide 3 Title</h4>
+                            <p class="card-text">Content for the third slide can go here. Use descriptive and engaging text.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <!-- Carousel controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#textCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#textCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+                                
                             </div>
                         </div>
                     </div>

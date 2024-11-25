@@ -36,7 +36,7 @@ Route::get('/analytics', [SellerController::class, 'analytics'])->name('analytic
 Route::get('/profile', [ProfileController::class, 'index'])->name('websites.profile');
 Route::get('/payment', [ProfileController::class, 'pay'])->name('messages.payment');
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
-
+Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
 
 Route::get('/program', function () {
     return view('messages.program');

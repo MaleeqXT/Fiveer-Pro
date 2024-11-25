@@ -241,14 +241,7 @@
                         @endif
                     </div>
 
-                    <div class="form-group">
-                        <label for="image" class="form-label">Profile Image</label>
-                        <input type="file" id="image" name="image" class="form-input" accept="image/*" />
-                        @if ($errors->has('image'))
-                        <span class="text-danger">{{ $errors->first('image') }}</span>
-                        @endif
-                    </div>
-
+                  
                     <input type="submit" value="Register" class="submit-button" />
                 </form>
             </div>

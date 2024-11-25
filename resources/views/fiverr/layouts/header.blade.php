@@ -85,6 +85,8 @@
               <li><a class="dropdown-item" href="{{route('messages.inbox')}}"><i class="fas fa-comments"></i> Messages</a></li>
               <li><a class="dropdown-item" href="{{route('messages.order')}}"><i class="fas fa-box"></i> Orders</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
+              <li><a class="dropdown-item" href="{{route('websites.setting')}}"><i class="fas fa-cog"></i> Settings</a></li>
+
               <li>
                 <a class="dropdown-item" href="{{route('websites.earning')}}">
                   <i class="fas fa-wallet"></i> Earnings

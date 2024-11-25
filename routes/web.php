@@ -74,5 +74,5 @@ Route::get('/inbox', function () {
 
   Route::get('/setting', function () {
    
-     return view('setting');
- });
+     return view('websites.setting');
+ })->name('websites.setting');

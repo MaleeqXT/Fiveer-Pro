@@ -18,6 +18,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
 
+
 Route::get('/', [FiveerController::class, 'index']);
 Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.index');
 Route::get('/inspired', [FiveerController::class, 'inspired'])->name('websites.inspired');

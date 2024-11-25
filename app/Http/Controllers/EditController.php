@@ -28,5 +28,6 @@ class EditController extends Controller
         // Redirect back to the page with the list of questions
         return redirect()->route('websites.edit')->with('success', 'Question added successfully');
     }
+    
 }
 

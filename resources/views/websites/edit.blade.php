@@ -494,28 +494,24 @@
                                             </tr>
                                         
                                             <tr>
-                                                
                                                 <td>Functional website</td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(1.5);">
-                                                        
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
                                                     </label>
                                                 </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(1.5);">
-                                                        
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
                                                     </label>
                                                 </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(1.5);">
-                                                        
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
                                                     </label>
                                                 </td>
-                                                
                                             </tr>
+                                            
                                             <tr>
                                                
                                                 <td>Number of pages</td>
@@ -621,28 +617,24 @@
                                                
                                             </tr>
                                             <tr>
-                                            
-                                                <td>Content upload</td>
+                                                <td>Content Upload</td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(1.8);">
-                                                        
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
                                                     </label>
-                                                </td>                                                
+                                                </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(1.8);">
-                                                        
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
+                                                </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(1.8);">
-                                                        
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
-                                                
+                                                </td>
                                             </tr>
+                                            
                                             <tr>
                                                
                                                 <td>Plugins/extensions installation</td>
@@ -695,28 +687,24 @@
                                                 
                                             </tr>
                                             <tr>
-                                              
-                                                <td>E-commerce functionality</td>
+                                                <td>E-Commerce functiontality</td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td>                                                
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
                                                     </label>
                                                 </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
                                                     </label>
                                                 </td>
-                                               
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
                                             </tr>
+                                            
                                             <tr>
                                                 
                                                 <td>Number of products</td>
@@ -768,143 +756,117 @@
                                                 
                                             </tr>
                                             <tr>
-                                                
                                                 <td>Payment processing</td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
+                                                </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
+                                                </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
-                                                
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>opt in form</td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>autorespond integration</td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                
-                                                <td>Opt-in form</td>
+                                                <td>speed optimizationn</td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
+                                                </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
+                                                </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
-                                               
+                                                </td>
                                             </tr>
+                                                  
                                             <tr>
-                                                <td>Autoresponder integration</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                               
-                                            </tr>
-                                            <tr>
-                                                
-                                                <td>Speed optimization</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                               
-                                            </tr>
-                                            <tr>
-                                               
                                                 <td>Hosting setup</td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
                                                     </label>
                                                 </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
-                                                
+                                                </td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                
                                                 <td>Social media icons</td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
-                                                    </label>
-                                                </td> 
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
                                                     </label>
                                                 </td>
                                                 <td>
                                                     <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption" value="selectedOption" style="transform: scale(2);">
-                                                        
+                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
                                                     </label>
-                                                </td> 
-                                               
+                                                </td>
+                                                <td>
+                                                    <label style="display: flex; align-items: center; gap: 10px;">
+                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
+                                                    </label>
+                                                </td>
                                             </tr>
-                                            <tr>
+                                                 <tr>
                                                 
                                                 <td>Price</td>
                                                 <td>

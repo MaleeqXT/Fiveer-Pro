@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FiveerController;
 use App\Http\Controllers\SellerController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\AdminController;
 
@@ -15,6 +14,9 @@ use App\Http\Controllers\AdminController;
 // });
 
 // routes/web.php
+
+
+
 
 Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
 Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
@@ -37,8 +39,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/selling', [SellerController::class, 'index'])->name('selling');
 Route::get('/analytics', [SellerController::class, 'analytics'])->name('analytics.index');
-Route::get('/profile', [ProfileController::class, 'index'])->name('websites.profile');
-Route::get('/payment', [ProfileController::class, 'pay'])->name('messages.payment');
+Route::get('/profile', [SellerController::class, 'profile'])->name('websites.profile');
+Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
 

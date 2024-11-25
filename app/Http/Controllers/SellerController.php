@@ -17,4 +17,12 @@ class SellerController extends Controller
 
         return view('analytics.index');
     }
+
+    public function profile() {
+        return view('websites.profile');
+    }
+
+    public function pay() {
+        return view('messages.payment');
+    }
 }

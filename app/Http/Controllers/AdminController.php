@@ -11,8 +11,12 @@ class AdminController extends Controller
 return view('dashboard.admin');
     }
 
-    public function create(){
-        return view('exploring.create');
+       public function create(){
+           return view('exploring.create');
+            }
+
+        public function show(){
+            return view('exploring.show');
             }
 
 }

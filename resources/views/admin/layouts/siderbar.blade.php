@@ -41,7 +41,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li><a href="{{ route('exploring.create') }}">Create Explorar</a></li>
-                        <li><a href="#">Show Explorar</a></li>
+                        <li><a href="{{ route('exploring.show') }}">Show Explorar</a></li>
                     </ul>
                 </li>
                 

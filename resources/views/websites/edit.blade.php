@@ -1094,6 +1094,8 @@
                    
                    
                    
+
+
                    
                    
                    
@@ -1166,7 +1168,62 @@
                                             </div>
 
 
+                                            <div class="tab-pane fade" id="card7-requiriment">
+                                                <h3>Get all the information you need from buyers to get started</h3>
+                                                <p class="text-muted">
+                                                    Get all the information you need from buyers to get started. Add questions to help buyers provide you with 
+                                                    exactly what you need to start working on their order.
+                                                </p>
+                                                <hr>
+                                                <p style="text-align: center; line-height: 1.8;">Fiverr Questions</p>
+                                                <p class="text-muted">These optional questions will be added for all buyers.</p>
+                                                 
+                                               <!-- Button to Open Modal -->
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        +Add your Question
+                                                    </button>
 
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Ask a Question</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <!-- Form to add a question -->
+                                                                    <form action="{{ route('questions.store') }}" method="POST">
+                                                                        @csrf
+                                                                        <div class="mb-3">
+                                                                            <label for="questionInput" class="form-label">Your Question</label>
+                                                                            <input type="text" class="form-control" id="questionInput" name="question" placeholder="Type your question here" required>
+                                                                            <div class="form-text">Enter the question you want to ask.</div>
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary">Add Question</button>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Questions List -->
+                                                    <div id="questionsList" style="margin-top: 20px;">
+                                                        <h4>Your Questions:</h4>
+                                                        <ul class="list-group">
+                                                            @foreach ($questions as $question)
+                                                            <li class="list-group-item">{{ $question->question }}</li>
+                                                        @endforeach
+                                                        
+                                                        </ul>
+                                                    </div>
+
+
+                                            </div>
+                                            <br><br>
 
 
 

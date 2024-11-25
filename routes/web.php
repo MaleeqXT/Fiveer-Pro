@@ -17,6 +17,8 @@ use App\Http\Controllers\AdminController;
 // routes/web.php
 
 Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
+Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
+
 
 
 Route::get('/', [FiveerController::class, 'index']);

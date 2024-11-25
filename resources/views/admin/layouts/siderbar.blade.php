@@ -35,15 +35,16 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="dripicons-mail"></i>
-                        <span>Services</span>
+                        <!-- Change the icon here, for example, to FontAwesome's "explore" icon -->
+                        <i class="fas fa-search"></i>  <!-- Example of a FontAwesome icon for exploring -->
+                        <span>Explorar</span>
                     </a>
                     <ul class="sub-menu">
-
-                    {{-- <li><a href="{{route('services.create')}}">Create Services</a></li>
-                    <li><a href="{{route('services.index')}}">Show Services</a></li> --}}
+                        <li><a href="{{ route('exploring.create') }}">Create Explorar</a></li>
+                        <li><a href="#">Show Explorar</a></li>
                     </ul>
                 </li>
+                
 
            
                 <li>

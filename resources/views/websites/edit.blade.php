@@ -270,6 +270,8 @@
                         <a class="nav-item nav-link" id="card7-profile-tab" data-bs-toggle="tab" href="#card7-profile">Pricing</a>
                         <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-contact">Description & FAQ</a>
                         <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-requiriment">Requirement</a>
+                        <a class="nav-item nav-link" id="card7-add-gig-tab" data-bs-toggle="tab" href="#card7-add-gig"> Gigs</a>
+                        <a class="nav-item nav-link" id="card7-publish-tab" data-bs-toggle="tab" href="#card7-publish">Publish</a>
                     </div>
                 </div>
             </div>
@@ -1169,69 +1171,145 @@
 
 
 
-                    <div class="tab-pane fade" id="card7-requiriment">
-                        <h3>Get all the information you need from buyers to get started</h3>
-                        <p class="text-muted">Get all the information you need from buyers to get started. Add questions to help buyers provide you with exactly what you need to start working on their order.</p>
-                        <hr>
-                        <p style="text-align: center; line-height: 1.8;">Fiverr Questions</p>
-                        <p class="text-muted">These optional questions will be added for all buyers.</p>
 
+    
+                    
+                    <div class="tab-pane fade" id="card7-add-gig">
+                        <h3>Showcase Your Services In A Gig Gallery</h3>
+                    
+                        <!-- Container Card for all the Upload Boxes -->
                         <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                            <p style="font-weight: bold; margin-bottom: 10px;">Multiple Choice</p>
-                            <h4 style="margin-bottom: 15px;">If you’re ordering for a business, what’s your industry?</h4>
-                            <p style="color: #6c757d;">3D design, e-commerce, accounting, marketing, etc.</p>
-                        </div><br>
-
-                        <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                            <p style="font-weight: bold; margin-bottom: 10px;">Multiple Choice</p>
-                            <h4 style="margin-bottom: 15px;"> Is this order part of a bigger project you're working on?</h4>
-                            <p style="color: #6c757d;">Building a mobile app, creating an animation, developing a game, etc.</p>
-                        </div><br><br>
-
-                        <p style="text-align: center; line-height: 1.8;">Your Questions</p>
-
-                        <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #e6f7ff;">
-                            <div style="display: flex; align-items: center; justify-content: space-between;">
-                                <div style="display: flex; align-items: center; gap: 10px;">
-                                    <i class="fas fa-info-circle" style="font-size: 1.5em; color: #007bff;"></i>
-                                    <p style="font-weight: bold; margin: 0;">Take a moment to make sure your questions aren’t asking for the same information requested above.</p>
+                            <h4>Upload Your Gig Media</h4>
+                    
+                            <!-- Row for the Upload Cards -->
+                            <!-- Gig Images Box -->
+                            <div class="row mb-4">
+                                <div class="col-4">
+                                    <div class="box-card" style="border: 2px solid #16181a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                        <label for="gigImages" style="font-weight: bold;">Upload Gig Images (Drag and Drop)</label>
+                                        <div id="imageUpload" style="border: 2px dashed #0568b9; padding: 20px; text-align: center; color: #1ea7ec;">
+                                            <p>Drag and drop your images here, or click to select</p>
+                                            <input type="file" id="gigImages" class="form-control" accept="image/*" multiple style="display: none;">
+                                        </div>
+                                    </div>
                                 </div>
-                                <button type="button" class="btn btn-primary">Dismiss</button>                            </div>
-                        </div><br><br>
-                        
-                        <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                            <p style="font-weight: bold; margin-bottom: 10px;">Free text</p>
-                            <h5 style="margin-bottom: 15px;">Website Goals What are the main goals of the website or application? (e.g., e-commerce, portfolio, information, etc.)</h5>
-                        </div><br>
-
-                        <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                            <p style="font-weight: bold; margin-bottom: 10px;">Free text</p>
-                            <h5 style="margin-bottom: 15px;">Reference Websites Do you have any websites you like or would like to use as inspiration? Please share the links.</h5>
-                        </div><br>
-
-                        <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                            <p style="font-weight: bold; margin-bottom: 10px;">Free text</p>
-                            <h5 style="margin-bottom: 15px;">What is the goal or purpose of your project?</h5>
-                        </div><br>
-
-                        <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                            <p style="font-weight: bold; margin-bottom: 10px;">Free text</p>
-                            <h5 style="margin-bottom: 15px;">If applicable, do you have an existing website or application that requires updates or migration?</h5>
-                        </div><br>
-
-                        <button type="button" class="btn btn-outline-primary">Add New Questions</button>
-                        
+                            </div>
+                    
+                            <!-- Gig Video Box -->
+                            <div class="row mb-4">
+                                <div class="col-4">
+                                    <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                        <label for="gigVideos" style="font-weight: bold;">Upload Gig Video (Drag and Drop)</label>
+                                        <div id="videoUpload" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;">
+                                            <p>Drag and drop your video here, or click to select</p>
+                                            <input type="file" id="gigVideos" class="form-control" accept="video/*" multiple style="display: none;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Gig Documents Box -->
+                            <div class="row mb-4">
+                                <div class="col-4">
+                                    <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                        <label for="gigDocuments" style="font-weight: bold;">Upload Gig Documents (Drag and Drop)</label>
+                                        <div id="documentUpload" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;">
+                                            <p>Drag and drop your documents here, or click to select</p>
+                                            <input type="file" id="gigDocuments" class="form-control" accept=".pdf, .doc, .docx, .ppt, .txt" multiple style="display: none;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Publish Gig Button -->
+                        </div>
                     </div><br><br>
                     
+                    <!-- Javascript for Drag and Drop and Gig Actions -->
+                    <script>
+                        // Handle drag and drop for images
+                        document.getElementById('imageUpload').addEventListener('click', function() {
+                            document.getElementById('gigImages').click();
+                        });
+                        document.getElementById('gigImages').addEventListener('change', function(e) {
+                            let files = e.target.files;
+                            console.log(files);  // Handle file preview if needed
+                        });
+                    
+                        // Handle drag and drop for videos
+                        document.getElementById('videoUpload').addEventListener('click', function() {
+                            document.getElementById('gigVideos').click();
+                        });
+                        document.getElementById('gigVideos').addEventListener('change', function(e) {
+                            let files = e.target.files;
+                            console.log(files);  // Handle file preview if needed
+                        });
+                    
+                        // Handle drag and drop for documents
+                        document.getElementById('documentUpload').addEventListener('click', function() {
+                            document.getElementById('gigDocuments').click();
+                        });
+                        document.getElementById('gigDocuments').addEventListener('change', function(e) {
+                            let files = e.target.files;
+                            console.log(files);  // Handle file preview if needed
+                        });
+                    
+                        // Publish Gig Function
+                        function publishGig() {
+                            // Your logic for publishing gig
+                            alert("Gig Published!");
+                        }
+                    </script>
+                    
                     
 
+                    <div class="tab-pane fade" id="card7-publish">
+                        <!-- Publish Button -->
+                        <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
 
+                        <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
+                        
+                        <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
+
+                                                <button type="button" class="btn btn-outline-primary" style="margin-left: 20px;" id="publishButton" onclick="verifyAndPublish()">Publish Gig</button>
+                    
+                        <!-- Feedback message for validation -->
+                        <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
+                            <p>Please ensure all required fields are filled before publishing your gig.</p>
+                        </div>
+                    </div><br>
+                    
+                    <!-- Javascript for Verification and Publishing -->
+                    <script>
+                        // Function to verify if all the required fields are filled before allowing publishing
+                        function verifyAndPublish() {
+                            // Sample verification logic (You can replace this with more specific checks as needed)
+                            let imageFiles = document.getElementById('gigImages').files;
+                            let videoFiles = document.getElementById('gigVideos').files;
+                            let documentFiles = document.getElementById('gigDocuments').files;
+                    
+                            // Check if any of the required fields are empty
+                            if (imageFiles.length === 0 && videoFiles.length === 0 && documentFiles.length === 0) {
+                                // Show feedback message
+                                document.getElementById('feedbackMessage').style.display = 'block';
+                            } else {
+                                // Hide the feedback message
+                                document.getElementById('feedbackMessage').style.display = 'none';
+                    
+                                // Your logic for publishing gig goes here
+                                alert("Gig Published!");
+                            }
+                        }
+                    </script>
+                    
 
 
 
 
                 </div>
+                
             </div>
+            
         </div>
     </div>
 

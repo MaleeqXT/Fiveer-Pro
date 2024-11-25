@@ -39,8 +39,9 @@
                         <span>Services</span>
                     </a>
                     <ul class="sub-menu">
-                        {{-- <li><a href="{{route('services.create')}}">Create Services</a></li>
-                        <li><a href="{{route('services.index')}}">Show Services</a></li> --}}
+
+                    {{-- <li><a href="{{route('services.create')}}">Create Services</a></li>
+                    <li><a href="{{route('services.index')}}">Show Services</a></li> --}}
                     </ul>
                 </li>
 

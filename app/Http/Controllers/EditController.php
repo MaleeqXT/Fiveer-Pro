@@ -9,5 +9,6 @@ class EditController extends Controller
     public function index() {
         return view('websites.edit');
     }
+    
 }
 

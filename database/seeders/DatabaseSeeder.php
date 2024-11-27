@@ -39,5 +39,14 @@ class DatabaseSeeder extends Seeder
         $this->call(CompletedSeeder::class);
         $this->call(CancelledSeeder::class);
         $this->call(StartedSeeder::class);
+
+
+        
+        $this->call(AccountSeeder::class);
+        $this->call(SecuritySeeder::class);
+        $this->call(NotificationSeeder::class);
+
+
+
     }
 }

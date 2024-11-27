@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('priorities', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Primary key
+            $table->string('buyer'); // BUYER field (name or identifier)
+            $table->string('gig'); // GIG field (e.g., project or task name)
+            $table->date('due_on'); // DUE ON field (date)
+            $table->decimal('total', 10, 2); // TOTAL field (amount with 2 decimal places)
+            $table->text('note')->nullable(); // NOTE field (optional notes)
+            $table->timestamps(); // Created_at and Updated_at
         });
     }
 

@@ -25,6 +25,12 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentSeeder::class);
         $this->call(BillingDetailsSeeder::class);
         $this->call(PaymentMethodsSeeder::class);
-
+        $this->call(PrioritySeeder::class);
+        $this->call(ActiveSeeder::class);
+        $this->call(LateSeeder::class);
+        $this->call(DeliveredSeeder::class);
+        $this->call(CompletedSeeder::class);
+        $this->call(CancelledSeeder::class);
+        $this->call(StartedSeeder::class);
     }
 }

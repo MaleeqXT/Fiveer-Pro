@@ -182,7 +182,7 @@
               
                     <div class="card">
                         <div class="card-header">
-                            STARRED ORDERS
+                            STARTED ORDERS
                         </div>
                         <div class="card-body">
                             <span>BUYER</span>

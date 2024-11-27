@@ -66,7 +66,7 @@
           
           <!-- Order -->
           <li class="nav-item">
-            <a class="nav-link" href="#" style="color: black;">Order</a>
+            <a class="nav-link" href="{{route('messages.order')}}" style="color: black;">Order</a>
           </li>
           
           <!-- Switch to Selling -->
@@ -92,7 +92,7 @@
                   <i class="fas fa-wallet"></i> Earnings
                 </a>
               </li>
-                            
+
               <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();

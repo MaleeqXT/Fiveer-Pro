@@ -7,7 +7,6 @@ use App\Http\Controllers\EditController;
 use App\Http\Controllers\AdminController;
 
 
-
 // Route::get('/', function () {
    
 //     return view('welcome');
@@ -51,7 +50,6 @@ Route::get('/program', function () {
 Route::get('/inbox', function () {
     return view('messages.inbox');
    })->name('messages.inbox');
-
 
  Route::get('/order', function () {
      return view('messages.order');

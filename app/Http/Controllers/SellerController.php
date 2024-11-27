@@ -25,4 +25,8 @@ class SellerController extends Controller
     public function pay() {
         return view('messages.payment');
     }
+
+    public function gig() {
+        return view('websites.gig');
+    }
 }

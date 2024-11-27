@@ -32,7 +32,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{{route('messages.order')}}">Orders</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Gigs</a></li>
+                    <li><a class="dropdown-item" href="{{route('websites.gig')}}">Gigs</a></li>
                     <li><a class="dropdown-item" href="{{route('websites.profile')}}">Profile</a></li>
                   </ul>
                 </li>

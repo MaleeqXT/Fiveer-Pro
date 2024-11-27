@@ -52,7 +52,7 @@
           
           <!-- Message -->
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('messages.inbox')}}">
               <i class="fas fa-envelope" style="color: black;"></i>
             </a>
           </li>

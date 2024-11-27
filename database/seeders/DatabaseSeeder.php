@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EarningSeeder::class);
         $this->call(DataRangeSeeder::class);
 
+        $this->call(ContactSeeder::class);
 
         $this->call(PrioritySeeder::class);
         $this->call(ActiveSeeder::class);

@@ -30,10 +30,10 @@
                     Mybusiness
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Orders</a></li>
+                    <li><a class="dropdown-item" href="{{route('messages.order')}}">Orders</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Gigs</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{{route('websites.profile')}}">Profile</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -54,7 +54,7 @@
                     Analytics
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <li><a class="dropdown-item" href="#">Overview</a></li>
+                    <li><a class="dropdown-item" href="{{route('analytics.index')}}">Overview</a></li>
                     <li><a class="dropdown-item" href="#">Repeat Business</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">SELLER PLUS</a></li>

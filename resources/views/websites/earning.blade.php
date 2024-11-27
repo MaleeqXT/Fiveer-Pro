@@ -126,15 +126,69 @@
                     <!-- Financial Documents content here -->
                     <div class="row">
                         <div class="col-sm-8">
-                          <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title">Statement of earnings</h5>
-                              <p class="card-text">Choose a date range and download a statement summarizing your yearly earnings.</p>
-                              <a href="#" class="btn btn-outline-dark" style="margin-left:80%;">Choose data range</a>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Statement of Earnings</h5>
+                                    <p class="card-text">Choose a date range and download a statement summarizing your yearly earnings.</p>
+                                    <!-- Trigger Modal -->
+                                    <button type="button" class="btn btn-outline-dark" style="margin-left:80%;" data-bs-toggle="modal" data-bs-target="#dateRangeModal">
+                                        Choose Date Range
+                                    </button>
+                                </div>
                             </div>
-                          </div>
                         </div>
+                    </div>
                 </div>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="dateRangeModal" tabindex="-1" aria-labelledby="dateRangeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="dateRangeModalLabel">Choose Date Range</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="selectMonth" class="form-label">Select Month</label>
+                                        <select class="form-select" id="selectMonth">
+                                            <option value="" disabled selected>Choose a month</option>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="selectYear" class="form-label">Select Year</label>
+                                        <select class="form-select" id="selectYear">
+                                            <option value="" disabled selected>Choose a year</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <!-- Add more years as needed -->
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Download Statement</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

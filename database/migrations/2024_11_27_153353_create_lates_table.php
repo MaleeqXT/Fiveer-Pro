@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lates', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Primary key
+            $table->string('buyer'); // BUYER: Name or identifier of the buyer
+            $table->string('gig'); // GIG: Name of the gig, project, or task
+            $table->date('due_on'); // DUE ON: Due date of the gig/task
+            $table->decimal('total', 10, 2); // TOTAL: Total amount (up to 10 digits, 2 decimals)
+            $table->text('note')->nullable(); // NOTE: Additional notes (optional)
+            $table->timestamps(); // created_at and updated_at timestamps
         });
     }
 

@@ -55,13 +55,13 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                     <li><a class="dropdown-item" href="{{route('analytics.index')}}">Overview</a></li>
-                    <li><a class="dropdown-item" href="#">Repeat Business</a></li>
+                    <li><a class="dropdown-item" href="{{route('analytics.index')}}">Repeat Business</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">SELLER PLUS</a></li>
-                    <li><a class="dropdown-item" href="#">Gig performance</a></li>
-                    <li><a class="dropdown-item" href="#">Orders breakdown</a></li>
-                    <li><a class="dropdown-item" href="#">Top keywords</a></li>
-                    <li><a class="dropdown-item" href="#">Keyword research</a></li>
+                    <li><a class="dropdown-item" >SELLER PLUS</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Gig performance</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Orders breakdown</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Top keywords</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Keyword research</a></li>
                   </ul>
                 </li>
               </ul>

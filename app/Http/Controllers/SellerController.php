@@ -29,4 +29,9 @@ class SellerController extends Controller
     public function gig() {
         return view('websites.gig');
     }
+
+    public function plus(){
+
+        return view('sellers.plus');
+    }
 }

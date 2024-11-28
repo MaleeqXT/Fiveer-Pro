@@ -40,6 +40,7 @@ Route::get('/selling', [SellerController::class, 'index'])->name('selling');
 Route::get('/analytics', [SellerController::class, 'analytics'])->name('analytics.index');
 Route::get('/profile', [SellerController::class, 'profile'])->name('websites.profile');
 Route::get('/gig', [SellerController::class, 'gig'])->name('websites.gig');
+Route::get('/seller/plus', [SellerController::class, 'plus'])->name('sellers.plus');
 Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');

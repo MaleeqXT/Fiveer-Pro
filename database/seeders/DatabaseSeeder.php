@@ -48,5 +48,14 @@ class DatabaseSeeder extends Seeder
 
 
 
+        $this->call(OnlineSeeder::class);
+        $this->call(PendingSeeder::class);
+        $this->call(RequiredSeeder::class);
+        $this->call(DraftSeeder::class);
+        $this->call(DeniedSeeder::class);
+        $this->call(PausedSeeder::class);
+
+
+
     }
 }

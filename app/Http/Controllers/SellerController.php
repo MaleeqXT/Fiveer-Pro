@@ -15,7 +15,7 @@ class SellerController extends Controller
 
     public function analytics(){
 
-        return view('analytics.index');
+        return view('sellers.index');
     }
 
     public function profile() {
@@ -27,7 +27,7 @@ class SellerController extends Controller
     }
 
     public function gig() {
-        return view('websites.gig');
+        return view('sellers.gig');
     }
 
     public function plus(){

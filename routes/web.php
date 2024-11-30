@@ -37,9 +37,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/selling', [SellerController::class, 'index'])->name('selling');
-Route::get('/analytics', [SellerController::class, 'analytics'])->name('analytics.index');
+Route::get('/analytics', [SellerController::class, 'analytics'])->name('sellers.index');
 Route::get('/profile', [SellerController::class, 'profile'])->name('websites.profile');
-Route::get('/gig', [SellerController::class, 'gig'])->name('websites.gig');
+Route::get('/gig', [SellerController::class, 'gig'])->name('sellers.gig');
 Route::get('/seller/plus', [SellerController::class, 'plus'])->name('sellers.plus');
 Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
@@ -54,8 +54,8 @@ Route::get('/inbox', function () {
    })->name('messages.inbox');
 
  Route::get('/order', function () {
-     return view('messages.order');
-    })->name('messages.order');
+     return view('sellers.order');
+    })->name('sellers.order');
 
     Route::get('/list', function () {
    
@@ -69,8 +69,8 @@ Route::get('/inbox', function () {
 
  Route::get('/overview', function () {
    
-     return view('overview');
- });
+     return view('sellers.overview');
+ })->name('sellers.overview');
 
   Route::get('/setting', function () {
    

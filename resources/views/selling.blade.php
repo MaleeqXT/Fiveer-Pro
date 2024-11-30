@@ -30,10 +30,13 @@
                     Mybusiness
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{route('messages.order')}}">Orders</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.order')}}">Orders</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="{{route('websites.gig')}}">Gigs</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.gig')}}">Gigs</a></li>
                     <li><a class="dropdown-item" href="{{route('websites.profile')}}">Profile</a></li>
+                    <hr>
+                    <li><a class="dropdown-item" href="{{route('websites.earning')}}">Earning</a></li>
+
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -49,20 +52,24 @@
                     <li><a class="dropdown-item" href="#">Fiverr Learn</a></li>
                   </ul>
                 </li>
+
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="{{route('analytics.index')}}" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="{{route('sellers.index')}}" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Analytics
                   </a>
+                
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <li><a class="dropdown-item" href="{{route('analytics.index')}}">Overview</a></li>
-                    <li><a class="dropdown-item" href="{{route('analytics.index')}}">Repeat Business</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.index')}}">Overview</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.index')}}">Repeat Business</a></li>
                     <li><hr class="dropdown-divider"></li>
+                
                     <li><a class="dropdown-item" >SELLER PLUS</a></li>
                     <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Gig performance</a></li>
                     <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Orders breakdown</a></li>
                     <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Top keywords</a></li>
                     <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Keyword research</a></li>
                   </ul>
+
                 </li>
               </ul>
         

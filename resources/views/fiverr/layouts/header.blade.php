@@ -66,7 +66,7 @@
           
           <!-- Order -->
           <li class="nav-item">
-            <a class="nav-link" href="{{route('messages.order')}}" style="color: black;">Order</a>
+            <a class="nav-link" href="{{route('sellers.order')}}" style="color: black;">Order</a>
           </li>
           
           <!-- Switch to Selling -->
@@ -83,7 +83,7 @@
               <li><a class="dropdown-item" href="{{ route('websites.profile') }}"><i class="fas fa-user-circle"></i> Profile</a></li>
               <li><a class="dropdown-item" href="{{ route('messages.payment') }}"><i class="fas fa-credit-card"></i> Billing and Payment</a></li>
               <li><a class="dropdown-item" href="{{route('messages.inbox')}}"><i class="fas fa-comments"></i> Messages</a></li>
-              <li><a class="dropdown-item" href="{{route('messages.order')}}"><i class="fas fa-box"></i> Orders</a></li>
+              <li><a class="dropdown-item" href="{{route('sellers.order')}}"><i class="fas fa-box"></i> Orders</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
               <li><a class="dropdown-item" href="{{route('websites.setting')}}"><i class="fas fa-cog"></i> Settings</a></li>
 

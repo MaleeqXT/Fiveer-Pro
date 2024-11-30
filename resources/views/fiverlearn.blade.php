@@ -108,6 +108,24 @@
     }
 
 
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+            gap: 20px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
 </style>
 
 <div class="container-fluid p-4">
@@ -175,13 +193,13 @@
     <div class="card-header card-header-bordered">
         <div class="card-addon me-auto ms-0">
             <div class="nav nav-lines card-nav" id="card7-tab">
-                <a class="nav-item nav-link active" id="card7-home-tab" data-bs-toggle="tab" href="#card7-home">PRIORITY</a>
-                <a class="nav-item nav-link" id="card7-profile-tab" data-bs-toggle="tab" href="#card7-active">ACTIVE</a>
-                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-late">LATE</a>
-                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-delivered">DELIVERED</a>
-                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-completed">COMPLETED</a>
-                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-cancelled">CANCELLED</a>
-                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-starred">STARRED</a>
+                <a class="nav-item nav-link active" id="card7-home-tab" data-bs-toggle="tab" href="#card7-home">All Courses</a>
+                <a class="nav-item nav-link" id="card7-profile-tab" data-bs-toggle="tab" href="#card7-active">Marketing</a>
+                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-late">Graphic Design</a>
+                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-delivered">Website</a>
+                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-completed">Business</a>
+                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-cancelled">Video & Photography</a>
+                <a class="nav-item nav-link" id="card7-contact-tab" data-bs-toggle="tab" href="#card7-starred">Programs</a>
             </div>
         </div>
     </div>
@@ -189,20 +207,55 @@
         <div class="tab-content">
             <!-- PRIORITY Tab -->
             <div class="tab-pane fade show active" id="card7-home">
-                <div class="card">
-                    <div class="card-header">
-                        PRIORITY ORDERS
+               
+                <div class="container mt-5">
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <!-- Card 1 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 1</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 2</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 3</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title 4</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <span>BUYER</span>
-                        <span>GIG</span>
-                        <span>DUE ON</span>
-                        <span>TOTAL</span>
-                        <span>NOTE</span>
-                        <span>STATUS</span>
-                    </div>
-                    <p style="margin-left:14px">no priority oders to show</p>
-                </div>
+                </div>                
             </div>
 
             <!-- ACTIVE Tab -->

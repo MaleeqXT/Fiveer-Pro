@@ -44,6 +44,9 @@ Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment
 Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
+Route::post('/refer', [EditController::class, 'refer'])->name('websites.refer');
+
+
 
 Route::get('/program', function () {
     return view('sellers.program');
@@ -76,3 +79,8 @@ Route::get('/inbox', function () {
    
      return view('websites.setting');
  })->name('websites.setting');
+
+ Route::get('/refer', function () {
+   
+    return view('websites.refer');
+})->name('websites.refer');

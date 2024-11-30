@@ -24,6 +24,7 @@ Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
 
 
 Route::get('/', [FiveerController::class, 'index']);
+Route::get('/helps', [FiveerController::class, 'help'])->name('supports.help');
 Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.index');
 Route::get('/inspired', [FiveerController::class, 'inspired'])->name('websites.inspired');
 Route::get('/breifs', [FiveerController::class, 'breifs'])->name('messages.breifs');

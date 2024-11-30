@@ -28,6 +28,10 @@ class FiveerController extends Controller
     }
 
   
+    public function help(){
+
+return view('supports.help');
+    }
 
     
    

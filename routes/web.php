@@ -76,3 +76,9 @@ Route::get('/inbox', function () {
    
      return view('websites.setting');
  })->name('websites.setting');
+
+ 
+ Route::get('/fiverl', function () {
+   
+     return view('fiverlearn');
+ });

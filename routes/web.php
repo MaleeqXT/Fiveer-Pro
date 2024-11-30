@@ -90,3 +90,8 @@ Route::get('/inbox', function () {
    
      return view('fiverlearn');
  });
+
+ Route::get('/refer', function () {
+   
+    return view('websites.refer');
+})->name('websites.refer');

@@ -44,11 +44,11 @@
                     Growth & Marketing
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <li><a class="dropdown-item" href="{{route('messages.program')}}">Program Benefits</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.plus')}}">Program Benefits</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Laravel Overview</a></li>
-                    <li><a class="dropdown-item" href="#">Scale your business</a></li>
-                    <li><a class="dropdown-item" href="{{ route('messages.contact') }}">Contact</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.overview')}}">Laravel Overview</a></li>
+                    <li><a class="dropdown-item" href="{{route('sellers.program')}}">Scale your business</a></li>
+                    <li><a class="dropdown-item" href="{{ route('sellers.contact') }}">Contact</a></li>
                     <li><a class="dropdown-item" href="#">Fiverr Learn</a></li>
                   </ul>
                 </li>

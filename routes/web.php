@@ -28,7 +28,6 @@ Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.in
 Route::get('/inspired', [FiveerController::class, 'inspired'])->name('websites.inspired');
 Route::get('/breifs', [FiveerController::class, 'breifs'])->name('messages.breifs');
 Route::get('/earning', [FiveerController::class, 'earning'])->name('websites.earning');
-Route::get('/contact', [FiveerController::class, 'contact'])->name('messages.contact');
 
 
 Auth::routes();
@@ -42,12 +41,16 @@ Route::get('/profile', [SellerController::class, 'profile'])->name('websites.pro
 Route::get('/gig', [SellerController::class, 'gig'])->name('sellers.gig');
 Route::get('/seller/plus', [SellerController::class, 'plus'])->name('sellers.plus');
 Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
+Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
+Route::post('/refer', [EditController::class, 'refer'])->name('websites.refer');
+
+
 
 Route::get('/program', function () {
-    return view('messages.program');
-   })->name('messages.program');
+    return view('sellers.program');
+   })->name('sellers.program');
 
 Route::get('/inbox', function () {
     return view('messages.inbox');
@@ -76,6 +79,11 @@ Route::get('/inbox', function () {
    
      return view('websites.setting');
  })->name('websites.setting');
+
+ Route::get('/refer', function () {
+   
+    return view('websites.refer');
+})->name('websites.refer');
 
  
  Route::get('/fiverl', function () {

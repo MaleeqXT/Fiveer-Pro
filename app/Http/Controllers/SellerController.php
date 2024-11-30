@@ -34,4 +34,8 @@ class SellerController extends Controller
 
         return view('sellers.plus');
     }
+
+    public function contact(){
+        return view('messages.contact');
+    }
 }

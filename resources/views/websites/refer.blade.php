@@ -1,7 +1,7 @@
 @extends('fiverr.layouts.app')
 
 @section('content')
-
+<hr>
 <div style="background-color: rgb(255, 236, 236); padding: 20px;">
     <div class="container" style="margin-top: 5%;"> <!-- Reduced margin-top -->
         <h1>
@@ -26,8 +26,21 @@
                    Search
                 </button>
             </form>
-            <p>Separate emails with commas</p>
-            <a href="">Preview Email</a>
+            <!-- Align Paragraph and Link to the Right -->
+            <div class="d-flex justify-content-between align-items-center" style="margin-top: 20px;">
+                <p class="mb-0">Separate emails with commas</p>
+                <a href="">Preview Email</a>
+            </div>
+             <h5 class="mt-3">Or share your personal referral link</h5>
+               
+             <form class="d-flex" style="margin-top: 20px;">
+                <input class="form-control me-2" type="search" placeholder="https://www.fiverr.com/pe/e6YvdWj" aria-label="Search">
+                <button class="btn btn-light" type="submit">
+                   Copy
+                </button>
+            </form>
+             
+
         </div>
     </div>
 </div>

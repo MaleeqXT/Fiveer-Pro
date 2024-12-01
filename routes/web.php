@@ -7,21 +7,10 @@ use App\Http\Controllers\EditController;
 use App\Http\Controllers\AdminController;
 
 
-// Route::get('/', function () {
-   
-//     return view('welcome');
-// });
-
-// routes/web.php
-
-
-
 
 Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
 Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
 Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
-
-
 
 Route::get('/', [FiveerController::class, 'index']);
 Route::get('/helps', [FiveerController::class, 'help'])->name('supports.help');
@@ -35,7 +24,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 Route::get('/selling', [SellerController::class, 'index'])->name('selling');
 Route::get('/analytics', [SellerController::class, 'analytics'])->name('sellers.index');
 Route::get('/profile', [SellerController::class, 'profile'])->name('websites.profile');
@@ -45,8 +33,6 @@ Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment
 Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
-
-
 
 
 Route::get('/program', function () {

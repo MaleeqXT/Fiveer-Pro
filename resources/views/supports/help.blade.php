@@ -3,13 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiverr Navbar with Full-Length Card</title>
+    <title>Help & Support</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+.card {
+    border: none;
+    overflow: hidden;
+}
 
 
+.card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Add transparency for better readability */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.category-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    background-color: #fff;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card img {
+    width: 80px; /* Adjust size for uniform look */
+}
 .category-card {
             background-color: #fff;
             border: 1px solid #ddd;
@@ -42,6 +69,7 @@
             font-size: 0.9rem;
             color: #555;
         }
+
         body {
             background-color: #f5f5f5;
             margin: 0;
@@ -68,11 +96,11 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #f82fa8; /* Fiverr pink color */
+            color: #00ff00; /* Fiverr pink color */
         }
 
         .btn-signup {
-            background-color: #f82fa8;
+            background-color: #47f716;
             color: #fff;
             font-weight: bold;
             padding: 8px 15px;
@@ -81,7 +109,7 @@
         }
 
         .btn-signup:hover {
-            background-color: #ff4081;
+            background-color: #07c1f0;
         }
 
         /* Full-Length Card Styling */
@@ -126,7 +154,7 @@
             padding: 15px 20px;
             font-size: 1rem;
             border: none;
-            border-radius: 30px;
+            border-radius: 80px;
         }
 
         .pills-container {
@@ -136,7 +164,7 @@
         .rounded-pill {
             margin: 5px;
             padding: 10px 20px;
-            background-color: #f82fa8;
+            background-color: #53ed00;
             color: #fff;
             font-weight: bold;
             display: inline-block;
@@ -145,7 +173,7 @@
         }
 
         .rounded-pill:hover {
-            background-color: #ff4081;
+            background-color: #ff0055;
             cursor: pointer;
         }
     </style>
@@ -271,12 +299,13 @@
 
     
     <div class="container mt-5">
-        <div class="card">
+        <div class="card position-relative text-white">
             <!-- Image Section -->
-            <img src="https://img.freepik.com/free-photo/futuristic-metaverse-empty-room-product-display-presentation-abstract-technology-scifi-with-neon-light-3d-background_56104-2314.jpg" class="card-img-top" alt="Card Image">
-            
-            <!-- Card Content -->
-            <div class="card-body">
+            <img src="https://media.licdn.com/dms/image/v2/D4D12AQF72qqGLFYOcw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1691080369426?e=2147483647&v=beta&t=lkAHd36i2SLCcOw69f40vZDuSjz1t0l1L7gF0fQap4U" 
+                 class="card-img" alt="Card Background Image">
+    
+            <!-- Overlay Content -->
+            <div class="card-img-overlay d-flex flex-column justify-content-center">
                 <div class="row">
                     <!-- Categories -->
                     <div class="col-md-3">
@@ -299,6 +328,7 @@
                             <li>Service Catalog</li>
                         </ul>
                     </div>
+    
                     <!-- For Clients -->
                     <div class="col-md-3">
                         <h5>For Clients</h5>
@@ -361,6 +391,64 @@
         </div>
     </div>
     
+
+    <div class="container mt-5">
+        <div class="row text-center">
+            <!-- Community Hub -->
+            <div class="col-3">
+                <div class="category-card p-3">
+                    <img src="https://img.freepik.com/premium-vector/community-hub-social-logo-design_24599-101.jpg" alt="Community Hub" class="img-fluid mb-2">
+                    <div class="category-title font-weight-bold">Community Hub</div>
+                    <div class="category-description text-muted">Engage with like-minded people.</div>
+                </div>
+            </div>
+    
+            <!-- Forum -->
+            <div class="col-3">
+                <div class="category-card p-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8IGZ51y3yHfDOWPDkMw_VS4g5TRXaltljKA&s" alt="Forum" class="img-fluid mb-2">
+                    <div class="category-title font-weight-bold">Forum</div>
+                    <div class="category-description text-muted">Discuss ideas and insights.</div>
+                </div>
+            </div>
+    
+            <!-- Blog -->
+            <div class="col-3">
+                <div class="category-card p-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROahG_s2YRAIzux4Hf3smDRPVtSKz5K1pBMg&s" alt="Blog" class="img-fluid mb-2">
+                    <div class="category-title font-weight-bold">Blog</div>
+                    <div class="category-description text-muted">Learn from expert stories.</div>
+                </div>
+            </div>
+    
+            <!-- TikTok -->
+            <div class="col-3">
+                <div class="category-card p-3">
+                    <img src="https://cdn.pixabay.com/photo/2021/01/30/06/42/tiktok-5962992_960_720.png" alt="TikTok" class="img-fluid mb-2">
+                    <div class="category-title font-weight-bold">TikTok</div>
+                    <div class="category-description text-muted">Engage with creative content.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br> <br>    
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">Can't find what you're looking for?</h5>
+                            <p class="card-text">We're here to help.</p>
+                            <a href="#" class="btn btn-outline-dark">Contact us</a>
+                        </div>
+                        <div class="d-flex">
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
     <!-- Bootstrap JS Bundle (includes Popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class FiveerController extends Controller
 {
-    
+
     public function index() {
         return view('buying');
     }
@@ -27,12 +27,9 @@ class FiveerController extends Controller
         return view('websites.earning');
     }
 
-  
     public function help(){
 
-return view('supports.help');
+        return view('supports.help');
     }
-
-    
    
 }

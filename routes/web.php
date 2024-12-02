@@ -5,7 +5,7 @@ use App\Http\Controllers\FiveerController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\OverviewController;
+
 
 
 // Route::get('/', function () {
@@ -48,7 +48,6 @@ Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
 
 
-Route::post('/overview/store', [OverviewController::class, 'store'])->name('overview.store');
 
 
 

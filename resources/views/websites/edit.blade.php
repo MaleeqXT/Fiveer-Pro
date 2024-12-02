@@ -277,783 +277,313 @@
             </div>
             <div class="card-body">
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="card7-home">
-                        <div class="custom-tab-pane mb-4">
-                            <h6>Want to know what potential clients are looking for?</h6>
-                            <p>
-                                Join Kickstart for exclusive access to market research tools, insights,
-                                Tell me more →
-                            </p>
+
+                   <div class="tab-pane fade show active" id="card7-home">
+    <form action="{{ route('gigs.store') }}" method="POST">
+        @csrf <!-- Laravel CSRF token for security -->
+
+        <div class="custom-tab-pane mb-4">
+            <h6>Want to know what potential clients are looking for?</h6>
+            <p>
+                Join Kickstart for exclusive access to market research tools, insights,
+                Tell me more →
+            </p>
+        </div>
+
+        <div class="mb-4">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <p>
+                        <strong>Gig title</strong><br>
+                        As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="title" placeholder="Enter your gig title" required>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <p>
+                        <strong>Category</strong><br>
+                        Choose the category and sub-category most suitable for your Gig.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" name="category" required>
+                        <option value="Programming & Tech">Programming & Tech</option>
+                        <option value="Graphics & Design">Graphics & Design</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <select class="form-select" name="sub_category" required>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="Software Development">Software Development</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <p>
+                        <strong>Service type</strong>
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <select class="form-select" name="service_type" required>
+                        <option value="Front-End Development">Front-End Development</option>
+                        <option value="Back-End Development">Back-End Development</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="SEO Optimization">SEO Optimization</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <p>
+                        <strong>Gig metadata</strong><br>
+                        Select the website type you support
+                    </p>
+                </div>
+                <div class="col-md-8 gig-metadata">
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            <input type="radio" name="website_type" value="E-Commerce" id="ecommerce" required>
+                            <label for="ecommerce">E-Commerce store</label>
                         </div>
-
-                        <div class="mb-4">
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Gig title</strong><br>
-                                        As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.
-                                    </p>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter your gig title">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Category</strong><br>
-                                        Choose the category and sub-category most suitable for your Gig.
-                                    </p>
-                                </div>
-                                <div class="col-md-4">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        Programming & Tech
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Front-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Back-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Software Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Game Development</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        WEB DEVELOPMENT
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">API Development</a></li>
-                                        <li><a class="dropdown-item" href="#">CMS Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Full-Stack Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Database Management</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Service type</strong>
-                                    </p>
-                                </div>
-                                <div class="col-md-8">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        Select a service type
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Front-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Back-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
-                                        <li><a class="dropdown-item" href="#">SEO Optimization</a></li>
-                                        <li><a class="dropdown-item" href="#">Cloud Computing</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Gig metadata</strong><br>
-                                        Select the website type you support
-                                    </p>
-                                </div>
-                                <div class="col-md-8 gig-metadata">
-                                    <div class="row">
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="ecommerce">
-                                            <label for="ecommerce">E-Commerce store</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="business">
-                                            <label for="business">Business</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="portfolio">
-                                            <label for="portfolio">Portfolio</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="blog">
-                                            <label for="blog">Blog</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="landing-page">
-                                            <label for="landing-page">Landing Page</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="news-portal">
-                                            <label for="news-portal">News Portal</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Search tags</strong><br>
-                                        Use all 5 tags to get found.
-                                    </p>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter tags">
-                                </div>
-                            </div>
+                        <div class="col-6 col-md-4">
+                            <input type="radio" name="website_type" value="Business" id="business" required>
+                            <label for="business">Business</label>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <input type="radio" name="website_type" value="Portfolio" id="portfolio" required>
+                            <label for="portfolio">Portfolio</label>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <input type="radio" name="website_type" value="Blog" id="blog" required>
+                            <label for="blog">Blog</label>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <input type="radio" name="website_type" value="Landing Page" id="landing-page" required>
+                            <label for="landing-page">Landing Page</label>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <input type="radio" name="website_type" value="News Portal" id="news-portal" required>
+                            <label for="news-portal">News Portal</label>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <p>
+                        <strong>Search tags</strong><br>
+                        Use all 5 tags to get found.
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="tags" placeholder="Enter tags">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Gig</button>
+    </form>
+</div>
+
 
 
 
                     <div class="tab-pane fade" id="card7-profile">
-                        <div class="custom-tab-pane mb-4">
-                            <h6>Looking to fast-track your success?</h6>
-                            <p>
-                                
-                                Join Kickstart for valuable insights, exclusive benefits, and resources to create a profile that grabs attention.   
-                                Let's do it →
-                            </p>
-                        </div>
-                        <h3>Scope & Pricing</h3>
-                        <div class="mb-4" style="background-color: blue; color: white; padding: 15px; border-radius: 5px;">
-                            <h6>Looking to fast-track your success?</h6>
-                            <p>
-                                <i class="fas fa-info-circle" style="color: rgb(252, 252, 252); margin-right: 10px;"></i>
-                                The scope of this service is to deliver buyers a functional website. Package prices should include predefined options at a minimum of $80. Please move your Gig to another category if you do not offer this specific service.
-                            </p>
-                        </div><hr>
-                        <h6>Packages</h6>
-
-                        <div class="">
-                                    <table id="datatable-render" class="table table-bordered table-striped table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>Basics</th>
-                                                <th>Standard</th>
-                                                <th>Premium</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                
-                                                <td></td>
-                                                <td>Quick Bug Fixes and Customizations</td>
-                                                <td>Custom Laravel Features and Website</td>
-                                                <td>Professional Responsive Website</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                               
-                                                <td></td>
-                                                <td>
-                                                    <p style="margin: 0; font-size: 14px; line-height: 1.2;">
-                                                        Pricing is flexible, and I am committed.
-                                                    </p>
-                                                </td>   
-                                                <td>
-                                                    <p style="margin: 0; font-size: 14px; line-height: 1.2;">
-                                                        Pricing is flexible, and I am committed.
-                                                    </p>
-                                                </td> 
-                                                <td>We offer custom website.</td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                
-                                                <td></td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <option selected>3 day delivery</option>
-                                                        <option>1 day delivery</option>
-                                                        <option>5 day delivery</option>
-                                                        <option>7 day delivery</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <option selected>10 day delivery</option>
-                                                        <option>1 day delivery</option>
-                                                        <option>5 day delivery</option>
-                                                        <option>7 day delivery</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <option selected>30 day delivery</option>
-                                                        <option>1 day delivery</option>
-                                                        <option>5 day delivery</option>
-                                                        <option>7 day delivery</option>
-                                                    </select>
-                                                </td>
-                                               
-                                            </tr>
-                                        
-                                            <tr>
-                                                <td>Functional website</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr>
-                                               
-                                                <td>Number of pages</td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>                                                
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>
-                                              
-                                            </tr>
-                                            <tr>
-                                                
-                                                <td>Revisions</td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                        <option value="unlimited">Unlimited</option> <!-- Unlimited option -->
-                                                    </select>
-                                                </td>                                               
-                                                
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                        <option value="unlimited">Unlimited</option> <!-- Unlimited option -->
-                                                    </select>
-                                                </td>      
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                        <option value="unlimited">Unlimited</option> <!-- Unlimited option -->
-                                                    </select>
-                                                </td>   
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Content Upload</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr>
-                                               
-                                                <td>Plugins/extensions installation</td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options from 1 to 10 -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>                                                
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options from 1 to 10 -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td> 
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options from 1 to 10 -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>  
-                                               
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>E-Commerce functiontality</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                
-                                                <td>Number of products</td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options from 1 to 10 -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>                                                
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options from 1 to 10 -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td> 
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <!-- Dropdown options from 1 to 10 -->
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td> 
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Payment processing</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>opt in form</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>autorespond integration</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>speed optimizationn</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                                  
-                                            <tr>
-                                                <td>Hosting setup</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Social media icons</td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption1" value="option1" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption2" value="option2" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <label style="display: flex; align-items: center; gap: 10px;">
-                                                        <input type="radio" name="deliveryOption3" value="option3" style="transform: scale(1.5);">
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                                 <tr>
-                                                
-                                                <td>Price</td>
-                                                <td>
-                                                    <select id="price1" style="width: 100px; padding: 5px;" onchange="updatePrice()">
-                                                        <option value="80">$80</option>
-                                                        <option value="100">$100</option>
-                                                        <option value="120">$120</option>
-                                                        <option value="150">$150</option>
-                                                        <option value="200">$200</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select id="price1" style="width: 100px; padding: 5px;" onchange="updatePrice()">
-                                                        <option value="80">$140</option>
-                                                        <option value="100">$150</option>
-                                                        <option value="120">$180</option>
-                                                        <option value="150">$200</option>
-                                                        <option value="200">$220</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select id="price1" style="width: 100px; padding: 5px;" onchange="updatePrice()">
-                                                        <option value="80">$900</option>
-                                                        <option value="100">$1000</option>
-                                                        <option value="120">$1100</option>
-                                                        <option value="150">$1200</option>
-                                                        <option value="200">$1300</option>
-                                                    </select>
-                                                </td>
-                                                
-                                            </tr>
-                                            <tr>
-                                            
-                                                <td>Shutterstock Media</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>Powered by Shutterstock</td>
-                                            </tr>   
-                                            <tr>
-                                                
-                                                <td>Licensed images</td>
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>                                                
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>      
-                                                <td>
-                                                    <select style="width: 100%; padding: 5px; border-radius: 4px;">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                </td>     
-                                            </tr> 
-                                            <tr>
-                                                
-                                                <td>Total Price</td>
-                                                <td>
-                                                    <select id="price1" style="width: 100px; padding: 5px;" onchange="updatePrice()">
-                                                        <option value="80">$80</option>
-                                                        <option value="100">$100</option>
-                                                        <option value="120">$120</option>
-                                                        <option value="150">$150</option>
-                                                        <option value="200">$200</option>
-                                                    </select>
-                                                </td>>
-                                                <td>
-                                                    <select id="price1" style="width: 100px; padding: 5px;" onchange="updatePrice()">
-                                                        <option value="80">$100</option>
-                                                        <option value="100">$140</option>
-                                                        <option value="120">$150</option>
-                                                        <option value="150">$180</option>
-                                                        <option value="200">$220</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select id="price1" style="width: 100px; padding: 5px;" onchange="updatePrice()">
-                                                        <option value="80">$900</option>
-                                                        <option value="100">$1000</option>
-                                                        <option value="120">$1100</option>
-                                                        <option value="150">$1200</option>
-                                                        <option value="200">$1300</option>
-                                                    </select>
-                                                </td>
-                                            </tr>   
-                                            
-                                        </tbody>
-                                    </table>
+                        <div class="container mt-5">
+                            <h3 class="text-center mb-4">Fiverr Pricing Editor</h3>
+                            <form action="{{route('save.pricing')}}" method="POST">
+                                @csrf
+                                <div class="row">
+                                    <!-- Pricing Headers -->
+                                    <div class="col-md-4">
+                                        <div class="pricing-header">
+                                            <h5>Basic</h5>
+                                            <p>Essential package</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="pricing-header">
+                                            <h5>Standard</h5>
+                                            <p>Medium-tier package</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="pricing-header">
+                                            <h5>Premium</h5>
+                                            <p>Top-tier package</p>
+                                        </div>
+                                    </div>
                                 </div>
-                              
+                    
+                                <!-- Dynamic Inputs -->
+                                <div class="row mt-4">
+                                    <!-- Number of Pages -->
+                                    <div class="col-md-3">
+                                        <strong>Number of Pages</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="basic_pages" class="form-control" placeholder="Basic pages">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="standard_pages" class="form-control" placeholder="Standard pages">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="premium_pages" class="form-control" placeholder="Premium pages">
+                                    </div>
+                                </div>
+                    
+                                <!-- Revisions -->
+                                <div class="row mt-3">
+                                    <div class="col-md-3">
+                                        <strong>Revisions</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select name="basic_revisions" class="form-select">
+                                            <option>No Revisions</option>
+                                            <option>1 Revision</option>
+                                            <option>2 Revision</option>
+                                            <option>3 Revision</option>
+                                            <option>4 Revision</option>
+                                            <option>5 Revision</option>
 
-                                <style>
-                                    .radio-option {
-                                        border: 1px solid #ccc; /* Light gray border */
-                                        padding: 10px; /* Space inside the border */
-                                        border-radius: 5px; /* Rounded corners (optional) */
-                                        margin-bottom: 10px; /* Space between options */
-                                    }
-                                </style>
-                                <h1>Add extra services</h1>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label class="radio-option" style="display: flex; align-items: center; gap: 10px;">
-                                                <input type="radio" name="deliveryOption" value="extraFastDelivery" style="transform: scale(1.8);">
-                                                Extra Fast Delivery
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="radio-option" style="display: flex; align-items: center; gap: 10px;">
-                                                <input type="radio" name="deliveryOption" value="additionalPage" style="transform: scale(1.8);">
-                                                Additional Page
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="radio-option" style="display: flex; align-items: center; gap: 10px;">
-                                                <input type="radio" name="deliveryOption" value="additionalRevision" style="transform: scale(1.8);">
-                                                Additional Revision
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="radio-option" style="display: flex; align-items: center; gap: 10px;">
-                                                <input type="radio" name="deliveryOption" value="additionalPlugin" style="transform: scale(1.8);">
-                                                Additional Plugin Installation
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="radio-option" style="display: flex; align-items: center; gap: 10px;">
-                                                <input type="radio" name="deliveryOption" value="additionalProduct" style="transform: scale(1.8);">
-                                                Additional Product
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="radio-option" style="display: flex; align-items: center; gap: 10px;">
-                                                <input type="radio" name="deliveryOption" value="additionalStockMedia" style="transform: scale(1.8);">
-                                                Additional Stock Media
-                                            </label>
-                                        </td>
-                                    </tr>
-                                </table>
-                                
-                              
-                                
-                        
+                                            <option>Unlimited</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select name="standard_revisions" class="form-select">
+                                            <option>No Revisions</option>
+                                            <option>1 Revision</option>
+                                            <option>2 Revision</option>
+                                            <option>3 Revision</option>
+                                            <option>4 Revision</option>
+                                            <option>5 Revisions</option>
+                                            <option>Unlimited</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select name="premium_revisions" class="form-select">
+                                            <option>No Revisions</option>
+                                            <option>1 Revision</option>
+                                            <option>2 Revision</option>
+                                            <option>3 Revision</option>
+                                            <option>4 Revision</option>
+                                            <option>5 Revisions</option>
+                                            <option>Unlimited</option>
+                                        </select>
+                                    </div>
+                                </div>
+                    
+                                <!-- Other Features -->
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>Content Upload</strong></div>
+                                    <div class="col-md-3"><input type="checkbox" name="basic_content_upload"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="standard_content_upload"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="premium_content_upload"> Include</div>
+                                </div>
+                    
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>Plugins Installation</strong></div>
+                                    <div class="col-md-3"><input type="checkbox" name="basic_plugins"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="standard_plugins"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="premium_plugins"> Include</div>
+                                </div>
+                    
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>E-commerce Functionality</strong></div>
+                                    <div class="col-md-3"><input type="checkbox" name="basic_ecommerce"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="standard_ecommerce"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="premium_ecommerce"> Include</div>
+                                </div>
+                    
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>Number of Products</strong></div>
+                                    <div class="col-md-3"><input type="number" name="basic_products" class="form-control"></div>
+                                    <div class="col-md-3"><input type="number" name="standard_products" class="form-control"></div>
+                                    <div class="col-md-3"><input type="number" name="premium_products" class="form-control"></div>
+                                </div>
+                    
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>Payment Processing</strong></div>
+                                    <div class="col-md-3"><input type="checkbox" name="basic_payment"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="standard_payment"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="premium_payment"> Include</div>
+                                </div>
+                    
+                                <!-- Other Functionalities -->
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>Speed Optimization</strong></div>
+                                    <div class="col-md-3"><input type="checkbox" name="basic_speed"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="standard_speed"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="premium_speed"> Include</div>
+                                </div>
+                    
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>Social Media Icons</strong></div>
+                                    <div class="col-md-3"><input type="checkbox" name="basic_social_media"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="standard_social_media"> Include</div>
+                                    <div class="col-md-3"><input type="checkbox" name="premium_social_media"> Include</div>
+                                </div>
+                    
+                                <!-- Pricing -->
+                                <div class="row mt-3">
+                                    <div class="col-md-3"><strong>Price</strong></div>
+                                    <div class="col-md-3"><input type="number" name="basic_price" class="form-control" placeholder="$5" min="5"></div>
+                                    <div class="col-md-3"><input type="number" name="standard_price" class="form-control" placeholder="$50" min="5"></div>
+                                    <div class="col-md-3"><input type="number" name="premium_price" class="form-control" placeholder="$100" min="5"></div>
+                                </div>
+                    
+                                <!-- Submit -->
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    
                         
                     </div>
-                   
+                    <style>
+                        .pricing-header {
+                            background-color: #f8f9fa;
+                            border: 2px solid #007bff;
+                            border-radius: 8px;
+                            text-align: center;
+                            padding: 15px;
+                            margin-bottom: 20px;
+                        }
+                
+                        .form-control, .form-select {
+                            margin-bottom: 10px;
+                        }
+                
+                        .pricing-section {
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                            padding: 20px;
+                            background: #fff;
+                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                        }
+                
+                        .pricing-section h5 {
+                            color: #007bff;
+                        }
+                
+                        .btn-primary {
+                            background-color: #007bff;
+                            border-color: #007bff;
+                        }
+                    </style>                   
                    
                    
 

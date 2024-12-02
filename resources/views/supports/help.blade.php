@@ -436,11 +436,14 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body d-flex justify-content-between align-items-center">
+                        
+
                         <div>
                             <h5 class="card-title">Can't find what you're looking for?</h5>
                             <p class="card-text">We're here to help.</p>
                             <a href="#" class="btn btn-outline-dark">Contact us</a>
                         </div>
+
                         <div class="d-flex">
                        
                         </div>

@@ -31,9 +31,12 @@ Route::get('/gig', [SellerController::class, 'gig'])->name('sellers.gig');
 Route::get('/seller/plus', [SellerController::class, 'plus'])->name('sellers.plus');
 Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
 Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
+
+
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
-
+Route::post('/gigs/store', [EditController::class, 'storeover'])->name('gigs.store');
+Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save.pricing');
 
 Route::get('/program', function () {
     return view('sellers.program');

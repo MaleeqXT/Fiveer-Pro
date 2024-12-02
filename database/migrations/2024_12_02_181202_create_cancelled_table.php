@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cancelleds', function (Blueprint $table) {
-            $table->id(); // Primary key
+        Schema::create('cancelled', function (Blueprint $table) {
+            $table->id();
             $table->string('buyer'); // BUYER: Name or identifier of the buyer
             $table->string('gig'); // GIG: Name of the gig, project, or task
             $table->date('due_on'); // DUE ON: Due date of the gig/task
             $table->decimal('total', 10, 2); // TOTAL: Total amount (10 digits, 2 decimals)
             $table->text('note')->nullable(); // NOTE: Additional notes (optional)
-            $table->timestamps(); // created_at and updated_at timestamps
+            $table->timestamps();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cancelleds');
+        Schema::dropIfExists('cancelled');
     }
 };

@@ -196,6 +196,11 @@
 <body>
     <!-- Header -->
     @include('fiverr.layouts.header')
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
     <!-- Main Content -->
         @yield('content')

@@ -8,9 +8,21 @@ use App\Http\Controllers\AdminController;
 
 
 
+// Route::get('/', function () {
+   
+//     return view('welcome');
+// });
+
+// routes/web.php
+
+
+
+
 Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
 Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
 Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
+
+
 
 Route::get('/', [FiveerController::class, 'index']);
 Route::get('/helps', [FiveerController::class, 'help'])->name('supports.help');
@@ -23,6 +35,7 @@ Route::get('/earning', [FiveerController::class, 'earning'])->name('websites.ear
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::get('/selling', [SellerController::class, 'index'])->name('selling');
 Route::get('/analytics', [SellerController::class, 'analytics'])->name('sellers.index');
@@ -37,6 +50,14 @@ Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
 Route::post('/gigs/store', [EditController::class, 'storeover'])->name('gigs.store');
 Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save.pricing');
+
+
+
+
+
+
+
+
 
 Route::get('/program', function () {
     return view('sellers.program');

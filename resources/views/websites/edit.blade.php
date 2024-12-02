@@ -278,133 +278,127 @@
             <div class="card-body">
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="card7-home">
-                        <div class="custom-tab-pane mb-4">
-                            <h6>Want to know what potential clients are looking for?</h6>
-                            <p>
-                                Join Kickstart for exclusive access to market research tools, insights,
-                                Tell me more →
-                            </p>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Gig title</strong><br>
-                                        As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.
-                                    </p>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter your gig title">
-                                </div>
+                        <form action="{{ route('overview.store') }}" method="POST">
+                            @csrf
+                            <div class="custom-tab-pane mb-4">
+                                <h6>Want to know what potential clients are looking for?</h6>
+                                <p>
+                                    Join Kickstart for exclusive access to market research tools, insights,
+                                    Tell me more →
+                                </p>
                             </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Category</strong><br>
-                                        Choose the category and sub-category most suitable for your Gig.
-                                    </p>
+                    
+                            <div class="mb-4">
+                                <!-- Gig Title -->
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Gig title</strong><br>
+                                            As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="gig_title" placeholder="Enter your gig title" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        Programming & Tech
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Front-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Back-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Software Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Game Development</a></li>
-                                    </ul>
+                    
+                                <!-- Category -->
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Category</strong><br>
+                                            Choose the category and sub-category most suitable for your Gig.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-select" name="category" required>
+                                            <option value="Programming & Tech">Programming & Tech</option>
+                                            <option value="Graphics & Design">Graphics & Design</option>
+                                            <option value="Digital Marketing">Digital Marketing</option>
+                                        </select>
+                                    </div>
+                    
+                                    <div class="col-md-4">
+                                        <select class="form-select" name="sub_category" required>
+                                            <option value="Web Development">Web Development</option>
+                                            <option value="Mobile App Development">Mobile App Development</option>
+                                            <option value="Game Development">Game Development</option>
+                                        </select>
+                                    </div>
                                 </div>
-
-                                <div class="col-md-4">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        WEB DEVELOPMENT
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">API Development</a></li>
-                                        <li><a class="dropdown-item" href="#">CMS Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Full-Stack Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Database Management</a></li>
-                                    </ul>
+                    
+                                <!-- Service Type -->
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Service type</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-select" name="service_type" required>
+                                            <option value="Front-End Development">Front-End Development</option>
+                                            <option value="Back-End Development">Back-End Development</option>
+                                            <option value="Mobile App Development">Mobile App Development</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Service type</strong>
-                                    </p>
-                                </div>
-                                <div class="col-md-8">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        Select a service type
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Front-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Back-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
-                                        <li><a class="dropdown-item" href="#">SEO Optimization</a></li>
-                                        <li><a class="dropdown-item" href="#">Cloud Computing</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Gig metadata</strong><br>
-                                        Select the website type you support
-                                    </p>
-                                </div>
-                                <div class="col-md-8 gig-metadata">
-                                    <div class="row">
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="ecommerce">
-                                            <label for="ecommerce">E-Commerce store</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="business">
-                                            <label for="business">Business</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="portfolio">
-                                            <label for="portfolio">Portfolio</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="blog">
-                                            <label for="blog">Blog</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="landing-page">
-                                            <label for="landing-page">Landing Page</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="news-portal">
-                                            <label for="news-portal">News Portal</label>
+                    
+                                <!-- Website Type -->
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Gig metadata</strong><br>
+                                            Select the website type you support
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8 gig-metadata">
+                                        <div class="row">
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" id="ecommerce" value="E-Commerce store" required>
+                                                <label for="ecommerce">E-Commerce store</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" id="business" value="Business" required>
+                                                <label for="business">Business</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" id="portfolio" value="Portfolio" required>
+                                                <label for="portfolio">Portfolio</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" id="blog" value="Blog" required>
+                                                <label for="blog">Blog</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" id="landing-page" value="Landing Page" required>
+                                                <label for="landing-page">Landing Page</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" id="news-portal" value="News Portal" required>
+                                                <label for="news-portal">News Portal</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Search tags</strong><br>
-                                        Use all 5 tags to get found.
-                                    </p>
+                    
+                                <!-- Search Tags -->
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Search tags</strong><br>
+                                            Use all 5 tags to get found.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="tags" placeholder="Enter tags" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter tags">
-                                </div>
                             </div>
-                        </div>
+                    
+                            <button type="submit" class="btn btn-primary">Save Overview</button>
+                        </form>
                     </div>
+                    
 
 
 

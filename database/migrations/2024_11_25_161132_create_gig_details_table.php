@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('faq', function (Blueprint $table) {
+        Schema::create('gig_details', function (Blueprint $table) {
             $table->id();
+            $table->string('description');
+            $table->boolean('milestones_enabled')->default(false);
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('faq');
+        Schema::dropIfExists('gig_details');
     }
 };

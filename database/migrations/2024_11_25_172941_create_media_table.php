@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gigimages', function (Blueprint $table) {
+        Schema::create('media', function (Blueprint $table) {
             $table->id();
-            
+            $table->foreignId('gig_id')->constrained()->onDelete('cascade');
+            $table->string('type'); // image, video, or document
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gigimages');
+        Schema::dropIfExists('media');
     }
 };

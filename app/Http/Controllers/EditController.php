@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Overview;
 use App\Models\Pricing;
-
+use App\Models\Faq;
+use App\Models\GigDetail;
+use App\Models\Media;
 class EditController extends Controller
 {
     public function index() {
@@ -106,6 +108,96 @@ class EditController extends Controller
         // Redirect back to the page with the list of questions
         return redirect()->route('websites.edit')->with('success', 'Question added successfully');
     }
+
+    public function storefaq(Request $request)
+    {
+        $data = $request->validate([
+            'description' => 'required|string',
+            'milestones_enabled' => 'nullable|boolean',
+            'faq_questions' => 'nullable|array', // Array of questions
+            'faq_answers' => 'nullable|array',   // Array of answers
+        ]);
+    
+        // Create the gig detail record
+        $gigDetail = GigDetail::create([
+            'description' => $data['description'],
+            'milestones_enabled' => $data['milestones_enabled'] ?? false,
+        ]);
+    
+        // Save FAQs if provided
+        if (!empty($data['faq_questions']) && !empty($data['faq_answers'])) {
+            foreach ($data['faq_questions'] as $index => $question) {
+                $gigDetail->faqs()->create([
+                    'question' => $question,
+                    'answer' => $data['faq_answers'][$index] ?? null,
+                ]);
+            }
+        }
+    
+        return redirect()->back()->with('success', 'Gig details saved successfully!');
+    }
+    
+
+    public function show($id)
+    {
+        $gigDetail = GigDetail::with('faqs')->findOrFail($id);
+
+        return view('gig-detail.show', compact('gigDetail'));
+    }
+
+    
+    public function storeGigMedia(Request $request, $gigId)
+{
+    // Validate the input for media files only
+    $request->validate([
+        'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
+        'gig_documents.*' => 'nullable|mimes:pdf,doc,docx,ppt,txt|max:5120',
+    ]);
+
+    // Store Images, Videos, and Documents as previously outlined
+    if ($request->hasFile('gig_images')) {
+        foreach ($request->file('gig_images') as $image) {
+            $path = $image->store('gigs/images', 'public');
+            
+            // Store the media in the media table
+            Media::create([
+                'gig_id' => $gigId,  // Associate with the gig
+                'type' => 'image',    // Set type as 'image'
+                'path' => $path,      // Store the path
+            ]);
+        }
+    }
+
+    if ($request->hasFile('gig_videos')) {
+        foreach ($request->file('gig_videos') as $video) {
+            $path = $video->store('gigs/videos', 'public');
+            
+            // Store the media in the media table
+            Media::create([
+                'gig_id' => $gigId,  // Associate with the gig
+                'type' => 'video',    // Set type as 'video'
+                'path' => $path,      // Store the path
+            ]);
+        }
+    }
+
+    if ($request->hasFile('gig_documents')) {
+        foreach ($request->file('gig_documents') as $document) {
+            $path = $document->store('gigs/documents', 'public');
+            
+            // Store the media in the media table
+            Media::create([
+                'gig_id' => $gigId,  // Associate with the gig
+                'type' => 'document', // Set type as 'document'
+                'path' => $path,      // Store the path
+            ]);
+        }
+    }
+
+    return redirect()->back()->with('success', 'Gig media saved successfully!');
+}
+
     
 }
 

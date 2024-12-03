@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gigimages', function (Blueprint $table) {
+        Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            
+            $table->foreignId('gig_detail_id')->constrained()->onDelete('cascade'); // Foreign key to gig details
+            $table->string('question');
+            $table->text('answer')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gigimages');
+        Schema::dropIfExists('faqs');
     }
 };

@@ -278,133 +278,124 @@
             <div class="card-body">
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="card7-home">
-                        <div class="custom-tab-pane mb-4">
-                            <h6>Want to know what potential clients are looking for?</h6>
-                            <p>
-                                Join Kickstart for exclusive access to market research tools, insights,
-                                Tell me more →
-                            </p>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Gig title</strong><br>
-                                        As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.
-                                    </p>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter your gig title">
-                                </div>
+                        <form action="{{ route('gigs.store') }}" method="POST">
+                            @csrf <!-- Laravel CSRF token for security -->
+                    
+                            <div class="custom-tab-pane mb-4">
+                                <h6>Want to know what potential clients are looking for?</h6>
+                                <p>
+                                    Join Kickstart for exclusive access to market research tools, insights,
+                                    Tell me more →
+                                </p>
                             </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Category</strong><br>
-                                        Choose the category and sub-category most suitable for your Gig.
-                                    </p>
+                    
+                            <div class="mb-4">
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Gig title</strong><br>
+                                            As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="title" placeholder="Enter your gig title" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        Programming & Tech
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Front-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Back-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Web Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Software Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Game Development</a></li>
-                                    </ul>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Category</strong><br>
+                                            Choose the category and sub-category most suitable for your Gig.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-select" name="category" required>
+                                            <option value="Programming & Tech">Programming & Tech</option>
+                                            <option value="Graphics & Design">Graphics & Design</option>
+                                        </select>
+                                    </div>
+                    
+                                    <div class="col-md-4">
+                                        <select class="form-select" name="sub_category" required>
+                                            <option value="Web Development">Web Development</option>
+                                            <option value="Mobile App Development">Mobile App Development</option>
+                                            <option value="Software Development">Software Development</option>
+                                        </select>
+                                    </div>
                                 </div>
-
-                                <div class="col-md-4">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        WEB DEVELOPMENT
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">API Development</a></li>
-                                        <li><a class="dropdown-item" href="#">CMS Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Full-Stack Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Database Management</a></li>
-                                    </ul>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Service type</strong>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-select" name="service_type" required>
+                                            <option value="Front-End Development">Front-End Development</option>
+                                            <option value="Back-End Development">Back-End Development</option>
+                                            <option value="Mobile App Development">Mobile App Development</option>
+                                            <option value="UI/UX Design">UI/UX Design</option>
+                                            <option value="SEO Optimization">SEO Optimization</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Service type</strong>
-                                    </p>
-                                </div>
-                                <div class="col-md-8">
-                                    <button class="btn btn-outline-secondary w-100 dropdown-toggle" data-bs-toggle="dropdown">
-                                        Select a service type
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Front-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Back-End Development</a></li>
-                                        <li><a class="dropdown-item" href="#">Mobile App Development</a></li>
-                                        <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
-                                        <li><a class="dropdown-item" href="#">SEO Optimization</a></li>
-                                        <li><a class="dropdown-item" href="#">Cloud Computing</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Gig metadata</strong><br>
-                                        Select the website type you support
-                                    </p>
-                                </div>
-                                <div class="col-md-8 gig-metadata">
-                                    <div class="row">
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="ecommerce">
-                                            <label for="ecommerce">E-Commerce store</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="business">
-                                            <label for="business">Business</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="portfolio">
-                                            <label for="portfolio">Portfolio</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="blog">
-                                            <label for="blog">Blog</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="landing-page">
-                                            <label for="landing-page">Landing Page</label>
-                                        </div>
-                                        <div class="col-6 col-md-4">
-                                            <input type="radio" name="website_type" id="news-portal">
-                                            <label for="news-portal">News Portal</label>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Gig metadata</strong><br>
+                                            Select the website type you support
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8 gig-metadata">
+                                        <div class="row">
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" value="E-Commerce" id="ecommerce" required>
+                                                <label for="ecommerce">E-Commerce store</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" value="Business" id="business" required>
+                                                <label for="business">Business</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" value="Portfolio" id="portfolio" required>
+                                                <label for="portfolio">Portfolio</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" value="Blog" id="blog" required>
+                                                <label for="blog">Blog</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" value="Landing Page" id="landing-page" required>
+                                                <label for="landing-page">Landing Page</label>
+                                            </div>
+                                            <div class="col-6 col-md-4">
+                                                <input type="radio" name="website_type" value="News Portal" id="news-portal" required>
+                                                <label for="news-portal">News Portal</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <p>
-                                        <strong>Search tags</strong><br>
-                                        Use all 5 tags to get found.
-                                    </p>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <p>
+                                            <strong>Search tags</strong><br>
+                                            Use all 5 tags to get found.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="tags" placeholder="Enter tags">
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <input type="text" class="form-control" placeholder="Enter tags">
-                                </div>
                             </div>
-                        </div>
+                    
+                            <button type="submit" class="btn btn-primary">Save Gig</button>
+                        </form>
                     </div>
+                    
 
 
 
@@ -600,12 +591,14 @@
                    
                    
                    
-                   
-                    <div class="tab-pane fade" id="card7-contact">
-                        <div class="container">
+                   <div class="tab-pane fade" id="card7-contact">
+                    <div class="container">
+                        <!-- Store Form -->
+                        <form action="{{ route('gig-details.store') }}" method="POST">
+                            @csrf
                             <hr>
                             <p class="mt-5 text-muted">Briefly Describe Your Gig</p>
-                        
+            
                             <!-- Gig Description -->
                             <div class="card text-center">
                                 <div class="card-header">
@@ -617,56 +610,88 @@
                                     </ul>
                                 </div>
                                 <div class="card-body">
-                                    <p>
-                                        My gig offers expert Laravel development services, specializing in creating custom features, 
-                                        responsive websites, and seamless integrations tailored to your unique needs. Whether you need a 
-                                        full website built from scratch, quick bug fixes, or personalized customizations, I bring years of 
-                                        experience and a commitment to delivering high-quality, reliable solutions. Let’s bring your vision 
-                                        to life with professional, scalable web development!
-                                    </p>
+                                    <textarea 
+                                        name="description" 
+                                        class="form-control" 
+                                        placeholder="Describe your gig..." 
+                                        required>{{ old('description') }}</textarea>
                                 </div>
                             </div>
-                        
+            
                             <hr class="mt-5">
-                        
+            
                             <!-- Milestone Workflow -->
                             <div class="milestone-header mt-5">
                                 <h2 class="text-muted">Milestone Workflow</h2>
-                                <button class="small-pink-button">NEW</button>
+                                <label>
+                                    <input type="checkbox" name="milestones_enabled" value="1">
+                                    Enable Milestones Workflow
+                                </label>
                             </div>
                             <p class="text-muted mt-2">
                                 Attract buyers by turning your Gig into a series of milestones—they’ll know exactly what to expect, 
                                 and you’ll get paid when each milestone is completed.
                             </p>
-                        
-                            <div class="d-flex justify-content-center">
-                                <h4 class="mt-4">Want to offer a Milestones workflow?</h4>
-                            </div>
-                            <p class="text-muted text-center">
-                                Make sure your Gig is in an eligible category and your Basic package is priced at $100 or more.
-                                <span class="text-success">Learn about Milestones</span>
-                            </p>
-                        
+            
                             <hr class="mt-5">
-                        
+            
                             <!-- Frequently Asked Questions -->
-                            <div class="d-flex align-items-center mt-5">
+                            <div id="faq-section">
                                 <h2 class="text-muted me-3">Frequently Asked Questions</h2>
-                                <p class="text-success mb-0" aria-label="Add FAQ" role="button">+Add FAQ</p>
+                                <div class="faq-item mt-3">
+                                    <input type="text" class="form-control mb-2" name="faq_questions[]" placeholder="Question">
+                                    <textarea class="form-control" name="faq_answers[]" placeholder="Answer"></textarea>
+                                </div>
                             </div>
-                            <hr>
-                            <h6 class="mt-5">Add Questions & Answers for Your Buyers.</h6>
-                            <p class="text-success mt-3" aria-label="Add FAQ" role="button">+Add FAQ</p>
-                        
+                            <button type="button" id="add-faq" class="btn btn-link text-success">+ Add FAQ</button>
+            
                             <hr class="mt-4">
-                        
+            
                             <!-- Button Container -->
                             <div class="button-container">
-                                <button class="plain-button">Cancel</button>
-                                <button class="btn-save">Save</button>
+                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
-                        </div>
-                                            </div>
+                        </form>
+            
+                        <!-- Show Gig Details -->
+                        @isset($gigDetail)
+                            <hr class="mt-5">
+                            <h2 class="text-muted">Gig Details</h2>
+                            <p>{{ $gigDetail->description }}</p>
+            
+                            <h3>Milestone Workflow</h3>
+                            <p>{{ $gigDetail->milestones_enabled ? 'Enabled' : 'Disabled' }}</p>
+            
+                            <h3>FAQs</h3>
+                            @if ($gigDetail->faqs->count())
+                                <ul>
+                                    @foreach ($gigDetail->faqs as $faq)
+                                        <li>
+                                            <strong>{{ $faq->question }}</strong>
+                                            <p>{{ $faq->answer }}</p>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p>No FAQs available.</p>
+                            @endif
+                        @endisset
+                    </div>
+                </div>
+            
+                <script>
+                    document.getElementById('add-faq').addEventListener('click', function () {
+                        const faqSection = document.getElementById('faq-section');
+                        const newFaq = document.createElement('div');
+                        newFaq.classList.add('faq-item', 'mt-3');
+                        newFaq.innerHTML = `
+                            <input type="text" class="form-control mb-2" name="faq_questions[]" placeholder="Question">
+                            <textarea class="form-control" name="faq_answers[]" placeholder="Answer"></textarea>
+                        `;
+                        faqSection.appendChild(newFaq);
+                    });
+                </script>
 
 
                                             <div class="tab-pane fade" id="card7-requiriment">
@@ -731,138 +756,148 @@
 
 
     
-                    
-                    <div class="tab-pane fade" id="card7-add-gig">
-                        <h3>Showcase Your Services In A Gig Gallery</h3>
-                    
-                        <!-- Container Card for all the Upload Boxes -->
-                        <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                            <h4>Upload Your Gig Media</h4>
-                    
-                            <!-- Row for the Upload Cards -->
-                            <!-- Gig Images Box -->
-                            <div class="row mb-4">
-                                <div class="col-4">
-                                    <div class="box-card" style="border: 2px solid #16181a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                        <label for="gigImages" style="font-weight: bold;">Upload Gig Images (Drag and Drop)</label>
-                                        <div id="imageUpload" style="border: 2px dashed #0568b9; padding: 20px; text-align: center; color: #1ea7ec;">
-                                            <p>Drag and drop your images here, or click to select</p>
-                                            <input type="file" id="gigImages" class="form-control" accept="image/*" multiple style="display: none;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    
-                            <!-- Gig Video Box -->
-                            <div class="row mb-4">
-                                <div class="col-4">
-                                    <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                        <label for="gigVideos" style="font-weight: bold;">Upload Gig Video (Drag and Drop)</label>
-                                        <div id="videoUpload" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;">
-                                            <p>Drag and drop your video here, or click to select</p>
-                                            <input type="file" id="gigVideos" class="form-control" accept="video/*" multiple style="display: none;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    
-                            <!-- Gig Documents Box -->
-                            <div class="row mb-4">
-                                <div class="col-4">
-                                    <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                        <label for="gigDocuments" style="font-weight: bold;">Upload Gig Documents (Drag and Drop)</label>
-                                        <div id="documentUpload" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;">
-                                            <p>Drag and drop your documents here, or click to select</p>
-                                            <input type="file" id="gigDocuments" class="form-control" accept=".pdf, .doc, .docx, .ppt, .txt" multiple style="display: none;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    
-                            <!-- Publish Gig Button -->
-                        </div>
-                    </div><br><br>
-                    
-                    <!-- Javascript for Drag and Drop and Gig Actions -->
-                    <script>
-                        // Handle drag and drop for images
-                        document.getElementById('imageUpload').addEventListener('click', function() {
-                            document.getElementById('gigImages').click();
-                        });
-                        document.getElementById('gigImages').addEventListener('change', function(e) {
-                            let files = e.target.files;
-                            console.log(files);  // Handle file preview if needed
-                        });
-                    
-                        // Handle drag and drop for videos
-                        document.getElementById('videoUpload').addEventListener('click', function() {
-                            document.getElementById('gigVideos').click();
-                        });
-                        document.getElementById('gigVideos').addEventListener('change', function(e) {
-                            let files = e.target.files;
-                            console.log(files);  // Handle file preview if needed
-                        });
-                    
-                        // Handle drag and drop for documents
-                        document.getElementById('documentUpload').addEventListener('click', function() {
-                            document.getElementById('gigDocuments').click();
-                        });
-                        document.getElementById('gigDocuments').addEventListener('change', function(e) {
-                            let files = e.target.files;
-                            console.log(files);  // Handle file preview if needed
-                        });
-                    
-                        // Publish Gig Function
-                        function publishGig() {
-                            // Your logic for publishing gig
-                            alert("Gig Published!");
-                        }
-                    </script>
-                    
-                    
-
-                    <div class="tab-pane fade" id="card7-publish">
-                        <!-- Publish Button -->
-                        <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
-
-                        <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
-                        
-                        <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
-
+                                            <div class="tab-pane fade" id="card7-add-gig">
+                                                <h3>Showcase Your Services In A Gig Gallery</h3>
+                                                <form id="gigMediaForm" action="{{ route('store.gig.media', ['gigId' => 1]) }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf       <!-- Container Card for all the Upload Boxes -->
+                                                    <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                        <h4>Upload Your Gig Media</h4>
+                                            
+                                                        <!-- Row for the Upload Cards -->
+                                                        <!-- Gig Images Box -->
+                                                        <div class="row mb-4">
+                                                            <div class="col-4">
+                                                                <div class="box-card" style="border: 2px solid #16181a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                    <label for="gigImages" style="font-weight: bold;">Upload Gig Images</label>
+                                                                    <div id="imageUpload" class="upload-area" style="border: 2px dashed #0568b9; padding: 20px; text-align: center; color: #1ea7ec;" ondrop="handleFileDrop(event, 'image')" ondragover="allowDrop(event)">
+                                                                        <button type="button" class="btn btn-outline-primary">Drag & Drop Images Here</button>
+                                                                        <input type="file" name="gig_images[]" id="gigImages" class="form-control" accept="image/*" multiple style="display: none;">
+                                                                    </div>
+                                                                    <div id="imagePreview" class="mt-3"></div> <!-- Image preview container -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Gig Video Box -->
+                                                        <div class="row mb-4">
+                                                            <div class="col-4">
+                                                                <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                    <label for="gigVideos" style="font-weight: bold;">Upload Gig Video</label>
+                                                                    <div id="videoUpload" class="upload-area" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;" ondrop="handleFileDrop(event, 'video')" ondragover="allowDrop(event)">
+                                                                        <button type="button" class="btn btn-outline-primary">Drag & Drop Videos Here</button>
+                                                                        <input type="file" name="gig_videos[]" id="gigVideos" class="form-control" accept="video/*" multiple style="display: none;">
+                                                                    </div>
+                                                                    <div id="videoPreview" class="mt-3"></div> <!-- Video preview container -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Gig Documents Box -->
+                                                        <div class="row mb-4">
+                                                            <div class="col-4">
+                                                                <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                    <label for="gigDocuments" style="font-weight: bold;">Upload Gig Documents</label>
+                                                                    <div id="documentUpload" class="upload-area" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;" ondrop="handleFileDrop(event, 'document')" ondragover="allowDrop(event)">
+                                                                        <button type="button" class="btn btn-outline-primary">Drag & Drop Documents Here</button>
+                                                                        <input type="file" name="gig_documents[]" id="gigDocuments" class="form-control" accept=".pdf, .doc, .docx, .ppt, .txt" multiple style="display: none;">
+                                                                    </div>
+                                                                    <div id="documentPreview" class="mt-3"></div> <!-- Document preview container -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Store Gig Button -->
+                                                        <div class="row">
+                                                            <button type="submit" class="btn btn-outline-primary">Store Gig Media</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            
+                                            
+                                            <script>
+                                                // Allow files to be dropped
+                                                function allowDrop(event) {
+                                                    event.preventDefault();
+                                                }
+                                            
+                                                // Handle file drop event
+                                                function handleFileDrop(event, type) {
+                                                    event.preventDefault();
+                                                    let files = event.dataTransfer.files;
+                                                    previewFiles(files, type);
+                                                }
+                                            
+                                                // Handle image file selection
+                                                document.getElementById('gigImages').addEventListener('change', function(e) {
+                                                    let files = e.target.files;
+                                                    previewFiles(files, 'image');
+                                                });
+                                            
+                                                // Handle video file selection
+                                                document.getElementById('gigVideos').addEventListener('change', function(e) {
+                                                    let files = e.target.files;
+                                                    previewFiles(files, 'video');
+                                                });
+                                            
+                                                // Handle document file selection
+                                                document.getElementById('gigDocuments').addEventListener('change', function(e) {
+                                                    let files = e.target.files;
+                                                    previewFiles(files, 'document');
+                                                });
+                                            
+                                                // Preview files (images, videos, or documents)
+                                                function previewFiles(files, type) {
+                                                    const previewContainer = document.getElementById(type + 'Preview');
+                                                    previewContainer.innerHTML = '';  // Clear previous previews
+                                            
+                                                    Array.from(files).forEach(file => {
+                                                        const reader = new FileReader();
+                                            
+                                                        reader.onload = function(event) {
+                                                            let element;
+                                                            if (type === 'image') {
+                                                                element = document.createElement('img');
+                                                                element.src = event.target.result;
+                                                                element.style = "max-width: 100px; margin: 5px;";
+                                                            } else if (type === 'video') {
+                                                                element = document.createElement('video');
+                                                                element.src = event.target.result;
+                                                                element.controls = true;
+                                                                element.style = "max-width: 200px; margin: 5px;";
+                                                            } else if (type === 'document') {
+                                                                element = document.createElement('p');
+                                                                element.textContent = file.name;
+                                                                element.style = "margin: 5px;";
+                                                            }
+                                                            previewContainer.appendChild(element);
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    });
+                                                }
+                                            </script>
+                                            
+                                            <div class="tab-pane fade" id="card7-publish">
+                                                <!-- Publish Button -->
+                                                <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
+                                            
+                                                <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
+                                                
+                                                <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
+                                            
                                                 <button type="button" class="btn btn-outline-primary" style="margin-left: 20px;" id="publishButton" onclick="verifyAndPublish()">Publish Gig</button>
-                    
-                        <!-- Feedback message for validation -->
-                        <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
-                            <p>Please ensure all required fields are filled before publishing your gig.</p>
-                        </div>
-                    </div><br>
-                    
-                    <!-- Javascript for Verification and Publishing -->
-                    <script>
-                        // Function to verify if all the required fields are filled before allowing publishing
-                        function verifyAndPublish() {
-                            // Sample verification logic (You can replace this with more specific checks as needed)
-                            let imageFiles = document.getElementById('gigImages').files;
-                            let videoFiles = document.getElementById('gigVideos').files;
-                            let documentFiles = document.getElementById('gigDocuments').files;
-                    
-                            // Check if any of the required fields are empty
-                            if (imageFiles.length === 0 && videoFiles.length === 0 && documentFiles.length === 0) {
-                                // Show feedback message
-                                document.getElementById('feedbackMessage').style.display = 'block';
-                            } else {
-                                // Hide the feedback message
-                                document.getElementById('feedbackMessage').style.display = 'none';
-                    
-                                // Your logic for publishing gig goes here
-                                alert("Gig Published!");
-                            }
-                        }
-                    </script>
-                    
-
-
-
+                                            
+                                                <!-- Feedback message for validation -->
+                                                <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
+                                                    <p>Please ensure all required fields are filled before publishing your gig.</p>
+                                                </div>
+                                            </div><br>
+                                            
+                                            <!-- Javascript for Verification and Publishing -->
+                                            <script>
+                                             
+                                            </script>
+                                            
 
                 </div>
                 

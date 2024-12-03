@@ -50,8 +50,9 @@ Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
 Route::post('/gigs/store', [EditController::class, 'storeover'])->name('gigs.store');
 Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save.pricing');
-
-
+Route::post('/gig-details', [EditController::class, 'storefaq'])->name('gig-details.store');
+Route::get('/gig-details/{id}', [EditController::class, 'show'])->name('gig-details.show');
+Route::post('/store-gig-media/{gigId}', [EditController::class, 'storeGigMedia'])->name('store.gig.media');
 
 
 

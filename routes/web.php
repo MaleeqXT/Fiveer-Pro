@@ -38,6 +38,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/selling', [SellerController::class, 'index'])->name('selling');
+Route::get('/seller/profile', [SellerController::class, 'proshow'])->name('sellers.profile');
 Route::get('/analytics', [SellerController::class, 'analytics'])->name('sellers.index');
 Route::get('/profile', [SellerController::class, 'profile'])->name('websites.profile');
 Route::get('/gig', [SellerController::class, 'gig'])->name('sellers.gig');

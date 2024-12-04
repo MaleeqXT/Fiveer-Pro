@@ -90,6 +90,102 @@
                   </a>
                 </li>
               </ul>
+              <br>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="User Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <!-- User Info Section -->
+                  <li class="dropdown-header text-center">
+                      <img src="/path/to/image.jpg" alt="User Image" class="rounded-circle" style="width: 50px; height: 50px;">
+                      <div class="mt-2">
+                          <strong>Maleeq Jutt</strong>
+                          <p class="small text-muted mb-0">maleeqjuttyrtx@gmail.com</p>
+                      </div>
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+              
+                  <!-- Switch Button -->
+                  <li class="text-center">
+                      <form action="/" method="GET">
+                          <label class="switch">
+                              <input type="checkbox" name="buyingMode" onchange="this.form.submit()">
+                              <span class="slider round"></span>
+                          </label>
+                          <p class="small mt-2">Buying Mode</p>
+                      </form>
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+              
+                  <!-- Menu Items -->
+                  <li><a class="dropdown-item" href="{{ route('sellers.profile') }}"><i class="fas fa-user-circle"></i> Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ route('messages.payment') }}"><i class="fas fa-credit-card"></i> Billing and Payment</a></li>
+                  <li><a class="dropdown-item" href="{{route('messages.inbox')}}"><i class="fas fa-comments"></i> Messages</a></li>
+                  <li><a class="dropdown-item" href="{{route('sellers.order')}}"><i class="fas fa-box"></i> Orders</a></li>
+                  <li><a class="dropdown-item" href="{{ route('websites.refer') }}"><i class="fas fa-tasks"></i> Refer a friend</a></li>
+                  <li><a class="dropdown-item" href="{{route('websites.setting')}}"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li><a class="dropdown-item" href="{{route('websites.earning')}}"><i class="fas fa-wallet"></i> Earnings</a></li>
+                  <li>
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          <i class="fas fa-sign-out-alt"></i> Sign out
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </li>
+              </ul>
+              
+              <!-- Toggle Button Styles -->
+              <style>
+                  .switch {
+                      position: relative;
+                      display: inline-block;
+                      width: 34px;
+                      height: 20px;
+                  }
+              
+                  .switch input {
+                      opacity: 0;
+                      width: 0;
+                      height: 0;
+                  }
+              
+                  .slider {
+                      position: absolute;
+                      cursor: pointer;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      background-color: #ccc;
+                      transition: 0.4s;
+                      border-radius: 20px;
+                  }
+              
+                  .slider:before {
+                      position: absolute;
+                      content: "";
+                      height: 14px;
+                      width: 14px;
+                      left: 3px;
+                      bottom: 3px;
+                      background-color: white;
+                      transition: 0.4s;
+                      border-radius: 50%;
+                  }
+              
+                  input:checked + .slider {
+                      background-color: #007bff;
+                  }
+              
+                  input:checked + .slider:before {
+                      transform: translateX(14px);
+                  }
+              </style>
+              
+              </li>
             </div>
           </div>
         </nav>

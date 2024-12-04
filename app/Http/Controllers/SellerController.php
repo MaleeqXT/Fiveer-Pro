@@ -38,4 +38,8 @@ class SellerController extends Controller
     public function contact(){
         return view('messages.contact');
     }
+    public function proshow(){
+
+        return view('sellers.profile');
+    }
 }

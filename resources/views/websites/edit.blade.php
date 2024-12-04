@@ -876,28 +876,44 @@
                                                     });
                                                 }
                                             </script>
-                                            
-                                            <div class="tab-pane fade" id="card7-publish">
-                                                <!-- Publish Button -->
-                                                <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
-                                            
-                                                <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
-                                                
-                                                <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
-                                            
-                                                <button type="button" class="btn btn-outline-primary" style="margin-left: 20px;" id="publishButton" onclick="verifyAndPublish()">Publish Gig</button>
-                                            
-                                                <!-- Feedback message for validation -->
-                                                <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
-                                                    <p>Please ensure all required fields are filled before publishing your gig.</p>
-                                                </div>
-                                            </div><br>
-                                            
-                                            <!-- Javascript for Verification and Publishing -->
-                                            <script>
-                                             
-                                            </script>
-                                            
+                                <div class="tab-pane fade" id="card7-publish">
+                                    <!-- Publish Button -->
+                                    <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
+                                
+                                    <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
+                                    
+                                    <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
+                                
+                                    <button type="button" class="btn btn-outline-primary" style="margin-left: 20px;" id="publishButton" onclick="verifyAndPublish()">Publish Gig</button>
+                                
+                                    <!-- Feedback message for validation -->
+                                    <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
+                                        <p>Please ensure your ID and email are verified before publishing your gig.</p>
+                                    </div>
+                                </div><br>
+                                
+                                <!-- Javascript for Verification and Publishing -->
+                                <script>
+                                    // Mock user data
+                                    const user = {
+                                        idVerified: true, // Set to true or false to test
+                                        emailVerified: true // Set to true or false to test
+                                    };
+                                
+                                    // Function to verify and redirect
+                                    function verifyAndPublish() {
+                                        // Check if both ID and email are verified
+                                        if (!user.idVerified || !user.emailVerified) {
+                                            // Show feedback message
+                                            document.getElementById('feedbackMessage').style.display = 'block';
+                                        } else {
+                                            // Hide feedback message and redirect to the profile page
+                                            document.getElementById('feedbackMessage').style.display = 'none';
+                                            window.location.href = '/profile'; // Redirect to the profile page
+                                        }
+                                    }
+                                </script>
+                                
 
                 </div>
                 

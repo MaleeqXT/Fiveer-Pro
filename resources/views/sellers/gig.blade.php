@@ -29,68 +29,80 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
+                 <div class="card-body">
                     <div class="tab-content">
                        
-                        <div class="tab-pane fade show active" id="card3-home">
-                            <div class="card">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h5 class="mb-0">Active Gigs</h5>
-                                    <div class="dropdown">
-                                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Last 30 days
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#">Last 7 days</a></li>
-                                            <li><a class="dropdown-item" href="#">Last 30 days</a></li>
-                                            <li><a class="dropdown-item" href="#">Last 6 months</a></li>
-                                            <li><a class="dropdown-item" href="#">Last year</a></li>
-                                        </ul>
+                        <div class="container">
+                            <form action="{{ route('actives.store') }}" method="POST">
+                                @csrf
+                                <div class="form-group mb-3">
+                                    <label for="gig_name">Gig Name:</label>
+                                    <input type="text" id="gig_name" name="gig_name" class="form-control" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="impressions">Impressions:</label>
+                                    <input type="number" id="impressions" name="impressions" class="form-control" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="clicks">Clicks:</label>
+                                    <input type="number" id="clicks" name="clicks" class="form-control" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="orders">Orders:</label>
+                                    <input type="number" id="orders" name="orders" class="form-control" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="cancellations">Cancellations:</label>
+                                    <input type="number" id="cancellations" name="cancellations" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Add Gig</button>
+                            </form>
+                            @if(session('success'))
+                                <div class="alert alert-success mt-3">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                        
+                            <div class="tab-pane fade show active mt-4" id="card3-home">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">Active Gigs</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        @if(!empty($actives) && $actives->count() > 0)
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>GIG</th>
+                                                        <th>Impressions</th>
+                                                        <th>Clicks</th>
+                                                        <th>Orders</th>
+                                                        <th>Cancellations</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($actives as $active)
+                                                        <tr>
+                                                            <td>{{ $active->gig_name }}</td>
+                                                            <td>{{ $active->impressions }}</td>
+                                                            <td>{{ $active->clicks }}</td>
+                                                            <td>{{ $active->orders }}</td>
+                                                            <td>{{ $active->cancellations }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        @else
+                                            <p>No active gigs found.</p>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>GIG</th>
-                                                <th>Impressions</th>
-                                                <th>Clicks</th>
-                                                <th>Orders</th>
-                                                <th>Cancellations</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>I will be your professional full stack PHP laravel developer</td>
-                                                <td>1,200</td>
-                                                <td>150</td>
-                                                <td>10</td>
-                                                <td>1</td>
-                                                <td>
-                                                    <!-- Dropdown Button -->
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                                          
-                                                        </button>
-                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            <li><a class="dropdown-item" href="#">Preview</a></li>
-                                                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                            <li><a class="dropdown-item" href="#">Share</a></li>
-                                                            <li><a class="dropdown-item" href="#">Pause</a></li>
-                                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                            <li><a class="dropdown-item" href="#">Add Video</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Add more rows as needed -->
-                                        </tbody>
-                                    </table>
-                                    
-                                </div>
+                                <a href="#" style="margin-left: 80%">What does your Gig® status mean?</a>
                             </div>
-                            <a href="" style="margin-left: 80%">What does your Gig® status mean?</a>
                         </div>
+                        
+                        
+                        
                         
                         
                         

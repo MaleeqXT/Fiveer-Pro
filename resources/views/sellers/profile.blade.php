@@ -314,48 +314,81 @@
     </div>
 </div>
 
-    
-         <!-- FAQ Section -->
+    <!-- FAQ Section -->
 <div class="section">
     <h2 class="section-title">FAQ</h2>
+
     <div class="faq-item">
-        <h3 class="faq-question">What services do you offer in Laravel development?</h3>
-        <p class="faq-answer">I offer custom website development, API integrations, bug fixing, performance optimization, feature enhancements, and mobile-friendly designs tailored to your business needs.</p>
+        <details>
+            <summary class="faq-question">
+                What services do you offer in Laravel development?
+            </summary>
+            <p class="faq-answer">I offer custom website development, API integrations, bug fixing, performance optimization, feature enhancements, and mobile-friendly designs tailored to your business needs.</p>
+        </details>
     </div>
+
     <div class="faq-item">
-        <h3 class="faq-question">How long will it take to complete my project?</h3>
-        <p class="faq-answer">The timeline depends on the complexity and scope of the project. I provide an estimated delivery time after discussing your requirements, and I always aim for on-time delivery.</p>
+        <details>
+            <summary class="faq-question">
+                How long will it take to complete my project?
+            </summary>
+            <p class="faq-answer">The timeline depends on the complexity and scope of the project. I provide an estimated delivery time after discussing your requirements, and I always aim for on-time delivery.</p>
+        </details>
     </div>
+
     <div class="faq-item">
-        <h3 class="faq-question">Can you help improve or fix an existing Laravel website?</h3>
-        <p class="faq-answer">Yes, I specialize in improving, troubleshooting, and optimizing existing Laravel websites. Whether it’s fixing bugs, enhancing functionality, or upgrading features, I’ve got you covered.</p>
+        <details>
+            <summary class="faq-question">
+                Can you help improve or fix an existing Laravel website?
+            </summary>
+            <p class="faq-answer">Yes, I specialize in improving, troubleshooting, and optimizing existing Laravel websites. Whether it’s fixing bugs, enhancing functionality, or upgrading features, I’ve got you covered.</p>
+        </details>
     </div>
+
     <div class="faq-item">
-        <h3 class="faq-question">Will my website be mobile-friendly and responsive?</h3>
-        <p class="faq-answer">Absolutely! I ensure all websites and features I create are fully responsive and optimized for a seamless experience across all devices.</p>
+        <details>
+            <summary class="faq-question">
+                Will my website be mobile-friendly and responsive?
+            </summary>
+            <p class="faq-answer">Absolutely! I ensure all websites and features I create are fully responsive and optimized for a seamless experience across all devices.</p>
+        </details>
     </div>
+
     <div class="faq-item">
-        <h3 class="faq-question">What do you need to get started on my project?</h3>
-        <p class="faq-answer">I’ll need a detailed description of your requirements, access to your hosting/server (if applicable), and any relevant assets like design files or reference materials. Let’s discuss your project to clarify everything!</p>
+        <details>
+            <summary class="faq-question">
+                What do you need to get started on my project?
+            </summary>
+            <p class="faq-answer">I’ll need a detailed description of your requirements, access to your hosting/server (if applicable), and any relevant assets like design files or reference materials. Let’s discuss your project to clarify everything!</p>
+        </details>
     </div>
 </div>
 
-<style> 
-.faq-answer {
-    display: none; /* Initially hide all answers */
-    padding: 10px 0;
-    font-size: 14px;
-    color: #555;
+<style>
+/* Section Title */
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
+/* FAQ Item */
+.faq-item {
+    margin-bottom: 15px;
+}
+
+/* FAQ Question */
 .faq-question {
-    cursor: pointer;
     font-size: 18px;
     font-weight: bold;
-    margin: 10px 0;
     padding: 10px;
     background-color: #f7f7f7;
     border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
     transition: background-color 0.3s;
 }
 
@@ -363,30 +396,30 @@
     background-color: #e0e0e0;
 }
 
-.faq-item {
-    margin-bottom: 15px;
+/* Add a dropdown arrow */
+.faq-question::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    font-size: 16px;
+    color: #555;
+    margin-left: 10px;
+    transition: transform 0.3s;
 }
 
+/* Rotate arrow when open */
+details[open] .faq-question::after {
+    transform: rotate(180deg);
+}
+
+/* FAQ Answer */
+.faq-answer {
+    margin: 10px 0 0 20px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    padding: 5px 0;
+}
 </style>
-<script>
-    // Select all FAQ questions
-    const faqQuestions = document.querySelectorAll('.faq-question');
 
-    // Loop through each FAQ question
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            // Find the corresponding answer
-            const answer = question.nextElementSibling;
-
-            // Toggle the answer visibility
-            if (answer.style.display === 'none' || answer.style.display === '') {
-                answer.style.display = 'block';
-            } else {
-                answer.style.display = 'none';
-            }
-        });
-    });
-</script>
 
             <!-- Reviews Section -->
             <div class="section">
@@ -394,6 +427,7 @@
                 <div class="review-item">
                     <p>5.0</p>
                     <p>Rating Breakdown</p>
+                    <hr>
                     <div>
                         <strong>Seller Communication Level:</strong> 5
                         <strong>Quality of Delivery:</strong> 5

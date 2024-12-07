@@ -5,6 +5,7 @@ use App\Http\Controllers\FiveerController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BusinessDetailsController;
 
 
 
@@ -24,7 +25,7 @@ Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
 
 
 
-Route::get('/', [FiveerController::class, 'index']);
+Route::get('/', [FiveerController::class, 'index'])->name('buying');
 Route::get('/helps', [FiveerController::class, 'help'])->name('supports.help');
 Route::get('/websites', [FiveerController::class, 'showall'])->name('websites.index');
 Route::get('/inspired', [FiveerController::class, 'inspired'])->name('websites.inspired');
@@ -57,7 +58,12 @@ Route::post('/store-gig-media/{gigId}', [EditController::class, 'storeGigMedia']
 
 
 
+Route::post('/websites/complete/store', [BusinessDetailsController::class, 'store'])->name('websites.complete.store');
 
+Route::get('/complete', function () {
+   
+    return view('websites.complete');
+   })->name('websites.complete');
 
 
 
@@ -78,10 +84,7 @@ Route::get('/inbox', function () {
         return view('messages.list');
        })->name('messages.list');
 
-       Route::get('/complete', function () {
-   
-        return view('websites.complete');
-       })->name('websites.complete');
+     
 
  Route::get('/overview', function () {
    

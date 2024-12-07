@@ -37,7 +37,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LateSeeder::class);
         $this->call(DeliveredSeeder::class);
         $this->call(CompletedSeeder::class);
-        $this->call(CancelledSeeder::class);
         $this->call(StartedSeeder::class);
 
 

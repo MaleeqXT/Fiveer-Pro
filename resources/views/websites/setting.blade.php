@@ -270,17 +270,6 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
              <!-- ACTIVE Tab -->
     <div class="tab-pane fade container" id="card7-late">
       <div class="row">
@@ -393,6 +382,7 @@
                   <h5 class="card-title">Personal & business information</h5>
                   <p class="card-text">Verify your personal and business information for compliance purposes. Learn more.</p>
                   <button type="button" class="btn btn-secondary mt-4">Continue verification</button>
+                  
                 </div>
               </div>
                 
@@ -401,6 +391,7 @@
             <!-- CANCELLED Tab -->
           
             <!-- STARRED Tab -->
+
            
             </div>
         </div>

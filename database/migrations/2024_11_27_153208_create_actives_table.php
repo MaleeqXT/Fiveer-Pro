@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('actives', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->string('buyer'); // BUYER: stores the buyer's name or ID
-            $table->string('gig'); // GIG: stores the gig/project/task name
-            $table->date('due_on'); // DUE ON: stores the due date
-            $table->decimal('total', 10, 2); // TOTAL: stores the total amount (up to 10 digits, 2 decimals)
-            $table->text('note')->nullable(); // NOTE: stores additional notes (optional)
-            $table->timestamps(); // Created_at and Updated_at timestamps
+            $table->id();
+            $table->string('gig_name');                  // Name of the gig
+            $table->unsignedBigInteger('impressions')->default(0); // Total impressions
+            $table->unsignedBigInteger('clicks')->default(0);      // Total clicks
+            $table->unsignedInteger('orders')->default(0);         // Total orders
+            $table->unsignedInteger('cancellations')->default(0);  // Total cancellations
+            $table->timestamps();
         });
     }
 

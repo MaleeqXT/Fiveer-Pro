@@ -549,107 +549,168 @@ details[open] .faq-question::after {
     </style>
     
 
-        <!-- Second Card -->
-        <div class="col-lg-6" >
-            <div class="card">
-                <h3>Package Selector</h3>
-                <div class="nav nav-pills card-nav" id="card-tab">
-                    <a class="nav-item nav-link active" id="home-tab" data-bs-toggle="tab" href="#home">Basic</a>
-                    <a class="nav-item nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile">Standard</a>
-                    <a class="nav-item nav-link" id="fan-tab" data-bs-toggle="tab" href="#fan">Premium</a>
+    <div class="col-lg-6">
+        <div class="card shadow-lg rounded border-0" style="overflow: hidden; background: linear-gradient(to bottom, #ffffff, #f9f9f9);">
+            <h3 class="text-center p-3" style="font-weight: bold; background: linear-gradient(to right, #ff7c5c, #ffca6b); color: white; text-transform: uppercase;">
+                Package Selector
+            </h3>
+            <div class="nav nav-pills card-nav justify-content-center" id="card-tab">
+                <a class="nav-item nav-link active fw-bold" id="home-tab" data-bs-toggle="tab" href="#home">Basic</a>
+                <a class="nav-item nav-link fw-bold" id="profile-tab" data-bs-toggle="tab" href="#profile">Standard</a>
+                <a class="nav-item nav-link fw-bold" id="fan-tab" data-bs-toggle="tab" href="#fan">Premium</a>
+            </div>
+            <div class="tab-content mt-4 px-4">
+                <!-- Home Tab -->
+                <div class="tab-pane fade active show" id="home">
+                    <div class="package-header text-center p-4" style="background: linear-gradient(to right, #57b846, #86efac); color: #fff; border-radius: 15px;">
+                        <h4>Quick Bug Fixes And Customizations</h4>
+                        <h5 class="fw-bold"><strong>PKR 23,370</strong></h5>
+                    </div>
+                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #f0fdf4;">
+                        <p style="font-size: 16px;">Fast, efficient solutions tailored to your needs.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-clock-fill text-success"></i> 3-day delivery</li>
+                                    <li><i class="bi bi-arrow-repeat text-info"></i> 1 Revision</li>
+                                </ul>
+                            </div>
+                            <img src="/path-to-image/basic-package.jpg" alt="Basic Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
+                        </div>
+                        <p><strong>What's Included:</strong></p>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Functional website</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 page</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Content upload</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Payment processing</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Speed optimization</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 plugin/extension</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> E-commerce functionality</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Autoresponder integration</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Opt-in form</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Social media icons</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Hosting setup</li>
+
+
+
+                        </ul>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
+                            <button class="btn btn-lg btn-dark shadow-lg animate-glow">Contact Me</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="tab-content mt-3">
-                    <!-- Home Tab -->
-                    <div class="tab-pane fade active show" id="home">
-                        <h3>Quick Bug Fixes And Customizations</h3>
-                <p><strong>PKR 23,370</strong></p>
-                <p>Our Quick Bug Fixes and Customizations service provides fast, efficient solutions...</p>
-                <ul>
-                    <li>3-day delivery</li>
-                    <li>1 Revision</li>
-                </ul>
-                <p><strong>What's Included:</strong></p>
-                <ul>
-                    <li>Functional website</li>
-                    <li>1 page</li>
-                    <li>Content upload</li>
-                    <li>1 plugin/extension</li>
-                    <li>E-commerce functionality</li>
-                    <li>1 product</li>
-                    <li>Payment processing</li>
-                    <li>Opt-in form</li>
-                    <li>Autoresponder integration</li>
-                    <li>Speed optimization</li>
-                    <li>Hosting setup</li>
-                    <li>Social media icons</li>
-                </ul>
-                <button class="btn">Select Package</button>
-<button class="btn btn-dark" style="margin-left: 350px;">Contact me</button>                
+    
+                <!-- Profile Tab -->
+                <div class="tab-pane fade" id="profile">
+                    <div class="package-header text-center p-4" style="background: linear-gradient(to right, #3f51b5, #5c6bc0); color: #fff; border-radius: 15px;">
+                        <h4>Custom Laravel Features And Website</h4>
+                        <h5 class="fw-bold"><strong>PKR 40,898</strong></h5>
                     </div>
-                    <!-- Profile Tab -->
-                    <div class="tab-pane fade" id="profile">
-                        <h3>Custom Laravel Features And Website</h3>
-                        <p><strong>PKR 40,898</strong></p>
-                        <p>Get essential custom Laravel features or modifications to enhance your website’s functionality...</p>
-                        <ul>
-                            <li>10-day delivery</li>
-                            <li>3 Revisions</li>
-                        </ul>
+                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #e8eaf6;">
+                        <p style="font-size: 16px;">Essential custom Laravel features to enhance your website.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-clock-fill text-success"></i> 10-day delivery</li>
+                                    <li><i class="bi bi-arrow-repeat text-info"></i> 3 Revisions</li>
+                                </ul>
+                            </div>
+                            <img src="/path-to-image/standard-package.jpg" alt="Standard Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
+                        </div>
                         <p><strong>What's Included:</strong></p>
                         <ul>
-                            <li>Functional website</li>
-                            <li>1 page</li>
-                            <li>Content upload</li>
-                            <li>2 plugins/extensions</li>
-                            <li>E-commerce functionality</li>
-                            <li>1 product</li>
-                            <li>Payment processing</li>
-                            <li>Opt-in form</li>
-                            <li>Autoresponder integration</li>
-                            <li>Speed optimization</li>
-                            <li>Hosting setup</li>
-                            <li>Social media icons</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Functional website</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 page</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Content upload</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Payment processing</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Speed optimization</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 plugin/extension</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> E-commerce functionality</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Autoresponder integration</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Opt-in form</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Social media icons</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Hosting setup</li>
                         </ul>
-                        <button class="btn">Select Package</button>
-                        <button class="btn btn-dark" style="margin-left: 350px;">Contact me</button>                
-
+                        <div class="text-center mt-3">
+                            <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
+                            <button class="btn btn-lg btn-dark shadow-lg animate-glow">Contact Me</button>
+                        </div>
                     </div>
-                    <!-- Fan Tab -->
-                    <div class="tab-pane fade" id="fan">
-                        <h3>Professional Responsive Websites</h3>
-                        <p><strong>PKR 262,910</strong></p>
-                        <p>Receive a fully customized, professional, and responsive website that’s optimized for all devices...</p>
-                        <ul>
-                            <li>30-day delivery</li>
-                            <li>Unlimited Revisions</li>
-                        </ul>
+                </div>
+    
+                <!-- Fan Tab -->
+                <div class="tab-pane fade" id="fan">
+                    <div class="package-header text-center p-4" style="background: linear-gradient(to right, #ffc107, #ff8f00); color: #fff; border-radius: 15px;">
+                        <h4>Professional Responsive Websites</h4>
+                        <h5 class="fw-bold"><strong>PKR 262,910</strong></h5>
+                    </div>
+                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #fff3e0;">
+                        <p style="font-size: 16px;">Fully customized, professional, and responsive website optimized for all devices.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-clock-fill text-success"></i> 30-day delivery</li>
+                                    <li><i class="bi bi-infinity text-danger"></i> Unlimited Revisions</li>
+                                </ul>
+                            </div>
+                            <img src="/path-to-image/premium-package.jpg" alt="Premium Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
+                        </div>
                         <p><strong>What's Included:</strong></p>
                         <ul>
-                            <li>Fully customized responsive website</li>
-                            <li>All devices optimized</li>
-                            <li>Unlimited revisions</li>
-                            <li>Functional website</li>
-                            <li>1 page</li>
-                            <li>Content upload</li>
-                            <li>2 plugins/extensions</li>
-                            <li>E-commerce functionality</li>
-                            <li>1 product</li>
-                            <li>Payment processing</li>
-                            <li>Opt-in form</li>
-                            <li>Autoresponder integration</li>
-                            <li>Speed optimization</li>
-                            <li>Hosting setup</li>
-                            <li>Social media icons</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Fully customized responsive website</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Unlimited revisions</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Functional website</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 page</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Content upload</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Payment processing</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Speed optimization</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 plugin/extension</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> E-commerce functionality</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Autoresponder integration</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Opt-in form</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Social media icons</li>
+                            <li><i class="bi bi-check-circle-fill text-primary"></i> Hosting setup</li>
                         </ul>
-                        <button class="btn">Select Package</button>
-                        <button class="btn btn-dark" style="margin-left: 350px;">Contact me</button>                
-
-        
+                        <div class="text-center mt-3">
+                            <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
+                            <button class="btn btn-lg btn-dark shadow-lg animate-glow">Contact Me</button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-</div>
+
+    <style>
+.animate-pulse {
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.animate-glow {
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    from { box-shadow: 0 0 5px #fff; }
+    to { box-shadow: 0 0 20px #ff8f00; }
+}
+
+.card-nav .nav-link {
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+.card-nav .nav-link.active {
+    background-color: #ff8f00;
+    color: white;
+    transform: scale(1.1);
+}
+
+        </style>
+    
 
                 </div>
             </div>

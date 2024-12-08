@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
 Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
+Route::post('/form-submit', [AdminController::class, 'store'])->name('form.store');
 Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
 
 

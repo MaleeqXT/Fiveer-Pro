@@ -9,6 +9,8 @@ use App\Http\Controllers\ActiveController;
 use App\Http\Controllers\PendingController;
 use App\Http\Controllers\RequiredController;
 use App\Http\Controllers\DraftController;
+use App\Http\Controllers\DeniedController;
+use App\Http\Controllers\PausedController;
 
 
 
@@ -61,6 +63,10 @@ Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store
 Route::post('/pendings', [PendingController::class, 'store'])->name('pendings.store');
 Route::get('/requireds', [RequiredController::class, 'index'])->name('requireds.index');
 Route::post('/draft', [DraftController::class, 'store'])->name('drafts.store');
+Route::get('/denied-gigs', [DeniedController::class, 'index'])->name('denied.gigs');
+Route::post('/paused-gigs', [PausedController::class, 'store'])->name('paused.store');
+
+
 
 
 

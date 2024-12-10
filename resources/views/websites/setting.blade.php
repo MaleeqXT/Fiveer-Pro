@@ -96,106 +96,111 @@
         </div>
     </div>
     <div class="card-body">
-        <div class="tab-content">
-            <!-- PRIORITY Tab -->
-            <div class="tab-pane fade show active" id="card7-home">
-            <p style="margin-left: 1150px;">
-                Need to update your public profile? 
-                <span style="color: green;">Go to My Profile</span>
+      <div class="tab-content">
+          <!-- PRIORITY Tab -->
+          <div class="tab-pane fade show active" id="card7-home">
+              <p style="margin-left: 1150px;">
+                  Need to update your public profile? 
+                  <span style="color: green;">Go to My Profile</span>
               </p>
-                
+  
               <hr>
-
-              <div style="display: flex; align-items: center;">
-                <h6 style="margin-right: 1150px;">FULL NAME</h6>
-                <input type="text" style="height: 30px;">
+  
+              <!-- Begin Form -->
+              <form action="{{ route('profile.store') }}" method="POST">
+                  @csrf
+  
+                  <!-- Full Name -->
+                  <div style="display: flex; align-items: center;">
+                      <h6 style="margin-right: 1150px;">FULL NAME</h6>
+                      <input type="text" name="full_name" style="height: 30px;" required>
+                  </div>
+  
+                  <!-- Email -->
+                  <div class="mt-4">
+                      <div style="display: flex; align-items: center;">
+                          <h6 style="margin-right: 1190px;">EMAIL</h6>
+                          <input type="email" name="email" style="height: 30px;" required>
+                      </div>
+                  </div>
+  
+                  <!-- Online Status -->
+                  <div style="display: flex; align-items: center;">
+                      <div class="status-text mt-3">
+                          <h6>ONLINE STATUS</h6>
+                          <p>When online, your Gigs are visible under the Online search filter.</p>
+                      </div>
+                      <div class="dropdown" style="margin-left:782px;">
+                          <select name="online_status" class="form-select" required>
+                              <option value="1 hour">1 Hour</option>
+                              <option value="1 day">1 Day</option>
+                              <option value="1 week">1 Week</option>
+                              <option value="forever">Forever</option>
+                          </select>
+                      </div>
+                  </div>
+  
+                  <!-- Save Changes Button -->
+                  <div style="text-align: right;">
+                      <button type="submit" class="btn btn-success mt-5" style="margin-left:1400px;">Save Changes</button>
+                  </div>
+              </form>
+              <!-- End Form -->
+  
+              <div class="mt-5">
+                  <hr>
               </div>
-              
-           <div class="mt-4">
-               
-            <div style=" display: flex; align-items: center; ">
-                <h6 style="margin-right: 1190px;">EMAIL</h6>
-                <input type="email" style="height: 30px;">
+  
+              <!-- Account Deactivation Section -->
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                  <!-- Left Heading -->
+                  <h6 class="mt-4">Account Deactivation</h6>
+  
+                  <!-- Right Content -->
+                  <div class="mt-3">
+                      <h6>What happens when you deactivate your account?</h6>
+                      <p>Your profile and Gigs won't be shown on Fiverr anymore.</p>
+                      <p>Active orders will be cancelled.</p>
+                      <p>You won't be able to re-activate your Gigs.</p>
+                  </div>
               </div>
-           </div>
-
-           <div style="display: flex; align-items: center;">
-            <div class="status-text mt-3">
-              <h6>ONLINE STATUS</h6>
-              <p>When online, your Gigs are visible under the Online search filter.</p>
-            </div>
-            <div class="dropdown" style="margin-left:782px;">
-              <a 
-                class="btn btn-secondary dropdown-toggle" 
-                href="#" 
-                role="button" 
-                id="dropdownMenuLink" 
-                data-bs-toggle="dropdown" 
-                aria-expanded="false">
-                GO ONLINE FOR
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">1 HOUR</a></li>
-                <li><a class="dropdown-item" href="#">1 DAY</a></li>
-                <li><a class="dropdown-item" href="#">1 WEEK</a></li>
-                <li><a class="dropdown-item" href="#">FOREVER</a></li>
-              </ul>
-            </div>
+  
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <!-- Left Heading -->
+                  <h6>I'm leaving because...</h6>
+  
+                  <!-- Right Dropdown -->
+                  <div class="btn-group" style="margin-left:782px;">
+                      <button 
+                          type="button" 
+                          class="btn btn-secondary dropdown-toggle" 
+                          data-bs-toggle="dropdown" 
+                          data-bs-display="static" 
+                          aria-expanded="false">
+                          Choose a reason
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end">
+                          <!-- First Heading -->
+                          <h6 class="dropdown-header">Account</h6>
+                          <li><button class="dropdown-item" type="button">I want to change my username</button></li>
+                          <li><button class="dropdown-item" type="button">I have another Fiverr account</button></li>
+  
+                          <!-- Second Heading -->
+                          <h6 class="dropdown-header">Selling</h6>
+                          <li><button class="dropdown-item" type="button">I get too many orders</button></li>
+                          <li><button class="dropdown-item" type="button">I am unhappy with Fiverr policies</button></li>
+                          <li><button class="dropdown-item" type="button">Other</button></li>
+                      </ul>
+                  </div>
+              </div>
+  
+              <div style="text-align: right;">
+                  <button class="btn btn-danger deactivate-btn mt-5" onclick="deactivateAccount()">Deactivate Account</button>
+              </div>
           </div>
-
-          <button type="button" class="btn btn-success mt-5" style="margin-left:1400px;">Save Changes</button>
-
-          <div class="mt-5">
-            <hr>
-          </div>
-        
-          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-            <!-- Left Heading -->
-            <h6 class="mt-4">Account Deactivation</h6>
-          
-            <!-- Right Content -->
-            <div class="mt-3">
-              <h6>What happens when you deactivate your account?</h6>
-              <p>Your profile and Gigs won't be shown on Fiverr anymore.</p>
-              <p>Active orders will be cancelled.</p>
-              <p>You won't be able to re-activate your Gigs.</p>
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <!-- Left Heading -->
-            <h6>I'm leaving because...</h6>
-          
-            <!-- Right Dropdown -->
-            <div class="btn-group" style="margin-left:782px;">
-              <button 
-                type="button" 
-                class="btn btn-secondary dropdown-toggle" 
-                data-bs-toggle="dropdown" 
-                data-bs-display="static" 
-                aria-expanded="false">
-                Choose a reason
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <!-- First Heading -->
-                <h6 class="dropdown-header">Account</h6>
-                <li><button class="dropdown-item" type="button">I want to change my username</button></li>
-                <li><button class="dropdown-item" type="button">I have another Fiverr account</button></li>
-          
-                <!-- Second Heading -->
-                <h6 class="dropdown-header">Selling</h6>
-                <li><button class="dropdown-item" type="button">I get too many orders</button></li>
-                <li><button class="dropdown-item" type="button">I am unhappy with Fiverr policies</button></li>
-                <li><button class="dropdown-item" type="button">Other</button></li>
-              </ul>
-            </div>
-          </div>
-          <div style="text-align: right;">
-            <button class="btn btn-danger deactivate-btn mt-5" onclick="deactivateAccount()">Deactivate Account</button>
-          </div>
-          
-        </div>  
-          
+      </div>
+  </div>
+  
             <!-- ACTIVE Tab -->
           
             <div class="tab-pane fade" id="card7-active">

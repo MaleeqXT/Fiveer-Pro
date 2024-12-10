@@ -7,30 +7,69 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <hr>
 <div class="container mt-5">
-    <!-- Heading and Button Row -->
-    <div class="d-flex justify-content-between align-items-center">
-        <h1>My Lists</h1>
-        <button type="button" class="btn btn-success">+ Create a list</button>
-    </div>
-    
-    <!-- Description -->
-    <p class="text-muted mt-3">
-        Organize your go-to freelancers and favorite services into custom lists you can easily access and share with your team.
-    </p>
+  <!-- Heading and Button Row -->
+  <div class="d-flex justify-content-between align-items-center">
+      <h1>My Lists</h1>
+      <!-- Button to Trigger Modal -->
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createListModal">+ Create a list</button>
+  </div>
+  
+  <!-- Description -->
+  <p class="text-muted mt-3">
+      Organize your go-to freelancers and favorite services into custom lists you can easily access and share with your team.
+  </p>
 
-    <div class="container mt-5 d-flex ">
-        <!-- Card -->
-        <div class="card text-center" style="width: 24rem; padding: 100px;">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <i class="bi bi-plus-circle" style="font-size: 1.5rem; color: #0d6efd; margin-right: 8px;"></i>
-                    Create List
-                </h5>
-            </div>
-        </div>
-    </div><br><br>
-    <hr>
-     
+  <div class="container mt-5 d-flex">
+      <!-- Card -->
+      <div class="card text-center" style="width: 24rem; padding: 100px;">
+          <div class="card-body">
+              <h5 class="card-title">
+                  <i class="bi bi-plus-circle" style="font-size: 1.5rem; color: #0d6efd; margin-right: 8px;"></i>
+                  Create List
+              </h5>
+          </div>
+      </div>
+  </div><br><br>
+  <hr>
+</div>
+
+<!-- Create List Modal -->
+<div class="modal fade" id="createListModal" tabindex="-1" aria-labelledby="createListModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="createListModalLabel">Create a New List</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="createListForm" method="POST" action="/my-lists">
+              @csrf
+              <div class="modal-body">
+                  <div class="mb-3">
+                      <label for="listName" class="form-label">List Name</label>
+                      <input type="text" class="form-control" id="listName" name="list_name" placeholder="Enter list name" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="description" class="form-label">Description</label>
+                      <textarea class="form-control" id="description" name="description" placeholder="Enter a brief description"></textarea>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save List</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+<script>
+document.getElementById('createListForm').addEventListener('submit', function() {
+    setTimeout(() => {
+        document.getElementById('listName').value = '';
+        document.getElementById('description').value = '';
+    }, 1000);
+});
+
+  </script>
     <h3>Most popular Gigs in Website Development </h3><br>
 
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\FiveerController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MyListController;
 
 
 
@@ -22,6 +23,8 @@ Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboa
 Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
 Route::post('/form-submit', [AdminController::class, 'store'])->name('form.store');
 Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
+Route::put('/explore/{id}', [AdminController::class, 'update'])->name('explore.update');
+Route::delete('/explore/{id}', [AdminController::class, 'destroy'])->name('explore.destroy');
 
 
 
@@ -41,6 +44,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/selling', [SellerController::class, 'index'])->name('selling');
 Route::get('/analytics', [SellerController::class, 'analytics'])->name('sellers.index');
 Route::get('/profile', [SellerController::class, 'profile'])->name('websites.profile');
+Route::get('seller/profile', [SellerController::class, 'proshow'])->name('sellers.profile');
 Route::get('/gig', [SellerController::class, 'gig'])->name('sellers.gig');
 Route::get('/seller/plus', [SellerController::class, 'plus'])->name('sellers.plus');
 Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
@@ -56,6 +60,8 @@ Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');
 
 
+Route::get('/list', [MyListController::class, 'list'])->name('messages.list');
+Route::post('/my-lists', [MyListController::class, 'store'])->name('my-lists.store');
 
 
 
@@ -80,10 +86,7 @@ Route::get('/inbox', function () {
      return view('sellers.order');
     })->name('sellers.order');
 
-    Route::get('/list', function () {
-   
-        return view('messages.list');
-       })->name('messages.list');
+
 
      
 

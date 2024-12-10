@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
+use App\Models\Explore;
 class AdminController extends Controller
 {
     //
@@ -15,11 +17,12 @@ return view('dashboard.admin');
            return view('exploring.create');
             }
 
-        public function show(){
-            return view('exploring.show');
+            public function show()
+            {
+                $data = Explore::all(); // Fetch all data from the `explore` table
+                return view('exploring.show', compact('data'));
             }
-
-
+            
             public function store(Request $request)
             {
                 $validated = $request->validate([
@@ -30,7 +33,7 @@ return view('dashboard.admin');
         
                 // Handle the image upload
                 if ($request->hasFile('image')) {
-                    $imagePath = $request->file('image')->store('images', 'public');
+                    $imagePath = $request->file('image')->store('explore', 'public');
                     $validated['image'] = $imagePath;
                 }
         
@@ -40,4 +43,36 @@ return view('dashboard.admin');
         
                 return redirect()->back()->with('success', 'Data saved successfully!');
             }
+
+            public function update(Request $request, $id)
+{
+    $item = Explore::findOrFail($id);
+
+    $item->description = $request->description;
+    $item->price = $request->price;
+
+    if ($request->hasFile('image')) {
+        $path = $request->file('image')->store('explore_images', 'public');
+        $item->image = $path;
+    }
+
+    $item->save();
+
+    return redirect()->back()->with('success', 'Data updated successfully!');
+}
+
+
+public function destroy($id)
+{
+    $item = Explore::findOrFail($id);
+
+    if ($item->image) {
+        Storage::disk('public')->delete($item->image);
+    }
+
+    $item->delete();
+
+    return redirect()->back()->with('success', 'Data deleted successfully!');
+}
+
 }

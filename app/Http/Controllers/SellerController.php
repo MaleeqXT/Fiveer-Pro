@@ -22,9 +22,7 @@ class SellerController extends Controller
         return view('websites.profile');
     }
 
-    public function pay() {
-        return view('messages.payment');
-    }
+
 
     public function gig() {
         return view('sellers.gig');

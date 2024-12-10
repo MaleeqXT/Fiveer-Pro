@@ -24,6 +24,8 @@ return new class extends Migration
             $table->boolean('email_invoices')->default(false);
             $table->timestamps();
         });
+        
+        
     }
 
     /**

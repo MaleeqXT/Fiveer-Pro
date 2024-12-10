@@ -9,6 +9,7 @@ use App\Http\Controllers\MyListController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ActiveController;
 use App\Http\Controllers\BusinessDetailsController;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -67,6 +68,18 @@ Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store
 
 Route::get('/list', [MyListController::class, 'list'])->name('messages.list');
 Route::post('/my-lists', [MyListController::class, 'store'])->name('my-lists.store');
+
+
+
+
+Route::get('/payment', [PaymentController::class, 'pay'])->name('messages.payment');
+Route::post('/store-payment', [PaymentController::class, 'store'])->name('payment.store');
+Route::post('/save-billing-info', [PaymentController::class, 'storebill'])->name('billing.store');
+
+
+
+Route::post('/gigs/faqs', [EditController::class, 'storefaq'])->name('gig-details.store');
+Route::post('/gig/media', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
 
 
 

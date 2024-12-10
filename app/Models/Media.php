@@ -10,7 +10,7 @@ class Media extends Model
     //
     use HasFactory;
 
-    protected $fillable = ['gig_id', 'type', 'path'];
+    protected $fillable = [ 'type', 'path'];
 
 
 }

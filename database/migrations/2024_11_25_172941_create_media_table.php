@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('gig_id')->constrained()->onDelete('cascade');
             $table->string('type'); // image, video, or document
             $table->string('path');
             $table->timestamps();

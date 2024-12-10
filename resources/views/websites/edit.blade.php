@@ -758,7 +758,7 @@
     
                                             <div class="tab-pane fade" id="card7-add-gig">
                                                 <h3>Showcase Your Services In A Gig Gallery</h3>
-                                                <form id="gigMediaForm" action="{{ route('store.gig.media', ['gigId' => 1]) }}" method="POST" enctype="multipart/form-data">
+                                                <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf       <!-- Container Card for all the Upload Boxes -->
                                                     <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                         <h4>Upload Your Gig Media</h4>

@@ -9,6 +9,8 @@ use App\Http\Controllers\MyListController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ActiveController;
 use App\Http\Controllers\BusinessDetailsController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SecuritySettingController;
 
 
 
@@ -70,6 +72,17 @@ Route::post('/my-lists', [MyListController::class, 'store'])->name('my-lists.sto
 
 
 
+
+Route::get('/payment', [PaymentController::class, 'pay'])->name('messages.payment');
+Route::post('/store-payment', [PaymentController::class, 'store'])->name('payment.store');
+Route::post('/save-billing-info', [PaymentController::class, 'storebill'])->name('billing.store');
+
+
+
+Route::post('/gigs/faqs', [EditController::class, 'storefaq'])->name('gig-details.store');
+Route::post('/gig/media/store', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
+
+
 Route::post('/websites/complete/store', [BusinessDetailsController::class, 'store'])->name('websites.complete.store');
 
 Route::get('/complete', function () {
@@ -127,3 +140,8 @@ Route::get('/inbox', function () {
 Route::post('/profile', [UserProfileController::class, 'store'])->name('profile.store');
 
 Route::post('/active/store', [ActiveController::class, 'store'])->name('active.store');
+
+
+Route::get('/setting', [SecuritySettingController::class, 'index'])->name('websites.setting');
+
+Route::post('/security', [SecuritySettingController::class, 'store'])->name('security.store');

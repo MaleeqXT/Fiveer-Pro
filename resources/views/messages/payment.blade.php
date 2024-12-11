@@ -93,7 +93,35 @@
                             
                           </div>
                           
-
+                          <form action="{{ route('payment.store') }}" method="POST">
+                            @csrf
+                            <div class="form-group mb-3">
+                                <label for="date">Date:</label>
+                                <input type="date" id="date" name="date" class="form-control" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="document">Document:</label>
+                                <input type="text" id="document" name="document" class="form-control" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="services">Services:</label>
+                                <textarea id="services" name="services" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="order">Order:</label>
+                                <input type="text" id="order" name="order" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="currency">Currency:</label>
+                                <input type="text" id="currency" name="currency" class="form-control" maxlength="10" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="pdf">PDF:</label>
+                                <input type="text" id="pdf" name="pdf" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit Payment</button>
+                        </form>
+                        
                     </div>
 
                     
@@ -105,72 +133,76 @@
                        </div><br><br>
 
                        <div class="form-container">
-                        <form>
+
+                        <form action="{{ route('billing.store') }}" method="POST">
+                          @csrf
                           <!-- Full Name -->
                           <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                              <label for="fullName">Full Name</label>
+                              <input type="text" class="form-control" id="fullName" name="full_name" placeholder="Enter your full name" required>
                           </div>
-                    
+                      
                           <!-- Company Name -->
                           <div class="form-group">
-                            <label for="companyName">Company Name</label>
-                            <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
+                              <label for="companyName">Company Name</label>
+                              <input type="text" class="form-control" id="companyName" name="company_name" placeholder="Enter company name">
                           </div>
-                    
+                      
                           <!-- Country -->
                           <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" class="form-control" id="country" placeholder="Enter your country">
+                              <label for="country">Country</label>
+                              <input type="text" class="form-control" id="country" name="country" placeholder="Enter your country" required>
                           </div>
-                    
+                      
                           <!-- State/Region -->
                           <div class="form-group">
-                            <label for="stateRegion">State/Region</label>
-                            <input type="text" class="form-control" id="stateRegion" placeholder="Enter state or region">
+                              <label for="stateRegion">State/Region</label>
+                              <input type="text" class="form-control" id="stateRegion" name="state_region" placeholder="Enter state or region" required>
                           </div>
-                    
+                      
                           <!-- Address -->
                           <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                              <label for="address">Address</label>
+                              <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
                           </div>
-                    
+                      
                           <!-- City -->
                           <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter your city">
+                              <label for="city">City</label>
+                              <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city" required>
                           </div>
-                    
+                      
                           <!-- Postal Code -->
                           <div class="form-group">
-                            <label for="postalCode">Postal Code</label>
-                            <input type="text" class="form-control" id="postalCode" placeholder="Enter postal code">
+                              <label for="postalCode">Postal Code</label>
+                              <input type="text" class="form-control" id="postalCode" name="postal_code" placeholder="Enter postal code" required>
                           </div>
-                    
+                      
                           <!-- Tax ID -->
                           <div class="form-group">
-                            <label for="taxId">Tax ID</label>
-                            <input type="text" class="form-control" id="taxId" placeholder="Enter your tax ID">
+                              <label for="taxId">Tax ID</label>
+                              <input type="text" class="form-control" id="taxId" name="tax_id" placeholder="Enter your tax ID">
                           </div>
-                    
+                      
                           <!-- Invoices -->
                           <div class="form-group">
-                            <label>Invoices</label>
-                            <p>You will find your invoices under the Billing history tab.</p>
+                              <label>Invoices</label>
+                              <p>You will find your invoices under the Billing history tab.</p>
                           </div>
-                    
+                      
                           <!-- Radio Button -->
                           <div class="form-group">
-                            <div class="form-check">
-                              <input type="radio" class="form-check-input" id="emailInvoices" name="invoiceOption">
-                              <label class="form-check-label" for="emailInvoices">I want to get invoices via email as well.</label>
-                            </div>
+                              <div class="form-check">
+                                  <input type="radio" class="form-check-input" id="emailInvoices" name="email_invoices" value="1">
+                                  <label class="form-check-label" for="emailInvoices">I want to get invoices via email as well.</label>
+                              </div>
                           </div>
-                    
+                      
                           <!-- Save Changes Button -->
                           <button type="submit" class="btn btn-primary">Save Changes</button>
+                      
                         </form>
+                      
                       </div>
 
                     </div>

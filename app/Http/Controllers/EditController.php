@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Question;
 use App\Models\Overview;
 use App\Models\Pricing;
@@ -145,58 +146,57 @@ class EditController extends Controller
         return view('gig-detail.show', compact('gigDetail'));
     }
 
+
+
     
-    public function storeGigMedia(Request $request, $gigId)
-{
-    // Validate the input for media files only
-    $request->validate([
-        'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
-        'gig_documents.*' => 'nullable|mimes:pdf,doc,docx,ppt,txt|max:5120',
-    ]);
-
-    // Store Images, Videos, and Documents as previously outlined
-    if ($request->hasFile('gig_images')) {
-        foreach ($request->file('gig_images') as $image) {
-            $path = $image->store('gigs/images', 'public');
-            
-            // Store the media in the media table
-            Media::create([
-                'gig_id' => $gigId,  // Associate with the gig
-                'type' => 'image',    // Set type as 'image'
-                'path' => $path,      // Store the path
-            ]);
+    public function storeGigMedia(Request $request)
+    {
+        // Validation rules for different media types
+        $rules = [
+            'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
+            'gig_documents.*' => 'nullable|mimes:pdf,doc,docx,ppt,txt|max:5120',
+        ];
+    
+        $request->validate($rules);
+    
+        // Media type mapping
+        $mediaTypes = [
+            'gig_images' => ['type' => 'image', 'folder' => 'gigs/images'],
+            'gig_videos' => ['type' => 'video', 'folder' => 'gigs/videos'],
+            'gig_documents' => ['type' => 'document', 'folder' => 'gigs/documents'],
+        ];
+    
+        $mediaRecords = [];
+    
+        // Loop through each media type
+        foreach ($mediaTypes as $inputName => $mediaInfo) {
+            if ($request->hasFile($inputName)) {
+                foreach ($request->file($inputName) as $file) {
+                    // Store file and retrieve its path
+                    $path = $file->store($mediaInfo['folder'], 'public');
+    
+                    // Prepare data for insertion
+                    $mediaRecords[] = [
+                        'type' => $mediaInfo['type'],
+                        'path' => $path,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ];
+                }
+            }
         }
-    }
-
-    if ($request->hasFile('gig_videos')) {
-        foreach ($request->file('gig_videos') as $video) {
-            $path = $video->store('gigs/videos', 'public');
-            
-            // Store the media in the media table
-            Media::create([
-                'gig_id' => $gigId,  // Associate with the gig
-                'type' => 'video',    // Set type as 'video'
-                'path' => $path,      // Store the path
-            ]);
+    
+        // Insert media records into the database
+        if (!empty($mediaRecords)) {
+            Media::insert($mediaRecords);
         }
+    
+        return redirect()->back()->with('success', 'Gig media saved successfully!');
     }
-
-    if ($request->hasFile('gig_documents')) {
-        foreach ($request->file('gig_documents') as $document) {
-            $path = $document->store('gigs/documents', 'public');
-            
-            // Store the media in the media table
-            Media::create([
-                'gig_id' => $gigId,  // Associate with the gig
-                'type' => 'document', // Set type as 'document'
-                'path' => $path,      // Store the path
-            ]);
-        }
-    }
-
-    return redirect()->back()->with('success', 'Gig media saved successfully!');
-}
+    
+    
+    
 
     
 }

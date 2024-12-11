@@ -10,7 +10,8 @@ class Media extends Model
     //
     use HasFactory;
 
-    protected $fillable = [ 'type', 'path'];
+    protected $table = 'medias'; // Ensure this matches your table name
 
+    protected $fillable = ['type', 'path'];
 
 }

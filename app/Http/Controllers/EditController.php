@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Question;
 use App\Models\Overview;
 use App\Models\Pricing;
@@ -146,41 +147,37 @@ class EditController extends Controller
     }
 
 
+
+    
     public function storeGigMedia(Request $request)
     {
-        // Dynamically fetch the `gigId` (example: from the logged-in user or session)
-        $gigId = auth()->user()->current_gig_id; // Replace with your actual logic
-    
-        if (!$gigId) {
-            return redirect()->back()->with('error', 'No gig ID found.');
-        }
-    
-        // Define validation rules dynamically
+        // Validation rules for different media types
         $rules = [
             'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
             'gig_documents.*' => 'nullable|mimes:pdf,doc,docx,ppt,txt|max:5120',
         ];
     
-        // Validate the input
         $request->validate($rules);
     
-        // Define media types and their respective folders
+        // Media type mapping
         $mediaTypes = [
             'gig_images' => ['type' => 'image', 'folder' => 'gigs/images'],
             'gig_videos' => ['type' => 'video', 'folder' => 'gigs/videos'],
             'gig_documents' => ['type' => 'document', 'folder' => 'gigs/documents'],
         ];
     
-        $mediaRecords = []; // To store batch insert data
+        $mediaRecords = [];
     
-        // Process each media type
+        // Loop through each media type
         foreach ($mediaTypes as $inputName => $mediaInfo) {
             if ($request->hasFile($inputName)) {
                 foreach ($request->file($inputName) as $file) {
+                    // Store file and retrieve its path
                     $path = $file->store($mediaInfo['folder'], 'public');
+    
+                    // Prepare data for insertion
                     $mediaRecords[] = [
-                        'gig_id' => $gigId,
                         'type' => $mediaInfo['type'],
                         'path' => $path,
                         'created_at' => now(),
@@ -190,13 +187,15 @@ class EditController extends Controller
             }
         }
     
-        // Insert media records in batch
+        // Insert media records into the database
         if (!empty($mediaRecords)) {
             Media::insert($mediaRecords);
         }
     
         return redirect()->back()->with('success', 'Gig media saved successfully!');
     }
+    
+    
     
 
     

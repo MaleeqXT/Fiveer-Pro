@@ -79,8 +79,7 @@ Route::post('/save-billing-info', [PaymentController::class, 'storebill'])->name
 
 
 Route::post('/gigs/faqs', [EditController::class, 'storefaq'])->name('gig-details.store');
-Route::post('/gig/media', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
-
+Route::post('/gig/media/store', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
 
 
 Route::post('/websites/complete/store', [BusinessDetailsController::class, 'store'])->name('websites.complete.store');

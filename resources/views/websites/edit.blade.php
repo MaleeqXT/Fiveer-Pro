@@ -759,12 +759,11 @@
                                             <div class="tab-pane fade" id="card7-add-gig">
                                                 <h3>Showcase Your Services In A Gig Gallery</h3>
                                                 <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf       <!-- Container Card for all the Upload Boxes -->
+                                                    @csrf
                                                     <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                         <h4>Upload Your Gig Media</h4>
                                             
-                                                        <!-- Row for the Upload Cards -->
-                                                        <!-- Gig Images Box -->
+                                                        <!-- Gig Images -->
                                                         <div class="row mb-4">
                                                             <div class="col-4">
                                                                 <div class="box-card" style="border: 2px solid #16181a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -773,12 +772,12 @@
                                                                         <button type="button" class="btn btn-outline-primary">Drag & Drop Images Here</button>
                                                                         <input type="file" name="gig_images[]" id="gigImages" class="form-control" accept="image/*" multiple style="display: none;">
                                                                     </div>
-                                                                    <div id="imagePreview" class="mt-3"></div> <!-- Image preview container -->
+                                                                    <div id="imagePreview" class="mt-3"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                             
-                                                        <!-- Gig Video Box -->
+                                                        <!-- Gig Videos -->
                                                         <div class="row mb-4">
                                                             <div class="col-4">
                                                                 <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -787,12 +786,12 @@
                                                                         <button type="button" class="btn btn-outline-primary">Drag & Drop Videos Here</button>
                                                                         <input type="file" name="gig_videos[]" id="gigVideos" class="form-control" accept="video/*" multiple style="display: none;">
                                                                     </div>
-                                                                    <div id="videoPreview" class="mt-3"></div> <!-- Video preview container -->
+                                                                    <div id="videoPreview" class="mt-3"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                             
-                                                        <!-- Gig Documents Box -->
+                                                        <!-- Gig Documents -->
                                                         <div class="row mb-4">
                                                             <div class="col-4">
                                                                 <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -801,7 +800,7 @@
                                                                         <button type="button" class="btn btn-outline-primary">Drag & Drop Documents Here</button>
                                                                         <input type="file" name="gig_documents[]" id="gigDocuments" class="form-control" accept=".pdf, .doc, .docx, .ppt, .txt" multiple style="display: none;">
                                                                     </div>
-                                                                    <div id="documentPreview" class="mt-3"></div> <!-- Document preview container -->
+                                                                    <div id="documentPreview" class="mt-3"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -814,47 +813,35 @@
                                                 </form>
                                             </div>
                                             
-                                            
                                             <script>
-                                                // Allow files to be dropped
                                                 function allowDrop(event) {
                                                     event.preventDefault();
                                                 }
                                             
-                                                // Handle file drop event
                                                 function handleFileDrop(event, type) {
                                                     event.preventDefault();
                                                     let files = event.dataTransfer.files;
                                                     previewFiles(files, type);
                                                 }
                                             
-                                                // Handle image file selection
-                                                document.getElementById('gigImages').addEventListener('change', function(e) {
-                                                    let files = e.target.files;
-                                                    previewFiles(files, 'image');
+                                                document.getElementById('gigImages').addEventListener('change', function (e) {
+                                                    previewFiles(e.target.files, 'image');
                                                 });
                                             
-                                                // Handle video file selection
-                                                document.getElementById('gigVideos').addEventListener('change', function(e) {
-                                                    let files = e.target.files;
-                                                    previewFiles(files, 'video');
+                                                document.getElementById('gigVideos').addEventListener('change', function (e) {
+                                                    previewFiles(e.target.files, 'video');
                                                 });
                                             
-                                                // Handle document file selection
-                                                document.getElementById('gigDocuments').addEventListener('change', function(e) {
-                                                    let files = e.target.files;
-                                                    previewFiles(files, 'document');
+                                                document.getElementById('gigDocuments').addEventListener('change', function (e) {
+                                                    previewFiles(e.target.files, 'document');
                                                 });
                                             
-                                                // Preview files (images, videos, or documents)
                                                 function previewFiles(files, type) {
                                                     const previewContainer = document.getElementById(type + 'Preview');
-                                                    previewContainer.innerHTML = '';  // Clear previous previews
-                                            
+                                                    previewContainer.innerHTML = '';
                                                     Array.from(files).forEach(file => {
                                                         const reader = new FileReader();
-                                            
-                                                        reader.onload = function(event) {
+                                                        reader.onload = function (event) {
                                                             let element;
                                                             if (type === 'image') {
                                                                 element = document.createElement('img');
@@ -865,7 +852,7 @@
                                                                 element.src = event.target.result;
                                                                 element.controls = true;
                                                                 element.style = "max-width: 200px; margin: 5px;";
-                                                            } else if (type === 'document') {
+                                                            } else {
                                                                 element = document.createElement('p');
                                                                 element.textContent = file.name;
                                                                 element.style = "margin: 5px;";
@@ -876,6 +863,7 @@
                                                     });
                                                 }
                                             </script>
+                                            
                                 <div class="tab-pane fade" id="card7-publish">
                                     <!-- Publish Button -->
                                     <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>

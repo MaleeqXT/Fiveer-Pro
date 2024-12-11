@@ -10,6 +10,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ActiveController;
 use App\Http\Controllers\BusinessDetailsController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SecuritySettingController;
 
 
 
@@ -139,3 +140,8 @@ Route::get('/inbox', function () {
 Route::post('/profile', [UserProfileController::class, 'store'])->name('profile.store');
 
 Route::post('/active/store', [ActiveController::class, 'store'])->name('active.store');
+
+
+Route::get('/setting', [SecuritySettingController::class, 'index'])->name('websites.setting');
+
+Route::post('/security', [SecuritySettingController::class, 'store'])->name('security.store');

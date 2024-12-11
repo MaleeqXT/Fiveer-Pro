@@ -44,31 +44,88 @@
 .success-btn:hover {
   background-color: #218838;
 }
+#card7-late {
+  background-color: #f9f9f9; /* Light background for the card */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#card7-late .row {
+  margin-bottom: 20px; /* Space between rows */
+}
+
+#card7-late {
+  background-color: #ffffff; /* Clean white background for the card */
+  padding: 25px; /* Increased padding for better spacing */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern look */
+  margin-top: 20px; /* Margin from the top */
+}
+
+#card7-late .row {
+  margin-bottom: 30px; /* Consistent spacing between rows */
+}
+
+#card7-late h6 {
+  font-size: 16px; /* Adjusted font size */
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Darker color for better readability */
+}
+
+#card7-late p {
+  font-size: 14px; /* Smaller font for text */
+  margin-bottom: 8px; /* Adjust spacing between paragraphs */
+  color: #666; /* Neutral color for text */
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column; /* Stacks checkboxes vertically */
+  gap: 8px; /* Uniform spacing between checkboxes */
+}
+
 .custom-checkbox {
-  display: block; /* Ensures each checkbox appears on a new line */
-  margin-bottom: 10px; /* Adds space between checkboxes */
-  width: 20px;
-  height: 20px;
-  appearance: none;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
+  width: 18px; /* Slightly smaller size */
+  height: 18px;
+  appearance: none; /* Removes default styles */
+  border: 2px solid #ccc; /* Light border */
+  border-radius: 4px; /* Subtle rounding */
+  background-color: #fff; /* White background */
   cursor: pointer;
+  display: inline-block; /* Prevents alignment issues */
+  position: relative; /* Enables pseudo-element styling */
 }
 
 .custom-checkbox:checked {
-  background-color: #28a745; /* Success green color */
-  border-color: #28a745;
+  background-color: #28a745; /* Success green */
+  border-color: #28a745; /* Match border to background */
 }
 
 .custom-checkbox:checked::before {
-  content: '\2713'; /* Unicode for checkmark */
+  content: '\2713'; /* Unicode checkmark */
   position: absolute;
-  top: 0;
-  left: 3px;
-  font-size: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
   color: white;
 }
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns button to the right */
+  margin-top: 20px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e5e5e5; /* Light gray line */
+  margin: 20px 0; /* Consistent vertical spacing */
+}
+
 
 
 
@@ -203,134 +260,87 @@
   
             <!-- ACTIVE Tab -->
           
-            <div class="tab-pane fade" id="card7-active">
-              
-                  <h6>Set password</h6>  
-                  <div class="d-flex align-items-center mt-4">
-                    <h6 class="me-2">New Password</h6>
-                    <input type="password" class="form-control w-50" placeholder="Enter new password">
+          
+            <div class="container">
+              <!-- Set Password -->
+              <div class="card mt-5">
+                  <div class="card-body">
+                      <h6>Set Password</h6>
+                      <form action="{{ route('security.store') }}" method="POST">
+                          @csrf
+                          <div class="d-flex align-items-center mt-4">
+                              <h6 class="me-2">New Password</h6>
+                              <input type="password" name="new_password" class="form-control w-50" placeholder="Enter new password">
+                          </div>
+                          <div class="d-flex align-items-center mt-4">
+                              <h6 class="me-2">Confirm Password</h6>
+                              <input type="password" name="new_password_confirmation" class="form-control w-50" placeholder="Confirm new password">
+                          </div>
+                          <div class="mt-2">
+                              <small>8 characters or longer. Combine upper and lowercase letters and numbers.</small>
+                          </div>
+                          <button type="submit" class="btn btn-success mt-3">Save Change</button>
+                      </form>
                   </div>
-               
-                  <div class="d-flex align-items-center mt-4">
-                    <h6 class="me-2">Confirm Password</h6>
-                    <input type="password" class="form-control w-50" placeholder="Enter confirm password">
+              </div>
+          
+              <!-- Phone Verification -->
+              <div class="card mt-5">
+                  <div class="card-body">
+                      <h6>Phone Verification</h6>
+                      <form action="{{ route('security.store') }}" method="POST">
+                          @csrf
+                          <div class="d-flex align-items-center mt-4">
+                              <h6 class="me-2">Phone</h6>
+                              <input type="text" name="phone" class="form-control w-50" placeholder="Enter phone number" value="{{ $settings->phone ?? '' }}">
+                          </div>
+                          <button type="submit" class="btn btn-success mt-3">Save Change</button>
+                      </form>
                   </div>
-               
-                <div class="mt-2">
-                  <small style="margin-left: 775px"> 8 characters or longer. Combine upper and lowercase letters and numbers.</small>
-                </div>   
-                  
-                  <button class="btn btn-success" style="margin-left: 1420px">Save Change</button>
-                  <div class="mt-4">
-                    <hr>
+              </div>
+          
+              <!-- Security Question -->
+              <div class="card mt-5">
+                  <div class="card-body">
+                      <h6>Security Question</h6>
+                      <form action="{{ route('security.store') }}" method="POST">
+                          @csrf
+                          <div class="d-flex align-items-center mt-4">
+                              <h6 class="me-2">Question</h6>
+                              <input type="text" name="security_question" class="form-control w-50" placeholder="Enter question" value="{{ $settings->security_question ?? '' }}">
+                          </div>
+                          <div class="d-flex align-items-center mt-4">
+                              <h6 class="me-2">Answer</h6>
+                              <input type="text" name="security_answer" class="form-control w-50" placeholder="Enter answer" value="{{ $settings->security_answer ?? '' }}">
+                          </div>
+                          <button type="submit" class="btn btn-success mt-3">Save Change</button>
+                      </form>
                   </div>
-
-                  <div class="password-container">
-                    <h6>Phone Verification</h6>
-                  <p style="margin-left: 664px">Your phone is verified with Fiverr. Click Edit to change your phone number</p>
-                    <button class="success-btn" style="margin-left: 250px">Edit</button>
+              </div>
+          
+              <!-- Connected Devices -->
+              <div class="card mt-5">
+                  <div class="card-body">
+                      <h6>Connected Devices</h6>
+                      <ul class="list-group">
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Chrome 130.0.0.0, Windows
+                              <button class="btn btn-danger btn-sm">Sign Out</button>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                              V2249, Android App
+                              <button class="btn btn-danger btn-sm">Sign Out</button>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Samsung Internet mobile 26.0, K, Android
+                              <button class="btn btn-danger btn-sm">Sign Out</button>
+                          </li>
+                      </ul>
                   </div>
-                  
-
-                  <div class="password-container mt-3">
-                    <h6>Secuirty Questionn</h6>
-                  <p style="margin-left: 699px">By creating a security question, you will add an additional layer of protection for your revenue withdrawals and for changing your password.</p>
-                    <button class="success-btn" style="margin-left: 250px">Edit</button>
-                  </div>
-
-                  <div class="password-container mt-3">
-                    <h6>TWO FACTOR AUTHENTICATION</h6>
-                 
-                  <p style="margin-left: 606px"> To help keep your account secure, we'll ask you to submit a code when using a new device to log in. We'll send the code via SMS, email, or Fiverr notification.</p>
-                  </div>
-
-                  <div class="mt4">
-                    <hr>
-                  </div>
-                  <h6>Connected devices</h6>
-                  
-                  <div class="card" style="width: 97rem;">
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Chrome 130.0.0.0, Windows
-                        <button class="btn btn-danger btn-sm">Sign Out</button>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        V2249, Android App
-                        <button class="btn btn-danger btn-sm">Sign Out</button>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Samsung Internet mobile 26.0, K, Android
-                        <button class="btn btn-danger btn-sm">Sign Out</button>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="d-flex align-items-center mt-4">
-                    <p style="color: blue; margin-right: 10px;">+Show more</p>
-                    <p>sign out all the devices</p>
-                  </div>
-
-                
-            </div>
-
-
-             <!-- ACTIVE Tab -->
-    <div class="tab-pane fade container" id="card7-late">
-      <div class="row">
-        <div class="col-sm-3 ">
-          <h6>Notifications</h6>
-          <p>For important updates regarding your Fiverr activity, certain notifications cannot be disabled.</p>
-        </div>
-        <div class="col-sm-3 ">
-          <h6>Types</h6>
-          <p>Inbox Messages</p>
-          <p>Order Messages</p>
-          <p>Order Updates</p>
-          <p>Rating Reminders</p>
-          <p>Buyer Briefs</p>
-          <p>My Gigs</p>
-          <p>My Account</p>
-        </div>
-        <div class="col-sm-3 ">
-          <h6>Email</h6>
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-
-        </div>
-        <div class="col-sm-3 ">
-          <h6>Mobile</h6>
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-          <input type="checkbox" checked class="custom-checkbox">
-
-        </div>
-      </div>
-
-      <div class="mt-4">
-        <hr>
-      </div>
-
-      <h6>REAL-TIME NOTIFICATIONS</h6>
-
-      <div class="mt-3">
-        <p>Enable/disable real-time notifications</p>
-        <p>Enable/disable sound</p>
-      </div>
-
-      <div style="display: flex; justify-content: flex-end; padding-right: 10px;">
-        <button class="btn btn-success">Save Change</button>
-      </div>
-      
-
-    </div>
+              </div>
+          </div>
+          
+          
 
 
             <!-- DELIVERED Tab -->
@@ -381,17 +391,15 @@
 
             <!-- COMPLETED Tab -->
             <div class="tab-pane fade container" id="card7-completed">
-              
               <div class="card w-60">
                 <div class="card-body">
                   <h5 class="card-title">Personal & business information</h5>
                   <p class="card-text">Verify your personal and business information for compliance purposes. Learn more.</p>
                   <button type="button" class="btn btn-secondary mt-4">Continue verification</button>
-                  
                 </div>
               </div>
-                
             </div>
+            
 
             <!-- CANCELLED Tab -->
           

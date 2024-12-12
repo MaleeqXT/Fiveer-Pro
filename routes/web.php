@@ -59,8 +59,10 @@ Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.cont
 
 
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
-Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
 Route::post('/gigs/store', [EditController::class, 'storeover'])->name('gigs.store');
+
+Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
+
 Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save.pricing');
 
 

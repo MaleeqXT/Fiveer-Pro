@@ -277,6 +277,7 @@
             </div>
             <div class="card-body">
                 <div class="tab-content">
+
                     <div class="tab-pane fade show active" id="card7-home">
                         <form action="{{ route('gigs.store') }}" method="POST">
                             @csrf <!-- Laravel CSRF token for security -->
@@ -285,7 +286,7 @@
                                 <h6>Want to know what potential clients are looking for?</h6>
                                 <p>
                                     Join Kickstart for exclusive access to market research tools, insights,
-                                    Tell me more →
+                                    Tell me more &rarr;
                                 </p>
                             </div>
                     
@@ -298,7 +299,7 @@
                                         </p>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="title" placeholder="Enter your gig title" required>
+                                        <input type="text" class="form-control" name="title" placeholder="Enter your gig title" value="{{ old('title', $lastGig->title ?? '') }}" required>
                                     </div>
                                 </div>
                     
@@ -311,16 +312,16 @@
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-select" name="category" required>
-                                            <option value="Programming & Tech">Programming & Tech</option>
-                                            <option value="Graphics & Design">Graphics & Design</option>
+                                            <option value="Programming & Tech" {{ old('category', $lastGig->category ?? '') == 'Programming & Tech' ? 'selected' : '' }}>Programming & Tech</option>
+                                            <option value="Graphics & Design" {{ old('category', $lastGig->category ?? '') == 'Graphics & Design' ? 'selected' : '' }}>Graphics & Design</option>
                                         </select>
                                     </div>
                     
                                     <div class="col-md-4">
                                         <select class="form-select" name="sub_category" required>
-                                            <option value="Web Development">Web Development</option>
-                                            <option value="Mobile App Development">Mobile App Development</option>
-                                            <option value="Software Development">Software Development</option>
+                                            <option value="Web Development" {{ old('sub_category', $lastGig->sub_category ?? '') == 'Web Development' ? 'selected' : '' }}>Web Development</option>
+                                            <option value="Mobile App Development" {{ old('sub_category', $lastGig->sub_category ?? '') == 'Mobile App Development' ? 'selected' : '' }}>Mobile App Development</option>
+                                            <option value="Software Development" {{ old('sub_category', $lastGig->sub_category ?? '') == 'Software Development' ? 'selected' : '' }}>Software Development</option>
                                         </select>
                                     </div>
                                 </div>
@@ -333,11 +334,11 @@
                                     </div>
                                     <div class="col-md-8">
                                         <select class="form-select" name="service_type" required>
-                                            <option value="Front-End Development">Front-End Development</option>
-                                            <option value="Back-End Development">Back-End Development</option>
-                                            <option value="Mobile App Development">Mobile App Development</option>
-                                            <option value="UI/UX Design">UI/UX Design</option>
-                                            <option value="SEO Optimization">SEO Optimization</option>
+                                            <option value="Front-End Development" {{ old('service_type', $lastGig->service_type ?? '') == 'Front-End Development' ? 'selected' : '' }}>Front-End Development</option>
+                                            <option value="Back-End Development" {{ old('service_type', $lastGig->service_type ?? '') == 'Back-End Development' ? 'selected' : '' }}>Back-End Development</option>
+                                            <option value="Mobile App Development" {{ old('service_type', $lastGig->service_type ?? '') == 'Mobile App Development' ? 'selected' : '' }}>Mobile App Development</option>
+                                            <option value="UI/UX Design" {{ old('service_type', $lastGig->service_type ?? '') == 'UI/UX Design' ? 'selected' : '' }}>UI/UX Design</option>
+                                            <option value="SEO Optimization" {{ old('service_type', $lastGig->service_type ?? '') == 'SEO Optimization' ? 'selected' : '' }}>SEO Optimization</option>
                                         </select>
                                     </div>
                                 </div>
@@ -352,27 +353,27 @@
                                     <div class="col-md-8 gig-metadata">
                                         <div class="row">
                                             <div class="col-6 col-md-4">
-                                                <input type="radio" name="website_type" value="E-Commerce" id="ecommerce" required>
+                                                <input type="radio" name="website_type" value="E-Commerce" id="ecommerce" {{ old('website_type', $lastGig->website_type ?? '') == 'E-Commerce' ? 'checked' : '' }} required>
                                                 <label for="ecommerce">E-Commerce store</label>
                                             </div>
                                             <div class="col-6 col-md-4">
-                                                <input type="radio" name="website_type" value="Business" id="business" required>
+                                                <input type="radio" name="website_type" value="Business" id="business" {{ old('website_type', $lastGig->website_type ?? '') == 'Business' ? 'checked' : '' }} required>
                                                 <label for="business">Business</label>
                                             </div>
                                             <div class="col-6 col-md-4">
-                                                <input type="radio" name="website_type" value="Portfolio" id="portfolio" required>
+                                                <input type="radio" name="website_type" value="Portfolio" id="portfolio" {{ old('website_type', $lastGig->website_type ?? '') == 'Portfolio' ? 'checked' : '' }} required>
                                                 <label for="portfolio">Portfolio</label>
                                             </div>
                                             <div class="col-6 col-md-4">
-                                                <input type="radio" name="website_type" value="Blog" id="blog" required>
+                                                <input type="radio" name="website_type" value="Blog" id="blog" {{ old('website_type', $lastGig->website_type ?? '') == 'Blog' ? 'checked' : '' }} required>
                                                 <label for="blog">Blog</label>
                                             </div>
                                             <div class="col-6 col-md-4">
-                                                <input type="radio" name="website_type" value="Landing Page" id="landing-page" required>
+                                                <input type="radio" name="website_type" value="Landing Page" id="landing-page" {{ old('website_type', $lastGig->website_type ?? '') == 'Landing Page' ? 'checked' : '' }} required>
                                                 <label for="landing-page">Landing Page</label>
                                             </div>
                                             <div class="col-6 col-md-4">
-                                                <input type="radio" name="website_type" value="News Portal" id="news-portal" required>
+                                                <input type="radio" name="website_type" value="News Portal" id="news-portal" {{ old('website_type', $lastGig->website_type ?? '') == 'News Portal' ? 'checked' : '' }} required>
                                                 <label for="news-portal">News Portal</label>
                                             </div>
                                         </div>
@@ -387,7 +388,7 @@
                                         </p>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="tags" placeholder="Enter tags">
+                                        <input type="text" class="form-control" name="tags" placeholder="Enter tags" value="{{ old('tags', $lastGig->tags ?? '') }}">
                                     </div>
                                 </div>
                             </div>
@@ -397,13 +398,15 @@
                     </div>
                     
 
+                    
+
 
 
 
                     <div class="tab-pane fade" id="card7-profile">
                         <div class="container mt-5">
                             <h3 class="text-center mb-4">Fiverr Pricing Editor</h3>
-                            <form action="{{route('save.pricing')}}" method="POST">
+                            <form action="{{ route('save.pricing') }}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <!-- Pricing Headers -->
@@ -434,13 +437,13 @@
                                         <strong>Number of Pages</strong>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="number" name="basic_pages" class="form-control" placeholder="Basic pages">
+                                        <input type="number" name="basic_pages" class="form-control" placeholder="Basic pages" value="{{ old('basic_pages', $pricingData['basic_pages'] ?? '') }}">
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="number" name="standard_pages" class="form-control" placeholder="Standard pages">
+                                        <input type="number" name="standard_pages" class="form-control" placeholder="Standard pages" value="{{ old('standard_pages', $pricingData['standard_pages'] ?? '') }}">
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="number" name="premium_pages" class="form-control" placeholder="Premium pages">
+                                        <input type="number" name="premium_pages" class="form-control" placeholder="Premium pages" value="{{ old('premium_pages', $pricingData['premium_pages'] ?? '') }}">
                                     </div>
                                 </div>
                     
@@ -451,36 +454,35 @@
                                     </div>
                                     <div class="col-md-3">
                                         <select name="basic_revisions" class="form-select">
-                                            <option>No Revisions</option>
-                                            <option>1 Revision</option>
-                                            <option>2 Revision</option>
-                                            <option>3 Revision</option>
-                                            <option>4 Revision</option>
-                                            <option>5 Revision</option>
-
-                                            <option>Unlimited</option>
+                                            <option {{ old('basic_revisions', $pricingData['basic_revisions'] ?? '') == 'No Revisions' ? 'selected' : '' }}>No Revisions</option>
+                                            <option {{ old('basic_revisions', $pricingData['basic_revisions'] ?? '') == '1 Revision' ? 'selected' : '' }}>1 Revision</option>
+                                            <option {{ old('basic_revisions', $pricingData['basic_revisions'] ?? '') == '2 Revision' ? 'selected' : '' }}>2 Revision</option>
+                                            <option {{ old('basic_revisions', $pricingData['basic_revisions'] ?? '') == '3 Revision' ? 'selected' : '' }}>3 Revision</option>
+                                            <option {{ old('basic_revisions', $pricingData['basic_revisions'] ?? '') == '4 Revision' ? 'selected' : '' }}>4 Revision</option>
+                                            <option {{ old('basic_revisions', $pricingData['basic_revisions'] ?? '') == '5 Revision' ? 'selected' : '' }}>5 Revision</option>
+                                            <option {{ old('basic_revisions', $pricingData['basic_revisions'] ?? '') == 'Unlimited' ? 'selected' : '' }}>Unlimited</option>
                                         </select>
                                     </div>
                                     <div class="col-md-3">
                                         <select name="standard_revisions" class="form-select">
-                                            <option>No Revisions</option>
-                                            <option>1 Revision</option>
-                                            <option>2 Revision</option>
-                                            <option>3 Revision</option>
-                                            <option>4 Revision</option>
-                                            <option>5 Revisions</option>
-                                            <option>Unlimited</option>
+                                            <option {{ old('standard_revisions', $pricingData['standard_revisions'] ?? '') == 'No Revisions' ? 'selected' : '' }}>No Revisions</option>
+                                            <option {{ old('standard_revisions', $pricingData['standard_revisions'] ?? '') == '1 Revision' ? 'selected' : '' }}>1 Revision</option>
+                                            <option {{ old('standard_revisions', $pricingData['standard_revisions'] ?? '') == '2 Revision' ? 'selected' : '' }}>2 Revision</option>
+                                            <option {{ old('standard_revisions', $pricingData['standard_revisions'] ?? '') == '3 Revision' ? 'selected' : '' }}>3 Revision</option>
+                                            <option {{ old('standard_revisions', $pricingData['standard_revisions'] ?? '') == '4 Revision' ? 'selected' : '' }}>4 Revision</option>
+                                            <option {{ old('standard_revisions', $pricingData['standard_revisions'] ?? '') == '5 Revision' ? 'selected' : '' }}>5 Revision</option>
+                                            <option {{ old('standard_revisions', $pricingData['standard_revisions'] ?? '') == 'Unlimited' ? 'selected' : '' }}>Unlimited</option>
                                         </select>
                                     </div>
                                     <div class="col-md-3">
                                         <select name="premium_revisions" class="form-select">
-                                            <option>No Revisions</option>
-                                            <option>1 Revision</option>
-                                            <option>2 Revision</option>
-                                            <option>3 Revision</option>
-                                            <option>4 Revision</option>
-                                            <option>5 Revisions</option>
-                                            <option>Unlimited</option>
+                                            <option {{ old('premium_revisions', $pricingData['premium_revisions'] ?? '') == 'No Revisions' ? 'selected' : '' }}>No Revisions</option>
+                                            <option {{ old('premium_revisions', $pricingData['premium_revisions'] ?? '') == '1 Revision' ? 'selected' : '' }}>1 Revision</option>
+                                            <option {{ old('premium_revisions', $pricingData['premium_revisions'] ?? '') == '2 Revision' ? 'selected' : '' }}>2 Revision</option>
+                                            <option {{ old('premium_revisions', $pricingData['premium_revisions'] ?? '') == '3 Revision' ? 'selected' : '' }}>3 Revision</option>
+                                            <option {{ old('premium_revisions', $pricingData['premium_revisions'] ?? '') == '4 Revision' ? 'selected' : '' }}>4 Revision</option>
+                                            <option {{ old('premium_revisions', $pricingData['premium_revisions'] ?? '') == '5 Revision' ? 'selected' : '' }}>5 Revision</option>
+                                            <option {{ old('premium_revisions', $pricingData['premium_revisions'] ?? '') == 'Unlimited' ? 'selected' : '' }}>Unlimited</option>
                                         </select>
                                     </div>
                                 </div>
@@ -488,60 +490,108 @@
                                 <!-- Other Features -->
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>Content Upload</strong></div>
-                                    <div class="col-md-3"><input type="checkbox" name="basic_content_upload"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="standard_content_upload"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="premium_content_upload"> Include</div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="basic_content_upload" {{ old('basic_content_upload', $pricingData['basic_content_upload'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="standard_content_upload" {{ old('standard_content_upload', $pricingData['standard_content_upload'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="premium_content_upload" {{ old('premium_content_upload', $pricingData['premium_content_upload'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
                                 </div>
                     
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>Plugins Installation</strong></div>
-                                    <div class="col-md-3"><input type="checkbox" name="basic_plugins"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="standard_plugins"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="premium_plugins"> Include</div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="basic_plugins" {{ old('basic_plugins', $pricingData['basic_plugins'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="standard_plugins" {{ old('standard_plugins', $pricingData['standard_plugins'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="premium_plugins" {{ old('premium_plugins', $pricingData['premium_plugins'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
                                 </div>
                     
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>E-commerce Functionality</strong></div>
-                                    <div class="col-md-3"><input type="checkbox" name="basic_ecommerce"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="standard_ecommerce"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="premium_ecommerce"> Include</div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="basic_ecommerce" {{ old('basic_ecommerce', $pricingData['basic_ecommerce'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="standard_ecommerce" {{ old('standard_ecommerce', $pricingData['standard_ecommerce'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="premium_ecommerce" {{ old('premium_ecommerce', $pricingData['premium_ecommerce'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
                                 </div>
                     
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>Number of Products</strong></div>
-                                    <div class="col-md-3"><input type="number" name="basic_products" class="form-control"></div>
-                                    <div class="col-md-3"><input type="number" name="standard_products" class="form-control"></div>
-                                    <div class="col-md-3"><input type="number" name="premium_products" class="form-control"></div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="basic_products" class="form-control" value="{{ old('basic_products', $pricingData['basic_products'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="standard_products" class="form-control" value="{{ old('standard_products', $pricingData['standard_products'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="premium_products" class="form-control" value="{{ old('premium_products', $pricingData['premium_products'] ?? '') }}">
+                                    </div>
                                 </div>
                     
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>Payment Processing</strong></div>
-                                    <div class="col-md-3"><input type="checkbox" name="basic_payment"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="standard_payment"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="premium_payment"> Include</div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="basic_payment" {{ old('basic_payment', $pricingData['basic_payment'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="standard_payment" {{ old('standard_payment', $pricingData['standard_payment'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="premium_payment" {{ old('premium_payment', $pricingData['premium_payment'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
                                 </div>
                     
                                 <!-- Other Functionalities -->
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>Speed Optimization</strong></div>
-                                    <div class="col-md-3"><input type="checkbox" name="basic_speed"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="standard_speed"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="premium_speed"> Include</div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="basic_speed" {{ old('basic_speed', $pricingData['basic_speed'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="standard_speed" {{ old('standard_speed', $pricingData['standard_speed'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="premium_speed" {{ old('premium_speed', $pricingData['premium_speed'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
                                 </div>
                     
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>Social Media Icons</strong></div>
-                                    <div class="col-md-3"><input type="checkbox" name="basic_social_media"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="standard_social_media"> Include</div>
-                                    <div class="col-md-3"><input type="checkbox" name="premium_social_media"> Include</div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="basic_social_media" {{ old('basic_social_media', $pricingData['basic_social_media'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="standard_social_media" {{ old('standard_social_media', $pricingData['standard_social_media'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" name="premium_social_media" {{ old('premium_social_media', $pricingData['premium_social_media'] ?? false) ? 'checked' : '' }}> Include
+                                    </div>
                                 </div>
                     
                                 <!-- Pricing -->
                                 <div class="row mt-3">
                                     <div class="col-md-3"><strong>Price</strong></div>
-                                    <div class="col-md-3"><input type="number" name="basic_price" class="form-control" placeholder="$5" min="5"></div>
-                                    <div class="col-md-3"><input type="number" name="standard_price" class="form-control" placeholder="$50" min="5"></div>
-                                    <div class="col-md-3"><input type="number" name="premium_price" class="form-control" placeholder="$100" min="5"></div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="basic_price" class="form-control" placeholder="$5" min="5" value="{{ old('basic_price', $pricingData['basic_price'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="standard_price" class="form-control" placeholder="$50" min="5" value="{{ old('standard_price', $pricingData['standard_price'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="premium_price" class="form-control" placeholder="$100" min="5" value="{{ old('premium_price', $pricingData['premium_price'] ?? '') }}">
+                                    </div>
                                 </div>
                     
                                 <!-- Submit -->
@@ -550,9 +600,8 @@
                                 </div>
                             </form>
                         </div>
-                    
-                        
                     </div>
+                    
                     <style>
                         .pricing-header {
                             background-color: #f8f9fa;
@@ -598,7 +647,7 @@
                             @csrf
                             <hr>
                             <p class="mt-5 text-muted">Briefly Describe Your Gig</p>
-            
+                
                             <!-- Gig Description -->
                             <div class="card text-center">
                                 <div class="card-header">
@@ -617,14 +666,14 @@
                                         required>{{ old('description') }}</textarea>
                                 </div>
                             </div>
-            
+                
                             <hr class="mt-5">
-            
+                
                             <!-- Milestone Workflow -->
                             <div class="milestone-header mt-5">
                                 <h2 class="text-muted">Milestone Workflow</h2>
                                 <label>
-                                    <input type="checkbox" name="milestones_enabled" value="1">
+                                    <input type="checkbox" name="milestones_enabled" value="1" {{ old('milestones_enabled') ? 'checked' : '' }}>
                                     Enable Milestones Workflow
                                 </label>
                             </div>
@@ -632,37 +681,41 @@
                                 Attract buyers by turning your Gig into a series of milestones—they’ll know exactly what to expect, 
                                 and you’ll get paid when each milestone is completed.
                             </p>
-            
+                
                             <hr class="mt-5">
-            
+                
                             <!-- Frequently Asked Questions -->
                             <div id="faq-section">
                                 <h2 class="text-muted me-3">Frequently Asked Questions</h2>
-                                <div class="faq-item mt-3">
-                                    <input type="text" class="form-control mb-2" name="faq_questions[]" placeholder="Question">
-                                    <textarea class="form-control" name="faq_answers[]" placeholder="Answer"></textarea>
-                                </div>
+                
+                                <!-- Loop over old input or session data -->
+                                @foreach (session('faq_questions', old('faq_questions', [])) as $index => $question)
+                                    <div class="faq-item mt-3">
+                                        <input type="text" class="form-control mb-2" name="faq_questions[]" value="{{ $question }}" placeholder="Question">
+                                        <textarea class="form-control" name="faq_answers[]" placeholder="Answer">{{ old('faq_answers.' . $index, session('faq_answers.' . $index)) }}</textarea>
+                                    </div>
+                                @endforeach
                             </div>
                             <button type="button" id="add-faq" class="btn btn-link text-success">+ Add FAQ</button>
-            
+                
                             <hr class="mt-4">
-            
+                
                             <!-- Button Container -->
                             <div class="button-container">
                                 <button type="reset" class="btn btn-secondary">Cancel</button>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
-            
+                
                         <!-- Show Gig Details -->
                         @isset($gigDetail)
                             <hr class="mt-5">
                             <h2 class="text-muted">Gig Details</h2>
                             <p>{{ $gigDetail->description }}</p>
-            
+                
                             <h3>Milestone Workflow</h3>
                             <p>{{ $gigDetail->milestones_enabled ? 'Enabled' : 'Disabled' }}</p>
-            
+                
                             <h3>FAQs</h3>
                             @if ($gigDetail->faqs->count())
                                 <ul>
@@ -679,7 +732,7 @@
                         @endisset
                     </div>
                 </div>
-            
+                
                 <script>
                     document.getElementById('add-faq').addEventListener('click', function () {
                         const faqSection = document.getElementById('faq-section');
@@ -692,7 +745,7 @@
                         faqSection.appendChild(newFaq);
                     });
                 </script>
-
+                
 
                                             <div class="tab-pane fade" id="card7-requiriment">
                                                 <h3>Get all the information you need from buyers to get started</h3>
@@ -864,43 +917,31 @@
                                                 }
                                             </script>
                                             
-                                <div class="tab-pane fade" id="card7-publish">
-                                    <!-- Publish Button -->
-                                    <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
-                                
-                                    <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
-                                    
-                                    <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
-                                
-                                    <button type="button" class="btn btn-outline-primary" style="margin-left: 20px;" id="publishButton" onclick="verifyAndPublish()">Publish Gig</button>
-                                
-                                    <!-- Feedback message for validation -->
-                                    <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
-                                        <p>Please ensure your ID and email are verified before publishing your gig.</p>
-                                    </div>
-                                </div><br>
-                                
-                                <!-- Javascript for Verification and Publishing -->
-                                <script>
-                                    // Mock user data
-                                    const user = {
-                                        idVerified: true, // Set to true or false to test
-                                        emailVerified: true // Set to true or false to test
-                                    };
-                                
-                                    // Function to verify and redirect
-                                    function verifyAndPublish() {
-                                        // Check if both ID and email are verified
-                                        if (!user.idVerified || !user.emailVerified) {
-                                            // Show feedback message
-                                            document.getElementById('feedbackMessage').style.display = 'block';
-                                        } else {
-                                            // Hide feedback message and redirect to the profile page
-                                            document.getElementById('feedbackMessage').style.display = 'none';
-                                            window.location.href = '/profile'; // Redirect to the profile page
-                                        }
-                                    }
-                                </script>
+                                            <div class="tab-pane fade" id="card7-publish">
+                                                <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
+                                                <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
+                                                <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
+                                                <button type="button" class="btn btn-outline-primary" id="publishButton" onclick="verifyAndPublish()">Publish Gig</button>
+                                                <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
+                                                    <p>Please ensure your ID and email are verified before publishing your gig.</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <script>
+                                                const user = {
+                                                    idVerified: true,
+                                                    emailVerified: true
+                                                };
+                                            
+                                                function verifyAndPublish() {
+                                                    if (!user.idVerified || !user.emailVerified) {
+                                                        document.getElementById('feedbackMessage').style.display = 'block';
+                                                    } else {
+                                                        document.getElementById('feedbackMessage').style.display = 'none';
+                                                        window.location.href = '/profile';
+                                                    }
+                                                }
+                                            </script>
                                 
 
                 </div>

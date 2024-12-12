@@ -12,33 +12,49 @@ use App\Models\GigDetail;
 use App\Models\Media;
 class EditController extends Controller
 {
-    public function index() {
-        // Get all questions to show on the page
-        $questions = Question::all();
-        return view('websites.edit', compact('questions'));
-    }
-
-
-    public function storeover(Request $request)
+    public function index()
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'category' => 'required|string|max:255',
-            'sub_category' => 'required|string|max:255',
-            'service_type' => 'required|string|max:255',
-            'website_type' => 'required|string|max:255',
-            'tags' => 'nullable|string',
-        ]);
-
-        Overview::create($request->only([
-            'title', 'category', 'sub_category', 'service_type', 'website_type', 'tags'
-        ]));
-
-        return redirect()->back()->with('success', 'Gig saved successfully!');
+        // Retrieve all questions from the Question model
+        $questions = Question::all();
+    
+        // Retrieve the last saved Gig data if available
+        $lastGig = session()->has('last_gig_id') 
+            ? Overview::find(session('last_gig_id')) 
+            : null;
+    
+        // Retrieve the old pricing data from session if it exists
+        $pricingData = session('pricing_data', null); // Default to null if no session data
+    
+        // Pass the data to the 'websites.edit' view
+        return view('websites.edit', compact('questions', 'lastGig', 'pricingData'));
     }
-
-    public function savePricing(Request $request)
+public function storeover(Request $request)
 {
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'category' => 'required|string|max:255',
+        'sub_category' => 'required|string|max:255',
+        'service_type' => 'required|string|max:255',
+        'website_type' => 'required|string|max:255',
+        'tags' => 'nullable|string',
+    ]);
+
+    // Save the gig data to the database
+    $overview = Overview::updateOrCreate(
+        ['id' => session('last_gig_id')], // Check if there's an existing draft
+        $request->only(['title', 'category', 'sub_category', 'service_type', 'website_type', 'tags'])
+    );
+
+    // Store the last saved gig ID in the session
+    session(['last_gig_id' => $overview->id]);
+
+    return redirect()->back()->with('success', 'Gig saved successfully!');
+}
+
+
+public function savePricing(Request $request)
+{
+    // Validate the form data
     $validated = $request->validate([
         'basic_pages' => 'nullable|integer|min:0',
         'standard_pages' => 'nullable|integer|min:0',
@@ -48,11 +64,11 @@ class EditController extends Controller
         'premium_price' => 'nullable|integer|min:5',
     ]);
 
+    // Save the pricing to the database
     $pricing = new Pricing();
     $pricing->basic_pages = $request->basic_pages;
     $pricing->standard_pages = $request->standard_pages;
     $pricing->premium_pages = $request->premium_pages;
-
     $pricing->basic_revisions = $request->basic_revisions;
     $pricing->standard_revisions = $request->standard_revisions;
     $pricing->premium_revisions = $request->premium_revisions;
@@ -91,6 +107,9 @@ class EditController extends Controller
 
     $pricing->save();
 
+    // Store the pricing data in session to retain old values until published
+    session(['pricing_data' => $request->all()]);
+
     return back()->with('success', 'Pricing saved successfully!');
 }
 
@@ -112,6 +131,7 @@ class EditController extends Controller
 
     public function storefaq(Request $request)
     {
+        // Validate the incoming request
         $data = $request->validate([
             'description' => 'required|string',
             'milestones_enabled' => 'nullable|boolean',
@@ -135,8 +155,15 @@ class EditController extends Controller
             }
         }
     
+        // Store the gig ID and FAQ data in session to show it again on reload
+        session()->put('last_gig_id', $gigDetail->id);
+        session()->put('faq_questions', $data['faq_questions']);
+        session()->put('faq_answers', $data['faq_answers']);
+    
+        // Return success message
         return redirect()->back()->with('success', 'Gig details saved successfully!');
     }
+    
     
 
     public function show($id)

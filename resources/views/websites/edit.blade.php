@@ -663,7 +663,7 @@
                                         name="description" 
                                         class="form-control" 
                                         placeholder="Describe your gig..." 
-                                        required>{{ old('description') }}</textarea>
+                                        required>{{ old('description', session('description')) }}</textarea>
                                 </div>
                             </div>
                 
@@ -808,56 +808,130 @@
 
 
 
-    
                                             <div class="tab-pane fade" id="card7-add-gig">
                                                 <h3>Showcase Your Services In A Gig Gallery</h3>
                                                 <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                         <h4>Upload Your Gig Media</h4>
-                                            
+                                                
                                                         <!-- Gig Images -->
                                                         <div class="row mb-4">
                                                             <div class="col-4">
-                                                                <div class="box-card" style="border: 2px solid #16181a; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                <div class="box-card" style="border: 2px solid #16181a; border-radius: 8px; padding: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                                     <label for="gigImages" style="font-weight: bold;">Upload Gig Images</label>
-                                                                    <div id="imageUpload" class="upload-area" style="border: 2px dashed #0568b9; padding: 20px; text-align: center; color: #1ea7ec;" ondrop="handleFileDrop(event, 'image')" ondragover="allowDrop(event)">
-                                                                        <button type="button" class="btn btn-outline-primary">Drag & Drop Images Here</button>
+                                                                    <div id="imageUpload" class="upload-area" style="border: 2px dashed #0568b9; padding: 30px; text-align: center; color: #1ea7ec;">
+                                                                        <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigImages')">Drag & Drop Images Here</button>
                                                                         <input type="file" name="gig_images[]" id="gigImages" class="form-control" accept="image/*" multiple style="display: none;">
                                                                     </div>
-                                                                    <div id="imagePreview" class="mt-3"></div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-8" id="imagePreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                                                @if(old('gig_images'))
+                                                                    @foreach(old('gig_images') as $image)
+                                                                        <div class="preview-item" style="position: relative; width: 290px; height: 180px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                            <img src="{{ asset('storage/' . $image) }}" alt="Gig Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                                                            <button type="button" class="delete-button" data-id="{{ $loop->index }}" data-type="image" style="position: absolute; top: 5px; right: 5px; background: none; border: none; cursor: pointer; color: #fff; font-size: 20px; background-color: rgba(0,0,0,0.6); padding: 5px; border-radius: 50%;">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @elseif(session('gig_images'))
+                                                                    @foreach(session('gig_images') as $image)
+                                                                        <div class="preview-item" style="position: relative; width: 270px; height: 180px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                            <img src="{{ asset('storage/' . $image) }}" alt="Gig Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                                                            <button type="button" class="delete-button" data-id="{{ $loop->index }}" data-type="image" style="position: absolute; top: 5px; right: 5px; background: none; border: none; cursor: pointer; color: #ffffff; font-size: 20px; background-color: rgba(0,0,0,0.6); padding: 5px; border-radius: 50%;">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                            
                                                         </div>
-                                            
+                                                
+                                                        <hr>
+                                                
                                                         <!-- Gig Videos -->
                                                         <div class="row mb-4">
                                                             <div class="col-4">
-                                                                <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                                                    <label for="gigVideos" style="font-weight: bold;">Upload Gig Video</label>
-                                                                    <div id="videoUpload" class="upload-area" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;" ondrop="handleFileDrop(event, 'video')" ondragover="allowDrop(event)">
-                                                                        <button type="button" class="btn btn-outline-primary">Drag & Drop Videos Here</button>
+                                                                <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                    <label for="gigVideos" style="font-weight: bold;">Upload Gig Videos</label>
+                                                                    <div id="videoUpload" class="upload-area" style="border: 2px dashed #08b7ce; padding: 30px; text-align: center; color: #000000;">
+                                                                        <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigVideos')">Drag & Drop Videos Here</button>
                                                                         <input type="file" name="gig_videos[]" id="gigVideos" class="form-control" accept="video/*" multiple style="display: none;">
                                                                     </div>
-                                                                    <div id="videoPreview" class="mt-3"></div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-8" id="videoPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                                                @if(old('gig_videos'))
+                                                                    @foreach(old('gig_videos') as $video)
+                                                                        <div class="preview-item" style="position: relative; width: 180px; height: 180px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                            <video width="100%" height="100%" controls style="object-fit: cover;">
+                                                                                <source src="{{ asset('storage/' . $video) }}" type="video/mp4">
+                                                                                Your browser does not support the video tag.
+                                                                            </video>
+                                                                            <button type="button" class="delete-button" data-id="{{ $loop->index }}" data-type="video" style="position: absolute; top: 5px; right: 5px; background: none; border: none; cursor: pointer; color: #000000; font-size: 20px; background-color: rgba(0,0,0,0.6); padding: 5px; border-radius: 50%;">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @elseif(session('gig_videos'))
+                                                                    @foreach(session('gig_videos') as $video)
+                                                                        <div class="preview-item" style="position: relative; width: 270px; height: 180px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                            <video width="100%" height="100%" controls style="object-fit: cover;">
+                                                                                <source src="{{ asset('storage/' . $video) }}" type="video/mp4">
+                                                                                Your browser does not support the video tag.
+                                                                            </video>
+                                                                            <button type="button" class="delete-button" data-id="{{ $loop->index }}" data-type="video" style="position: absolute; top: 5px; right: 5px; background: none; border: none; cursor: pointer; color: #fff; font-size: 20px; background-color: rgba(0,0,0,0.6); padding: 5px; border-radius: 50%;">
+                                                                                <i class="fas fa-trash"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                            
                                                         </div>
-                                            
+                                                
+                                                        <hr>
+                                                
                                                         <!-- Gig Documents -->
                                                         <div class="row mb-4">
                                                             <div class="col-4">
-                                                                <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                <div class="box-card" style="border: 2px solid #000000; border-radius: 8px; padding: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                                     <label for="gigDocuments" style="font-weight: bold;">Upload Gig Documents</label>
-                                                                    <div id="documentUpload" class="upload-area" style="border: 2px dashed #000000; padding: 20px; text-align: center; color: #000000;" ondrop="handleFileDrop(event, 'document')" ondragover="allowDrop(event)">
-                                                                        <button type="button" class="btn btn-outline-primary">Drag & Drop Documents Here</button>
+                                                                    <div id="documentUpload" class="upload-area" style="border: 2px dashed #000000; padding: 30px; text-align: center; color: #000000;">
+                                                                        <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigDocuments')">Drag & Drop Documents Here</button>
                                                                         <input type="file" name="gig_documents[]" id="gigDocuments" class="form-control" accept=".pdf, .doc, .docx, .ppt, .txt" multiple style="display: none;">
                                                                     </div>
-                                                                    <div id="documentPreview" class="mt-3"></div>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-8" id="documentPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                                                @if(old('gig_documents'))
+                                                                    @foreach(old('gig_documents') as $document)
+                                                                        <div class="preview-item" style="position: relative; display: flex; align-items: center; gap: 10px;">
+                                                                            <a href="{{ asset('storage/' . $document) }}" target="_blank" style="font-size: 14px; color: #16181a; text-decoration: none; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ basename($document) }}</a>
+                                                                            <button type="button" class="delete-button" data-id="{{ $loop->index }}" data-type="document" style="background: none; border: none; cursor: pointer; color: rgb(86, 86, 86); font-size: 16px;">
+                                                                                <i class="fas fa-trash"></i> <!-- Trash icon -->
+                                                                            </button>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @elseif(session('gig_documents'))
+                                                                    @foreach(session('gig_documents') as $document)
+                                                                        <div class="preview-item" style="position: relative; display: flex; align-items: center; gap: 10px;">
+                                                                            <a href="{{ asset('storage/' . $document) }}" target="_blank" style="font-size: 14px; color: #16181a; text-decoration: none; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{ basename($document) }}</a>
+                                                                            <button type="button" class="delete-button" data-id="{{ $loop->index }}" data-type="document" style="background: none; border: none; cursor: pointer; color: #ffffff; background-color:rgba(0,0,0,0.6); font-size: 16px;">
+                                                                                <i class="fas fa-trash"></i> <!-- Trash icon -->
+                                                                            </button>
+                                                                        </div>
+                                                                    @endforeach
+                                                                @endif
+                                                            </div>
+                                                            
                                                         </div>
-                                            
+                                                
+                                                        <hr>
+                                                
                                                         <!-- Store Gig Button -->
                                                         <div class="row">
                                                             <button type="submit" class="btn btn-outline-primary">Store Gig Media</button>
@@ -865,33 +939,90 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <style>
+                                                .preview-item {
+                                                    position: relative;
+                                                }
+                                                
+                                                .preview-item:hover .delete-button {
+                                                    opacity: 1; /* Make the delete button visible on hover */
+                                                }
                                             
+                                                .delete-button {
+                                                    position: absolute;
+                                                    top: 5px;
+                                                    right: 5px;
+                                                    background: none;
+                                                    border: none;
+                                                    cursor: pointer;
+                                                    color: #010101;
+                                                    font-size: 20px;
+                                                    background-color: rgba(0, 0, 0, 0.6);
+                                                    padding: 5px;
+                                                    border-radius: 50%;
+                                                    opacity: 0;
+                                                    transition: opacity 0.3s ease;
+                                                }
+                                            </style> 
                                             <script>
+                                                document.addEventListener('DOMContentLoaded', function () {
+                                                    // Add delete event listeners for the trash buttons
+                                                    document.querySelectorAll('.delete-button').forEach(button => {
+                                                        button.addEventListener('click', function () {
+                                                            const type = this.dataset.type; // 'image', 'video', or 'document'
+                                                            const id = this.dataset.id;
+                                            
+                                                            // Remove the item visually
+                                                            this.closest('.preview-item').remove();
+                                            
+                                                            // Optionally send a request to remove the item from storage
+                                                            /*
+                                                            fetch(`/gig/media/delete`, {
+                                                                method: 'POST',
+                                                                headers: {
+                                                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                                                                    'Content-Type': 'application/json',
+                                                                },
+                                                                body: JSON.stringify({ type, id }),
+                                                            }).then(response => response.json())
+                                                              .then(data => {
+                                                                  if (data.success) {
+                                                                      alert('Item deleted successfully');
+                                                                  }
+                                                              });
+                                                            */
+                                                        });
+                                                    });
+                                                });
+                                            
                                                 function allowDrop(event) {
                                                     event.preventDefault();
                                                 }
                                             
                                                 function handleFileDrop(event, type) {
                                                     event.preventDefault();
-                                                    let files = event.dataTransfer.files;
-                                                    previewFiles(files, type);
+                                                    const files = event.dataTransfer.files;
+                                                    appendFilesToPreview(files, type);
+                                                }
+                                            
+                                                function triggerFileInput(inputId) {
+                                                    document.getElementById(inputId).click();
                                                 }
                                             
                                                 document.getElementById('gigImages').addEventListener('change', function (e) {
-                                                    previewFiles(e.target.files, 'image');
+                                                    appendFilesToPreview(e.target.files, 'image');
                                                 });
                                             
                                                 document.getElementById('gigVideos').addEventListener('change', function (e) {
-                                                    previewFiles(e.target.files, 'video');
+                                                    appendFilesToPreview(e.target.files, 'video');
                                                 });
                                             
                                                 document.getElementById('gigDocuments').addEventListener('change', function (e) {
-                                                    previewFiles(e.target.files, 'document');
+                                                    appendFilesToPreview(e.target.files, 'document');
                                                 });
                                             
-                                                function previewFiles(files, type) {
+                                                function appendFilesToPreview(files, type) {
                                                     const previewContainer = document.getElementById(type + 'Preview');
-                                                    previewContainer.innerHTML = '';
                                                     Array.from(files).forEach(file => {
                                                         const reader = new FileReader();
                                                         reader.onload = function (event) {
@@ -899,16 +1030,16 @@
                                                             if (type === 'image') {
                                                                 element = document.createElement('img');
                                                                 element.src = event.target.result;
-                                                                element.style = "max-width: 100px; margin: 5px;";
+                                                                element.style = "max-width: 150px; margin: 5px; border: 1px solid #ddd; border-radius: 5px;";
                                                             } else if (type === 'video') {
                                                                 element = document.createElement('video');
                                                                 element.src = event.target.result;
                                                                 element.controls = true;
-                                                                element.style = "max-width: 200px; margin: 5px;";
+                                                                element.style = "max-width: 200px; margin: 5px; border: 1px solid #ddd; border-radius: 5px;";
                                                             } else {
-                                                                element = document.createElement('p');
+                                                                element = document.createElement('div');
                                                                 element.textContent = file.name;
-                                                                element.style = "margin: 5px;";
+                                                                element.style = "margin: 5px; padding: 5px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9;";
                                                             }
                                                             previewContainer.appendChild(element);
                                                         };
@@ -916,7 +1047,7 @@
                                                     });
                                                 }
                                             </script>
-                                            
+                                                                                        
                                             <div class="tab-pane fade" id="card7-publish">
                                                 <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
                                                 <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>

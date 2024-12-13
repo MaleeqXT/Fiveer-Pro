@@ -131,7 +131,6 @@ public function savePricing(Request $request)
 
     public function storefaq(Request $request)
     {
-        // Validate the incoming request
         $data = $request->validate([
             'description' => 'required|string',
             'milestones_enabled' => 'nullable|boolean',
@@ -139,7 +138,23 @@ public function savePricing(Request $request)
             'faq_answers' => 'nullable|array',   // Array of answers
         ]);
     
-        // Create the gig detail record
+        // Store data in session
+        session()->put('description', $data['description']);
+        session()->put('milestones_enabled', $data['milestones_enabled'] ?? false);
+    
+        if (isset($data['faq_questions'])) {
+            session()->put('faq_questions', $data['faq_questions']);
+        } else {
+            session()->forget('faq_questions'); // Clear session if no questions
+        }
+    
+        if (isset($data['faq_answers'])) {
+            session()->put('faq_answers', $data['faq_answers']);
+        } else {
+            session()->forget('faq_answers'); // Clear session if no answers
+        }
+    
+        // Save gig details in the database
         $gigDetail = GigDetail::create([
             'description' => $data['description'],
             'milestones_enabled' => $data['milestones_enabled'] ?? false,
@@ -155,12 +170,6 @@ public function savePricing(Request $request)
             }
         }
     
-        // Store the gig ID and FAQ data in session to show it again on reload
-        session()->put('last_gig_id', $gigDetail->id);
-        session()->put('faq_questions', $data['faq_questions']);
-        session()->put('faq_answers', $data['faq_answers']);
-    
-        // Return success message
         return redirect()->back()->with('success', 'Gig details saved successfully!');
     }
     
@@ -178,7 +187,6 @@ public function savePricing(Request $request)
     
     public function storeGigMedia(Request $request)
     {
-        // Validation rules for different media types
         $rules = [
             'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
@@ -187,7 +195,6 @@ public function savePricing(Request $request)
     
         $request->validate($rules);
     
-        // Media type mapping
         $mediaTypes = [
             'gig_images' => ['type' => 'image', 'folder' => 'gigs/images'],
             'gig_videos' => ['type' => 'video', 'folder' => 'gigs/videos'],
@@ -196,14 +203,10 @@ public function savePricing(Request $request)
     
         $mediaRecords = [];
     
-        // Loop through each media type
         foreach ($mediaTypes as $inputName => $mediaInfo) {
             if ($request->hasFile($inputName)) {
                 foreach ($request->file($inputName) as $file) {
-                    // Store file and retrieve its path
                     $path = $file->store($mediaInfo['folder'], 'public');
-    
-                    // Prepare data for insertion
                     $mediaRecords[] = [
                         'type' => $mediaInfo['type'],
                         'path' => $path,
@@ -214,13 +217,20 @@ public function savePricing(Request $request)
             }
         }
     
-        // Insert media records into the database
         if (!empty($mediaRecords)) {
             Media::insert($mediaRecords);
         }
     
-        return redirect()->back()->with('success', 'Gig media saved successfully!');
+        // Store file paths in session
+        session()->put('gig_images', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'image')));
+        session()->put('gig_videos', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'video')));
+        session()->put('gig_documents', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'document')));
+    
+        return redirect()->back()
+            ->with('success', 'Gig media saved successfully!');
     }
+    
+
     
     
     

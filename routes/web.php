@@ -11,6 +11,7 @@ use App\Http\Controllers\ActiveController;
 use App\Http\Controllers\BusinessDetailsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SecuritySettingController;
+use App\Http\Controllers\ItemlistController;
 
 
 
@@ -69,8 +70,6 @@ Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');
 
 
-Route::get('/list', [MyListController::class, 'list'])->name('messages.list');
-Route::post('/my-lists', [MyListController::class, 'store'])->name('my-lists.store');
 
 
 
@@ -147,3 +146,6 @@ Route::post('/active/store', [ActiveController::class, 'store'])->name('active.s
 Route::get('/setting', [SecuritySettingController::class, 'index'])->name('websites.setting');
 
 Route::post('/security', [SecuritySettingController::class, 'store'])->name('security.store');
+
+Route::get('/list', [ItemlistController::class, 'index'])->name('messages.list');
+Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists.store');

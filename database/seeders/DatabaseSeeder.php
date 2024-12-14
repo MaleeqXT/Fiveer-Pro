@@ -55,6 +55,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PausedSeeder::class);
 
 
+        $this->call(ItemlistSeeder::class);
+
 
     }
 }

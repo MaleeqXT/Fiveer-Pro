@@ -430,12 +430,59 @@
                                     </div>
                                 </div>
                     
+                                <div class="row mt-4">
+                                    <!-- Package Name -->
+                                    <div class="col-md-3">
+                                        <strong>Package Name</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="basic_name" class="form-control" placeholder="Basic package name" value="{{ old('basic_name', $pricingData['basic_name'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="standard_name" class="form-control" placeholder="Standard package name" value="{{ old('standard_name', $pricingData['standard_name'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="premium_name" class="form-control" placeholder="Premium package name" value="{{ old('premium_name', $pricingData['premium_name'] ?? '') }}">
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-4">
+                                    <!-- Package Description -->
+                                    <div class="col-md-3">
+                                        <strong>Package Description</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <textarea name="basic_description" class="form-control" placeholder="Basic package description">{{ old('basic_description', $pricingData['basic_description'] ?? '') }}</textarea>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <textarea name="standard_description" class="form-control" placeholder="Standard package description">{{ old('standard_description', $pricingData['standard_description'] ?? '') }}</textarea>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <textarea name="premium_description" class="form-control" placeholder="Premium package description">{{ old('premium_description', $pricingData['premium_description'] ?? '') }}</textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-3">
+                                        <strong>Delivery Days</strong>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="basic_days" class="form-control" placeholder="Basic days" value="{{ old('basic_days', $pricingData['basic_days'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="standard_days" class="form-control" placeholder="Standard days" value="{{ old('standard_days', $pricingData['standard_days'] ?? '') }}">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" name="premium_days" class="form-control" placeholder="Premium days" value="{{ old('premium_days', $pricingData['premium_days'] ?? '') }}">
+                                    </div>
+                                </div>
                                 <!-- Dynamic Inputs -->
                                 <div class="row mt-4">
                                     <!-- Number of Pages -->
                                     <div class="col-md-3">
                                         <strong>Number of Pages</strong>
                                     </div>
+
                                     <div class="col-md-3">
                                         <input type="number" name="basic_pages" class="form-control" placeholder="Basic pages" value="{{ old('basic_pages', $pricingData['basic_pages'] ?? '') }}">
                                     </div>

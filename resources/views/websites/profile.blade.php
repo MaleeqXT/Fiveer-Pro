@@ -53,74 +53,53 @@
             <p>Get the most out of Fiverr by sharing a bit more about yourself and how you prefer to work with freelancers.</p>
         </div>
         <div class="row g-4">
-            <!-- First Card with Image and Name -->
-            <div class="col-md-4">
-                <div class="card shadow-lg" style="border-radius: 15px; overflow: hidden;">
-                    <img src="https://www.gekkode.com/wp-content/uploads/2022/02/laravel-9-0.png" class="card-img-top" alt="Image" style="height: 200px; object-fit: cover;">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold" style="color: #343a40;">Website Development</h5>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <!-- Dropdown Button with Three Dots -->
-                                    <div class="dropdown">
-                                        <button class="btn btn-link p-0 " data-bs-toggle="dropdown" aria-expanded="false" style="color: #6c757d;">
-                                            <span style="font-size: 24px;">&#8230;</span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bi bi-pencil-square" style="margin-right: 8px;"></i> Edit
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bi bi-trash" style="margin-right: 8px;"></i> Delete
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bi bi-eye" style="margin-right: 8px;"></i> Preview
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bi bi-bar-chart" style="margin-right: 8px;"></i> Statistics
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bi bi-gear" style="margin-right: 8px;"></i> Advanced
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="bi bi-pause-circle" style="margin-right: 8px;"></i> Pause
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="badge bg-dark text-light fs-6 px-3 py-2" style="font-family: sans-serif; border-radius: 20px;">
-                                        Starting $100
-                                    </span>
-                                </div>
+     <!-- First Card with Image and Name -->
+     
+<div class="col-md-4">
+    <a href="{{ route('sellers.profile') }}" style="text-decoration: none; color: inherit;"> <!-- Add the link here -->
+        <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
+            @if($gig_images && count($gig_images) > 0)
+                <img src="{{ asset('storage/' . $gig_images[0]) }}" class="card-img-top" alt="Gig Image" style="height: 200px; width: 100%; object-fit: cover;">
+            @else
+                <img src="https://www.gekkode.com/wp-content/uploads/2022/02/laravel-9-0.png" class="card-img-top" alt="Default Image" style="height: 200px; width: 100%; object-fit: cover;">
+            @endif
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold" style="color: #343a40;">
+                    {{ $overview->title ?? 'Gig Title' }} <!-- Display Gig Title -->
+                </h5>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="dropdown">
+                                <button class="btn btn-link p-0" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6c757d;">
+                                    <span style="font-size: 24px;">&#8230;</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <!-- Add your dropdown items here -->
+                                </ul>
                             </div>
+                            <span class="badge bg-dark text-light fs-6 px-3 py-2" style="font-family: sans-serif; border-radius: 20px;">
+                                Starting ${{ $pricing['basic_price'] ?? '100' }} <!-- Display Basic Price -->
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-          
+        </div>
+    </a>
+</div>
+
             <!-- Second Card with Rounded Button -->
             <div class="col-md-4">
-                <div class="card d-flex justify-content-center align-items-center shadow-lg" style="height: 200px; border-radius: 15px; ">
-                    <button class="btn btn-dark rounded-circle shadow-lg" style="font-size: 30px; width: 70px; height: 70px;  display: flex; justify-content: center; align-items: center; border: none;">
+                <div class="card d-flex justify-content-center align-items-center shadow-lg" style="height: 200px; border-radius: 15px;">
+                    <button class="btn btn-dark rounded-circle shadow-lg" onclick="window.location.href='{{ route('websites.edit') }}'" style="font-size: 30px; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border: none;">
                         +
-                    </button><br>
-                    <h5 style=" font-family: Arial, Helvetica, sans-serif;" class="text-muted">Create a Gig</h5>
+                    </button>
+                    <h5 class="text-muted mt-3" style="font-family: Arial, Helvetica, sans-serif;">Create a Gig</h5>
                 </div>
             </div>
         </div>
+        
         
       
         

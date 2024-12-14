@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Pricing extends Model
 {
     //
+
     protected $table = 'pricing'; // Explicitly set the table name
     protected $guarded = []; // Allow mass assignment for all fields
     protected $fillable = [
+        'basic_name',
+    'standard_name',
+    'premium_name',
+    'basic_description',
+    'standard_description',
+    'premium_description',
+    'basic_days',
+    'standard_days',
+       'premium_days',
         'basic_pages',
         'standard_pages',
         'premium_pages',

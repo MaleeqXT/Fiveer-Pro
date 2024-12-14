@@ -56,6 +56,15 @@ public function savePricing(Request $request)
 {
     // Validate the form data
     $validated = $request->validate([
+        'basic_name' => 'nullable|string|max:255',
+        'standard_name' => 'nullable|string|max:255',
+        'premium_name' => 'nullable|string|max:255',
+        'basic_description' => 'nullable|string',
+        'standard_description' => 'nullable|string',
+        'premium_description' => 'nullable|string',
+        'basic_days' => 'nullable|integer|min:0',
+        'standard_days' => 'nullable|integer|min:0',
+        'premium_days' => 'nullable|integer|min:0',
         'basic_pages' => 'nullable|integer|min:0',
         'standard_pages' => 'nullable|integer|min:0',
         'premium_pages' => 'nullable|integer|min:0',
@@ -66,6 +75,16 @@ public function savePricing(Request $request)
 
     // Save the pricing to the database
     $pricing = new Pricing();
+    $pricing->basic_name = $request->basic_name;
+    $pricing->standard_name = $request->standard_name;
+    $pricing->premium_name = $request->premium_name;
+    $pricing->basic_description = $request->basic_description;
+    $pricing->standard_description = $request->standard_description;
+    $pricing->premium_description = $request->premium_description;
+    $pricing->basic_days = $request->basic_days;
+    $pricing->standard_days = $request->standard_days;
+    $pricing->premium_days = $request->premium_days;
+
     $pricing->basic_pages = $request->basic_pages;
     $pricing->standard_pages = $request->standard_pages;
     $pricing->premium_pages = $request->premium_pages;

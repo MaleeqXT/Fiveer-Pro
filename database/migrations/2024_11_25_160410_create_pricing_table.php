@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('pricing', function (Blueprint $table) {
             $table->id();
+            $table->string('basic_name')->nullable();
+            $table->string('standard_name')->nullable();
+            $table->string('premium_name')->nullable();
+            $table->text('basic_description')->nullable();
+            $table->text('standard_description')->nullable();
+            $table->text('premium_description')->nullable();
+            $table->integer('basic_days')->nullable();
+            $table->integer('standard_days')->nullable();
+            $table->integer('premium_days')->nullable();
+
             $table->integer('basic_pages')->nullable();
     $table->integer('standard_pages')->nullable();
     $table->integer('premium_pages')->nullable();

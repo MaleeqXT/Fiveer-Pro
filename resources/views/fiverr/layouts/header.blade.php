@@ -108,16 +108,9 @@
                 <li><a class="dropdown-item" href="{{route('sellers.order')}}"><i class="fas fa-box"></i> Orders</a></li>
                 <li><a class="dropdown-item" href="{{ route('websites.refer') }}"><i class="fas fa-tasks"></i> Refer a friend</a></li>
                 <li><a class="dropdown-item" href="{{route('websites.setting')}}"><i class="fas fa-cog"></i> Settings</a></li>
-
+                <li><a class="dropdown-item" href="{{route('websites.earning')}}"><i class="fas fa-wallet"></i> Earnings</a></li>
                 <li>
-                  <a class="dropdown-item" href="{{route('websites.earning')}}">
-                    <i class="fas fa-wallet"></i> Earnings
-                  </a>
-                </li>
-
-                <li>
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> Sign out
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -126,6 +119,7 @@
                 </li>
               </ul>
             </li>
+            
           @endauth
         </ul>
       </div>
@@ -858,6 +852,7 @@
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Optional Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

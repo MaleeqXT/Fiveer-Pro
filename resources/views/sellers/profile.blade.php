@@ -554,45 +554,38 @@ details[open] .faq-question::after {
             <h3 class="text-center p-3" style="font-weight: bold; background: linear-gradient(to right, #ff7c5c, #ffca6b); color: white; text-transform: uppercase;">
                 Package Selector
             </h3>
+
             <div class="nav nav-pills card-nav justify-content-center" id="card-tab">
                 <a class="nav-item nav-link active fw-bold" id="home-tab" data-bs-toggle="tab" href="#home">Basic</a>
                 <a class="nav-item nav-link fw-bold" id="profile-tab" data-bs-toggle="tab" href="#profile">Standard</a>
                 <a class="nav-item nav-link fw-bold" id="fan-tab" data-bs-toggle="tab" href="#fan">Premium</a>
             </div>
+            
             <div class="tab-content mt-4 px-4">
                 <!-- Home Tab -->
                 <div class="tab-pane fade active show" id="home">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #57b846, #86efac); color: #fff; border-radius: 15px;">
-                        <h4>Quick Bug Fixes And Customizations</h4>
-                        <h5 class="fw-bold"><strong>PKR 23,370</strong></h5>
+                        <h4>{{ $pricing->basic_name ?? 'Quick Bug Fixes And Customizations' }}</h4>
+                        <h5 class="fw-bold"><strong>PKR {{ number_format($pricing->basic_price, 0) ?? '23,370' }}</strong></h5>
                     </div>
                     <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #f0fdf4;">
-                        <p style="font-size: 16px;">Fast, efficient solutions tailored to your needs.</p>
+                        <p style="font-size: 16px;">{{ $pricing->basic_description ?? 'Fast, efficient solutions tailored to your needs.' }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <ul class="list-unstyled">
-                                    <li><i class="bi bi-clock-fill text-success"></i> 3-day delivery</li>
-                                    <li><i class="bi bi-arrow-repeat text-info"></i> 1 Revision</li>
+                                    <li><i class="bi bi-clock-fill text-success"></i> {{ $pricing->basic_days ?? '3' }}-day delivery</li>
+                                    <li><i class="bi bi-arrow-repeat text-info"></i> {{ $pricing->basic_revisions ?? '1' }} Revision</li>
                                 </ul>
                             </div>
                             <img src="/path-to-image/basic-package.jpg" alt="Basic Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
                         </div>
                         <p><strong>What's Included:</strong></p>
                         <ul>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Functional website</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 page</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Content upload</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Payment processing</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Speed optimization</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 plugin/extension</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> E-commerce functionality</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Autoresponder integration</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Opt-in form</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Social media icons</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Hosting setup</li>
-
-
-
+                            @foreach([ 'basic_content_upload', 'basic_plugins', 'basic_ecommerce', 'basic_payment', 'basic_speed', 'basic_social_media'] as $feature)
+                                @if($pricing->$feature)
+                                    <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
+                                @endif
+                            @endforeach
                         </ul>
                         <div class="text-center mt-3">
                             <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
@@ -604,33 +597,27 @@ details[open] .faq-question::after {
                 <!-- Profile Tab -->
                 <div class="tab-pane fade" id="profile">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #3f51b5, #5c6bc0); color: #fff; border-radius: 15px;">
-                        <h4>Custom Laravel Features And Website</h4>
-                        <h5 class="fw-bold"><strong>PKR 40,898</strong></h5>
+                        <h4>{{ $pricing->standard_name ?? 'Custom Laravel Features And Website' }}</h4>
+                        <h5 class="fw-bold"><strong>PKR {{ number_format($pricing->standard_price, 0) ?? '40,898' }}</strong></h5>
                     </div>
                     <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #e8eaf6;">
-                        <p style="font-size: 16px;">Essential custom Laravel features to enhance your website.</p>
+                        <p style="font-size: 16px;">{{ $pricing->standard_description ?? 'Essential custom Laravel features to enhance your website.' }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <ul class="list-unstyled">
-                                    <li><i class="bi bi-clock-fill text-success"></i> 10-day delivery</li>
-                                    <li><i class="bi bi-arrow-repeat text-info"></i> 3 Revisions</li>
+                                    <li><i class="bi bi-clock-fill text-success"></i> {{ $pricing->standard_days ?? '10' }}-day delivery</li>
+                                    <li><i class="bi bi-arrow-repeat text-info"></i> {{ $pricing->standard_revisions ?? '3' }} Revisions</li>
                                 </ul>
                             </div>
                             <img src="/path-to-image/standard-package.jpg" alt="Standard Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
                         </div>
                         <p><strong>What's Included:</strong></p>
                         <ul>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Functional website</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 page</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Content upload</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Payment processing</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Speed optimization</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 plugin/extension</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> E-commerce functionality</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Autoresponder integration</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Opt-in form</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Social media icons</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Hosting setup</li>
+                            @foreach([ 'standard_content_upload', 'standard_plugins', 'standard_ecommerce', 'standard_payment', 'standard_speed', 'standard_social_media'] as $feature)
+                                @if($pricing->$feature)
+                                    <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
+                                @endif
+                            @endforeach
                         </ul>
                         <div class="text-center mt-3">
                             <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
@@ -642,15 +629,15 @@ details[open] .faq-question::after {
                 <!-- Fan Tab -->
                 <div class="tab-pane fade" id="fan">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #ffc107, #ff8f00); color: #fff; border-radius: 15px;">
-                        <h4>Professional Responsive Websites</h4>
-                        <h5 class="fw-bold"><strong>PKR 262,910</strong></h5>
+                        <h4>{{ $pricing->premium_name ?? 'Professional Responsive Websites' }}</h4>
+                        <h5 class="fw-bold"><strong>PKR {{ number_format($pricing->premium_price, 0) ?? '262,910' }}</strong></h5>
                     </div>
                     <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #fff3e0;">
-                        <p style="font-size: 16px;">Fully customized, professional, and responsive website optimized for all devices.</p>
+                        <p style="font-size: 16px;">{{ $pricing->premium_description ?? 'Fully customized, professional, and responsive website optimized for all devices.' }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <ul class="list-unstyled">
-                                    <li><i class="bi bi-clock-fill text-success"></i> 30-day delivery</li>
+                                    <li><i class="bi bi-clock-fill text-success"></i> {{ $pricing->premium_days ?? '30' }}-day delivery</li>
                                     <li><i class="bi bi-infinity text-danger"></i> Unlimited Revisions</li>
                                 </ul>
                             </div>
@@ -658,19 +645,11 @@ details[open] .faq-question::after {
                         </div>
                         <p><strong>What's Included:</strong></p>
                         <ul>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Fully customized responsive website</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Unlimited revisions</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Functional website</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 page</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Content upload</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Payment processing</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Speed optimization</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> 1 plugin/extension</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> E-commerce functionality</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Autoresponder integration</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Opt-in form</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Social media icons</li>
-                            <li><i class="bi bi-check-circle-fill text-primary"></i> Hosting setup</li>
+                            @foreach([ 'premium_content_upload', 'premium_plugins', 'premium_ecommerce', 'premium_payment', 'premium_speed', 'premium_social_media'] as $feature)
+                                @if($pricing->$feature)
+                                    <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
+                                @endif
+                            @endforeach
                         </ul>
                         <div class="text-center mt-3">
                             <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
@@ -681,7 +660,7 @@ details[open] .faq-question::after {
             </div>
         </div>
     </div>
-
+    
     <style>
 .animate-pulse {
     animation: pulse 1s infinite;

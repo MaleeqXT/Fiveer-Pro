@@ -83,7 +83,7 @@
                     Need to update your public profile? <a href="#" class="text-success">Go to My Profile</a>
                 </p>
                 <hr>
-                <form action="{{ route('profile.store') }}" method="POST">
+                <form action="{{ route('account.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Full Name</label>

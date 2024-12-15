@@ -12,7 +12,7 @@ use App\Http\Controllers\BusinessDetailsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\ItemlistController;
-
+use App\Http\Controllers\AccountController;
 
 
 
@@ -149,3 +149,5 @@ Route::post('/security', [SecuritySettingController::class, 'store'])->name('sec
 
 Route::get('/list', [ItemlistController::class, 'index'])->name('messages.list');
 Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists.store');
+
+Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');

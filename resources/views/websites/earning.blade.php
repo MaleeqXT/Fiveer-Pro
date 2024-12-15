@@ -120,7 +120,7 @@
                     </div>
                 </div>
 
-<br>
+                <br>
                 <!-- Financial Documents Tab -->
                 <div class="tab-pane fade" id="documents">
                     <!-- Financial Documents content here -->
@@ -141,65 +141,62 @@
                 </div>
                 
                 
-                    <!-- Combined Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Choose Date Range</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" action="{{ route('finance.store') }}">
-                                            @csrf
-                                            <div class="mb-3">
-                                                <label for="selectMonth" class="form-label">Select Month</label>
-                                                <select class="form-select" id="selectMonth" name="month" required>
-                                                    <option value="" disabled selected>Choose a month</option>
-                                                    <option value="January">January</option>
-                                                    <option value="February">February</option>
-                                                    <option value="March">March</option>
-                                                    <option value="April">April</option>
-                                                    <option value="May">May</option>
-                                                    <option value="June">June</option>
-                                                    <option value="July">July</option>
-                                                    <option value="August">August</option>
-                                                    <option value="September">September</option>
-                                                    <option value="October">October</option>
-                                                    <option value="November">November</option>
-                                                    <option value="December">December</option>
-                                                </select>
+                                <!-- Combined Modal -->
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">Choose Date Range</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="{{ route('finance.store') }}">
+                                                        @csrf
+                                                        <div class="mb-3">
+                                                            <label for="selectMonth" class="form-label">Select Month</label>
+                                                            <select class="form-select" id="selectMonth" name="month" required>
+                                                                <option value="" disabled selected>Choose a month</option>
+                                                                <option value="January">January</option>
+                                                                <option value="February">February</option>
+                                                                <option value="March">March</option>
+                                                                <option value="April">April</option>
+                                                                <option value="May">May</option>
+                                                                <option value="June">June</option>
+                                                                <option value="July">July</option>
+                                                                <option value="August">August</option>
+                                                                <option value="September">September</option>
+                                                                <option value="October">October</option>
+                                                                <option value="November">November</option>
+                                                                <option value="December">December</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="selectYear" class="form-label">Select Year</label>
+                                                            <select class="form-select" id="selectYear" name="year" required>
+                                                                <option value="" disabled selected>Choose a year</option>
+                                                                <option value="2024">2024</option>
+                                                                <option value="2023">2023</option>
+                                                                <option value="2022">2022</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="amount" class="form-label">Amount (optional)</label>
+                                                            <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                    </form>
+                                                    
+                                                </div>
+                                                
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="selectYear" class="form-label">Select Year</label>
-                                                <select class="form-select" id="selectYear" name="year" required>
-                                                    <option value="" disabled selected>Choose a year</option>
-                                                    <option value="2024">2024</option>
-                                                    <option value="2023">2023</option>
-                                                    <option value="2022">2022</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="amount" class="form-label">Amount (optional)</label>
-                                                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Save</button>
-                                        </form>
-                                        
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Download Statement</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                                     
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Include Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

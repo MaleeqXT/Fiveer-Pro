@@ -13,6 +13,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\ItemlistController;
 use App\Http\Controllers\CreateGigController;
+use App\Http\Controllers\FinanceController;
 
 
 
@@ -150,3 +151,6 @@ Route::post('/security', [SecuritySettingController::class, 'store'])->name('sec
 
 Route::get('/list', [ItemlistController::class, 'index'])->name('messages.list');
 Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists.store');
+
+
+Route::post('/finance/store', [FinanceController::class, 'store'])->name('finance.store');

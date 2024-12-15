@@ -560,7 +560,7 @@ details[open] .faq-question::after {
                 <a class="nav-item nav-link fw-bold" id="profile-tab" data-bs-toggle="tab" href="#profile">Standard</a>
                 <a class="nav-item nav-link fw-bold" id="fan-tab" data-bs-toggle="tab" href="#fan">Premium</a>
             </div>
-            
+
             <div class="tab-content mt-4 px-4">
                 <!-- Home Tab -->
                 <div class="tab-pane fade active show" id="home">
@@ -593,7 +593,7 @@ details[open] .faq-question::after {
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Profile Tab -->
                 <div class="tab-pane fade" id="profile">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #3f51b5, #5c6bc0); color: #fff; border-radius: 15px;">
@@ -625,7 +625,7 @@ details[open] .faq-question::after {
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Fan Tab -->
                 <div class="tab-pane fade" id="fan">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #ffc107, #ff8f00); color: #fff; border-radius: 15px;">
@@ -660,36 +660,33 @@ details[open] .faq-question::after {
             </div>
         </div>
     </div>
-    
     <style>
-.animate-pulse {
-    animation: pulse 1s infinite;
-}
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
+        .animate-pulse {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
 
-.animate-glow {
-    animation: glow 1.5s infinite alternate;
-}
-@keyframes glow {
-    from { box-shadow: 0 0 5px #fff; }
-    to { box-shadow: 0 0 20px #ff8f00; }
-}
+        .animate-glow {
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #fff; }
+            to { box-shadow: 0 0 20px #ff8f00; }
+        }
 
-.card-nav .nav-link {
-    border-radius: 50px;
-    transition: all 0.4s ease;
-}
-.card-nav .nav-link.active {
-    background-color: #ff8f00;
-    color: white;
-    transform: scale(1.1);
-}
-
-        </style>
-    
+        .card-nav .nav-link {
+            border-radius: 50px;
+            transition: all 0.4s ease;
+        }
+        .card-nav .nav-link.active {
+            background-color: #ff8f00;
+            color: white;
+            transform: scale(1.1);
+        }
+    </style>
 
                 </div>
             </div>

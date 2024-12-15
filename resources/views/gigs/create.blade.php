@@ -874,7 +874,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+                                     
                                                             <div class="col-8" id="imagePreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
                                                                 @if(old('gig_images'))
                                                                     @foreach(old('gig_images') as $image)

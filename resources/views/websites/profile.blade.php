@@ -55,49 +55,56 @@
         <div class="row g-4">
      <!-- First Card with Image and Name -->
      
-<div class="col-md-4">
-    <a href="{{ route('sellers.profile') }}" style="text-decoration: none; color: inherit;"> <!-- Add the link here -->
-        <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
-            @if($gig_images && count($gig_images) > 0)
-                <img src="{{ asset('storage/' . $gig_images[0]) }}" class="card-img-top" alt="Gig Image" style="height: 200px; width: 100%; object-fit: cover;">
-            @else
-                <img src="https://www.gekkode.com/wp-content/uploads/2022/02/laravel-9-0.png" class="card-img-top" alt="Default Image" style="height: 200px; width: 100%; object-fit: cover;">
-            @endif
-            <div class="card-body text-center">
-                <h5 class="card-title fw-bold" style="color: #343a40;">
-                    {{ $overview->title ?? 'Gig Title' }} <!-- Display Gig Title -->
-                </h5>
-                <div class="row mt-3">
-                    <div class="col">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="dropdown">
-                                <button class="btn btn-link p-0" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6c757d;">
-                                    <span style="font-size: 24px;">&#8230;</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <!-- Add your dropdown items here -->
-                                </ul>
+     <div class="row">
+        @foreach ($gigs as $index => $gig)
+            <div class="col-md-4">
+                <a href="{{ route('sellers.profile') }}" style="text-decoration: none; color: inherit;">
+                    <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
+                        @if(isset($gig_images[$index]) && is_array($gig_images[$index]) && count($gig_images[$index]) > 0)
+                            <img src="{{ asset('storage/' . $gig_images[$index][0]) }}" class="card-img-top" alt="Gig Image" style="height: 200px; width: 100%; object-fit: cover;">
+                        @elseif(isset($gig_images[$index]) && is_string($gig_images[$index]))
+                            <img src="{{ asset('storage/' . $gig_images[$index]) }}" class="card-img-top" alt="Gig Image" style="height: 200px; width: 100%; object-fit: cover;">
+                        @else
+                            <img src="https://www.gekkode.com/wp-content/uploads/2022/02/laravel-9-0.png" class="card-img-top" alt="Default Image" style="height: 200px; width: 100%; object-fit: cover;">
+                        @endif
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold" style="color: #343a40;">
+                                {{ $gig->title ?? 'Gig Title' }}
+                            </h5>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="dropdown">
+                                            <button class="btn btn-link p-0" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6c757d;">
+                                                <span style="font-size: 24px;">&#8230;</span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <!-- Add your dropdown items here -->
+                                            </ul>
+                                        </div>
+                                        <span class="badge bg-dark text-light fs-6 px-3 py-2" style="font-family: sans-serif; border-radius: 20px;">
+                                            Starting ${{ $pricing[$index]['basic_price'] ?? '100' }}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <span class="badge bg-dark text-light fs-6 px-3 py-2" style="font-family: sans-serif; border-radius: 20px;">
-                                Starting ${{ $pricing['basic_price'] ?? '100' }} <!-- Display Basic Price -->
-                            </span>
                         </div>
                     </div>
-                </div>
+                </a>
+            </div>
+        @endforeach
+    
+        <!-- Card for creating a new gig -->
+        <div class="col-md-4">
+            <div class="card d-flex justify-content-center align-items-center shadow-lg" style="height: 200px; border-radius: 15px;">
+                <button class="btn btn-dark rounded-circle shadow-lg" onclick="window.location.href='{{ route('gigs.create') }}'" style="font-size: 30px; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border: none;">
+                    +
+                </button>
+                <h5 class="text-muted mt-3" style="font-family: Arial, Helvetica, sans-serif;">Create a Gig</h5>
             </div>
         </div>
-    </a>
-</div>
-
-            <!-- Second Card with Rounded Button -->
-            <div class="col-md-4">
-                <div class="card d-flex justify-content-center align-items-center shadow-lg" style="height: 200px; border-radius: 15px;">
-                    <button class="btn btn-dark rounded-circle shadow-lg" onclick="window.location.href='{{ route('websites.edit') }}'" style="font-size: 30px; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border: none;">
-                        +
-                    </button>
-                    <h5 class="text-muted mt-3" style="font-family: Arial, Helvetica, sans-serif;">Create a Gig</h5>
-                </div>
-            </div>
+    </div>
+    
         </div>
         
         

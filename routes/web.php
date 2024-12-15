@@ -12,8 +12,8 @@ use App\Http\Controllers\BusinessDetailsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\ItemlistController;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\CreateGigController;
+
 
 
 
@@ -58,20 +58,20 @@ Route::get('/gig', [SellerController::class, 'gig'])->name('sellers.gig');
 Route::get('/seller/plus', [SellerController::class, 'plus'])->name('sellers.plus');
 Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
 Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
+ 
+
+Route::get('/create/gig', [CreateGigController::class, 'index'])->name('gigs.create');
 
 
 Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/gigs/store', [EditController::class, 'storeover'])->name('gigs.store');
-
+Route::post('/gigs/faqs', [EditController::class, 'storefaq'])->name('gig-details.store');
+Route::post('/gig/media/store', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
 Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
-
 Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save.pricing');
 
 
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');
-
-
-
 
 
 
@@ -81,8 +81,7 @@ Route::post('/save-billing-info', [PaymentController::class, 'storebill'])->name
 
 
 
-Route::post('/gigs/faqs', [EditController::class, 'storefaq'])->name('gig-details.store');
-Route::post('/gig/media/store', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
+
 
 
 Route::post('/websites/complete/store', [BusinessDetailsController::class, 'store'])->name('websites.complete.store');
@@ -97,6 +96,7 @@ Route::get('/complete', function () {
 Route::get('/program', function () {
     return view('sellers.program');
    })->name('sellers.program');
+
 
 Route::get('/inbox', function () {
     return view('messages.inbox');
@@ -150,8 +150,3 @@ Route::post('/security', [SecuritySettingController::class, 'store'])->name('sec
 
 Route::get('/list', [ItemlistController::class, 'index'])->name('messages.list');
 Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists.store');
-
-Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');
-
-
-Route::post('/finance/store', [FinanceController::class, 'store'])->name('finance.store');

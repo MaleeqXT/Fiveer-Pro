@@ -18,17 +18,43 @@ class SellerController extends Controller
         return view('sellers.index');
     }
 
-    public function profile() {
-        // Retrieve saved gig title and pricing
-        $overview = Overview::find(session('last_gig_id')); // Retrieve the gig by its ID
+    public function profile(Request $request) {
+        // Retrieve all gigs from the database
+        $gigs = Overview::all(); // Fetch all gigs from the database
+    
+        // Assuming pricing data is stored in session for now
         $pricing = session('pricing_data'); // Get pricing data from the session
+        
+        // Retrieve images from the session
+        $gig_images = session('gig_images'); 
+    
+        // If a new gig has been created, store it in the database and session (if needed)
+        if ($request->isMethod('post')) {
+            // Save the new gig to the database
+            $newGig = new Overview();
+            $newGig->title = $request->input('title');
+            $newGig->description = $request->input('description');
+            $newGig->save();
+    
+            // Optionally, you can add the new gig's data to the session to display it immediately
+            // If you use session, you could store the new gig's ID in a session array.
+            // Example:
+            // $gigs = session('gigs', []);  // Get gigs from session, or use an empty array
+            // $gigs[] = $newGig->id; // Add the new gig ID
+            // session(['gigs' => $gigs]); // Store updated gigs list in session
+    
+            // Or directly add the new gig to the $gigs array (if not using session)
+            $gigs->push($newGig);
+        }
     
         return view('websites.profile', [
-            'overview' => $overview,
+            'gigs' => $gigs,  // Pass all gigs to the view
             'pricing' => $pricing,
-            'gig_images' => session('gig_images'), // Images stored in session
+            'gig_images' => $gig_images,
         ]);
     }
+    
+    
     
 
 
@@ -47,10 +73,8 @@ class SellerController extends Controller
     }
     public function proshow()
     {
-        // Retrieve pricing data from the database
-        $pricing = Pricing::latest()->first();  // Adjust this to get the right pricing, like by seller or gig ID.
-    
-        // Pass the pricing data to the view
+        $pricing = Pricing::all()->first(); // Fetches the first record from the collection
         return view('sellers.profile', compact('pricing'));
     }
+    
 }    

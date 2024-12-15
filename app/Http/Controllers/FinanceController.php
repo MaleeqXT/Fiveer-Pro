@@ -21,7 +21,7 @@ class FinanceController extends Controller
             'amount' => $request->amount,
         ]);
 
-        return redirect()->back()->with('success', 'Finance data saved successfully.');
+        return redirect()->back()->with('success');
     }
 }
 

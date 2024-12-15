@@ -56,6 +56,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(ItemlistSeeder::class);
+        $this->call(FinanceSeeder::class);
 
 
     }

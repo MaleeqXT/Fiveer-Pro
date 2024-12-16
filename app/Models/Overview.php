@@ -15,4 +15,9 @@ class Overview extends Model
         'website_type',
         'tags',
     ];
+
+    public function medias()
+    {
+        return $this->hasMany(Media::class,'id');  // Adjust the column names based on your database
+    }
 }

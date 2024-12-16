@@ -49,11 +49,13 @@
         .packages-section {
             margin-bottom: 30px;
         }
+
         .package-container {
             display: flex;
             justify-content: space-between;
             gap: 20px;
         }
+
         .package-box {
             background-color: #f4f4f4;
             border: 1px solid #ddd;
@@ -63,6 +65,7 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .package-box h4 {
             background-color: #007bff;
             color: white;
@@ -70,11 +73,13 @@
             border-radius: 5px;
             margin-bottom: 15px;
         }
+
         .package-box ul {
             list-style: none;
             padding: 0;
             text-align: left;
         }
+        
         .package-box ul li {
             margin: 10px 0;
         }
@@ -861,6 +866,7 @@
                                                 <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="card" style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+
                                                         <h4>Upload Your Gig Media</h4>
                                                 
                                                         <!-- Gig Images -->

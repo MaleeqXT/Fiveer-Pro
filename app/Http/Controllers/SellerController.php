@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Seller;
 use App\Models\Overview;
 use App\Models\Pricing;
+use App\Models\Media;
 class SellerController extends Controller
 {
     public function index() {
@@ -18,48 +19,53 @@ class SellerController extends Controller
         return view('sellers.index');
     }
 
-    public function profile(Request $request) {
-        // Retrieve all gigs from the database
-        $gigs = Overview::all(); // Fetch all gigs from the database
-    
-        // Assuming pricing data is stored in session for now
-        $pricing = session('pricing_data'); // Get pricing data from the session
+    public function profile()
+    {
+        // Retrieve all gigs
+        $gigs = Overview::all();
         
-        // Retrieve images from the session
-        $gig_images = session('gig_images'); 
-    
-        // If a new gig has been created, store it in the database and session (if needed)
-        if ($request->isMethod('post')) {
-            // Save the new gig to the database
-            $newGig = new Overview();
-            $newGig->title = $request->input('title');
-            $newGig->description = $request->input('description');
-            $newGig->save();
-    
-            // Optionally, you can add the new gig's data to the session to display it immediately
-            // If you use session, you could store the new gig's ID in a session array.
-            // Example:
-            // $gigs = session('gigs', []);  // Get gigs from session, or use an empty array
-            // $gigs[] = $newGig->id; // Add the new gig ID
-            // session(['gigs' => $gigs]); // Store updated gigs list in session
-    
-            // Or directly add the new gig to the $gigs array (if not using session)
-            $gigs->push($newGig);
-        }
-    
-        return view('websites.profile', [
-            'gigs' => $gigs,  // Pass all gigs to the view
-            'pricing' => $pricing,
-            'gig_images' => $gig_images,
-        ]);
+        // Map pricing data for each gig
+        $pricing = $gigs->mapWithKeys(function ($gig) {
+            // Retrieve pricing for the gig by another method
+            // For example, assuming 'Overview' and 'Pricing' are related somehow (change this logic based on your database design)
+            $pricing = Pricing::first(); // Or another way to fetch it without using gig_id
+            
+            return [
+                $gig->id => [
+                    'basic_price' => $pricing ? $pricing->basic_price : 100, // Default to 100 if not set
+                ]
+            ];
+        });
+        
+        // Map images for each gig without using gig_id directly
+        $gig_images = $gigs->mapWithKeys(function ($gig) {
+            // Retrieve media associated with each gig without using gig_id
+            // Assuming there's no direct gig_id column, we're using a relationship or other logic
+            $images = $gig->medias()->where('type', 'image')->pluck('path')->toArray();
+            
+            return [$gig->id => $images];
+        });
+        
+        // Pass gigs, pricing, and images to the view
+        return view('websites.profile', compact('gigs', 'pricing', 'gig_images'));
     }
     
     
     
+    
 
 
+    
+    
+    
+    public function delete($id)
+{
+    $gig = Gig::findOrFail($id);
+    $gig->delete();
+    return redirect()->back()->with('success', 'Gig deleted successfully!');
+}
 
-    public function gig() {
+  public function gig() {
         return view('sellers.gig');
     }
 
@@ -76,5 +82,5 @@ class SellerController extends Controller
         $pricing = Pricing::all()->first(); // Fetches the first record from the collection
         return view('sellers.profile', compact('pricing'));
     }
-    
-}    
+ 
+}  

@@ -1,6 +1,8 @@
 @extends('fiverr.layouts.app')
 
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <hr>
 <div class="row">
     <!-- First Card with Profile Image -->
@@ -54,56 +56,54 @@
         </div>
         <div class="row g-4">
      <!-- First Card with Image and Name -->
-     
      <div class="row">
-        @foreach ($gigs as $index => $gig)
-            <div class="col-md-4">
-                <a href="{{ route('sellers.profile') }}" style="text-decoration: none; color: inherit;">
-                    <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
-                        @if(isset($gig_images[$index]) && is_array($gig_images[$index]) && count($gig_images[$index]) > 0)
-                            <img src="{{ asset('storage/' . $gig_images[$index][0]) }}" class="card-img-top" alt="Gig Image" style="height: 200px; width: 100%; object-fit: cover;">
-                        @elseif(isset($gig_images[$index]) && is_string($gig_images[$index]))
-                            <img src="{{ asset('storage/' . $gig_images[$index]) }}" class="card-img-top" alt="Gig Image" style="height: 200px; width: 100%; object-fit: cover;">
-                        @else
-                            <img src="https://www.gekkode.com/wp-content/uploads/2022/02/laravel-9-0.png" class="card-img-top" alt="Default Image" style="height: 200px; width: 100%; object-fit: cover;">
-                        @endif
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold" style="color: #343a40;">
-                                {{ $gig->title ?? 'Gig Title' }}
-                            </h5>
-                            <div class="row mt-3">
-                                <div class="col">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="dropdown">
-                                            <button class="btn btn-link p-0" data-bs-toggle="dropdown" aria-expanded="false" style="color: #6c757d;">
-                                                <span style="font-size: 24px;">&#8230;</span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <!-- Add your dropdown items here -->
-                                            </ul>
-                                        </div>
-                                        <span class="badge bg-dark text-light fs-6 px-3 py-2" style="font-family: sans-serif; border-radius: 20px;">
-                                            Starting ${{ $pricing[$index]['basic_price'] ?? '100' }}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+        @foreach ($gigs as $gig)
+        <div class="col-md-4">
+            <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
+                <!-- Gig Image -->
+                @if(isset($gig_images[$gig->id]) && count($gig_images[$gig->id]) > 0)
+                    <img src="{{ asset('storage/' . $gig_images[$gig->id][0]) }}" 
+                         class="card-img-top" 
+                         alt="Gig Image" 
+                         style="height: 200px; width: 100%; object-fit: cover;">
+                @else
+                    <img src="https://via.placeholder.com/300x200?text=Gig+Image" 
+                         class="card-img-top" 
+                         alt="Default Image" 
+                         style="height: 200px; width: 100%; object-fit: cover;">
+                @endif
+            
+                <!-- Card Body -->
+                <div class="card-body text-center">
+                    <!-- Gig Title -->
+                    <h5 class="card-title fw-bold" style="color: #343a40;">
+                        {{ $gig->title ?? 'Gig Title' }} <!-- Display gig title -->
+                    </h5>
+            
+                    <!-- Pricing -->
+                    <span class="badge bg-dark text-light fs-6 px-3 py-2" 
+                          style="font-family: sans-serif; border-radius: 20px;">
+                        Starting ${{ $pricing[$gig->id]['basic_price'] ?? '100' }}
+                    </span>
+                </div>
             </div>
-        @endforeach
+        </div>
+    @endforeach
     
-        <!-- Card for creating a new gig -->
+    
+        
+    
+        <!-- Create New Gig Card -->
         <div class="col-md-4">
             <div class="card d-flex justify-content-center align-items-center shadow-lg" style="height: 200px; border-radius: 15px;">
-                <button class="btn btn-dark rounded-circle shadow-lg" onclick="window.location.href='{{ route('gigs.create') }}'" style="font-size: 30px; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border: none;">
+                <button class="btn btn-dark rounded-circle shadow-lg" onclick="window.location.href='{{ route('websites.edit') }}'" style="font-size: 30px; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border: none;">
                     +
                 </button>
                 <h5 class="text-muted mt-3" style="font-family: Arial, Helvetica, sans-serif;">Create a Gig</h5>
             </div>
         </div>
     </div>
+    
     
         </div>
         
@@ -120,7 +120,10 @@
   
   <!-- Include Bootstrap JS and Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
 
 @endsection

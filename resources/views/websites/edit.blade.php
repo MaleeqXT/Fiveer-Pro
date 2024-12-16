@@ -854,7 +854,7 @@
                         </div>
                     </div>
 
-
+                </div>
 
                                             <div class="tab-pane fade" id="card7-add-gig">
                                                 <h3>Showcase Your Services In A Gig Gallery</h3>
@@ -988,6 +988,7 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            
                                             <style>
                                                 .preview-item {
                                                     position: relative;

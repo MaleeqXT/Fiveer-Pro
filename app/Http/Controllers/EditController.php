@@ -17,7 +17,6 @@ class EditController extends Controller
         // Retrieve all questions from the Question model
         $questions = Question::all();
     
-        // Retrieve the last saved Gig data if available
         $lastGig = session()->has('last_gig_id') 
             ? Overview::find(session('last_gig_id')) 
             : null;
@@ -28,6 +27,7 @@ class EditController extends Controller
         // Pass the data to the 'websites.edit' view
         return view('websites.edit', compact('questions', 'lastGig', 'pricingData'));
     }
+
 public function storeover(Request $request)
 {
     $request->validate([
@@ -203,7 +203,6 @@ public function savePricing(Request $request)
 
 
 
-    
     public function storeGigMedia(Request $request)
     {
         $rules = [
@@ -240,13 +239,12 @@ public function savePricing(Request $request)
             Media::insert($mediaRecords);
         }
     
-        // Store file paths in session
+        // Store file paths in session (for previewing before saving)
         session()->put('gig_images', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'image')));
         session()->put('gig_videos', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'video')));
         session()->put('gig_documents', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'document')));
     
-        return redirect()->back()
-            ->with('success', 'Gig media saved successfully!');
+        return redirect()->back()->with('success', 'Gig media stored successfully!');
     }
     
 

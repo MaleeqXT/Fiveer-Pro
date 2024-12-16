@@ -41,31 +41,80 @@
             <div class="card-body">
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="card3-home">
-                      <h6>BUYERS WHO HAVE PURCHASED GIG S FROM YOU</h6><hr>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6>BUYERS WHO HAVE PURCHASED GIGS FROM YOU</h6>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                Add Contact
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Buyer Details</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Input Form -->
+                                            <form action="{{ route('buyers.store') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf <!-- CSRF Token for security -->
+
+                                                <!-- Image Upload -->
+                                                <div class="form-group">
+                                                    <label for="buyerImage">Image</label>
+                                                    <input type="file" class="form-control" id="buyerImage" name="buyer_image" required>
+                                                    @error('buyer_image') <div class="text-danger">{{ $message }}</div> @enderror
+                                                </div>
+
+                                                <!-- Buyer Name -->
+                                                <div class="form-group">
+                                                    <label for="buyerName">Buyer Name</label>
+                                                    <input type="text" class="form-control" id="buyerName" name="buyer_name" placeholder="Enter Buyer Name" required>
+                                                    @error('buyer_name') <div class="text-danger">{{ $message }}</div> @enderror
+                                                </div>
+
+                                                <!-- Completed Orders -->
+                                                <div class="form-group">
+                                                    <label for="completedOrders">Completed Orders</label>
+                                                    <input type="number" class="form-control" id="completedOrders" name="completed_orders" placeholder="Enter Completed Orders" required>
+                                                    @error('completed_orders') <div class="text-danger">{{ $message }}</div> @enderror
+                                                </div>
+
+                                                <!-- Amount Spent -->
+                                                <div class="form-group">
+                                                    <label for="amountSpent">Amount Spent</label>
+                                                    <input type="text" class="form-control" id="amountSpent" name="amount_spent" placeholder="Enter Amount Spent" required>
+                                                    @error('amount_spent') <div class="text-danger">{{ $message }}</div> @enderror
+                                                </div>
+
+                                                <!-- Last Order -->
+                                                <div class="form-group">
+                                                    <label for="lastOrder">Last Order</label>
+                                                    <input type="date" class="form-control" id="lastOrder" name="last_order" required>
+                                                    @error('last_order') <div class="text-danger">{{ $message }}</div> @enderror
+                                                </div>
+
+                                                <!-- Modal Footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr>
+                        
 
                       
-                      <nav class="navbar navbar-expand-lg navbar-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
                       
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav" style="list-style: none; padding: 0; margin: 0; display: flex;">
-                                <li class="nav-item" style="margin-right: 20px;">
-                                    <a class="nav-link" href="#" style="text-decoration: none;">BUYER NAME</a>
-                                </li>
-                                <li class="nav-item" style="margin-right: 20px;">
-                                    <a class="nav-link" href="#" style="text-decoration: none;">COMPLETED ORDER</a>
-                                </li>
-                                <li class="nav-item" style="margin-right: 20px;">
-                                    <a class="nav-link" href="#" style="text-decoration: none;">AMOUNT SPEND</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" style="text-decoration: none;">LAST ORDER</a>
-                                </li>
-                            </ul>
-                        </div>
-                      </nav>
                        <hr>
                     </div>
                     

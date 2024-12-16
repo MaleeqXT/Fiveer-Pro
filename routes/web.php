@@ -14,11 +14,8 @@ use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\ItemlistController;
 use App\Http\Controllers\CreateGigController;
 use App\Http\Controllers\FinanceController;
-use App\Http\Controllers\PasswordController;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\TypeController;
-use App\Http\Controllers\UsPersonController;
+use App\Http\Controllers\BuyerController;
+
 
 
 
@@ -149,6 +146,9 @@ Route::post('/profile', [UserProfileController::class, 'store'])->name('profile.
 Route::post('/active/store', [ActiveController::class, 'store'])->name('active.store');
 
 
+Route::get('/setting', [SecuritySettingController::class, 'index'])->name('websites.setting');
+
+Route::post('/security', [SecuritySettingController::class, 'store'])->name('security.store');
 
 Route::get('/list', [ItemlistController::class, 'index'])->name('messages.list');
 Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists.store');
@@ -156,10 +156,4 @@ Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists
 
 Route::post('/finance/store', [FinanceController::class, 'store'])->name('finance.store');
 
-Route::post('/account/store', [AccountController::class, 'store'])->name('account.store');
-
-Route::post('/security/store', [PasswordController::class, 'store'])->name('security.store');
-
-Route::post('/types/store', [TypeController::class, 'store'])->name('types.store');
-
-Route::post('/us-person', [UsPersonController::class, 'store'])->name('us_person.store');
+Route::post('/buyers/store', [BuyerController::class, 'store'])->name('buyers.store');

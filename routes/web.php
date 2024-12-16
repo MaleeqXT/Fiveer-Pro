@@ -14,6 +14,7 @@ use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\ItemlistController;
 use App\Http\Controllers\CreateGigController;
 use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\BuyerController;
 
 
 
@@ -154,3 +155,5 @@ Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists
 
 
 Route::post('/finance/store', [FinanceController::class, 'store'])->name('finance.store');
+
+Route::post('/buyers/store', [BuyerController::class, 'store'])->name('buyers.store');

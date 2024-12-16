@@ -69,7 +69,7 @@ class SellerController extends Controller
     }
 
     public function contact(){
-        return view('messages.contact');
+        return view('sellers.contact');
     }
     public function proshow()
     {

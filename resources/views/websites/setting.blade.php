@@ -110,167 +110,162 @@
 
             <!-- Security Tab -->
             <div class="tab-pane fade" id="security" role="tabpanel">
-              <h6>Set Password</h6>
-              <form action="{{ route('security.store') }}" method="POST">
-                  @csrf
-                  <div class="d-flex align-items-center mt-4">
-                      <h6 class="me-2">New Password</h6>
-                      <input type="password" name="new_password" class="form-control w-50" placeholder="Enter new password">
-                  </div>
-                  <div class="d-flex align-items-center mt-4">
-                      <h6 class="me-2">Confirm Password</h6>
-                      <input type="password" name="new_password_confirmation" class="form-control w-50" placeholder="Confirm new password">
-                  </div>
-                  <div class="mt-2">
-                      <small>8 characters or longer. Combine upper and lowercase letters and numbers.</small>
-                  </div>
-                  <button type="submit" class="btn btn-success mt-3">Save Change</button>
-              </form>
+                <h6>Set Password</h6>
+                <form action="{{ route('security.store') }}" method="POST">
+                    @csrf
+                    <div class="d-flex align-items-center mt-4">
+                        <h6 class="me-2">New Password</h6>
+                        <input type="password" name="new_password" class="form-control w-50" placeholder="Enter new password" required>
+                    </div>
+                    <div class="d-flex align-items-center mt-4">
+                        <h6 class="me-2">Confirm Password</h6>
+                        <input type="password" name="new_password_confirmation" class="form-control w-50" placeholder="Confirm new password" required>
+                    </div>
+                    <div class="mt-2">
+                        <small>8 characters or longer. Combine upper and lowercase letters and numbers.</small>
+                    </div>
+                    <button type="submit" class="btn btn-success mt-3">Save Change</button>
+                </form>
             </div>
+            
 
             <!-- Notifications Tab -->
-            <div class="tab-pane fade" id="notifications" role="tabpanel">
-               
-              <div class="container mt-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row text-center">
-                            <!-- Notification Column -->
-                            <div class="col-md-3">
-                                <h6>Notification</h6>
-                                <p>For important updates regarding your Fiverr activity, certain notifications cannot be disabled.</p>
-                            </div>
-                            <!-- Type Column -->
-                            <div class="col-md-3">
-                                <h6>Type</h6>
-                                <p>Inbox Messages</p>
-                                <p>Order Messages</p>
-                                <p>Order Update</p>
-                                <p>Rating Reminders</p>
-                                <p>Buyer Briefs</p>
-                                <p>My Gigs</p>
-                                <p>My Account</p>
-                            </div>
-                            <!-- Email Column -->
-                            <div class="col-md-3">
-                                <h6>Email</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="email1">
-                                    <label class="form-check-label" for="email1">Inbox Messages</label>
+            <div class="tab-pane fade show active" id="notifications" role="tabpanel">
+                <div class="container mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Display success or error messages -->
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="email2">
-                                    <label class="form-check-label" for="email2">Order Messages</label>
+                            @elseif(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="email3">
-                                    <label class="form-check-label" for="email3">Order Update</label>
+                            @endif
+            
+                            <form action="{{ route('types.store') }}" method="POST">
+                                @csrf
+            
+                                <div class="row text-center">
+                                    <!-- Notification Column -->
+                                    <div class="col-md-3">
+                                        <h6>Notification</h6>
+                                        <p>For important updates regarding your activity, certain notifications cannot be disabled.</p>
+                                    </div>
+            
+                                    <!-- Type Column -->
+                                    <div class="col-md-3">
+                                        <h6>Type</h6>
+                                        <p>Inbox Messages</p>
+                                        <p>Order Messages</p>
+                                        <p>Order Update</p>
+                                        <p>Rating Reminders</p>
+                                        <p>Buyer Briefs</p>
+                                        <p>My Gigs</p>
+                                    </div>
+            
+                                    <!-- Email Column -->
+                                    <div class="col-md-3">
+                                        <h6>Email</h6>
+                                        @foreach (['Inbox Messages', 'Order Messages', 'Order Update', 'Rating Reminders', 'Buyer Briefs', 'My Gigs'] as $key => $type)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="email[]" value="{{ $type }}" id="email{{ $key }}">
+                                                <label class="form-check-label" for="email{{ $key }}">{{ $type }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+            
+                                    <!-- Mobile Column -->
+                                    <div class="col-md-3">
+                                        <h6>Mobile</h6>
+                                        @foreach (['Inbox Messages', 'Order Messages', 'Order Update', 'Rating Reminders', 'Buyer Briefs', 'My Gigs'] as $key => $type)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="mobile[]" value="{{ $type }}" id="mobile{{ $key }}">
+                                                <label class="form-check-label" for="mobile{{ $key }}">{{ $type }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="email4">
-                                    <label class="form-check-label" for="email4">Rating Reminders</label>
+            
+                                <hr>
+            
+                                <!-- Submit Button -->
+                                <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+                            </form>
+            
+                            <!-- Debugging output to check form data -->
+                            @if(session('debug'))
+                                <div class="alert alert-info mt-3">
+                                    <pre>{{ session('debug') }}</pre>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="email5">
-                                    <label class="form-check-label" for="email5">Buyer Briefs</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="email6">
-                                    <label class="form-check-label" for="email6">My Gigs</label>
-                                </div>
-                            </div>
-                            <!-- Mobile Column -->
-                            <div class="col-md-3">
-                                <h6>Mobile</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobile1">
-                                    <label class="form-check-label" for="mobile1">Inbox Messages</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobile2">
-                                    <label class="form-check-label" for="mobile2">Order Messages</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobile3">
-                                    <label class="form-check-label" for="mobile3">Order Update</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobile4">
-                                    <label class="form-check-label" for="mobile4">Rating Reminders</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobile5">
-                                    <label class="form-check-label" for="mobile5">Buyer Briefs</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="mobile6">
-                                    <label class="form-check-label" for="mobile6">My Gigs</label>
-                                </div>
-                                
-                            </div>
+                            @endif
                         </div>
-                        <hr>
-                        <button type="submit" class="btn btn-success">Save Changes</button>
                     </div>
                 </div>
             </div>
-            </div>
-
             <!-- Form W-9 Tab -->
-            <div class="tab-pane fade" id="w9" role="tabpanel">
-              <h5>Update your details  </h5>
-          <div class="mt-3">
-            <p>To stay compliant with U.S. tax regulations, please update your details with any change.</p>
-            <p style="color: blue">What is a U.S. person (as defined by the U.S. tax authorities)?</p>
-          </div>
+            
+<div class="mt-4">
+    <h5>Update Your U.S. Details</h5>
+    <p>To stay compliant with U.S. tax regulations, please select if you're a U.S. person.</p>
 
-          <div  class="mt-5">
-            <h5>Are you a U.S. person?</h5>
-          </div>
+    <!-- Flash Notifications -->
+    @if(session('success'))
+        <div class="alert alert-success mt-3">
+            {{ session('success') }}
+        </div>
+    @elseif(session('error'))
+        <div class="alert alert-danger mt-3">
+            {{ session('error') }}
+        </div>
+    @endif
 
+    <form action="{{ route('us_person.store') }}" method="POST">
+        @csrf
 
+        <div class="d-flex align-items-center mt-3">
+            <input type="radio" class="me-2" name="is_us_person" value="0">
+            <span>NO</span>
+        </div>
 
-          <div class="card w-50">
-            <div class="card-body d-flex align-items-center justify-content-start">
-              <input type="checkbox" class="me-2"> 
-              <h5 class="card-title mb-0">NO</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">I confirm that all the services I offer on Fiverr are performed while outside of the U.S.</p>
-            </div>
-          </div>
+        <div class="mt-3 d-flex align-items-center">
+            <input type="radio" class="me-2" name="is_us_person" value="1">
+            <span>Yes</span>
+        </div>
 
+        <div class="mt-3 text-right">
+            <button class="btn btn-primary mt-4">Save</button>
+        </div>
+    </form>
 
-          <div class="card w-50 mt-3">
-            <div class="card-body d-flex align-items-center justify-content-start">
-              <input type="checkbox" class="me-2"> 
-              <h5 class="card-title mb-0">Yes</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">U.S. tax authorities might request Form W-9 and information regarding your activity on Fiverr.</p>
-            </div>
-          </div>
+</div>
 
-            <div class="mt-3">
-              <p>Learn more about tax regulations and read our Privacy Policy to learn how we use your data.</p>
-            </div>
-
-            <div style="display: flex; justify-content: flex-end; padding-right: 10px;">
-              <button class="btn btn-success">Save </button>
-            </div>
-            </div>
 
             <!-- Personal & Business Info Tab -->
-            <div class="tab-pane fade" id="business-info" role="tabpanel">
-              <div class="card w-60">
-                <div class="card-body">
-                  <h5 class="card-title">Personal & Business Information</h5>
-                  <p class="card-text">Verify your personal and business information for compliance purposes. Learn more.</p>
-                  <button type="button" class="btn btn-secondary mt-4">Continue Verification</button>
-                </div>
-              </div>
+          
+<div class="tab-pane fade" id="business-info" role="tabpanel">
+    <div class="card w-60 mx-auto mt-5">
+        <div class="card-body">
+            <h5 class="card-title">Personal & Business Information</h5>
+            <p class="card-text">Verify your personal and business information for compliance purposes. Learn more.</p>
 
-            </div>
+            <!-- Button to redirect -->
+            <button id="continue-btn" class="btn btn-secondary mt-4">Continue Verification</button>
+
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to handle redirection -->
+<script>
+    document.getElementById('continue-btn').addEventListener('click', function() {
+        window.location.href = "{{ route('login') }}";
+    });
+</script>
+
+            
         </div>
     </div>
 </div>

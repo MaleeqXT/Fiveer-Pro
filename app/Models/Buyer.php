@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Buyer extends Model
 {
-    // Table name (if different from the default)
-    protected $table = 'buyers';
+    use HasFactory;
 
-    // The attributes that are mass assignable
     protected $fillable = [
         'buyer_image',
         'buyer_name',
@@ -17,4 +16,10 @@ class Buyer extends Model
         'amount_spent',
         'last_order',
     ];
+
+    protected $casts = [
+        'last_order' => 'datetime', // Cast last_order to a datetime instance
+    ];
 }
+
+

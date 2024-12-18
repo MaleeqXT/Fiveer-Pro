@@ -8,6 +8,7 @@ use App\Models\Seller;
 use App\Models\Overview;
 use App\Models\Pricing;
 use App\Models\Media;
+
 class SellerController extends Controller
 {
     public function index() {
@@ -23,29 +24,32 @@ class SellerController extends Controller
     {
         // Retrieve all gigs
         $gigs = Overview::all();
-    
+        
         // Map pricing data for each gig
         $pricing = $gigs->mapWithKeys(function ($gig) {
-            $price = Pricing::where('gig_id', $gig->id)->first();
+            // Retrieve pricing for the gig by another method
+            // For example, assuming 'Overview' and 'Pricing' are related somehow (change this logic based on your database design)
+            $pricing = Pricing::first(); // Or another way to fetch it without using gig_id
+            
             return [
                 $gig->id => [
-                    'basic_price' => $price ? $price->basic_price : 100,
-                ],
+                    'basic_price' => $pricing ? $pricing->basic_price : 100, // Default to 100 if not set
+                ]
             ];
         });
-    
-        // Fetch images for each gig
+        
+        // Map images for each gig without using gig_id directly
         $gig_images = $gigs->mapWithKeys(function ($gig) {
-            $images = Media::where('gig_id', $gig->id)
-                           ->where('type', 'image')
-                           ->pluck('path')
-                           ->toArray();
+            // Retrieve media associated with each gig without using gig_id
+            // Assuming there's no direct gig_id column, we're using a relationship or other logic
+            $images = $gig->medias()->where('type', 'image')->pluck('path')->toArray();
+            
             return [$gig->id => $images];
         });
-    
+        
+        // Pass gigs, pricing, and images to the view
         return view('websites.profile', compact('gigs', 'pricing', 'gig_images'));
     }
-    
     
     
     
@@ -71,8 +75,10 @@ class SellerController extends Controller
         return view('sellers.plus');
     }
 
-    public function contact(){
-        return view('sellers.contact');
+        public function contact()
+    {
+        $buyers = Buyer::all(); // Retrieve all buyers from the database
+        return view('sellers.contact', compact('buyers'));
     }
     public function proshow()
     {

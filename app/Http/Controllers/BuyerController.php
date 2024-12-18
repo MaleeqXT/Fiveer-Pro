@@ -7,28 +7,31 @@ use App\Models\Buyer;
 
 class BuyerController extends Controller
 {
+    // Store buyer data
     public function store(Request $request)
     {
-        // Validate the form data
+        // Validate the form inputs
         $validatedData = $request->validate([
-            'buyer_image' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            'buyer_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'buyer_name' => 'required|string|max:255',
-            'completed_orders' => 'required|integer',
-            'amount_spent' => 'required|numeric',
+            'completed_orders' => 'required|integer|min:0',
+            'amount_spent' => 'required|numeric|min:0',
             'last_order' => 'required|date',
         ]);
 
-        // Handle file upload
+        // Handle image upload
         if ($request->hasFile('buyer_image')) {
             $imageName = time() . '.' . $request->buyer_image->extension();
             $request->buyer_image->move(public_path('uploads'), $imageName);
-            $validatedData['buyer_image'] = $imageName;
+            $validatedData['buyer_image'] = 'uploads/' . $imageName;
         }
 
-        // Store the buyer details in the database
+        // Store data in the database
         Buyer::create($validatedData);
 
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Buyer details added successfully!');
+        // Redirect or return response
+        return redirect()->back()->with('success', 'Buyer details saved successfully!');
     }
+
+
 }

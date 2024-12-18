@@ -14,19 +14,25 @@ class EditController extends Controller
 {
     public function index()
     {
-        // Retrieve all questions from the Question model
-        $questions = Question::all();
+        // Retrieve gig details (use a default or fallback logic if needed)
+        $gig = Overview::first();  // or any logic that retrieves the gig data you need
     
+        // Retrieve other data like questions
+        $questions = Question::all();
+        
+        // Handle the session or fallback logic if you need to fetch a 'last gig'
         $lastGig = session()->has('last_gig_id') 
             ? Overview::find(session('last_gig_id')) 
             : null;
     
-        // Retrieve the old pricing data from session if it exists
-        $pricingData = session('pricing_data', null); // Default to null if no session data
-    
-        // Pass the data to the 'websites.edit' view
-        return view('websites.edit', compact('questions', 'lastGig', 'pricingData'));
+        // You can also load pricing and media for the gigs if required
+        $pricing = Pricing::where('gig_id', $gig->id)->first();
+        $gig_images = Media::where('gig_id', $gig->id)->where('type', 'image')->pluck('path')->toArray();
+        
+        // Pass data to the view
+        return view('websites.edit', compact('gig', 'questions', 'lastGig', 'pricing', 'gig_images'));
     }
+    
 
 public function storeover(Request $request)
 {
@@ -84,45 +90,39 @@ public function savePricing(Request $request)
     $pricing->basic_days = $request->basic_days;
     $pricing->standard_days = $request->standard_days;
     $pricing->premium_days = $request->premium_days;
-
     $pricing->basic_pages = $request->basic_pages;
     $pricing->standard_pages = $request->standard_pages;
     $pricing->premium_pages = $request->premium_pages;
     $pricing->basic_revisions = $request->basic_revisions;
     $pricing->standard_revisions = $request->standard_revisions;
     $pricing->premium_revisions = $request->premium_revisions;
-
     $pricing->basic_content_upload = $request->has('basic_content_upload');
     $pricing->standard_content_upload = $request->has('standard_content_upload');
     $pricing->premium_content_upload = $request->has('premium_content_upload');
-
     $pricing->basic_plugins = $request->has('basic_plugins');
     $pricing->standard_plugins = $request->has('standard_plugins');
     $pricing->premium_plugins = $request->has('premium_plugins');
-
     $pricing->basic_ecommerce = $request->has('basic_ecommerce');
     $pricing->standard_ecommerce = $request->has('standard_ecommerce');
     $pricing->premium_ecommerce = $request->has('premium_ecommerce');
-
     $pricing->basic_products = $request->basic_products;
     $pricing->standard_products = $request->standard_products;
     $pricing->premium_products = $request->premium_products;
-
     $pricing->basic_payment = $request->has('basic_payment');
     $pricing->standard_payment = $request->has('standard_payment');
     $pricing->premium_payment = $request->has('premium_payment');
-
     $pricing->basic_speed = $request->has('basic_speed');
     $pricing->standard_speed = $request->has('standard_speed');
     $pricing->premium_speed = $request->has('premium_speed');
-
     $pricing->basic_social_media = $request->has('basic_social_media');
     $pricing->standard_social_media = $request->has('standard_social_media');
     $pricing->premium_social_media = $request->has('premium_social_media');
-
     $pricing->basic_price = $request->basic_price;
     $pricing->standard_price = $request->standard_price;
     $pricing->premium_price = $request->premium_price;
+
+    // Assign the gig_id to associate with a specific gig
+    $pricing->gig_id = $request->gig_id; // Make sure this is passed in the request
 
     $pricing->save();
 
@@ -131,6 +131,7 @@ public function savePricing(Request $request)
 
     return back()->with('success', 'Pricing saved successfully!');
 }
+
 
     public function store(Request $request)
     {
@@ -205,6 +206,12 @@ public function savePricing(Request $request)
 
     public function storeGigMedia(Request $request)
     {
+        $gigId = $request->input('gig_id');
+    
+        if (!$gigId) {
+            return redirect()->back()->with('error', 'Gig ID is required to upload media.');
+        }
+    
         $rules = [
             'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
@@ -226,6 +233,7 @@ public function savePricing(Request $request)
                 foreach ($request->file($inputName) as $file) {
                     $path = $file->store($mediaInfo['folder'], 'public');
                     $mediaRecords[] = [
+                        'gig_id' => $gigId,
                         'type' => $mediaInfo['type'],
                         'path' => $path,
                         'created_at' => now(),
@@ -238,11 +246,6 @@ public function savePricing(Request $request)
         if (!empty($mediaRecords)) {
             Media::insert($mediaRecords);
         }
-    
-        // Store file paths in session (for previewing before saving)
-        session()->put('gig_images', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'image')));
-        session()->put('gig_videos', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'video')));
-        session()->put('gig_documents', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'document')));
     
         return redirect()->back()->with('success', 'Gig media stored successfully!');
     }

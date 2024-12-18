@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('pricing', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('gig_id')->nullable(); // Add a nullable gig_id column
+            $table->foreign('gig_id')->references('id')->on('overview')->onDelete('cascade');
             $table->string('basic_name')->nullable();
             $table->string('standard_name')->nullable();
             $table->string('premium_name')->nullable();

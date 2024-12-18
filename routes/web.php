@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FiveerController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\EditController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\MyListController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ActiveController;
 use App\Http\Controllers\BusinessDetailsController;
@@ -19,23 +17,6 @@ use App\Http\Controllers\BuyerController;
 
 
 
-
-// Route::get('/', function () {
-   
-//     return view('welcome');
-// });
-
-// routes/web.php
-
-
-
-
-Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
-Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
-Route::post('/form-submit', [AdminController::class, 'store'])->name('form.store');
-Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
-Route::put('/explore/{id}', [AdminController::class, 'update'])->name('explore.update');
-Route::delete('/explore/{id}', [AdminController::class, 'destroy'])->name('explore.destroy');
 
 
 
@@ -65,7 +46,7 @@ Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.cont
 Route::get('/create/gig', [CreateGigController::class, 'index'])->name('gigs.create');
 
 
-Route::get('/create', [EditController::class, 'index'])->name('websites.edit');
+Route::get('/gig/create', [EditController::class, 'index'])->name('websites.edit');
 Route::post('/gigs/store', [EditController::class, 'storeover'])->name('gigs.store');
 Route::post('/gigs/faqs', [EditController::class, 'storefaq'])->name('gig-details.store');
 Route::post('/gig/media/store', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
@@ -76,23 +57,35 @@ Route::post('/gigs/delete/{id}', [EditController::class, 'delete'])->name('gigs.
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');
 
 
-
 Route::get('/payment', [PaymentController::class, 'pay'])->name('messages.payment');
 Route::post('/store-payment', [PaymentController::class, 'store'])->name('payment.store');
 Route::post('/save-billing-info', [PaymentController::class, 'storebill'])->name('billing.store');
 
 
-
-
-
-
 Route::post('/websites/complete/store', [BusinessDetailsController::class, 'store'])->name('websites.complete.store');
 
+
+Route::post('/profile', [UserProfileController::class, 'store'])->name('profile.store');
+
+Route::post('/active/store', [ActiveController::class, 'store'])->name('active.store');
+
+
+Route::get('/setting', [SecuritySettingController::class, 'index'])->name('websites.setting');
+
+Route::post('/security', [SecuritySettingController::class, 'store'])->name('security.store');
+
+Route::get('/list', [ItemlistController::class, 'index'])->name('messages.list');
+Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists.store');
+
+
+Route::post('/finance/store', [FinanceController::class, 'store'])->name('finance.store');
+
+Route::post('/buyers/store', [BuyerController::class, 'store'])->name('buyers.store');
+ 
 Route::get('/complete', function () {
    
     return view('websites.complete');
    })->name('websites.complete');
-
 
 
 Route::get('/program', function () {
@@ -107,8 +100,6 @@ Route::get('/inbox', function () {
  Route::get('/order', function () {
      return view('sellers.order');
     })->name('sellers.order');
-
-
 
      
 
@@ -137,23 +128,3 @@ Route::get('/inbox', function () {
    
     return view('websites.refer');
 })->name('websites.refer');
-
-
-
-
-Route::post('/profile', [UserProfileController::class, 'store'])->name('profile.store');
-
-Route::post('/active/store', [ActiveController::class, 'store'])->name('active.store');
-
-
-Route::get('/setting', [SecuritySettingController::class, 'index'])->name('websites.setting');
-
-Route::post('/security', [SecuritySettingController::class, 'store'])->name('security.store');
-
-Route::get('/list', [ItemlistController::class, 'index'])->name('messages.list');
-Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists.store');
-
-
-Route::post('/finance/store', [FinanceController::class, 'store'])->name('finance.store');
-
-Route::post('/buyers/store', [BuyerController::class, 'store'])->name('buyers.store');

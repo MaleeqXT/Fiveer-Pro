@@ -8,6 +8,7 @@ use App\Models\Seller;
 use App\Models\Overview;
 use App\Models\Pricing;
 use App\Models\Media;
+use App\Models\Buyer;
 
 class SellerController extends Controller
 {

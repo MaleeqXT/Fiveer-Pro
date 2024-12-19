@@ -14,25 +14,19 @@ class EditController extends Controller
 {
     public function index()
     {
-        // Retrieve gig details (use a default or fallback logic if needed)
-        $gig = Overview::first();  // or any logic that retrieves the gig data you need
-    
-        // Retrieve other data like questions
+        // Retrieve all questions from the Question model
         $questions = Question::all();
-        
-        // Handle the session or fallback logic if you need to fetch a 'last gig'
+    
         $lastGig = session()->has('last_gig_id') 
             ? Overview::find(session('last_gig_id')) 
             : null;
     
-        // You can also load pricing and media for the gigs if required
-        $pricing = Pricing::where('gig_id', $gig->id)->first();
-        $gig_images = Media::where('gig_id', $gig->id)->where('type', 'image')->pluck('path')->toArray();
-        
-        // Pass data to the view
-        return view('websites.edit', compact('gig', 'questions', 'lastGig', 'pricing', 'gig_images'));
-    }
+        // Retrieve the old pricing data from session if it exists
+        $pricingData = session('pricing_data', null); // Default to null if no session data
     
+        // Pass the data to the 'websites.edit' view
+        return view('websites.edit', compact('questions', 'lastGig', 'pricingData'));
+    }
 
 public function storeover(Request $request)
 {
@@ -207,11 +201,11 @@ public function savePricing(Request $request)
     public function storeGigMedia(Request $request)
     {
         $gigId = $request->input('gig_id');
-    
+
+        // Validate that gigId exists
         if (!$gigId) {
             return redirect()->back()->with('error', 'Gig ID is required to upload media.');
         }
-    
         $rules = [
             'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
@@ -233,7 +227,7 @@ public function savePricing(Request $request)
                 foreach ($request->file($inputName) as $file) {
                     $path = $file->store($mediaInfo['folder'], 'public');
                     $mediaRecords[] = [
-                        'gig_id' => $gigId,
+                        gig_id =>$gigid,
                         'type' => $mediaInfo['type'],
                         'path' => $path,
                         'created_at' => now(),
@@ -246,6 +240,11 @@ public function savePricing(Request $request)
         if (!empty($mediaRecords)) {
             Media::insert($mediaRecords);
         }
+    
+        // Store file paths in session (for previewing before saving)
+        session()->put('gig_images', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'image')));
+        session()->put('gig_videos', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'video')));
+        session()->put('gig_documents', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'document')));
     
         return redirect()->back()->with('success', 'Gig media stored successfully!');
     }

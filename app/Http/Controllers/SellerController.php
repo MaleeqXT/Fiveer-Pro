@@ -39,17 +39,9 @@ class SellerController extends Controller
             ];
         });
         
-        // Map images for each gig without using gig_id directly
-        $gig_images = $gigs->mapWithKeys(function ($gig) {
-            // Retrieve media associated with each gig without using gig_id
-            // Assuming there's no direct gig_id column, we're using a relationship or other logic
-            $images = $gig->medias()->where('type', 'image')->pluck('path')->toArray();
-            
-            return [$gig->id => $images];
-        });
         
         // Pass gigs, pricing, and images to the view
-        return view('websites.profile', compact('gigs', 'pricing', 'gig_images'));
+        return view('websites.profile', compact('gigs', 'pricing', ));
     }
     
     

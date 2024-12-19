@@ -58,65 +58,51 @@
      <!-- First Card with Image and Name -->
      <div class="row">
         @foreach ($gigs as $gig)
-            <div class="col-md-4">
-                <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
-                    <!-- Gig Image -->
-                    @if(isset($gig_images[$gig->id]) && count($gig_images[$gig->id]) > 0)
-                        <img src="{{ asset('storage/' . $gig_images[$gig->id][0]) }}" 
-                             class="card-img-top" 
-                             alt="Gig Image" 
-                             style="height: 200px; width: 100%; object-fit: cover;">
-                    @else
-                        <img src="https://via.placeholder.com/300x200?text=Gig+Image" 
-                             class="card-img-top" 
-                             alt="Default Image" 
-                             style="height: 200px; width: 100%; object-fit: cover;">
-                    @endif
-    
-                    <!-- Card Body -->
-                    <div class="card-body text-center">
-                        <!-- Gig Title -->
-                        <h5 class="card-title fw-bold" style="color: #343a40;">
-                            {{ $gig->title ?? 'Gig Title' }}
-                        </h5>
-    
-                        <!-- Pricing -->
-                        <span class="badge bg-dark text-light fs-6 px-3 py-2" 
-                              style="font-family: sans-serif; border-radius: 20px;">
-                            Starting ${{ $pricing[$gig->id]['basic_price'] ?? '100' }}
-                        </span>
-    
-                        <!-- Media Upload Form -->
-                        <form id="gigMediaForm{{ $gig->id }}" 
-                              action="{{ route('gig.media.store') }}" 
-                              method="POST" 
-                              enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="gig_id" value="{{ $gig->id }}">
-                            <input type="file" name="gig_images[]" multiple>
-                        </form>
-                    </div>
+        <div class="col-md-4">
+            <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
+                <!-- Gig Image -->
+                @if(isset($gig_images[$gig->id]) && count($gig_images[$gig->id]) > 0)
+                    <img src="{{ asset('storage/' . $gig_images[$gig->id][0]) }}" 
+                         class="card-img-top" 
+                         alt="Gig Image" 
+                         style="height: 200px; width: 100%; object-fit: cover;">
+                @else
+                    <img src="https://via.placeholder.com/300x200?text=Gig+Image" 
+                         class="card-img-top" 
+                         alt="Default Image" 
+                         style="height: 200px; width: 100%; object-fit: cover;">
+                @endif
+            
+                <!-- Card Body -->
+                <div class="card-body text-center">
+                    <!-- Gig Title -->
+                    <h5 class="card-title fw-bold" style="color: #343a40;">
+                        {{ $gig->title ?? 'Gig Title' }} <!-- Display gig title -->
+                    </h5>
+            
+                    <!-- Pricing -->
+                    <span class="badge bg-dark text-light fs-6 px-3 py-2" 
+                          style="font-family: sans-serif; border-radius: 20px;">
+                        Starting ${{ $pricing[$gig->id]['basic_price'] ?? '100' }}
+                    </span>
                 </div>
             </div>
-        @endforeach
-
-                <!-- Create New Gig Card -->
-                <div class="col-md-4">
-                    <div class="card d-flex justify-content-center align-items-center shadow-lg" style="height: 200px; border-radius: 15px;">
-                        <button class="btn btn-dark rounded-circle shadow-lg" 
-                                onclick="window.location.href='{{ route('websites.edit') }}'" 
-                                style="font-size: 30px; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border: none;">
-                            +
-                        </button>
-                        <h5 class="text-muted mt-3" style="font-family: Arial, Helvetica, sans-serif;">Create a Gig</h5>
-                    </div>
-                </div>
+        </div>
+    @endforeach
+    
+    
+        
+    
+        <!-- Create New Gig Card -->
+        <div class="col-md-4">
+            <div class="card d-flex justify-content-center align-items-center shadow-lg" style="height: 200px; border-radius: 15px;">
+                <button class="btn btn-dark rounded-circle shadow-lg" onclick="window.location.href='{{ route('websites.edit') }}'" style="font-size: 30px; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; border: none;">
+                    +
+                </button>
+                <h5 class="text-muted mt-3" style="font-family: Arial, Helvetica, sans-serif;">Create a Gig</h5>
+            </div>
+        </div>
     </div>
-    
-    
-    
-    
-    
     
     
         </div>

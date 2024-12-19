@@ -277,6 +277,7 @@
                 </div>
             </div>
             <div class="card-body">
+
                 <div class="tab-content">
 
                     <div class="tab-pane fade show active" id="card7-home">
@@ -398,14 +399,6 @@
                         </form>
                     </div>
                     
-
-                    
-
-
-
-
-            
-                    
                     <style>
                         .pricing-header {
                             background-color: #f8f9fa;
@@ -443,8 +436,7 @@
 
                    
                    
-                   
-                   <div class="tab-pane fade" id="card7-contact">
+                                      <div class="tab-pane fade" id="card7-contact">
                     <div class="container">
                         <!-- Store Form -->
                         <form action="{{ route('gig-details.store') }}" method="POST">

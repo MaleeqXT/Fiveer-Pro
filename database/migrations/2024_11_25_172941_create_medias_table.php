@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('gig_id')->constrained('overviews');
+            $table->foreignId('gig_id')->constrained('gigs'); // Change to 'gigs' table
             $table->string('type');
             $table->string('path');
             $table->timestamps();

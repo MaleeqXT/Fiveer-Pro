@@ -56,6 +56,8 @@
         </div>
         <div class="row g-4">
      <!-- First Card with Image and Name -->
+     
+     <!-- First Card with Image and Name -->
      <div class="row">
         @foreach ($gigs as $gig)
         <div class="col-md-4">
@@ -77,7 +79,7 @@
                 <div class="card-body text-center">
                     <!-- Gig Title -->
                     <h5 class="card-title fw-bold" style="color: #343a40;">
-                        {{ $gig->title ?? 'Gig Title' }} <!-- Display gig title -->
+                        {{ $gig->title ?? 'Gig Title' }}
                     </h5>
             
                     <!-- Pricing -->
@@ -88,8 +90,9 @@
                 </div>
             </div>
         </div>
-    @endforeach
-    
+        @endforeach
+    </div>
+        
     
         
     

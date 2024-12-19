@@ -199,56 +199,56 @@ public function savePricing(Request $request)
 
 
     public function storeGigMedia(Request $request)
-    {
-        $gigId = $request->input('gig_id');
+{
+    $gigId = $request->input('gig_id');
 
-        // Validate that gigId exists
-        if (!$gigId) {
-            return redirect()->back()->with('error', 'Gig ID is required to upload media.');
-        }
-        $rules = [
-            'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
-            'gig_documents.*' => 'nullable|mimes:pdf,doc,docx,ppt,txt|max:5120',
-        ];
-    
-        $request->validate($rules);
-    
-        $mediaTypes = [
-            'gig_images' => ['type' => 'image', 'folder' => 'gigs/images'],
-            'gig_videos' => ['type' => 'video', 'folder' => 'gigs/videos'],
-            'gig_documents' => ['type' => 'document', 'folder' => 'gigs/documents'],
-        ];
-    
-        $mediaRecords = [];
-    
-        foreach ($mediaTypes as $inputName => $mediaInfo) {
-            if ($request->hasFile($inputName)) {
-                foreach ($request->file($inputName) as $file) {
-                    $path = $file->store($mediaInfo['folder'], 'public');
-                    $mediaRecords[] = [
-                        gig_id =>$gigid,
-                        'type' => $mediaInfo['type'],
-                        'path' => $path,
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ];
-                }
+    // Validate that gigId exists
+    if (!$gigId) {
+        return redirect()->back()->with('error', 'Gig ID is required to upload media.');
+    }
+
+    $rules = [
+        'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
+        'gig_documents.*' => 'nullable|mimes:pdf,doc,docx,ppt,txt|max:5120',
+    ];
+
+    $request->validate($rules);
+
+    $mediaTypes = [
+        'gig_images' => ['type' => 'image', 'folder' => 'gigs/images'],
+        'gig_videos' => ['type' => 'video', 'folder' => 'gigs/videos'],
+        'gig_documents' => ['type' => 'document', 'folder' => 'gigs/documents'],
+    ];
+
+    $mediaRecords = [];
+
+    foreach ($mediaTypes as $inputName => $mediaInfo) {
+        if ($request->hasFile($inputName)) {
+            foreach ($request->file($inputName) as $file) {
+                $path = $file->store($mediaInfo['folder'], 'public');
+                $mediaRecords[] = [
+                    'gig_id' => $gigId, // Ensure gig_id is properly referenced
+                    'type' => $mediaInfo['type'],
+                    'path' => $path,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
             }
         }
-    
-        if (!empty($mediaRecords)) {
-            Media::insert($mediaRecords);
-        }
-    
-        // Store file paths in session (for previewing before saving)
-        session()->put('gig_images', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'image')));
-        session()->put('gig_videos', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'video')));
-        session()->put('gig_documents', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'document')));
-    
-        return redirect()->back()->with('success', 'Gig media stored successfully!');
     }
-    
+
+    if (!empty($mediaRecords)) {
+        Media::insert($mediaRecords);
+    }
+
+    // Store file paths in session (for previewing before saving)
+    session()->put('gig_images', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'image')));
+    session()->put('gig_videos', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'video')));
+    session()->put('gig_documents', array_map(fn($record) => $record['path'], array_filter($mediaRecords, fn($r) => $r['type'] === 'document')));
+
+    return redirect()->back()->with('success', 'Gig media stored successfully!');
+}
 
     
     

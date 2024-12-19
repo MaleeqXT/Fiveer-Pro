@@ -404,27 +404,16 @@
                     </div>
                     
 
-                    
-
-
-
-
-            
-                    
+                                       
                     <style>
-                        .pricing-header {
-                            background-color: #f8f9fa;
-                            border: 2px solid #007bff;
-                            border-radius: 8px;
-                            text-align: center;
-                            padding: 15px;
-                            margin-bottom: 20px;
+                        .tab-pane {
+                            margin-bottom: 0; /* Remove extra bottom margin from the tab pane */
                         }
-                
-                        .form-control, .form-select {
-                            margin-bottom: 10px;
+                    
+                        .tab-pane form {
+                            padding-bottom: 0; /* Remove padding inside the form */
                         }
-                
+                    
                         .pricing-section {
                             border: 1px solid #ddd;
                             border-radius: 8px;
@@ -432,16 +421,30 @@
                             background: #fff;
                             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                         }
-                
-                        .pricing-section h5 {
-                            color: #007bff;
+                    
+                        .form-control, 
+                        .form-select {
+                            margin-bottom: 10px;
                         }
-                
+                    
                         .btn-primary {
                             background-color: #007bff;
                             border-color: #007bff;
                         }
-                    </style>                   
+                    
+                        .custom-tab-pane.mb-4:last-child {
+                            margin-bottom: 0; /* Ensure the last child doesn't add extra space */
+                        }
+                    
+                        .row.mb-3:last-child {
+                            margin-bottom: 0; /* Remove bottom margin from the last row */
+                        }
+                    
+                        .btn-primary {
+                            margin-bottom: 0; /* Ensure buttons don't add extra bottom space */
+                        }
+                    </style>
+                                      
                    
                    
 
@@ -1103,31 +1106,44 @@
                                                 }
                                             </script>
                                                                                         
-                                            <div class="tab-pane fade" id="card7-publish">
-                                                <p>Before publishing your gig, ensure that you have uploaded all necessary media files, such as images, videos, or documents. This will help make your gig complete and ready for customers.</p>
-                                                <p>If you're ready to showcase your gig, simply click the "Publish Gig" button below. This will make your gig live and visible to others.</p>
-                                                <p><strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.</p>
-                                                <button type="button" class="btn btn-outline-primary" id="publishButton" onclick="verifyAndPublish()">Publish Gig</button>
-                                                <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
-                                                    <p>Please ensure your ID and email are verified before publishing your gig.</p>
+                                           <!-- Publish Gig Section -->
+                                                <div class="tab-pane fade" id="card7-publish">
+                                                    <p>
+                                                        Before publishing your gig, ensure that you have uploaded all necessary media files, 
+                                                        such as images, videos, or documents. This will help make your gig complete and ready for customers.
+                                                    </p>
+                                                    <p>
+                                                        If you're ready to showcase your gig, simply click the "Publish Gig" button below. 
+                                                        This will make your gig live and visible to others.
+                                                    </p>
+                                                    <p>
+                                                        <strong>Note:</strong> If you haven't uploaded any files yet, please do so before publishing.
+                                                    </p>
+                                                    <button type="button" class="btn btn-outline-primary" id="publishButton" onclick="verifyAndPublish()">
+                                                        Publish Gig
+                                                    </button>
+                                                    <div id="feedbackMessage" style="color: red; margin-top: 10px; display: none;">
+                                                        <p>Please ensure your ID and email are verified before publishing your gig.</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            
-                                            <script>
-                                                const user = {
-                                                    idVerified: true,
-                                                    emailVerified: true
-                                                };
-                                            
-                                                function verifyAndPublish() {
-                                                    if (!user.idVerified || !user.emailVerified) {
-                                                        document.getElementById('feedbackMessage').style.display = 'block';
-                                                    } else {
-                                                        document.getElementById('feedbackMessage').style.display = 'none';
-                                                        window.location.href = '/profile';
+
+                                                <!-- JavaScript -->
+                                                <script>
+                                                    function verifyAndPublish() {
+                                                        // Verify prerequisites
+                                                        const idVerified = true; // Replace with actual verification logic
+                                                        const emailVerified = true; // Replace with actual verification logic
+
+                                                        const feedbackMessage = document.getElementById('feedbackMessage');
+
+                                                        if (idVerified && emailVerified) {
+                                                            feedbackMessage.style.display = 'none';
+                                                            alert('Your gig has been successfully published!');
+                                                        } else {
+                                                            feedbackMessage.style.display = 'block';
+                                                        }
                                                     }
-                                                }
-                                            </script>
+                                                </script>
                                 
 
                 </div>

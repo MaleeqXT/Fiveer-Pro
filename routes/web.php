@@ -59,7 +59,7 @@ Route::get('seller/profile', [SellerController::class, 'proshow'])->name('seller
 Route::get('/gig', [SellerController::class, 'gig'])->name('sellers.gig');
 Route::get('/seller/plus', [SellerController::class, 'plus'])->name('sellers.plus');
 Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment');
-Route::get('/contact', [SellerController::class, 'contact']);
+Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
  
 
 Route::get('/create/gig', [CreateGigController::class, 'index'])->name('gigs.create');

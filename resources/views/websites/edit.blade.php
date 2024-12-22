@@ -349,7 +349,7 @@
                                     
                                     <div class="tab-pane fade" id="nav1-good" role="tabpanel" aria-labelledby="#nav1-good-tab">
                                         <h3>Showcase Your Services In A Gig Gallery</h3>
-                                        <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
+                                        <form id="gigMediaForm" action="" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card p-4" style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                 <h4>Upload Your Gig Media</h4>

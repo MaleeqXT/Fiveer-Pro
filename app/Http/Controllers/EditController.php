@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Question;
 
 class EditController extends Controller
 { 
-
+    
     public function index()
     {
-        // Retrieve all questions from the Question model
-        $questions = Question::all();
+        
     
         $lastGig = session()->has('last_gig_id') 
             ? Overview::find(session('last_gig_id')) 
@@ -21,7 +21,7 @@ class EditController extends Controller
         $pricingData = session('pricing_data', null); // Default to null if no session data
     
         // Pass the data to the 'websites.edit' view
-        return view('websites.edit', compact('questions', 'lastGig', 'pricingData'));
+        return view('websites.edit', compact('lastGig', 'pricingData'));
     }
     
     

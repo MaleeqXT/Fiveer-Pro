@@ -184,24 +184,18 @@
                               <input type="text" class="form-control" id="taxId" name="tax_id" placeholder="Enter your tax ID">
                           </div>
                       
-                          <!-- Invoices -->
-                          <div class="form-group">
-                              <label>Invoices</label>
-                              <p>You will find your invoices under the Billing history tab.</p>
-                          </div>
-                      
-                          <!-- Radio Button -->
+                          <!-- Email Invoices -->
                           <div class="form-group">
                               <div class="form-check">
-                                  <input type="radio" class="form-check-input" id="emailInvoices" name="email_invoices" value="1">
-                                  <label class="form-check-label" for="emailInvoices">I want to get invoices via email as well.</label>
+                                  <input type="checkbox" class="form-check-input" id="emailInvoices" name="email_invoices">
+                                  <label class="form-check-label" for="emailInvoices">I want to receive invoices via email</label>
                               </div>
                           </div>
                       
                           <!-- Save Changes Button -->
                           <button type="submit" class="btn btn-primary">Save Changes</button>
+                      </form>
                       
-                        </form>
                       
                       </div>
 

@@ -66,12 +66,7 @@ Route::get('/create/gig', [CreateGigController::class, 'index'])->name('gigs.cre
 
 
 Route::get('/create', [EditController::class, 'index'])->name('websites.edit');
-Route::post('/gigs/store', [EditController::class, 'storeover'])->name('gigs.store');
-Route::post('/gigs/faqs', [EditController::class, 'storefaq'])->name('gig-details.store');
-Route::post('/gig/media/store', [EditController::class, 'storeGigMedia'])->name('gig.media.store');
-Route::post('/questions', [EditController::class, 'store'])->name('questions.store');
-Route::post('/save-pricing', [EditController::class, 'savePricing'])->name('save.pricing');
-Route::post('/gigs/delete/{id}', [EditController::class, 'delete'])->name('gigs.delete');
+
 
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');
 

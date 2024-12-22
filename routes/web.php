@@ -66,7 +66,7 @@ Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.cont
 Route::get('/create/gig', [CreateGigController::class, 'index'])->name('gigs.create');
 
 
-Route::get('/create', [EditController::class, 'index'])->name('websites.edit');
+Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
 
 
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');

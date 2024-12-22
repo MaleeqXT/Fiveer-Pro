@@ -16,8 +16,8 @@ use App\Http\Controllers\CreateGigController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\BillingInformationController;
-
-
+use App\Http\Controllers\GigController;
+use App\Http\Controllers\PackageController;
 
 
 
@@ -153,3 +153,7 @@ Route::post('/itemlists', [ItemlistController::class, 'store'])->name('itemlists
 Route::post('/finance/store', [FinanceController::class, 'store'])->name('finance.store');
 
 Route::post('/buyers/store', [BuyerController::class, 'store'])->name('buyers.store');
+
+Route::post('/gigs', [GigController::class, 'store'])->name('gigs.store');
+
+Route::post('/packages/store', [PackageController::class, 'store'])->name('packages.store');

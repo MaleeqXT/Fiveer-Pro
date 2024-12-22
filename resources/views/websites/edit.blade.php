@@ -52,90 +52,102 @@
                                 <div class="tab-content" id="nav1-tabContent">
 
 
-                                    <div class="tab-pane fade active show" id="nav1-home" role="tabpanel" aria-labelledby="#nav1-home-tab">
+                                    <div class="tab-pane fade active show" id="nav1-home" role="tabpanel" aria-labelledby="nav1-home-tab">
                                         <div class="card mt-4">
                                             <div class="card" style="background-color: rgb(251, 193, 253)">
                                                 <div class="card-body">
                                                     <h5>Want to know what potential clients are looking for?</h5>
                                                     <p>Join Kickstart for exclusive access to market research tools, insights, and analytics to create Gigs that get noticed.</p>
-                                                    <a href="#" class="btn btn-primary">Tell me more →</a>
+                                                    <a href="#" class="btn btn-primary">Tell me more &rarr;</a>
                                                 </div>
                                             </div>
                                     
-                                            <!-- Reusable Section Template -->
-                                            <div class="card-body d-flex align-items-center mt-4">
-                                                <div class="w-50">
-                                                    <h5>Gig Title</h5>
-                                                    <p>Include keywords buyers might use to search for your service.</p>
-                                                </div>
-                                                <div class="w-50">
-                                                    <input type="text" class="form-control" placeholder="Enter your Gig title">
-                                                </div>
-                                            </div>
+                                            <form action="{{ route('gigs.store') }}" method="POST">
+                                                @csrf <!-- CSRF token for security -->
                                     
-                                            <div class="card-body d-flex align-items-center mt-4">
-                                                <div class="w-50">
-                                                    <h5>Category</h5>
-                                                    <p>Choose the category and sub-category for your Gig.</p>
+                                                <!-- Gig Title -->
+                                                <div class="card-body d-flex align-items-center mt-4">
+                                                    <div class="w-50">
+                                                        <h5>Gig Title</h5>
+                                                        <p>Include keywords buyers might use to search for your service.</p>
+                                                    </div>
+                                                    <div class="w-50">
+                                                        <input type="text" name="title" class="form-control" placeholder="Enter your Gig title" required>
+                                                    </div>
                                                 </div>
-                                                <div class="w-50 d-flex">
-                                                    <select class="form-control me-2" style="width: 48%;">
-                                                        <option>Select Category</option>
-                                                        <option value="web-design">Web Design</option>
-                                                        <option value="writing">Writing</option>
-                                                    </select>
-                                                    <select class="form-control" style="width: 48%;">
-                                                        <option>Select Sub-Category</option>
-                                                        <option value="graphic-design">Graphic Design</option>
-                                                        <option value="seo">SEO</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                     
-                                            <div class="card-body d-flex align-items-center mt-4">
-                                                <div class="w-50">
-                                                    <h5>Service Type</h5>
-                                                    <p>Select the type of service you are offering.</p>
+                                                <!-- Category and Sub-Category -->
+                                                <div class="card-body d-flex align-items-center mt-4">
+                                                    <div class="w-50">
+                                                        <h5>Category</h5>
+                                                        <p>Choose the category and sub-category for your Gig.</p>
+                                                    </div>
+                                                    <div class="w-50 d-flex">
+                                                        <select name="category" class="form-control me-2" style="width: 48%;" required>
+                                                            <option value="">Select Category</option>
+                                                            <option value="web-design">Web Design</option>
+                                                            <option value="writing">Writing</option>
+                                                        </select>
+                                                        <select name="sub_category" class="form-control" style="width: 48%;" required>
+                                                            <option value="">Select Sub-Category</option>
+                                                            <option value="graphic-design">Graphic Design</option>
+                                                            <option value="seo">SEO</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="w-50">
-                                                    <select class="form-control">
-                                                        <option>Select Service Type</option>
-                                                        <option value="one-time">One-time</option>
-                                                        <option value="recurring">Recurring</option>
-                                                        <option value="custom">Custom</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                     
-                                            <div class="card-body d-flex align-items-center mt-4">
-                                                <div class="w-50">
-                                                    <h5>Gig Metadata</h5>
-                                                    <p>Enhance your Gig visibility with metadata.</p>
+                                                <!-- Service Type -->
+                                                <div class="card-body d-flex align-items-center mt-4">
+                                                    <div class="w-50">
+                                                        <h5>Service Type</h5>
+                                                        <p>Select the type of service you are offering.</p>
+                                                    </div>
+                                                    <div class="w-50">
+                                                        <select name="service_type" class="form-control" required>
+                                                            <option value="">Select Service Type</option>
+                                                            <option value="one-time">One-time</option>
+                                                            <option value="recurring">Recurring</option>
+                                                            <option value="custom">Custom</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="w-50">
-                                                    <select class="form-control">
-                                                        <option>Select Metadata</option>
-                                                        <option value="keywords">Keywords</option>
-                                                        <option value="tags">Tags</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                     
-                                            <div class="card-body d-flex align-items-center mt-4">
-                                                <div class="w-50">
-                                                    <h5>Search Tags</h5>
-                                                    <p>Tag your Gig with relevant buzzwords. Use all 5 tags.</p>
+                                                <!-- Gig Metadata -->
+                                                <div class="card-body d-flex align-items-center mt-4">
+                                                    <div class="w-50">
+                                                        <h5>Gig Metadata</h5>
+                                                        <p>Enhance your Gig visibility with metadata.</p>
+                                                    </div>
+                                                    <div class="w-50">
+                                                        <select name="metadata" class="form-control">
+                                                            <option value="">Select Metadata</option>
+                                                            <option value="keywords">Keywords</option>
+                                                            <option value="tags">Tags</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div class="w-50">
-                                                    <input type="text" class="form-control" placeholder="Enter up to 5 search tags">
+                                    
+                                                <!-- Search Tags -->
+                                                <div class="card-body d-flex align-items-center mt-4">
+                                                    <div class="w-50">
+                                                        <h5>Search Tags</h5>
+                                                        <p>Tag your Gig with relevant buzzwords. Use all 5 tags.</p>
+                                                    </div>
+                                                    <div class="w-50">
+                                                        <input type="text" name="tags" class="form-control" placeholder="Enter up to 5 search tags" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <p class="text-center">Some categories require sellers to verify their skills.</p>
+                                    
+                                                <p class="text-center">Some categories require sellers to verify their skills.</p>
+                                    
+                                                <div class="text-center mt-4">
+                                                    <button type="submit" class="btn btn-primary">Save Gig</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                     
                                     
-                                                                        
                                     <div class="tab-pane fade" id="nav1-profile" role="tabpanel" aria-labelledby="#nav1-profile-tab">
                                         <div class="card" style="background-color: rgb(251, 193, 253);">
                                             <div class="card-body">
@@ -144,68 +156,103 @@
                                                 <a href="#" class="btn btn-primary">Tell me more →</a>
                                             </div>
                                         </div>
-                                        <h2 class="mt-5">Scope & Pricing</h2>
-                                        <div class="card text-white" style="background-color: rgb(89, 79, 236);">
-                                            <div class="card-body">
-                                                <p class="card-text">The scope of this service is to deliver buyers a functional website. Package prices start at $80. Move your Gig to another category if you do not offer this service.</p>
+                                    
+                                        <!-- Success Message -->
+                                        @if(session('success'))
+                                            <div class="alert alert-success">{{ session('success') }}</div>
+                                        @endif
+                                    
+                                        <form method="POST" action="{{ route('packages.store') }}">
+                                            @csrf
+                                            <h2 class="mt-5">Scope & Pricing</h2>
+                                            <div class="card text-white" style="background-color: rgb(89, 79, 236);">
+                                                <div class="card-body">
+                                                    <p class="card-text">The scope of this service is to deliver buyers a functional website. Package prices start at $80. Move your Gig to another category if you do not offer this service.</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <hr>
-                                        <h5>Packages</h5>
-                                        <table border="1" style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
-                                            <thead>
-                                                <tr><th>Feature</th><th>Basic</th><th>Standard</th><th>Premium</th></tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- Quick Bug Fixes -->
-                                                <tr>
-                                                    <td><input type="text" name="feature_quick_bug_fixes" value="Quick Bug Fixes" style="width: 100%;"></td>
-                                                    <td><input type="radio" name="bug_fixes" value="Basic"></td>
-                                                    <td><input type="radio" name="bug_fixes" value="Standard"></td>
-                                                    <td><input type="radio" name="bug_fixes" value="Premium"></td>
-                                                </tr>
-                                                <!-- Custom Laravel Features -->
-                                                <tr>
-                                                    <td><input type="text" name="feature_custom_laravel" value="Custom Laravel Features" style="width: 100%;"></td>
-                                                    <td><input type="checkbox" name="custom_features_basic"></td>
-                                                    <td><input type="checkbox" name="custom_features_standard" checked></td>
-                                                    <td><input type="checkbox" name="custom_features_premium" checked></td>
-                                                </tr>
-                                                <!-- Professional Responsive Website -->
-                                                <tr>
-                                                    <td><input type="text" name="feature_responsive_website" value="Professional Responsive Website" style="width: 100%;"></td>
-                                                    <td><input type="checkbox" name="responsive_basic"></td>
-                                                    <td><input type="checkbox" name="responsive_standard" checked></td>
-                                                    <td><input type="checkbox" name="responsive_premium" checked></td>
-                                                </tr>
-                                                <!-- Remaining Rows -->
-                                                <tr><td>Number of Pages</td><td><select name="pages_basic"><option>1</option><option>5</option></select></td><td><select name="pages_standard"><option>5</option><option>10</option></select></td><td><select name="pages_premium"><option>10</option><option>20</option></select></td></tr>
-                                                <tr><td>Revisions</td><td><input type="number" name="revisions_basic" min="0" max="5" value="2"></td><td><input type="number" name="revisions_standard" min="0" max="10" value="4"></td><td><input type="text" value="Unlimited" readonly></td></tr>
-                                                <tr><td>Content Upload</td><td><input type="checkbox" name="content_upload_basic" checked></td><td><input type="checkbox" name="content_upload_standard" checked></td><td><input type="checkbox" name="content_upload_premium" checked></td></tr>
-                                                <tr><td>Plugins/Extensions</td><td><input type="checkbox" name="plugins_basic" checked></td><td><input type="checkbox" name="plugins_standard" checked></td><td><input type="checkbox" name="plugins_premium" checked></td></tr>
-                                                <tr><td>E-commerce Functionality</td><td><input type="checkbox" name="ecommerce_basic"></td><td><input type="checkbox" name="ecommerce_standard" checked></td><td><input type="checkbox" name="ecommerce_premium" checked></td></tr>
-                                                <tr><td>Number of Products</td><td><input type="number" name="products_basic" value="0"></td><td><input type="number" name="products_standard" value="50"></td><td><input type="number" name="products_premium" value="100"></td></tr>
-                                                <tr><td>Payment Processing</td><td><input type="checkbox" name="payment_basic"></td><td><input type="checkbox" name="payment_standard" checked></td><td><input type="checkbox" name="payment_premium" checked></td></tr>
-                                                <tr><td>Opt-in Form</td><td><input type="checkbox" name="optin_basic"></td><td><input type="checkbox" name="optin_standard"></td><td><input type="checkbox" name="optin_premium" checked></td></tr>
-                                                <tr><td>Speed Optimization</td><td><input type="checkbox" name="speed_basic"></td><td><input type="checkbox" name="speed_standard" checked></td><td><input type="checkbox" name="speed_premium" checked></td></tr>
-                                                <tr><td>Hosting Setup</td><td><input type="checkbox" name="hosting_basic"></td><td><input type="checkbox" name="hosting_standard" checked></td><td><input type="checkbox" name="hosting_premium" checked></td></tr>
-                                                <tr><td>Price</td><td><input type="number" name="price_basic" value="80" style="width: 100%;"></td><td><input type="number" name="price_standard" value="140" style="width: 100%;"></td><td><input type="number" name="price_premium" value="900" style="width: 100%;"></td></tr>
-                                            </tbody>
-                                        </table>
-                                        <h4 class="mt-5">Add Extra Services</h4>
-                                        <table border="1" style="width: 100%; border-collapse: collapse;">
-                                            <thead>
-                                                <tr><th>Extra Options</th><th>Select</th></tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr><td>Extra Fast Delivery</td><td><input type="radio" name="extra_option" value="Extra Fast Delivery"></td></tr>
-                                                <tr><td>Additional Page</td><td><input type="radio" name="extra_option" value="Additional Page"></td></tr>
-                                                <tr><td>Additional Revision</td><td><input type="radio" name="extra_option" value="Additional Revision"></td></tr>
-                                                <tr><td>Additional Plugin Installation</td><td><input type="radio" name="extra_option" value="Additional Plugin Installation"></td></tr>
-                                                <tr><td>Additional Product</td><td><input type="radio" name="extra_option" value="Additional Product"></td></tr>
-                                                <tr><td>Additional Stock Media</td><td><input type="radio" name="extra_option" value="Additional Stock Media"></td></tr>
-                                            </tbody>
-                                        </table>
+                                            <hr>
+                                            <h5>Packages</h5>
+                                            <table border="1" style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+                                                <thead>
+                                                    <tr><th>Feature</th><th>Basic</th><th>Standard</th><th>Premium</th></tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Quick Bug Fixes -->
+                                                    <tr>
+                                                        <td><input type="text" name="feature_quick_bug_fixes" value="Quick Bug Fixes" style="width: 100%;"></td>
+                                                        <td><input type="checkbox" name="bug_fixes_basic" value="1"></td>
+                                                        <td><input type="checkbox" name="bug_fixes_standard" value="1"></td>
+                                                        <td><input type="checkbox" name="bug_fixes_premium" value="1"></td>
+                                                    </tr>
+                                                    <!-- Custom Laravel Features -->
+                                                    <tr>
+                                                        <td><input type="text" name="feature_custom_laravel" value="Custom Laravel Features" style="width: 100%;"></td>
+                                                        <td><input type="checkbox" name="custom_features_basic" value="1"></td>
+                                                        <td><input type="checkbox" name="custom_features_standard" value="1"></td>
+                                                        <td><input type="checkbox" name="custom_features_premium" value="1"></td>
+                                                    </tr>
+                                                    <!-- Professional Responsive Website -->
+                                                    <tr>
+                                                        <td><input type="text" name="feature_responsive_website" value="Professional Responsive Website" style="width: 100%;"></td>
+                                                        <td><input type="checkbox" name="responsive_basic" value="1"></td>
+                                                        <td><input type="checkbox" name="responsive_standard" value="1"></td>
+                                                        <td><input type="checkbox" name="responsive_premium" value="1"></td>
+                                                    </tr>
+                                                    <!-- Number of Pages -->
+                                                    <tr>
+                                                        <td>Number of Pages</td>
+                                                        <td><select name="pages_basic"><option>1</option><option>5</option></select></td>
+                                                        <td><select name="pages_standard"><option>5</option><option>10</option></select></td>
+                                                        <td><select name="pages_premium"><option>10</option><option>20</option></select></td>
+                                                    </tr>
+                                                    <!-- Revisions -->
+                                                    <tr>
+                                                        <td>Revisions</td>
+                                                        <td><input type="number" name="revisions_basic" min="0" max="5" value="2"></td>
+                                                        <td><input type="number" name="revisions_standard" min="0" max="10" value="4"></td>
+                                                        <td><input type="text" value="Unlimited" readonly></td>
+                                                    </tr>
+                                                    <!-- Content Upload -->
+                                                    <tr>
+                                                        <td>Content Upload</td>
+                                                        <td><input type="checkbox" name="content_upload_basic" value="1" checked></td>
+                                                        <td><input type="checkbox" name="content_upload_standard" value="1" checked></td>
+                                                        <td><input type="checkbox" name="content_upload_premium" value="1" checked></td>
+                                                    </tr>
+                                                    <!-- Plugins/Extensions -->
+                                                    <tr>
+                                                        <td>Plugins/Extensions</td>
+                                                        <td><input type="checkbox" name="plugins_basic" value="1" checked></td>
+                                                        <td><input type="checkbox" name="plugins_standard" value="1" checked></td>
+                                                        <td><input type="checkbox" name="plugins_premium" value="1" checked></td>
+                                                    </tr>
+                                                    <!-- Price -->
+                                                    <tr>
+                                                        <td>Price</td>
+                                                        <td><input type="number" name="price_basic" value="80" style="width: 100%;"></td>
+                                                        <td><input type="number" name="price_standard" value="140" style="width: 100%;"></td>
+                                                        <td><input type="number" name="price_premium" value="900" style="width: 100%;"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                    
+                                            <h4 class="mt-5">Add Extra Services</h4>
+                                            <table border="1" style="width: 100%; border-collapse: collapse;">
+                                                <thead>
+                                                    <tr><th>Extra Options</th><th>Select</th></tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr><td>Extra Fast Delivery</td><td><input type="radio" name="extra_option" value="Extra Fast Delivery"></td></tr>
+                                                    <tr><td>Additional Page</td><td><input type="radio" name="extra_option" value="Additional Page"></td></tr>
+                                                    <tr><td>Additional Revision</td><td><input type="radio" name="extra_option" value="Additional Revision"></td></tr>
+                                                    <tr><td>Additional Plugin Installation</td><td><input type="radio" name="extra_option" value="Additional Plugin Installation"></td></tr>
+                                                    <tr><td>Additional Product</td><td><input type="radio" name="extra_option" value="Additional Product"></td></tr>
+                                                    <tr><td>Additional Stock Media</td><td><input type="radio" name="extra_option" value="Additional Stock Media"></td></tr>
+                                                </tbody>
+                                            </table>
+                                    
+                                            <button type="submit" class="btn btn-primary">Save Packages</button>
+                                        </form>
                                     </div>
                                     
                                     

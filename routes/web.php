@@ -15,7 +15,7 @@ use App\Http\Controllers\ItemlistController;
 use App\Http\Controllers\CreateGigController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\BuyerController;
-
+use App\Http\Controllers\BillingInformationController;
 
 
 
@@ -75,7 +75,7 @@ Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store
 
 Route::get('/payment', [PaymentController::class, 'pay'])->name('messages.payment');
 Route::post('/store-payment', [PaymentController::class, 'store'])->name('payment.store');
-Route::post('/save-billing-info', [PaymentController::class, 'storebill'])->name('billing.store');
+Route::post('/billing/store', [BillingInformationController::class, 'store'])->name('billing.store');
 
 
 

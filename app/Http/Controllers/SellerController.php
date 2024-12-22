@@ -75,8 +75,7 @@ class SellerController extends Controller
     }
     public function proshow()
     {
-        $pricing = Pricing::all()->first(); // Fetches the first record from the collection
-        return view('sellers.profile', compact('pricing'));
+        return view('sellers.profile');
     }
  
 }  

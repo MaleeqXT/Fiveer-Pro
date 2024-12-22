@@ -134,7 +134,7 @@
 
                        <div class="form-container">
 
-                        <form action="" method="POST">
+                        <form action="{{ route('billing.store') }}" method="POST">
                           @csrf
                           <!-- Full Name -->
                           <div class="form-group">
@@ -182,14 +182,6 @@
                           <div class="form-group">
                               <label for="taxId">Tax ID</label>
                               <input type="text" class="form-control" id="taxId" name="tax_id" placeholder="Enter your tax ID">
-                          </div>
-                      
-                          <!-- Email Invoices -->
-                          <div class="form-group">
-                              <div class="form-check">
-                                  <input type="checkbox" class="form-check-input" id="emailInvoices" name="email_invoices">
-                                  <label class="form-check-label" for="emailInvoices">I want to receive invoices via email</label>
-                              </div>
                           </div>
                       
                           <!-- Save Changes Button -->

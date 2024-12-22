@@ -566,7 +566,6 @@ details[open] .faq-question::after {
                 <div class="tab-pane fade active show" id="home">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #57b846, #86efac); color: #fff; border-radius: 15px;">
                         <h4>{{ $pricing->basic_name ?? 'Quick Bug Fixes And Customizations' }}</h4>
-                        <h5 class="fw-bold"><strong>PKR {{ number_format($pricing->basic_price, 0) ?? '23,370' }}</strong></h5>
                     </div>
                     <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #f0fdf4;">
                         <p style="font-size: 16px;">{{ $pricing->basic_description ?? 'Fast, efficient solutions tailored to your needs.' }}</p>
@@ -582,9 +581,8 @@ details[open] .faq-question::after {
                         <p><strong>What's Included:</strong></p>
                         <ul>
                             @foreach([ 'basic_content_upload', 'basic_plugins', 'basic_ecommerce', 'basic_payment', 'basic_speed', 'basic_social_media'] as $feature)
-                                @if($pricing->$feature)
                                     <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
-                                @endif
+                               
                             @endforeach
                         </ul>
                         <div class="text-center mt-3">
@@ -598,7 +596,6 @@ details[open] .faq-question::after {
                 <div class="tab-pane fade" id="profile">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #3f51b5, #5c6bc0); color: #fff; border-radius: 15px;">
                         <h4>{{ $pricing->standard_name ?? 'Custom Laravel Features And Website' }}</h4>
-                        <h5 class="fw-bold"><strong>PKR {{ number_format($pricing->standard_price, 0) ?? '40,898' }}</strong></h5>
                     </div>
                     <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #e8eaf6;">
                         <p style="font-size: 16px;">{{ $pricing->standard_description ?? 'Essential custom Laravel features to enhance your website.' }}</p>
@@ -614,9 +611,9 @@ details[open] .faq-question::after {
                         <p><strong>What's Included:</strong></p>
                         <ul>
                             @foreach([ 'standard_content_upload', 'standard_plugins', 'standard_ecommerce', 'standard_payment', 'standard_speed', 'standard_social_media'] as $feature)
-                                @if($pricing->$feature)
+                               
                                     <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
-                                @endif
+                               
                             @endforeach
                         </ul>
                         <div class="text-center mt-3">
@@ -630,7 +627,6 @@ details[open] .faq-question::after {
                 <div class="tab-pane fade" id="fan">
                     <div class="package-header text-center p-4" style="background: linear-gradient(to right, #ffc107, #ff8f00); color: #fff; border-radius: 15px;">
                         <h4>{{ $pricing->premium_name ?? 'Professional Responsive Websites' }}</h4>
-                        <h5 class="fw-bold"><strong>PKR {{ number_format($pricing->premium_price, 0) ?? '262,910' }}</strong></h5>
                     </div>
                     <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #fff3e0;">
                         <p style="font-size: 16px;">{{ $pricing->premium_description ?? 'Fully customized, professional, and responsive website optimized for all devices.' }}</p>
@@ -646,9 +642,9 @@ details[open] .faq-question::after {
                         <p><strong>What's Included:</strong></p>
                         <ul>
                             @foreach([ 'premium_content_upload', 'premium_plugins', 'premium_ecommerce', 'premium_payment', 'premium_speed', 'premium_social_media'] as $feature)
-                                @if($pricing->$feature)
+                                
                                     <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
-                                @endif
+                              
                             @endforeach
                         </ul>
                         <div class="text-center mt-3">

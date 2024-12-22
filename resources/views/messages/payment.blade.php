@@ -134,7 +134,7 @@
 
                        <div class="form-container">
 
-                        <form action="{{ route('billing.store') }}" method="POST">
+                        <form action="" method="POST">
                           @csrf
                           <!-- Full Name -->
                           <div class="form-group">
@@ -194,7 +194,7 @@
                       
                           <!-- Save Changes Button -->
                           <button type="submit" class="btn btn-primary">Save Changes</button>
-                      </form>
+                        </form>
                       
                       
                       </div>

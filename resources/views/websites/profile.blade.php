@@ -59,21 +59,21 @@
      
      <!-- First Card with Image and Name -->
      <div class="row">
-        @foreach ($gigs as $gig)
+
         <div class="col-md-4">
             <div class="card shadow-lg mb-4" style="border-radius: 15px; overflow: hidden;">
                 <!-- Gig Image -->
-                @if(isset($gig_images[$gig->id]) && count($gig_images[$gig->id]) > 0)
-                    <img src="{{ asset('storage/' . $gig_images[$gig->id][0]) }}" 
+              
+                    <img src="{{ asset('storage/') }}" 
                          class="card-img-top" 
                          alt="Gig Image" 
                          style="height: 200px; width: 100%; object-fit: cover;">
-                @else
+              
                     <img src="https://via.placeholder.com/300x200?text=Gig+Image" 
                          class="card-img-top" 
                          alt="Default Image" 
                          style="height: 200px; width: 100%; object-fit: cover;">
-                @endif
+              
             
                 <!-- Card Body -->
                 <div class="card-body text-center">
@@ -85,12 +85,11 @@
                     <!-- Pricing -->
                     <span class="badge bg-dark text-light fs-6 px-3 py-2" 
                           style="font-family: sans-serif; border-radius: 20px;">
-                        Starting ${{ $pricing[$gig->id]['basic_price'] ?? '100' }}
                     </span>
                 </div>
             </div>
         </div>
-        @endforeach
+       
     </div>
         
     

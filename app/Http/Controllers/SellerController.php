@@ -23,25 +23,9 @@ class SellerController extends Controller
 
     public function profile()
     {
-        // Retrieve all gigs
-        $gigs = Overview::all();
-        
-        // Map pricing data for each gig
-        $pricing = $gigs->mapWithKeys(function ($gig) {
-            // Retrieve pricing for the gig by another method
-            // For example, assuming 'Overview' and 'Pricing' are related somehow (change this logic based on your database design)
-            $pricing = Pricing::first(); // Or another way to fetch it without using gig_id
-            
-            return [
-                $gig->id => [
-                    'basic_price' => $pricing ? $pricing->basic_price : 100, // Default to 100 if not set
-                ]
-            ];
-        });
-        
-        
+           
         // Pass gigs, pricing, and images to the view
-        return view('websites.profile', compact('gigs', 'pricing', ));
+        return view('websites.profile');
     }
     
     

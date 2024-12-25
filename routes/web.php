@@ -12,7 +12,6 @@ use App\Http\Controllers\BusinessDetailsController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\ItemlistController;
-use App\Http\Controllers\CreateGigController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\BillingInformationController;
@@ -63,10 +62,10 @@ Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment
 Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
  
 
-Route::get('/create/gig', [CreateGigController::class, 'index'])->name('gigs.create');
+Route::get('/create/gig', [FiveerController::class, 'indes'])->name('gigs.create');
 
 
-Route::get('/edit', [EditController::class, 'index'])->name('websites.edit');
+Route::get('/edit', [FiveerController::class, 'indexs'])->name('websites.edit');
 
 
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');

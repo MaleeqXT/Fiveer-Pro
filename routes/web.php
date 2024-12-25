@@ -17,7 +17,7 @@ use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\BillingInformationController;
 use App\Http\Controllers\GigController;
 use App\Http\Controllers\PackageController;
-
+use App\Http\Controllers\AccountController;
 
 
 // Route::get('/', function () {
@@ -26,18 +26,6 @@ use App\Http\Controllers\PackageController;
 // });
 
 // routes/web.php
-
-
-
-
-Route::get('/admin/dashboard', [AdminController::class, 'admin'])->name('dashboard.admin');
-Route::get('/create', [AdminController::class, 'create'])->name('exploring.create');
-Route::post('/form-submit', [AdminController::class, 'store'])->name('form.store');
-Route::get('/show', [AdminController::class, 'show'])->name('exploring.show');
-Route::put('/explore/{id}', [AdminController::class, 'update'])->name('explore.update');
-Route::delete('/explore/{id}', [AdminController::class, 'destroy'])->name('explore.destroy');
-
-
 
 Route::get('/', [FiveerController::class, 'index'])->name('buying');
 Route::get('/helps', [FiveerController::class, 'help'])->name('supports.help');
@@ -62,13 +50,17 @@ Route::get('/payment', [SellerController::class, 'pay'])->name('messages.payment
 Route::get('/contact', [SellerController::class, 'contact'])->name('sellers.contact');
  
 
-Route::get('/create/gig', [FiveerController::class, 'indes'])->name('gigs.create');
 
 
 Route::get('/edit', [FiveerController::class, 'indexs'])->name('websites.edit');
 
 
 Route::post('/actives', [ActiveController::class, 'store'])->name('actives.store');
+Route::post('/account', [AccountController::class, 'store'])->name('account.store');
+Route::post('/types', [AccountController::class, 'store'])->name('types.store');
+Route::post('/us-person', [AccountController::class, 'store'])->name('us_person.store');
+
+
 
 
 
@@ -128,11 +120,7 @@ Route::get('/inbox', function () {
      return view('fiverlearn');
  });
 
- Route::get('/refer', function () {
-   
-    return view('websites.refer');
-})->name('websites.refer');
-
+ 
 
 
 

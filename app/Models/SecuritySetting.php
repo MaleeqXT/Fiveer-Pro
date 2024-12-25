@@ -9,4 +9,7 @@ class SecuritySetting extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'phone', 'security_question', 'security_answer'];
+
+    protected $table = 'security_settings'; // Ensure table name is correct
+
 }

@@ -36,10 +36,7 @@ class FiveerController extends Controller
         return view('supports.help');
     }
 
-      //
-      public function indes(){
-        return view('gigs.create');
-    }
+    
 
     public function indexs()
     {

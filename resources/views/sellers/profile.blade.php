@@ -102,11 +102,18 @@
 }
 
 </style>
-<div class="share-gig-card">
-    <h3>Share Your Gig</h3>
-    <p>Want to reach more buyers? You got the talent, now go viral. Share your Gig on Social Media to connect with new customers and get more orders.</p>
-    <button class="btn share-btn">Share Your Gig</button>
+<div class="share-gig-card bg-light rounded p-4 shadow-sm">
+    <h3 class="text-center mb-3" style="color: #495057; font-weight: bold;">Share Your Gig</h3>
+    <p class="text-center mb-4" style="color: #6c757d; font-size: 16px;">
+        Want to reach more buyers? You got the talent, now go viral. Share your Gig on Social Media to connect with new customers and get more orders.
+    </p>
+    <div class="text-center">
+        <button class="btn btn-primary share-btn" style="font-weight: bold; background-color: #007bff; border-color: #007bff;">
+            Share Your Gig
+        </button>
+    </div>
 </div>
+
 
 <div class="seller-profile-container container mt-5">
     <div class="row">
@@ -164,261 +171,284 @@
            
             
             <hr>
-            <div class="col">
-                <div class="card portlet border">
-                    <div class="card-body">
-                        <div class="row">
-                            <!-- Website Type Section -->
-                            <div class="col-lg-4 t">
-                                <h2 class="section-title">Website Type</h2>
-                                <p>E-Commerce Store</p>
+          
+                <!-- Reviews Section -->
+                <div class="section">
+                    <h2 class="section-title">Reviews</h2>
+                    <div class="review-item">
+                        <div class="profile-header">
+                            <div class="profile-img">
+                                <img src="https://st5.depositphotos.com/35914836/63482/i/450/depositphotos_634821438-stock-photo-beautiful-sunset-sea.jpg" alt="Seller Profile Picture" class="img-fluid" />
                             </div>
-                            <!-- Programming Languages Section -->
-                            <div class="col-lg-4">
-                                <h2 class="section-title">Programming Languages</h2>
-                                <p>HTML & CSS, PHP, Java, Tailwind CSS, jQuery</p>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <h2 class="section-title">Website features</h2>
-                                <p>Payment
-                                    Social media
-                                    Shipping
-                                    Inventory
-                                    Analytics
-                                    Form
-                                    Gallery
-                                    Booking
-                                    Portfolio
-                                    Dashboard</p>
+                            <div class="profile-info">
+                                <h1>Maleeq Xt</h1>
+                                <p>Laravel Expert & Web Developer</p>
+                                <p><strong>5.0 (1 review)</strong></p>
+                                <p>From: Pakistan</p>
+                                <p>Languages: English, Urdu</p>
+                                <h2 class="section-title">Get to know Maleeq Xt</h2>
+                                <p>Hi, I’m Maleeq Azhar, a skilled web developer with over 2 years of experience specializing in backend development using Laravel 10. I’m proficient in PHP, MySQL, HTML5, CSS3, Bootstrap 5, and JavaScript/jQuery, enabling me to build dynamic, scalable, and responsive web applications. Whether you need custom Laravel solutions, bug fixes, database management, or a fully responsive website, I’m dedicated to delivering high-quality, clean, and efficient code. Let’s work together to bring your web development vision to life with fast turnaround times and top-notch service!</p>
+                
                             </div>
                         </div>
                     </div>
+
+                    <div class="col">
+                        <div class="card portlet border">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-4 mb-3">
+                                        <h2 class="fs-5 fw-bold">Website Type</h2>
+                                        <p>E-Commerce Store</p>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <h2 class="fs-5 fw-bold">Programming Languages</h2>
+                                        <p>HTML & CSS, PHP, Java, Tailwind CSS, jQuery</p>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <h2 class="fs-5 fw-bold">Website Features</h2>
+                                        <ul class="list-unstyled mb-0">
+                                            <li>Payment</li><li>Social Media</li><li>Shipping</li>
+                                            <li>Inventory</li><li>Analytics</li><li>Form</li>
+                                            <li>Gallery</li><li>Booking</li><li>Portfolio</li><li>Dashboard</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
-          
-      <!-- Reviews Section -->
-      <div class="section">
-        <h2 class="section-title">Reviews</h2>
-        <div class="review-item">
-            <div class="profile-header">
-                <div class="profile-img">
-                    <img src="https://st5.depositphotos.com/35914836/63482/i/450/depositphotos_634821438-stock-photo-beautiful-sunset-sea.jpg" alt="Seller Profile Picture" class="img-fluid" />
-                </div>
-                <div class="profile-info">
-                    <h1>Maleeq Xt</h1>
-                    <p>Laravel Expert & Web Developer</p>
-                    <p><strong>5.0 (1 review)</strong></p>
-                    <p>From: Pakistan</p>
-                    <p>Languages: English, Urdu</p>
-                    <h2 class="section-title">Get to know Maleeq Xt</h2>
-                    <p>Hi, I’m Maleeq Azhar, a skilled web developer with over 2 years of experience specializing in backend development using Laravel 10. I’m proficient in PHP, MySQL, HTML5, CSS3, Bootstrap 5, and JavaScript/jQuery, enabling me to build dynamic, scalable, and responsive web applications. Whether you need custom Laravel solutions, bug fixes, database management, or a fully responsive website, I’m dedicated to delivering high-quality, clean, and efficient code. Let’s work together to bring your web development vision to life with fast turnaround times and top-notch service!</p>
-    
-                </div>
-            </div>
-        </div>
-    </div>
-          
+                    
         
-    
-        <!-- Gig Packages -->
-<div class="section">
-    <h2 class="section-title">Compare Packages</h2>
-    <div class="row">
-        <div class="col-lg-4 col-md-6">
-            <div class="package">
-                <h3>Basic</h3>
-                <p>Quick Bug Fixes And Customizations</p>
-                <p>PKR 23,370</p>
-                <p>Our Quick Bug Fixes and Customizations service provides fast, efficient solutions...</p>
-                <ul>
-                    <li>3-day delivery</li>
-                    <li>1 Revision</li>
-                </ul>
-                <p><strong>What's Included:</strong></p>
-                <ul>
-                    <li>Functional website</li>
-                    <li>1 page</li>
-                    <li>Content upload</li>
-                    <li>1 plugin/extension</li>
-                    <li>E-commerce functionality</li>
-                    <li>1 product</li>
-                    <li>Payment processing</li>
-                    <li>Opt-in form</li>
-                    <li>Autoresponder integration</li>
-                    <li>Speed optimization</li>
-                    <li>Hosting setup</li>
-                    <li>Social media icons</li>
-                </ul>
-                <button class="btn">Select Package</button>
+                <div class="container my-5">
+                    <h2 class="text-center mb-4">Compare Packages</h2>
+                    <div>
+                    <table class="table table-bordered align-middle text-center">
+                        <thead class="bg-light">
+                        <tr>
+                            <th>Package</th>
+                            <th>Basic</th>
+                            <th>Standard</th>
+                            <th>Premium</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><strong>Price (PKR)</strong></td>
+                            <td>23,342</td>
+                            <td>40,848</td>
+                            <td>262,593</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Description</strong></td>
+                            <td>Quick Bug Fixes and Customizations</td>
+                            <td>Custom Laravel Features and Website</td>
+                            <td>Professional Responsive Website</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Features</strong></td>
+                            <td>
+                            <ul class="list-unstyled mb-0 text-start">
+                                <li>Functional website</li>
+                                <li>Content upload</li>
+                                <li>E-commerce functionality</li>
+                                <li>Payment processing</li>
+                            </ul>
+                            </td>
+                            <td>
+                            <ul class="list-unstyled mb-0 text-start">
+                                <li>Functional website</li>
+                                <li>Content upload</li>
+                                <li>E-commerce functionality</li>
+                                <li>Payment processing</li>
+                            </ul>
+                            </td>
+                            <td>
+                            <ul class="list-unstyled mb-0 text-start">
+                                <li>Functional website</li>
+                                <li>Content upload</li>
+                                <li>E-commerce functionality</li>
+                                <li>Payment processing</li>
+                            </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Number of Pages</strong></td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Delivery Time</strong></td>
+                            <td>3 days</td>
+                            <td>10 days</td>
+                            <td>30 days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revisions</strong></td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Select Package</strong></td>
+                            <td>
+                            <div class="form-check d-flex justify-content-center">
+                                <input class="form-check-input" type="radio" name="package" value="basic" id="basic-radio">
+                                <label class="form-check-label ms-2" for="basic-radio"></label>
+                            </div>
+                            </td>
+                            <td>
+                            <div class="form-check d-flex justify-content-center">
+                                <input class="form-check-input" type="radio" name="package" value="standard" id="standard-radio">
+                                <label class="form-check-label ms-2" for="standard-radio"></label>
+                            </div>
+                            </td>
+                            <td>
+                            <div class="form-check d-flex justify-content-center">
+                                <input class="form-check-input" type="radio" name="package" value="premium" id="premium-radio">
+                                <label class="form-check-label ms-2" for="premium-radio"></label>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Other Options</strong></td>
+                            <td>
+                            <select class="form-select">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                            </td>
+                            <td>
+                            <select class="form-select">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                            </td>
+                            <td>
+                            <select class="form-select">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+      
+        
+ 
 
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="package">
-                <h3>Standard</h3>
-                <p>Custom Laravel Features And Website</p>
-                <p>PKR 40,898</p>
-                <p>Get essential custom Laravel features or modifications to enhance your website’s functionality...</p>
-                <ul>
-                    <li>10-day delivery</li>
-                    <li>3 Revisions</li>
-                </ul>
-                <p><strong>What's Included:</strong></p>
-                <ul>
-                    <li>Functional website</li>
-                    <li>1 page</li>
-                    <li>Content upload</li>
-                    <li>2 plugins/extensions</li>
-                    <li>E-commerce functionality</li>
-                    <li>1 product</li>
-                    <li>Payment processing</li>
-                    <li>Opt-in form</li>
-                    <li>Autoresponder integration</li>
-                    <li>Speed optimization</li>
-                    <li>Hosting setup</li>
-                    <li>Social media icons</li>
-                </ul>
-                <button class="btn">Select Package</button>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-            <div class="package">
-                <h3>Premium</h3>
-                <p>Professional Responsive Websites</p>
-                <p>PKR 262,910</p>
-                <p>Receive a fully customized, professional, and responsive website that’s optimized for all devices...</p>
-                <ul>
-                    <li>30-day delivery</li>
-                    <li>Unlimited Revisions</li>
-                </ul>
-                <p><strong>What's Included:</strong></p>
-                <ul>
-             
-                    <li>Functional website</li>
-                    <li>1 page</li>
-                    <li>Content upload</li>
-                    <li>2 plugins/extensions</li>
-                    <li>E-commerce functionality</li>
-                    <li>1 product</li>
-                    <li>Payment processing</li>
-                    <li>Opt-in form</li>
-                    <li>Autoresponder integration</li>
-                    <li>Speed optimization</li>
-                    <li>Hosting setup</li>
-                </ul>
-                <button class="btn">Select Package</button>
-                        
-            </div>
-        </div>
-    </div>
-</div>
+                    <!-- FAQ Section -->
+                <div class="section">
+                    <h2 class="section-title">FAQ</h2>
 
-    <!-- FAQ Section -->
-<div class="section">
-    <h2 class="section-title">FAQ</h2>
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question">
+                                What services do you offer in Laravel development?
+                            </summary>
+                            <p class="faq-answer">I offer custom website development, API integrations, bug fixing, performance optimization, feature enhancements, and mobile-friendly designs tailored to your business needs.</p>
+                        </details>
+                    </div>
 
-    <div class="faq-item">
-        <details>
-            <summary class="faq-question">
-                What services do you offer in Laravel development?
-            </summary>
-            <p class="faq-answer">I offer custom website development, API integrations, bug fixing, performance optimization, feature enhancements, and mobile-friendly designs tailored to your business needs.</p>
-        </details>
-    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question">
+                                How long will it take to complete my project?
+                            </summary>
+                            <p class="faq-answer">The timeline depends on the complexity and scope of the project. I provide an estimated delivery time after discussing your requirements, and I always aim for on-time delivery.</p>
+                        </details>
+                    </div>
 
-    <div class="faq-item">
-        <details>
-            <summary class="faq-question">
-                How long will it take to complete my project?
-            </summary>
-            <p class="faq-answer">The timeline depends on the complexity and scope of the project. I provide an estimated delivery time after discussing your requirements, and I always aim for on-time delivery.</p>
-        </details>
-    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question">
+                                Can you help improve or fix an existing Laravel website?
+                            </summary>
+                            <p class="faq-answer">Yes, I specialize in improving, troubleshooting, and optimizing existing Laravel websites. Whether it’s fixing bugs, enhancing functionality, or upgrading features, I’ve got you covered.</p>
+                        </details>
+                    </div>
 
-    <div class="faq-item">
-        <details>
-            <summary class="faq-question">
-                Can you help improve or fix an existing Laravel website?
-            </summary>
-            <p class="faq-answer">Yes, I specialize in improving, troubleshooting, and optimizing existing Laravel websites. Whether it’s fixing bugs, enhancing functionality, or upgrading features, I’ve got you covered.</p>
-        </details>
-    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question">
+                                Will my website be mobile-friendly and responsive?
+                            </summary>
+                            <p class="faq-answer">Absolutely! I ensure all websites and features I create are fully responsive and optimized for a seamless experience across all devices.</p>
+                        </details>
+                    </div>
 
-    <div class="faq-item">
-        <details>
-            <summary class="faq-question">
-                Will my website be mobile-friendly and responsive?
-            </summary>
-            <p class="faq-answer">Absolutely! I ensure all websites and features I create are fully responsive and optimized for a seamless experience across all devices.</p>
-        </details>
-    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question">
+                                What do you need to get started on my project?
+                            </summary>
+                            <p class="faq-answer">I’ll need a detailed description of your requirements, access to your hosting/server (if applicable), and any relevant assets like design files or reference materials. Let’s discuss your project to clarify everything!</p>
+                        </details>
+                    </div>
+                </div>
 
-    <div class="faq-item">
-        <details>
-            <summary class="faq-question">
-                What do you need to get started on my project?
-            </summary>
-            <p class="faq-answer">I’ll need a detailed description of your requirements, access to your hosting/server (if applicable), and any relevant assets like design files or reference materials. Let’s discuss your project to clarify everything!</p>
-        </details>
-    </div>
-</div>
+                <style>
+                /* Section Title */
+                .section-title {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                    color: #333;
+                }
 
-<style>
-/* Section Title */
-.section-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
+                /* FAQ Item */
+                .faq-item {
+                    margin-bottom: 15px;
+                }
 
-/* FAQ Item */
-.faq-item {
-    margin-bottom: 15px;
-}
+                /* FAQ Question */
+                .faq-question {
+                    font-size: 18px;
+                    font-weight: bold;
+                    padding: 10px;
+                    background-color: #f7f7f7;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    list-style: none;
+                    transition: background-color 0.3s;
+                }
 
-/* FAQ Question */
-.faq-question {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    transition: background-color 0.3s;
-}
+                .faq-question:hover {
+                    background-color: #e0e0e0;
+                }
 
-.faq-question:hover {
-    background-color: #e0e0e0;
-}
+                /* Add a dropdown arrow */
+                .faq-question::after {
+                    content: '\25BC'; /* Unicode character for down arrow */
+                    font-size: 16px;
+                    color: #555;
+                    margin-left: 10px;
+                    transition: transform 0.3s;
+                }
 
-/* Add a dropdown arrow */
-.faq-question::after {
-    content: '\25BC'; /* Unicode character for down arrow */
-    font-size: 16px;
-    color: #555;
-    margin-left: 10px;
-    transition: transform 0.3s;
-}
+                /* Rotate arrow when open */
+                details[open] .faq-question::after {
+                    transform: rotate(180deg);
+                }
 
-/* Rotate arrow when open */
-details[open] .faq-question::after {
-    transform: rotate(180deg);
-}
-
-/* FAQ Answer */
-.faq-answer {
-    margin: 10px 0 0 20px;
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-    padding: 5px 0;
-}
-</style>
+                /* FAQ Answer */
+                .faq-answer {
+                    margin: 10px 0 0 20px;
+                    font-size: 14px;
+                    color: #555;
+                    line-height: 1.6;
+                    padding: 5px 0;
+                }
+                </style>
 
 
             <!-- Reviews Section -->
@@ -444,40 +474,40 @@ details[open] .faq-question::after {
     
     <style>
       
-      .card-lg {
-    width: 100%;
-    padding: 30px;
-    margin-top: 30px;
-    background-color: #fff; /* Ensure the background is white */
-    border: 1px solid #ddd; /* Add border to make it visible */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for visibility */
-    border-radius: 8px; /* Slightly round the edges for design */
-}
+                .card-lg {
+                width: 100%;
+                padding: 30px;
+                margin-top: 30px;
+                background-color: #fff; /* Ensure the background is white */
+                border: 1px solid #ddd; /* Add border to make it visible */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for visibility */
+                border-radius: 8px; /* Slightly round the edges for design */
+            }
 
-.section-title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333; /* Dark text color for visibility */
-}
+            .section-title {
+                font-size: 22px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #333; /* Dark text color for visibility */
+            }
 
-.card-body p {
-    font-size: 18px;
-    color: #000000; /* Lighter text color */
-}
+            .card-body p {
+                font-size: 18px;
+                color: #000000; /* Lighter text color */
+            }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-}
+            .row {
+                display: flex;
+                justify-content: space-between;
+            }
 
-.col-lg-6 {
-    padding: 15px;
-}
+            .col-lg-6 {
+                padding: 15px;
+            }
 
-.card-body {
-    padding: 15px; /* Add some padding inside the card */
-}
+            .card-body {
+                padding: 15px; /* Add some padding inside the card */
+            }
 
         .profile-img img {
             width: 120px;
@@ -550,24 +580,24 @@ details[open] .faq-question::after {
     
 
     <div class="col-lg-6">
-        <div class="card shadow-lg rounded border-0" style="overflow: hidden; background: linear-gradient(to bottom, #ffffff, #f9f9f9);">
-            <h3 class="text-center p-3" style="font-weight: bold; background: linear-gradient(to right, #ff7c5c, #ffca6b); color: white; text-transform: uppercase;">
+        <div class="card shadow-lg rounded border-0" style="overflow: hidden; background-color: #f8f9fa;">
+            <h3 class="text-center p-3" style="font-weight: bold; background-color: #6c757d; color: white; text-transform: uppercase;">
                 Package Selector
             </h3>
-
+    
             <div class="nav nav-pills card-nav justify-content-center" id="card-tab">
                 <a class="nav-item nav-link active fw-bold" id="home-tab" data-bs-toggle="tab" href="#home">Basic</a>
                 <a class="nav-item nav-link fw-bold" id="profile-tab" data-bs-toggle="tab" href="#profile">Standard</a>
                 <a class="nav-item nav-link fw-bold" id="fan-tab" data-bs-toggle="tab" href="#fan">Premium</a>
             </div>
-
+    
             <div class="tab-content mt-4 px-4">
-                <!-- Home Tab -->
-                <div class="tab-pane fade active show" id="home">
-                    <div class="package-header text-center p-4" style="background: linear-gradient(to right, #57b846, #86efac); color: #fff; border-radius: 15px;">
+                <!-- Basic Tab -->
+                <div class="tab-pane fade show active" id="home">
+                    <div class="package-header text-center p-4" style="color: #495057; border-radius: 15px;">
                         <h4>{{ $pricing->basic_name ?? 'Quick Bug Fixes And Customizations' }}</h4>
                     </div>
-                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #f0fdf4;">
+                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #ffffff;">
                         <p style="font-size: 16px;">{{ $pricing->basic_description ?? 'Fast, efficient solutions tailored to your needs.' }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -579,25 +609,32 @@ details[open] .faq-question::after {
                             <img src="/path-to-image/basic-package.jpg" alt="Basic Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
                         </div>
                         <p><strong>What's Included:</strong></p>
-                        <ul>
-                            @foreach([ 'basic_content_upload', 'basic_plugins', 'basic_ecommerce', 'basic_payment', 'basic_speed', 'basic_social_media'] as $feature)
-                                    <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
-                               
-                            @endforeach
-                        </ul>
+                        <div class="form-group">
+                            <select class="form-select" id="basicFeatures" onchange="toggleFeatures('basicFeatures', 'basicFeatureList')">
+                                <option selected disabled>Select Features</option>
+                                @foreach([ 'Functional website','1 page','Content upload','1 plugin/extension','E-commerce functionality','4 products','Payment processing','Payment processing','Autoresponder integration','Speed optimization','Hosting setup','Social media icons'] as $feature)
+                                    <option>{{ $feature }}</option>
+                                @endforeach
+                            </select>
+                            <div class="feature-list mt-2" id="basicFeatureList" style="display: none;">
+                                @foreach([ 'Content Upload', 'Plugins', 'E-commerce', 'Payment', 'Speed Optimization', 'Social Media Integration'] as $feature)
+                                    <p>{{ $feature }}</p>
+                                @endforeach
+                            </div>
+                        </div>
                         <div class="text-center mt-3">
                             <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
                             <button class="btn btn-lg btn-dark shadow-lg animate-glow">Contact Me</button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Profile Tab -->
+    
+                <!-- Standard Tab -->
                 <div class="tab-pane fade" id="profile">
-                    <div class="package-header text-center p-4" style="background: linear-gradient(to right, #3f51b5, #5c6bc0); color: #fff; border-radius: 15px;">
+                    <div class="package-header text-center p-4" style="color: #212529; border-radius: 15px;">
                         <h4>{{ $pricing->standard_name ?? 'Custom Laravel Features And Website' }}</h4>
                     </div>
-                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #e8eaf6;">
+                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #ffffff;">
                         <p style="font-size: 16px;">{{ $pricing->standard_description ?? 'Essential custom Laravel features to enhance your website.' }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -609,26 +646,32 @@ details[open] .faq-question::after {
                             <img src="/path-to-image/standard-package.jpg" alt="Standard Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
                         </div>
                         <p><strong>What's Included:</strong></p>
-                        <ul>
-                            @foreach([ 'standard_content_upload', 'standard_plugins', 'standard_ecommerce', 'standard_payment', 'standard_speed', 'standard_social_media'] as $feature)
-                               
-                                    <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
-                               
-                            @endforeach
-                        </ul>
+                        <div class="form-group">
+                            <select class="form-select" id="standardFeatures" onchange="toggleFeatures('standardFeatures', 'standardFeatureList')">
+                                <option selected disabled>Select Features</option>
+                                @foreach([ 'Functional website','1 page','Content upload','1 plugin/extension','E-commerce functionality','4 products','Payment processing','Opt-in form','Autoresponder integration','Speed optimization','Hosting setup','Social media icons'] as $feature)
+                                    <option>{{ $feature }}</option>
+                                @endforeach
+                            </select>
+                            <div class="feature-list mt-2" id="standardFeatureList" style="display: none;">
+                                @foreach([ 'Content Upload', 'Plugins', 'E-commerce', 'Payment', 'Speed Optimization', 'Social Media Integration'] as $feature)
+                                    <p>{{ $feature }}</p>
+                                @endforeach
+                            </div>
+                        </div>
                         <div class="text-center mt-3">
                             <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
                             <button class="btn btn-lg btn-dark shadow-lg animate-glow">Contact Me</button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Fan Tab -->
+    
+                <!-- Premium Tab -->
                 <div class="tab-pane fade" id="fan">
-                    <div class="package-header text-center p-4" style="background: linear-gradient(to right, #ffc107, #ff8f00); color: #fff; border-radius: 15px;">
+                    <div class="package-header text-center p-4" style="color: #212529; border-radius: 15px;">
                         <h4>{{ $pricing->premium_name ?? 'Professional Responsive Websites' }}</h4>
                     </div>
-                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #fff3e0;">
+                    <div class="package-body p-4 shadow-sm" style="border-radius: 15px; background-color: #ffffff;">
                         <p style="font-size: 16px;">{{ $pricing->premium_description ?? 'Fully customized, professional, and responsive website optimized for all devices.' }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -640,13 +683,19 @@ details[open] .faq-question::after {
                             <img src="/path-to-image/premium-package.jpg" alt="Premium Package" class="img-fluid rounded-circle shadow-lg" style="width: 120px;">
                         </div>
                         <p><strong>What's Included:</strong></p>
-                        <ul>
-                            @foreach([ 'premium_content_upload', 'premium_plugins', 'premium_ecommerce', 'premium_payment', 'premium_speed', 'premium_social_media'] as $feature)
-                                
-                                    <li><i class="bi bi-check-circle-fill text-primary"></i> {{ ucfirst(str_replace('_', ' ', $feature)) }}</li>
-                              
-                            @endforeach
-                        </ul>
+                        <div class="form-group">
+                            <select class="form-select" id="premiumFeatures" onchange="toggleFeatures('premiumFeatures', 'premiumFeatureList')">
+                                <option selected disabled>Select Features</option>
+                                @foreach([ 'Functional website','1 page','Content upload','1 plugin/extension','E-commerce functionality','4 products','Payment processing','Opt-in form','Autoresponder integration','Speed optimization','Hosting setup','Social media icons'] as $feature)
+                                    <option>{{ $feature }}</option>
+                                @endforeach
+                            </select>
+                            <div class="feature-list mt-2" id="premiumFeatureList" style="display: none;">
+                                @foreach([ 'Content Upload', 'Plugins', 'E-commerce', 'Payment', 'Speed Optimization', 'Social Media Integration'] as $feature)
+                                    <p>{{ $feature }}</p>
+                                @endforeach
+                            </div>
+                        </div>
                         <div class="text-center mt-3">
                             <button class="btn btn-lg btn-success shadow-lg animate-pulse me-2">Select Package</button>
                             <button class="btn btn-lg btn-dark shadow-lg animate-glow">Contact Me</button>
@@ -655,39 +704,18 @@ details[open] .faq-question::after {
                 </div>
             </div>
         </div>
-    </div>
-    <style>
-        .animate-pulse {
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .animate-glow {
-            animation: glow 1.5s infinite alternate;
-        }
-        @keyframes glow {
-            from { box-shadow: 0 0 5px #fff; }
-            to { box-shadow: 0 0 20px #ff8f00; }
-        }
-
-        .card-nav .nav-link {
-            border-radius: 50px;
-            transition: all 0.4s ease;
-        }
-        .card-nav .nav-link.active {
-            background-color: #ff8f00;
-            color: white;
-            transform: scale(1.1);
-        }
-    </style>
+    
+    
+    
+    
+    
 
                 </div>
             </div>
         </div>
     </div>
+
+
 </div>
 
 <script>

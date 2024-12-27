@@ -272,8 +272,16 @@
                                         <!-- Description Section -->
                                         <h2 class="text-secondary mt-5">Description</h2>
                                         <hr>
-                                        <h5>Briefly Describe Your Gig</h5>
-                                        <textarea id="description" class="form-control mt-3" rows="4" placeholder="Enter your Gig description"></textarea>
+                                        @if(session('success'))
+                                            <div class="alert alert-success">{{ session('success') }}</div>
+                                        @endif
+                                        <form method="POST" action="{{ route('description.store') }}">
+                                            @csrf
+                                            <h5>Briefly Describe Your Gig</h5>
+                                            <textarea id="description" name="description" class="form-control mt-3" rows="4" placeholder="Enter your Gig description"></textarea>
+                                            <button type="submit" class="btn btn-primary mt-3">Save Description</button>
+                                        </form>
+                                        
                                         <hr>
                                     
                                         <!-- Milestone Workflow -->
@@ -394,12 +402,30 @@
                                     </div>
                                     
                                     
-                                    <div class="tab-pane fade" id="nav1-good" role="tabpanel" aria-labelledby="#nav1-good-tab">
+                                    <div class="container">
                                         <h3>Showcase Your Services In A Gig Gallery</h3>
-                                        <form id="gigMediaForm" action="" method="POST" enctype="multipart/form-data">
+                                        <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="card p-4" style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                 <h4>Upload Your Gig Media</h4>
+                                                
+                                                <!-- Success Message -->
+                                                @if(session('success'))
+                                                    <div class="alert alert-success">
+                                                        {{ session('success') }}
+                                                    </div>
+                                                @endif
+                                    
+                                                <!-- Validation Errors -->
+                                                @if ($errors->any())
+                                                    <div class="alert alert-danger">
+                                                        <ul>
+                                                            @foreach ($errors->all() as $error)
+                                                                <li>{{ $error }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                                 
                                                 <!-- Gig Images Section -->
                                                 <div class="row mb-4">
@@ -407,16 +433,15 @@
                                                         <div class="box-card p-5" style="border: 2px solid #16181a; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                             <label for="gigImages" class="d-block mb-2">Upload Gig Images</label>
                                                             <div id="imageUpload" class="upload-area text-center" style="border: 2px dashed #0568b9; padding: 30px; color: #1ea7ec;">
-                                                                <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigImages')" >Drop Images Here</button>
+                                                                <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigImages')">Drop Images Here</button>
                                                                 <input type="file" name="gig_images[]" id="gigImages" class="d-none" accept="image/*" multiple>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-8" id="imagePreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                                        <!-- Image previews (without functionality) -->
                                                         @if(old('gig_images') || session('gig_images'))
                                                             @foreach(old('gig_images', session('gig_images', [])) as $image)
-                                                                <div class="preview-item position-relative w-100" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                <div class="preview-item position-relative" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                                     <img src="{{ asset('storage/' . $image) }}" alt="Gig Image" class="w-100 h-100 object-cover">
                                                                 </div>
                                                             @endforeach
@@ -436,10 +461,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-8" id="videoPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                                        <!-- Video previews (without functionality) -->
                                                         @if(old('gig_videos') || session('gig_videos'))
                                                             @foreach(old('gig_videos', session('gig_videos', [])) as $video)
-                                                                <div class="preview-item position-relative w-100" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                <div class="preview-item position-relative" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                                                                     <video width="100%" height="100%" controls>
                                                                         <source src="{{ asset('storage/' . $video) }}" type="video/mp4">
                                                                         Your browser does not support the video tag.
@@ -462,7 +486,6 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-8" id="documentPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                                        <!-- Document previews (without functionality) -->
                                                         @if(old('gig_documents') || session('gig_documents'))
                                                             @foreach(old('gig_documents', session('gig_documents', [])) as $document)
                                                                 <div class="preview-item position-relative d-flex align-items-center" style="width: 150px; overflow: hidden; padding: 5px; border-radius: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
@@ -479,6 +502,12 @@
                                             </div>
                                         </form>
                                     </div>
+                                    
+                                    <script>
+                                        function triggerFileInput(inputId) {
+                                            document.getElementById(inputId).click();
+                                        }
+                                    </script>
                                     
                                     
 

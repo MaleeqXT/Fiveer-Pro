@@ -16,8 +16,10 @@ use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\BillingInformationController;
 use App\Http\Controllers\GigController;
-use App\Http\Controllers\PackageController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\DescriptionController;
+use App\Http\Controllers\GigMediaController;
 
 
 // Route::get('/', function () {
@@ -141,6 +143,10 @@ Route::post('/finance/store', [FinanceController::class, 'store'])->name('financ
 
 Route::post('/buyers/store', [BuyerController::class, 'store'])->name('buyers.store');
 
-Route::post('/gigs', [GigController::class, 'store'])->name('gigs.store');
 
-Route::post('/packages/store', [PackageController::class, 'store'])->name('packages.store');
+
+Route::post('/gigs', [GigController::class, 'store'])->name('gigs.store');
+Route::post('/save-packages', [PackageController::class, 'store'])->name('packages.store');
+Route::post('/save-description', [DescriptionController::class, 'store'])->name('description.store');
+Route::post('/gig/media/store', [GigMediaController::class, 'store'])->name('gig.media.store');
+

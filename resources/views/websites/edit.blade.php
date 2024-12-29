@@ -402,112 +402,116 @@
                                     </div>
                                     
                                     
-                                    <div class="container">
-                                        <h3>Showcase Your Services In A Gig Gallery</h3>
-                                        <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="card p-4" style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                                <h4>Upload Your Gig Media</h4>
-                                                
-                                                <!-- Success Message -->
-                                                @if(session('success'))
-                                                    <div class="alert alert-success">
-                                                        {{ session('success') }}
+                                    <div class="tab-pane fade" id="nav1-good" role="tabpanel" aria-labelledby="#nav1-good-tab">
+                                        <div class="container">
+                                            <h3>Showcase Your Services In A Gig Gallery</h3>
+                                            <form id="gigMediaForm" action="{{ route('gig.media.store') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="card p-4" style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                    <h4>Upload Your Gig Media</h4>
+                                                    
+                                                    <!-- Success Message -->
+                                                    @if(session('success'))
+                                                        <div class="alert alert-success">
+                                                            {{ session('success') }}
+                                                        </div>
+                                                    @endif
+                                        
+                                                    <!-- Validation Errors -->
+                                                    @if ($errors->any())
+                                                        <div class="alert alert-danger">
+                                                            <ul>
+                                                                @foreach ($errors->all() as $error)
+                                                                    <li>{{ $error }}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    @endif
+                                                    
+                                                    <!-- Gig Images Section -->
+                                                    <div class="row mb-4">
+                                                        <div class="col-4">
+                                                            <div class="box-card p-5" style="border: 2px solid #16181a; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                <label for="gigImages" class="d-block mb-2">Upload Gig Images</label>
+                                                                <div id="imageUpload" class="upload-area text-center" style="border: 2px dashed #0568b9; padding: 30px; color: #1ea7ec;">
+                                                                    <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigImages')">Drop Images Here</button>
+                                                                    <input type="file" name="gig_images[]" id="gigImages" class="d-none" accept="image/*" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-8" id="imagePreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                                            @if(old('gig_images') || session('gig_images'))
+                                                                @foreach(old('gig_images', session('gig_images', [])) as $image)
+                                                                    <div class="preview-item position-relative" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                        <img src="{{ asset('storage/' . $image) }}" alt="Gig Image" class="w-100 h-100 object-cover">
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
                                                     </div>
-                                                @endif
+                                                    
+                                                    <!-- Gig Videos Section -->
+                                                    <div class="row mb-4">
+                                                        <div class="col-4">
+                                                            <div class="box-card p-5" style="border: 2px solid #000; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                <label for="gigVideos" class="d-block mb-2">Upload Gig Videos</label>
+                                                                <div id="videoUpload" class="upload-area text-center" style="border: 2px dashed #08b7ce; padding: 30px; color: #000;">
+                                                                    <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigVideos')">Drop Videos Here</button>
+                                                                    <input type="file" name="gig_videos[]" id="gigVideos" class="d-none" accept="video/*" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-8" id="videoPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                                            @if(old('gig_videos') || session('gig_videos'))
+                                                                @foreach(old('gig_videos', session('gig_videos', [])) as $video)
+                                                                    <div class="preview-item position-relative" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                        <video width="100%" height="100%" controls>
+                                                                            <source src="{{ asset('storage/' . $video) }}" type="video/mp4">
+                                                                            Your browser does not support the video tag.
+                                                                        </video>
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Gig Documents Section -->
+                                                    <div class="row mb-4">
+                                                        <div class="col-4">
+                                                            <div class="box-card p-5" style="border: 2px solid #000; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                                                <label for="gigDocuments" class="d-block mb-2">Upload Gig Documents</label>
+                                                                <div id="documentUpload" class="upload-area text-center" style="border: 2px dashed #000; padding: 30px;">
+                                                                    <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigDocuments')">Documents Here</button>
+                                                                    <input type="file" name="gig_documents[]" id="gigDocuments" class="d-none" accept=".pdf, .doc, .docx, .ppt, .txt" multiple>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-8" id="documentPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                                            @if(old('gig_documents') || session('gig_documents'))
+                                                                @foreach(old('gig_documents', session('gig_documents', [])) as $document)
+                                                                    <div class="preview-item position-relative d-flex align-items-center" style="width: 150px; overflow: hidden; padding: 5px; border-radius: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+                                                                        <a href="{{ asset('storage/' . $document) }}" target="_blank" class="d-block text-truncate w-100" style="font-size: 14px; color: #16181a; font-weight: bold;">
+                                                                            {{ basename($document) }}
+                                                                        </a>
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <button type="submit" class="btn btn-outline-primary mt-4">Store Gig Media</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        
+                                        <script>
+                                            function triggerFileInput(inputId) {
+                                                document.getElementById(inputId).click();
+                                            }
+                                        </script>
+                                    </div>    
                                     
-                                                <!-- Validation Errors -->
-                                                @if ($errors->any())
-                                                    <div class="alert alert-danger">
-                                                        <ul>
-                                                            @foreach ($errors->all() as $error)
-                                                                <li>{{ $error }}</li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                @endif
-                                                
-                                                <!-- Gig Images Section -->
-                                                <div class="row mb-4">
-                                                    <div class="col-4">
-                                                        <div class="box-card p-5" style="border: 2px solid #16181a; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                                            <label for="gigImages" class="d-block mb-2">Upload Gig Images</label>
-                                                            <div id="imageUpload" class="upload-area text-center" style="border: 2px dashed #0568b9; padding: 30px; color: #1ea7ec;">
-                                                                <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigImages')">Drop Images Here</button>
-                                                                <input type="file" name="gig_images[]" id="gigImages" class="d-none" accept="image/*" multiple>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-8" id="imagePreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                                        @if(old('gig_images') || session('gig_images'))
-                                                            @foreach(old('gig_images', session('gig_images', [])) as $image)
-                                                                <div class="preview-item position-relative" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                                                    <img src="{{ asset('storage/' . $image) }}" alt="Gig Image" class="w-100 h-100 object-cover">
-                                                                </div>
-                                                            @endforeach
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Gig Videos Section -->
-                                                <div class="row mb-4">
-                                                    <div class="col-4">
-                                                        <div class="box-card p-5" style="border: 2px solid #000; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                                            <label for="gigVideos" class="d-block mb-2">Upload Gig Videos</label>
-                                                            <div id="videoUpload" class="upload-area text-center" style="border: 2px dashed #08b7ce; padding: 30px; color: #000;">
-                                                                <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigVideos')">Drop Videos Here</button>
-                                                                <input type="file" name="gig_videos[]" id="gigVideos" class="d-none" accept="video/*" multiple>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-8" id="videoPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                                        @if(old('gig_videos') || session('gig_videos'))
-                                                            @foreach(old('gig_videos', session('gig_videos', [])) as $video)
-                                                                <div class="preview-item position-relative" style="width: 150px; height: 100px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                                                    <video width="100%" height="100%" controls>
-                                                                        <source src="{{ asset('storage/' . $video) }}" type="video/mp4">
-                                                                        Your browser does not support the video tag.
-                                                                    </video>
-                                                                </div>
-                                                            @endforeach
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Gig Documents Section -->
-                                                <div class="row mb-4">
-                                                    <div class="col-4">
-                                                        <div class="box-card p-5" style="border: 2px solid #000; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                                                            <label for="gigDocuments" class="d-block mb-2">Upload Gig Documents</label>
-                                                            <div id="documentUpload" class="upload-area text-center" style="border: 2px dashed #000; padding: 30px;">
-                                                                <button type="button" class="btn btn-outline-primary" onclick="triggerFileInput('gigDocuments')">Documents Here</button>
-                                                                <input type="file" name="gig_documents[]" id="gigDocuments" class="d-none" accept=".pdf, .doc, .docx, .ppt, .txt" multiple>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-8" id="documentPreview" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                                                        @if(old('gig_documents') || session('gig_documents'))
-                                                            @foreach(old('gig_documents', session('gig_documents', [])) as $document)
-                                                                <div class="preview-item position-relative d-flex align-items-center" style="width: 150px; overflow: hidden; padding: 5px; border-radius: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
-                                                                    <a href="{{ asset('storage/' . $document) }}" target="_blank" class="d-block text-truncate w-100" style="font-size: 14px; color: #16181a; font-weight: bold;">
-                                                                        {{ basename($document) }}
-                                                                    </a>
-                                                                </div>
-                                                            @endforeach
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                
-                                                <button type="submit" class="btn btn-outline-primary mt-4">Store Gig Media</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    
-                                    <script>
-                                        function triggerFileInput(inputId) {
-                                            document.getElementById(inputId).click();
-                                        }
-                                    </script>
+                                
                                     
                                     
 

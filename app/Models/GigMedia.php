@@ -9,5 +9,9 @@ class GigMedia extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['type', 'path'];
+    protected $fillable = [
+        'gig_id',
+        'file_path',
+        'file_type',
+    ];
 }

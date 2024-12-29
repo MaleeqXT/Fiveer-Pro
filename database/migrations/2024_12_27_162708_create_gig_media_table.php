@@ -13,11 +13,16 @@ return new class extends Migration
             {
                 Schema::create('gig_media', function (Blueprint $table) {
                     $table->id();
-                    $table->string('type'); // 'image', 'video', or 'document'
-                    $table->string('path'); // File path
+                    $table->unsignedBigInteger('gig_id'); // Assuming each media belongs to a specific gig
+                    $table->string('file_path');
+                    $table->string('file_type'); // e.g., image, video, document
                     $table->timestamps();
+
+                    $table->foreign('gig_id')->references('id')->on('gigs')->onDelete('cascade');
                 });
             }
+
+
 
 
     /**

@@ -12,6 +12,7 @@ class GigMediaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'gig_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'gig_videos.*' => 'nullable|mimes:mp4,mov,avi|max:10240',
             'gig_documents.*' => 'nullable|mimes:pdf,doc,docx,ppt,txt|max:5120',
         ]);
